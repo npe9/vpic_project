@@ -1,0 +1,86 @@
+#!/bin/bash
+
+################################################################################
+# Set some high level variables.
+
+ARCH=$1
+
+BRANCH=$2
+
+NJ=$3
+
+VPIC_ROOT=$PWD
+
+export VPIC_DIR=$VPIC_ROOT/build/$ARCH/vpic
+
+################################################################################
+# Switch to the build directory and copy the VPIC source.  First check for the
+# existence of an old VPIC directory and remove it if it does exist.
+
+cd build
+
+if [ -d $ARCH ]; then
+  rm -rf $ARCH
+fi
+
+mkdir $ARCH
+cd $ARCH
+
+cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
+
+cd $VPIC_DIR
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "K2_MASTER_LINUX_GNU_OPT_OPENMPI" ]; then
+  export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.7.4_gcc_482
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard \
+      --prefix=$VPIC_DIR
+  make
+#  make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "K2_TAG_407_LINUX_GNU_OPT_OPENMPI" ]; then
+  export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.7.4_gcc_482
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard_64 \
+      --prefix=$VPIC_DIR
+  make
+#  make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "z_K2_MASTER_LINUX_GNU_OPT_OPENMPI" ]; then
+  export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.7.4_gcc_482
+  export PATH=$MPI_ROOT/bin:$PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  mkdir $ARCH
+  cd $ARCH
+  cp ../machine/standard .
+  ../configure \
+      --with-machine=standard \
+      --prefix=$VPIC_DIR/$ARCH
+  make
+#  make check
+fi
+
+################################################################################

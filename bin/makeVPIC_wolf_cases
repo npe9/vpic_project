@@ -1,0 +1,8 @@
+#!/bin/bash
+
+################################################################################
+# Build the optimized Gnu cases using openmpi.
+
+ARCH=LINUX_GNU_OPT_OPENMPI
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH 16 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
