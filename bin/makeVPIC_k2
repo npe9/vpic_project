@@ -44,7 +44,7 @@ if [ $ARCH = "K2_MASTER_LINUX_GNU_OPT_OPENMPI" ]; then
       --with-machine=standard \
       --prefix=$VPIC_DIR
   make
-#  make check
+# make check
 fi
 
 ################################################################################
@@ -61,26 +61,6 @@ if [ $ARCH = "K2_TAG_407_LINUX_GNU_OPT_OPENMPI" ]; then
       --with-machine=standard_64 \
       --prefix=$VPIC_DIR
   make
-#  make check
-fi
-
-################################################################################
-# Build an optimized version of VPIC with GNU compilers.
-
-if [ $ARCH = "z_K2_MASTER_LINUX_GNU_OPT_OPENMPI" ]; then
-  export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.7.4_gcc_482
-  export PATH=$MPI_ROOT/bin:$PATH
-
-  cd $VPIC_DIR
-  config/bootstrap
-  mkdir $ARCH
-  cd $ARCH
-  cp ../machine/standard .
-  ../configure \
-      --with-machine=standard \
-      --prefix=$VPIC_DIR/$ARCH
-  make
-#  make check
 fi
 
 ################################################################################

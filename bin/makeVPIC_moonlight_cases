@@ -3,6 +3,12 @@
 ################################################################################
 # Build the optimized Gnu cases using openmpi.
 
-ARCH=LINUX_GNU_OPT_OPENMPI
-/usr/bin/time -p bin/makeVPIC_moonlight $ARCH 16 >& makeVPIC_moonlight.log
+#ARCH=ML_MASTER_LINUX_GNU_OPT_OPENMPI
+#BRANCH=master_wdn
+#/usr/bin/time -p bin/makeVPIC_moonlight $ARCH $BRANCH 16 >& makeVPIC_moonlight.log
+#mv makeVPIC_moonlight.log build/$ARCH/vpic
+
+ARCH=ML_TAG_407_LINUX_GNU_OPT_OPENMPI
+BRANCH=tag_407_wdn
+/usr/bin/time -p bin/makeVPIC_moonlight $ARCH $BRANCH 16 >& makeVPIC_moonlight.log
 mv makeVPIC_moonlight.log build/$ARCH/vpic

@@ -5,7 +5,9 @@
 
 ARCH=$1
 
-NJ=$2
+BRANCH=$2
+
+NJ=$3
 
 VPIC_ROOT=$PWD
 
@@ -24,18 +26,17 @@ fi
 mkdir $ARCH
 cd $ARCH
 
-cp -R $VPIC_ROOT/src/vpic .
+cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
 
 cd $VPIC_DIR
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "LINUX_GNU_OPT_OPENMPI" ]; then
+if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI" ]; then
   module purge
   module load friendly-testing
-  module load gcc/4.7.2
-# module load openmpi
+  module load gcc/4.8.2
   module load openmpi/1.7.4
 
   cd $VPIC_DIR
@@ -43,11 +44,25 @@ if [ $ARCH = "LINUX_GNU_OPT_OPENMPI" ]; then
   configure \
       --with-machine=standard \
       --prefix=$VPIC_DIR
-#  configure \
-#      --with-machine=standard_64 \
-#      --prefix=$VPIC_DIR
   make
-#  make check
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WF_TAG_407_LINUX_GNU_OPT_OPENMPI" ]; then
+  module purge
+  module load friendly-testing
+  module load gcc/4.8.2
+  module load openmpi/1.7.4
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard_64 \
+      --prefix=$VPIC_DIR
+  make
 fi
 
 ################################################################################
