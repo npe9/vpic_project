@@ -8,12 +8,22 @@
 #/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
 #mv makeVPIC_wolf.log build/$ARCH/vpic
 
-ARCH=WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_SSE
-BRANCH=tag_407_wdn
+#ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT
+#BRANCH=master_wdn
+#/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+#mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
+BRANCH=master_wdn
 /usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
 mv makeVPIC_wolf.log build/$ARCH/vpic
 
-ARCH=WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT
-BRANCH=tag_407_wdn
-/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+#ARCH=WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_SSE
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+#mv makeVPIC_wolf.log build/$ARCH/vpic
+
+#ARCH=WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+#mv makeVPIC_wolf.log build/$ARCH/vpic

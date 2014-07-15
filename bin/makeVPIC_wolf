@@ -33,6 +33,24 @@ cd $VPIC_DIR
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
+if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE" ]; then
+  module purge
+  module load friendly-testing
+  module load gcc/4.8.2
+  module load openmpi/1.7.4
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard_v4_none \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
 if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
   module purge
   module load friendly-testing
@@ -42,7 +60,7 @@ if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
   cd $VPIC_DIR
   config/bootstrap
   configure \
-      --with-machine=standard \
+      --with-machine=standard_v4_sse \
       --prefix=$VPIC_DIR
   make
 # make check
@@ -60,7 +78,7 @@ if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
   cd $VPIC_DIR
   config/bootstrap
   configure \
-      --with-machine=standard_port \
+      --with-machine=standard_v4_port \
       --prefix=$VPIC_DIR
   make
 # make check
