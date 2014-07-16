@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Build the optimized Gnu cases using openmpi.
+# Build the optimized Gnu cases using openmpi for the master branch.
 
 #ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE
 #BRANCH=master_wdn
@@ -13,10 +13,31 @@
 #/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
 #mv makeVPIC_wolf.log build/$ARCH/vpic
 
-ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
+#ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
+#BRANCH=master_wdn
+#/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+#mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases using openmpi for the master branch.
+
+ARCH=WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE
 BRANCH=master_wdn
 /usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
 mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT
+BRANCH=master_wdn
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_NONE
+BRANCH=master_wdn
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Gnu cases using openmpi for the tag_407 branch.
 
 #ARCH=WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_SSE
 #BRANCH=tag_407_wdn
