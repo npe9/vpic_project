@@ -13,6 +13,8 @@ VPIC_ROOT=$PWD
 
 export VPIC_DIR=$VPIC_ROOT/build/$ARCH/vpic
 
+source /usr/local/tools/dotkit/init.sh
+
 ################################################################################
 # Switch to the build directory and copy the VPIC source.  First check for the
 # existence of an old VPIC directory and remove it if it does exist.
