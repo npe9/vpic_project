@@ -42,7 +42,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_NONE" ]; then
   config/bootstrap
   CXX=bgg++ CC=bggcc configure \
       --with-machine=standard_gnu_v4_none \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 # make check
@@ -58,7 +58,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_SSE" ]; then
   config/bootstrap
   CXX=bgg++ CC=bggcc configure \
       --with-machine=standard_gnu_v4_sse \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 # make check
@@ -74,7 +74,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
   config/bootstrap
   CXX=bgg++ CC=bggcc configure \
       --with-machine=rzuseq_gnu_v4_port \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 # make check
@@ -88,7 +88,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_NONE" ]; then
   config/bootstrap
   CXX=bgxlc++_r CC=bgxlc_r configure \
       --with-machine=rzuseq_ibm_v4_none \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 # make check
@@ -102,7 +102,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_SSE" ]; then
   config/bootstrap
   CXX=bgxlc++_r CC=bgxlc_r configure \
       --with-machine=rzuseq_ibm_v4_sse \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 # make check
@@ -116,7 +116,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
   config/bootstrap
   CXX=bgxlc++_r CC=bgxlc_r configure \
       --with-machine=rzuseq_ibm_v4_port \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 # make check
@@ -130,7 +130,7 @@ if [ $ARCH = "RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_SSE" ]; then
   config/bootstrap
   configure \
       --with-machine=rzuseq_64 \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 fi
@@ -143,7 +143,7 @@ if [ $ARCH = "RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
   config/bootstrap
   configure \
       --with-machine=rzuseq_64_port \
-      --host=powerpc64-bgq-linux \
+      --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
 fi
