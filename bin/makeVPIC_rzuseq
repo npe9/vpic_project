@@ -45,7 +45,6 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_NONE" ]; then
       --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
-# make check
 fi
 
 ################################################################################
@@ -61,7 +60,6 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_SSE" ]; then
       --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
-# make check
 fi
 
 ################################################################################
@@ -81,7 +79,6 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
       --disable-shared \
       --prefix=$VPIC_DIR
   make
-# make check
 fi
 
 ################################################################################
@@ -95,7 +92,6 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_NONE" ]; then
       --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
-# make check
 fi
 
 ################################################################################
@@ -109,7 +105,6 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_SSE" ]; then
       --build=powerpc64-bgq-linux \
       --prefix=$VPIC_DIR
   make
-# make check
 fi
 
 ################################################################################
@@ -127,7 +122,6 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
       --disable-shared \
       --prefix=$VPIC_DIR
   make
-# make check
 fi
 
 ################################################################################
