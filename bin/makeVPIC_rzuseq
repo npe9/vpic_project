@@ -15,12 +15,6 @@ export VPIC_DIR=$VPIC_ROOT/build/$ARCH/vpic
 
 source /usr/local/tools/dotkit/init.sh
 
-export PATH=/g/g12/nystrom4/bin:$PATH
-
-autoconf --version
-automake --version
-libtool --version
-
 ################################################################################
 # Switch to the build directory and copy the VPIC source.  First check for the
 # existence of an old VPIC directory and remove it if it does exist.
@@ -74,6 +68,8 @@ fi
 if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
   use bggcc-4.7.2
 
+#      --disable-shared \
+
   cd $VPIC_DIR
   config/bootstrap
   #CXX=mpig++ CC=mpigcc MPI_LIBS="-lmpich-gcc -lopa-gcc -lmpl-gcc -lpami-gcc -lSPI -lSPI_cnk -lrt -lpthread -lstdc++ -lpthread" configure \
@@ -82,7 +78,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
       --with-machine=rzuseq_gnu_v4_port \
       --build=powerpc64-bgq-linux \
       --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-      --disable-shared \
+      --disable-static \
       --prefix=$VPIC_DIR
   make
 fi
@@ -125,10 +121,12 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
       --with-machine=rzuseq_ibm_v4_port \
       --build=powerpc64-bgq-linux \
       --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-      --disable-shared \
+      --disable-static \
       --prefix=$VPIC_DIR
   make
 fi
+
+#      --disable-shared \
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
