@@ -87,7 +87,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
       --enable-static \
       --disable-shared \
       --prefix=$VPIC_DIR
-  make
+  make LIBTOOLFLAGS="-all-static"
 fi
 
 #      --disable-static \
@@ -133,7 +133,8 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
       --enable-static \
       --disable-shared \
       --prefix=$VPIC_DIR
-  make
+  make LIBTOOLFLAGS="-all-static"
+#  make
 fi
 
 #      --disable-static \
