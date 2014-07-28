@@ -85,7 +85,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
 #      --enable-static \
 #      --disable-shared \
 #      --prefix=$VPIC_DIR
-#  make LIBTOOLFLAGS="-all-static"
+#  make accel_LDFLAGS="-static" cyclo_LDFLAGS="-static" inbndj_LDFLAGS="-static" interpe_LDFLAGS="-static" outbndj_LDFLAGS="-static" pcomm_LDFLAGS="-static" rng_LDFLAGS="-static" v4_LDFLAGS="-static"
 
   CXX=mpig++ CC=mpigcc configure \
       --with-machine=rzuseq_gnu_v4_port \
@@ -94,6 +94,7 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
       --enable-shared \
       --disable-static \
       --prefix=$VPIC_DIR
+  make
 fi
 
 #      --disable-static \
@@ -130,8 +131,6 @@ fi
 if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
   cd $VPIC_DIR
   config/bootstrap
-  #CXX=mpixlcxx_r CC=mpixlc_r MPI_LIBS="-lmpich-xl -lopa-xl -lmpl-xl -lpami-gcc -lSPI -lSPI_cnk -lrt -lpthread -lstdc++ -lpthread" configure \
-  #CXX=bgxlc++_r CC=bgxlc_r configure \
   CXX=mpixlcxx_r CC=mpixlc_r configure \
       --with-machine=rzuseq_ibm_v4_port \
       --build=powerpc64-bgq-linux \
@@ -139,11 +138,8 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
       --enable-static \
       --disable-shared \
       --prefix=$VPIC_DIR
-  make LIBTOOLFLAGS="-all-static"
-#  make
+  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
 fi
-
-#      --disable-static \
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
