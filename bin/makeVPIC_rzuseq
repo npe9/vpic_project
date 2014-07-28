@@ -78,16 +78,22 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
 
   cd $VPIC_DIR
   config/bootstrap
-  #CXX=mpig++ CC=mpigcc MPI_LIBS="-lmpich-gcc -lopa-gcc -lmpl-gcc -lpami-gcc -lSPI -lSPI_cnk -lrt -lpthread -lstdc++ -lpthread" configure \
-  #CXX=bgg++ CC=bggcc configure \
+#  CXX=mpig++ CC=mpigcc configure \
+#      --with-machine=rzuseq_gnu_v4_port \
+#      --build=powerpc64-bgq-linux \
+#      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+#      --enable-static \
+#      --disable-shared \
+#      --prefix=$VPIC_DIR
+#  make LIBTOOLFLAGS="-all-static"
+
   CXX=mpig++ CC=mpigcc configure \
       --with-machine=rzuseq_gnu_v4_port \
       --build=powerpc64-bgq-linux \
       --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-      --enable-static \
-      --disable-shared \
+      --enable-shared \
+      --disable-static \
       --prefix=$VPIC_DIR
-  make LIBTOOLFLAGS="-all-static"
 fi
 
 #      --disable-static \
