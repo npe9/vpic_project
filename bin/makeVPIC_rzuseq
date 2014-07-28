@@ -131,23 +131,23 @@ fi
 if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
   cd $VPIC_DIR
   config/bootstrap
-#  CXX=mpixlcxx_r CC=mpixlc_r configure \
-#      --with-machine=rzuseq_ibm_v4_port \
-#      --build=powerpc64-bgq-linux \
-#      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-#      --enable-static \
-#      --disable-shared \
-#      --prefix=$VPIC_DIR
-#  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
-
   CXX=mpixlcxx_r CC=mpixlc_r configure \
       --with-machine=rzuseq_ibm_v4_port \
       --build=powerpc64-bgq-linux \
       --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-      --enable-shared \
-      --disable-static \
+      --enable-static \
+      --disable-shared \
       --prefix=$VPIC_DIR
-  make
+  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
+
+#  CXX=mpixlcxx_r CC=mpixlc_r configure \
+#      --with-machine=rzuseq_ibm_v4_port \
+#      --build=powerpc64-bgq-linux \
+#      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+#      --enable-shared \
+#      --disable-static \
+#      --prefix=$VPIC_DIR
+#  make
 fi
 
 ################################################################################
