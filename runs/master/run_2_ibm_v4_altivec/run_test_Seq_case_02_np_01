@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export LD_LIBRARY_PATH=/usr/gapps/artab/users/wdn/Projects/vpic_project/build/RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_ALTIVEC/vpic/lib/.libs:$LD_LIBRARY_PATH
+
+/usr/bin/time -p srun -n 1 --ntasks-per-node=1 --ntasks-per-socket=1 --ntasks-per-core=1 test_Seq_case_02_np_01.powerpc64 >& run_test_Seq_case_02_np_01.log
