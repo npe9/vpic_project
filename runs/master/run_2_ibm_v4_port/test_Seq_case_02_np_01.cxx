@@ -220,17 +220,17 @@ begin_initialization {
 
 #if 1
   // 
-  double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Lx                = 64 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
   double Ly                =      12.0 * 1e-4;              
   double Lz                =      12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
-  double nx                = 44*16;
+  double nx                = 44*64;
   double ny                = 44;
   double nz                = 44; 
   double topology_x        = 1;
   double topology_y        = 1;
   double topology_z        = 1;            
-  // single-processor mesh = 16 * 44 x 44 x 44
+  // single-processor mesh = 64 * 44 x 44 x 44
 #endif
 
   double nppc               = 100;     // Ave. number of particles/cell in ea. species
@@ -293,7 +293,7 @@ begin_initialization {
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
   //double t_stop            = 101;                 // Runtime in 1/wpe
-  double t_stop            = 12;                  // Runtime in 1/wpe
+  double t_stop            = 11;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
