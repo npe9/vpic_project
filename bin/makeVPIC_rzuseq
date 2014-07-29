@@ -17,11 +17,22 @@ source /usr/local/tools/dotkit/init.sh
 
 export PATH=/g/g12/nystrom4/Packages/autotools/autotools_2.69_1.13.4_2.42/rzuseq/bin:$PATH
 
-#export PATH=/g/g12/nystrom4/bin:$PATH
-
 autoconf --version
 automake --version
 libtool --version
+
+################################################################################
+# Unresolved questions.
+#
+# Is there some way to do a static only build with the GNU compilers?
+#
+# Is there some way to do a dynamic only build with the IBM compilers?
+#
+# Do I really need to use the new versions of autotools?
+#
+# Is it possible to modify the various autoconf input files to clean this up?
+#
+################################################################################
 
 ################################################################################
 # Switch to the build directory and copy the VPIC source.  First check for the
@@ -48,9 +59,12 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_NONE" ]; then
 
   cd $VPIC_DIR
   config/bootstrap
-  CXX=bgg++ CC=bggcc configure \
-      --with-machine=standard_gnu_v4_none \
+  CXX=mpig++ CC=mpigcc configure \
+      --with-machine=rzuseq_gnu_v4_none \
       --build=powerpc64-bgq-linux \
+      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+      --enable-shared \
+      --disable-static \
       --prefix=$VPIC_DIR
   make
 fi
@@ -58,14 +72,17 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_SSE" ]; then
+if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_ALTIVEC" ]; then
   use bggcc-4.7.2
 
   cd $VPIC_DIR
   config/bootstrap
-  CXX=bgg++ CC=bggcc configure \
-      --with-machine=standard_gnu_v4_sse \
+  CXX=mpig++ CC=mpigcc configure \
+      --with-machine=rzuseq_gnu_v4_altivec \
       --build=powerpc64-bgq-linux \
+      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+      --enable-shared \
+      --disable-static \
       --prefix=$VPIC_DIR
   make
 fi
@@ -78,15 +95,6 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
 
   cd $VPIC_DIR
   config/bootstrap
-#  CXX=mpig++ CC=mpigcc configure \
-#      --with-machine=rzuseq_gnu_v4_port \
-#      --build=powerpc64-bgq-linux \
-#      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-#      --enable-static \
-#      --disable-shared \
-#      --prefix=$VPIC_DIR
-#  make accel_LDFLAGS="-static" cyclo_LDFLAGS="-static" inbndj_LDFLAGS="-static" interpe_LDFLAGS="-static" outbndj_LDFLAGS="-static" pcomm_LDFLAGS="-static" rng_LDFLAGS="-static" v4_LDFLAGS="-static"
-
   CXX=mpig++ CC=mpigcc configure \
       --with-machine=rzuseq_gnu_v4_port \
       --build=powerpc64-bgq-linux \
@@ -97,36 +105,40 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
   make
 fi
 
-#      --disable-static \
-
 ################################################################################
-# Build an optimized version of VPIC with GNU compilers.
+# Build an optimized version of VPIC with IBM compilers.
 
 if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_NONE" ]; then
   cd $VPIC_DIR
   config/bootstrap
-  CXX=bgxlc++_r CC=bgxlc_r configure \
+  CXX=mpixlcxx_r CC=mpixlc_r configure \
       --with-machine=rzuseq_ibm_v4_none \
       --build=powerpc64-bgq-linux \
+      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+      --enable-static \
+      --disable-shared \
       --prefix=$VPIC_DIR
-  make
+  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
 fi
 
 ################################################################################
-# Build an optimized version of VPIC with GNU compilers.
+# Build an optimized version of VPIC with IBM compilers.
 
-if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_SSE" ]; then
+if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_ALTIVEC" ]; then
   cd $VPIC_DIR
   config/bootstrap
-  CXX=bgxlc++_r CC=bgxlc_r configure \
-      --with-machine=rzuseq_ibm_v4_sse \
+  CXX=mpixlcxx_r CC=mpixlc_r configure \
+      --with-machine=rzuseq_ibm_v4_altivec \
       --build=powerpc64-bgq-linux \
+      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+      --enable-static \
+      --disable-shared \
       --prefix=$VPIC_DIR
-  make
+  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
 fi
 
 ################################################################################
-# Build an optimized version of VPIC with GNU compilers.
+# Build an optimized version of VPIC with IBM compilers.
 
 if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
   cd $VPIC_DIR
@@ -139,21 +151,12 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
       --disable-shared \
       --prefix=$VPIC_DIR
   make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
-
-#  CXX=mpixlcxx_r CC=mpixlc_r configure \
-#      --with-machine=rzuseq_ibm_v4_port \
-#      --build=powerpc64-bgq-linux \
-#      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-#      --enable-shared \
-#      --disable-static \
-#      --prefix=$VPIC_DIR
-#  make
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_SSE" ]; then
+if [ $ARCH = "RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_ALTIVEC" ]; then
   cd $VPIC_DIR
   config/bootstrap
   configure \
