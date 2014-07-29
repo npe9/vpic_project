@@ -220,9 +220,9 @@ begin_initialization {
 
 #if 1
   // 
-  double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                =      12.0 * 1e-4;              
-  double Lz                =      12.0 * 1e-4;                 
+  double Lx                = 16 * 20.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                =      20.0 * 1e-4;              
+  double Lz                =      20.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
   double nx                = 40*16;
   double ny                = 40;
@@ -233,7 +233,7 @@ begin_initialization {
   // single-processor mesh = 16 * 40 x 40 x 40
 #endif
 
-  double nppc               = 150;     // Ave. number of particles/cell in ea. species
+  double nppc               = 125;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
