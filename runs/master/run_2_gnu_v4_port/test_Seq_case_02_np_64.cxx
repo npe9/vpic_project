@@ -233,7 +233,7 @@ begin_initialization {
   // single-processor mesh = 64 * 44 x 44 x 44
 #endif
 
-  double nppc               = 100;     // Ave. number of particles/cell in ea. species
+  double nppc               = 50;      // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
