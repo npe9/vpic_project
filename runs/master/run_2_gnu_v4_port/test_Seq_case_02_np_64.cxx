@@ -220,9 +220,9 @@ begin_initialization {
 
 #if 1
   // 
-  double Lx                = 16 * 20.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                =      20.0 * 1e-4;              
-  double Lz                =      20.0 * 1e-4;                 
+  double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                =      12.0 * 1e-4;              
+  double Lz                =      12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
   double nx                = 40*16;
   double ny                = 40;
