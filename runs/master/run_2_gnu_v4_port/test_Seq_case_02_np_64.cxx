@@ -220,17 +220,17 @@ begin_initialization {
 
 #if 1
   // 
-  double Lx                = 64 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
   double Ly                =      12.0 * 1e-4;              
   double Lz                =      12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
-  double nx                = 44*64;
-  double ny                = 44;
-  double nz                = 44; 
+  double nx                = 40*16;
+  double ny                = 40;
+  double nz                = 40; 
   double topology_x        = 64;
   double topology_y        = 1;
   double topology_z        = 1;            
-  // single-processor mesh = 64 * 44 x 44 x 44
+  // single-processor mesh = 16 * 40 x 40 x 40
 #endif
 
   double nppc               = 50;      // Ave. number of particles/cell in ea. species
