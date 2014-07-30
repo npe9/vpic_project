@@ -224,16 +224,16 @@ begin_initialization {
   double Ly                =      12.0 * 1e-4;              
   double Lz                =      12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
-  double nx                = 44*16;
-  double ny                = 44;
-  double nz                = 44; 
+  double nx                = 40*16;
+  double ny                = 40;
+  double nz                = 40; 
   double topology_x        = 4;
   double topology_y        = 1;
   double topology_z        = 1;            
-  // single-processor mesh = 16 * 44 x 44 x 44
+  // single-processor mesh = 16 * 40 x 40 x 40
 #endif
 
-  double nppc               = 100;     // Ave. number of particles/cell in ea. species
+  double nppc               = 125;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
@@ -293,7 +293,7 @@ begin_initialization {
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
   //double t_stop            = 101;                 // Runtime in 1/wpe
-  double t_stop            = 12;                  // Runtime in 1/wpe
+  double t_stop            = 10;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
