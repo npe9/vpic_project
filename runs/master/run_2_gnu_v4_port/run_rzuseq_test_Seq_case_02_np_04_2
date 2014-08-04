@@ -2,4 +2,4 @@
 
 export LD_LIBRARY_PATH=/usr/gapps/artab/users/wdn/Projects/vpic_project/build/RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT/vpic/lib/.libs:$LD_LIBRARY_PATH
 
-/usr/bin/time -p srun -n 1 --ntasks-per-node=1 --ntasks-per-socket=1 --ntasks-per-core=1 test_Seq_case_02_np_01.powerpc64 >& run_test_Seq_case_02_np_01_1.log
+/usr/bin/time -p srun -n 4 --ntasks-per-node=4 --ntasks-per-socket=4 --ntasks-per-core=1 test_Seq_case_02_np_04.powerpc64 --tpp 2 >& run_test_Seq_case_02_np_04_2.log
