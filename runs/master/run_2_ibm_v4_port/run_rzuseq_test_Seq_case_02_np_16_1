@@ -2,6 +2,6 @@
 
 export BG_THREADLAYOUT=2
 
-export LD_LIBRARY_PATH=/usr/gapps/artab/users/wdn/Projects/vpic_project/build/RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT/vpic/lib/.libs:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/gapps/artab/users/wdn/Projects/vpic_project/build/RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT/vpic/lib/.libs:$LD_LIBRARY_PATH
 
 /usr/bin/time -p srun -n 16 --ntasks-per-node=16 --ntasks-per-socket=16 --ntasks-per-core=1 test_Seq_case_02_np_16.powerpc64 --tpp 1 >& run_test_Seq_case_02_np_16_1.log
