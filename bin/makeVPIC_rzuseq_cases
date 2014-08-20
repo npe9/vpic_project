@@ -3,10 +3,15 @@
 ################################################################################
 # Build the optimized Gnu cases using IBM mpi for the master branch.
 
-#ARCH=RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_ALTIVEC
-#BRANCH=master_wdn
-#/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-#mv makeVPIC_rzuseq.log build/$ARCH/vpic
+ARCH=RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_ALTIVEC
+BRANCH=master_wdn
+/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+mv makeVPIC_rzuseq.log build/$ARCH/vpic
+
+ARCH=RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_ALTIVEC_WDN
+BRANCH=master_wdn_vec_mods
+/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
 #ARCH=RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT
 #BRANCH=master_wdn
@@ -21,20 +26,25 @@
 ################################################################################
 # Build the optimized IBM cases using IBM mpi for the master branch.
 
-#ARCH=RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_ALTIVEC
+ARCH=RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_ALTIVEC
+BRANCH=master_wdn
+/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+mv makeVPIC_rzuseq.log build/$ARCH/vpic
+
+ARCH=RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_ALTIVEC_WDN
+BRANCH=master_wdn_vec_mods
+/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+mv makeVPIC_rzuseq.log build/$ARCH/vpic
+
+#ARCH=RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT
 #BRANCH=master_wdn
 #/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
 #mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
-ARCH=RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_PORT
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-mv makeVPIC_rzuseq.log build/$ARCH/vpic
-
-ARCH=RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_NONE
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-mv makeVPIC_rzuseq.log build/$ARCH/vpic
+#ARCH=RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_NONE
+#BRANCH=master_wdn
+#/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+#mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Gnu cases using IBM mpi for the tag_407 branch.
