@@ -6,3 +6,4 @@ case_*
 test_Seq_case_01.cxx
 test_Seq_case_01_np_*.cxx
 vpic
+z_*
