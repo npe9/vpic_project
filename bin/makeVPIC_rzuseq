@@ -91,7 +91,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_ALTIVEC_WDN" ]; then
-#  use bggcc-4.7.2
+  use bggcc-4.7.2
 
   cd $VPIC_DIR
   config/bootstrap
