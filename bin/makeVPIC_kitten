@@ -119,6 +119,8 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V4_NONE" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
   export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.8.1_gcc_482
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -136,6 +138,8 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
   export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.8.1_gcc_482
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -153,6 +157,8 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
   export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.8.1_gcc_482
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -170,6 +176,8 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
   export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.8.1_gcc_482
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -187,6 +195,8 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
   export MPI_ROOT=/home/wdn/Packages/OpenMPI/openmpi_1.8.1_gcc_482
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
