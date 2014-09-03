@@ -108,6 +108,24 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
+if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_QPX" ]; then
+  use bggcc-4.7.2
+
+  cd $VPIC_DIR
+  config/bootstrap
+  CXX=mpig++ CC=mpigcc configure \
+      --with-machine=rzuseq_gnu_v4_qpx \
+      --build=powerpc64-bgq-linux \
+      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+      --enable-shared \
+      --disable-static \
+      --prefix=$VPIC_DIR
+  make
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
 if [ $ARCH = "RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
   use bggcc-4.7.2
 
@@ -163,6 +181,22 @@ if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_ALTIVEC_WDN" ]; then
   config/bootstrap
   CXX=mpixlcxx_r CC=mpixlc_r configure \
       --with-machine=rzuseq_ibm_v4_altivec_wdn \
+      --build=powerpc64-bgq-linux \
+      --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
+      --enable-static \
+      --disable-shared \
+      --prefix=$VPIC_DIR
+  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
+fi
+
+################################################################################
+# Build an optimized version of VPIC with IBM compilers.
+
+if [ $ARCH = "RZUSEQ_MASTER_LINUX_IBM_OPT_IBM_MPI_V4_QPX" ]; then
+  cd $VPIC_DIR
+  config/bootstrap
+  CXX=mpixlcxx_r CC=mpixlc_r configure \
+      --with-machine=rzuseq_ibm_v4_qpx \
       --build=powerpc64-bgq-linux \
       --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
       --enable-static \
