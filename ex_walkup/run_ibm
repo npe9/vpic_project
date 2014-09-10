@@ -1,0 +1,3 @@
+#!/bin/bash
+
+srun -n 1 ./ex_walkup_ibm >& ex_walkup_ibm.log
