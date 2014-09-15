@@ -5,6 +5,7 @@
 #include "v4_qpx.hh"
 
 #include <stdio.h>
+#include <iostream>
 
 #define NPTS 16
 static double __attribute__((aligned(32))) x[NPTS];
