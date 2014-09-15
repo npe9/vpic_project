@@ -88,5 +88,14 @@ int main(int argc, char * argv[])
    printf("q2 = %4.1lf %4.1lf %4.1lf %4.1lf\n", q2[0], q2[1], q2[2], q2[3]);
    printf("q3 = %4.1lf %4.1lf %4.1lf %4.1lf\n", q3[0], q3[1], q3[2], q3[3]);
 
+   // Find out the size of some integral types.
+   int       i1;
+   long      i2;
+   long long i3;
+
+   std::cout << "sizeof i1 = " << sizeof(i1) << std::endl;
+   std::cout << "sizeof i2 = " << sizeof(i2) << std::endl;
+   std::cout << "sizeof i3 = " << sizeof(i3) << std::endl;
+
    return 0;
 }
