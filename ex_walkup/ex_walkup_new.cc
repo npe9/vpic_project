@@ -22,6 +22,14 @@ int main(int argc, char * argv[])
 
    v4 a, b, c, d;
 
+   unsigned char[16] snout;
+
+   snout = _PERM(0,4,0,4); // _PERM(0,4,0,4)
+   snout = _PERM(1,5,1,5); // _PERM(1,5,1,5)
+   snout = _PERM(2,6,2,6); // _PERM(2,6,2,6)
+   snout = _PERM(3,7,3,7); // _PERM(3,7,3,7)
+   snout = _PERM(0,1,0,1); // _PERM(0,1,0,1)
+
    for (i=0; i<NPTS; i++) x[i] = (double) i;
 
    for (i=0; i<NPTS; i++) y[i] = (float) i;
@@ -97,6 +105,14 @@ int main(int argc, char * argv[])
    std::cout << "sizeof i1 = " << sizeof(i1) << std::endl;
    std::cout << "sizeof i2 = " << sizeof(i2) << std::endl;
    std::cout << "sizeof i3 = " << sizeof(i3) << std::endl;
+
+   // See what operator types are supported by the vector4double type.
+   v3 = v2/v1;
+   v0++;
+   ++v0;
+   v2 = v0 + v1;
+   v2 = v0 - v1;
+   v2 = v0*v1;
 
    return 0;
 }
