@@ -13,20 +13,20 @@
 #/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
 #mv makeVPIC_kitten.log build/$ARCH/vpic
 
-#ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE
-#BRANCH=master_wdn
-#/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
-#mv makeVPIC_kitten.log build/$ARCH/vpic
+ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE
+BRANCH=master_wdn_vec_mods
+/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
+mv makeVPIC_kitten.log build/$ARCH/vpic
 
-#ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT
-#BRANCH=master_wdn
-#/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
-#mv makeVPIC_kitten.log build/$ARCH/vpic
+ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT
+BRANCH=master_wdn_vec_mods
+/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
+mv makeVPIC_kitten.log build/$ARCH/vpic
 
-#ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
-#BRANCH=master_wdn
-#/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
-#mv makeVPIC_kitten.log build/$ARCH/vpic
+ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
+BRANCH=master_wdn_vec_mods
+/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
+mv makeVPIC_kitten.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases using openmpi for the master branch.
@@ -42,17 +42,17 @@
 #mv makeVPIC_kitten.log build/$ARCH/vpic
 
 ARCH=KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE
-BRANCH=master_wdn
+BRANCH=master_wdn_vec_mods
 /usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
 mv makeVPIC_kitten.log build/$ARCH/vpic
 
 ARCH=KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT
-BRANCH=master_wdn
+BRANCH=master_wdn_vec_mods
 /usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
 mv makeVPIC_kitten.log build/$ARCH/vpic
 
 ARCH=KITTEN_MASTER_LINUX_INT_OPT_OPENMPI_V4_NONE
-BRANCH=master_wdn
+BRANCH=master_wdn_vec_mods
 /usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
 mv makeVPIC_kitten.log build/$ARCH/vpic
 
