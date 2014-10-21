@@ -13,10 +13,10 @@
 #/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
 #mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
-ARCH=RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_QPX
-BRANCH=master_wdn_vec_mods
-/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-mv makeVPIC_rzuseq.log build/$ARCH/vpic
+###ARCH=RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_QPX
+###BRANCH=master_wdn_vec_mods
+###/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+###mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
 ###ARCH=RZUSEQ_MASTER_LINUX_GNU_OPT_IBM_MPI_V4_PORT
 ###BRANCH=master_wdn_vec_mods
