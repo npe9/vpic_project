@@ -44,25 +44,25 @@ BRANCH=tag_407_wdn
 /usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
 mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
-ARCH=RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_NONE
-BRANCH=tag_407_wdn
-/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-mv makeVPIC_rzuseq.log build/$ARCH/vpic
+#ARCH=RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_NONE
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+#mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized IBM cases using IBM mpi for the tag_407 branch.
 
-ARCH=RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_QPX
-BRANCH=tag_407_wdn
-/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-mv makeVPIC_rzuseq.log build/$ARCH/vpic
+#ARCH=RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_QPX
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+#mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
-ARCH=RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_PORT
-BRANCH=tag_407_wdn
-/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-mv makeVPIC_rzuseq.log build/$ARCH/vpic
+#ARCH=RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_PORT
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+#mv makeVPIC_rzuseq.log build/$ARCH/vpic
 
-ARCH=RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_NONE
-BRANCH=tag_407_wdn
-/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
-mv makeVPIC_rzuseq.log build/$ARCH/vpic
+#ARCH=RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_NONE
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_rzuseq $ARCH $BRANCH 16 >& makeVPIC_rzuseq.log
+#mv makeVPIC_rzuseq.log build/$ARCH/vpic
