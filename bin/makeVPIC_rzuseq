@@ -210,7 +210,6 @@ if [ $ARCH = "RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
   ../../build.op rngconv
   ../../build.op rngseq
   ../../build.op v4
-  ../../build.op verify
 fi
 
 #      --enable-shared \
