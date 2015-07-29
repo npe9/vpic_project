@@ -189,21 +189,20 @@ fi
 if [ $ARCH = "RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
   use bggcc-4.7.2
 
-  which mpig++
-  which mpigcc
-  which configure
-
   cd $VPIC_DIR
   config/bootstrap
   CXX=mpig++ CC=mpigcc configure \
       --with-machine=rzuseq_gnu_v4_port \
       --build=powerpc64-bgq-linux \
       --with-mpi=/bgsys/drivers/V1R2M2/ppc64/comm \
-      --enable-shared \
-      --disable-static \
+      --enable-static \
+      --disable-shared \
       --prefix=$VPIC_DIR
   make
 fi
+
+#      --enable-shared \
+#      --disable-static \
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
