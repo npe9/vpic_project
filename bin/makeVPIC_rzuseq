@@ -199,6 +199,18 @@ if [ $ARCH = "RZUSEQ_TAG_407_LINUX_GNU_OPT_IBM_MPI_V4_PORT" ]; then
       --disable-shared \
       --prefix=$VPIC_DIR
   make
+
+  cd sample/test
+  ../../build.op accel
+  ../../build.op cyclo
+  ../../build.op inbndj
+  ../../build.op interpe
+  ../../build.op outbndj
+  ../../build.op pcomm
+  ../../build.op rngconv
+  ../../build.op rngseq
+  ../../build.op v4
+  ../../build.op verify
 fi
 
 #      --enable-shared \
