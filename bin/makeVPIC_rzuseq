@@ -148,7 +148,19 @@ if [ $ARCH = "RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_QPX" ]; then
       --enable-static \
       --disable-shared \
       --prefix=$VPIC_DIR
-  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
+  make
+# make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
+
+  cd sample/test
+  ../../build.op accel
+  ../../build.op cyclo
+  ../../build.op inbndj
+  ../../build.op interpe
+  ../../build.op outbndj
+  ../../build.op pcomm
+  ../../build.op rngconv
+  ../../build.op rngseq
+  ../../build.op v4
 fi
 
 ################################################################################
@@ -165,7 +177,7 @@ if [ $ARCH = "RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_PORT" ]; then
       --disable-shared \
       --prefix=$VPIC_DIR
   make
-#  make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
+# make accel_LDFLAGS="-all-static" cyclo_LDFLAGS="-all-static" inbndj_LDFLAGS="-all-static" interpe_LDFLAGS="-all-static" outbndj_LDFLAGS="-all-static" pcomm_LDFLAGS="-all-static" rng_LDFLAGS="-all-static" v4_LDFLAGS="-all-static"
 
   cd sample/test
   ../../build.op accel
