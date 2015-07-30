@@ -15,7 +15,7 @@ export VPIC_DIR=$VPIC_ROOT/build/$ARCH/vpic
 
 source /usr/local/tools/dotkit/init.sh
 
-export PATH=/g/g12/nystrom4/Packages/autotools/autotools_2.69_1.13.4_2.42/rzuseq/bin:$PATH
+#export PATH=/g/g12/nystrom4/Packages/autotools/autotools_2.69_1.13.4_2.42/rzuseq/bin:$PATH
 
 autoconf --version
 automake --version
