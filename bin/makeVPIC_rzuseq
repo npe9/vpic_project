@@ -160,7 +160,7 @@ if [ $ARCH = "RZUSEQ_TAG_407_LINUX_IBM_OPT_IBM_MPI_V4_QPX" ]; then
   ../../build.op pcomm
   ../../build.op rngconv
   ../../build.op rngseq
-  ../../build.op v4
+# ../../build.op v4
 fi
 
 ################################################################################
