@@ -139,22 +139,101 @@ begin_initialization {
   // single-processor mesh = 128 x 128 x 64
 #endif
 
+#if 0
+//???????????????????????????????????????????????????????
+  // 14300x4 processors
+  double Lx                = 120.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                = 12.0 * 1e-4;              
+  double Lz                = 12.0 * 1e-4;                 
+  double nx                = 6292;
+  double ny                = 440;
+  double nz                = 440; 
+  double topology_x        = 143;
+  double topology_y        = 10;
+  double topology_z        = 10;            
+  // single-processor mesh = 44 x 44 x 44
+#endif
+
+#if 0
+  // 2*4096 processors
+  double Lx                = 4*35.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                = 2*6.0 * 1e-4;              
+  double Lz                = 2*6.0 * 1e-4;                 
+  double nx                = 8192;
+  double ny                = 512;
+  double nz                = 512; 
+  double topology_x        = 128;
+  double topology_y        = 8;
+  double topology_z        = 8;            
+  // single-processor mesh = 64 x 64 x 64
+#endif
+
+  // This choice of nx, ny, nz and topology values imply that the  
+  // grid is 102 x 42 x 42 cells.  The transverse size is slightly smaller than 
+  // in the original deck in order to enable more choices for down-sampling/striding 
+  // the field and hydro output.  (The original had 43 cells in each direction, which
+  // is prime and therefore not strideable with Ben's output format). 
+
+# if 0
+  // one processor problem, for debugging
+  Lx /= topology_x;  nx /= topology_x;
+  Ly /= topology_y;  ny /= topology_y;   
+  Lz /= topology_z;  nz /= topology_z; 
+
+  topology_x = 1; 
+  topology_y = 1;  
+  topology_z = 1; 
+# endif  
+
+# if 0
+  // twoprocessor problem, for debugging
+  Lx /= (topology_x/2);  nx /= (topology_x/2);
+  Ly /= topology_y;  ny /= topology_y;   
+  Lz /= topology_z;  nz /= topology_z; 
+
+  topology_x = 2; 
+  topology_y = 1;  
+  topology_z = 1; 
+# endif  
+
+// Run a smaller problem for debugging purposes
+#if 0
+
+  double Lx                = 120.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                = 1.20 * 1e-4;              
+  double Lz                = 1.20 * 1e-4;                 
+  double nx                = 6292;
+  double ny                = 44;
+  double nz                = 44; 
+  double topology_x        = 143;
+  double topology_y        = 1;
+  double topology_z        = 1;            
+
+  // nproc() x 1 x 1 : 
+  double topology          = nproc(); 
+  Lx         /= 143; Lx         *= topology; 
+  nx         /= 143; nx         *= topology;
+  topology_x /= 143; topology_x *= topology; 
+
+  // single-processor mesh = 44 x 44 x 44
+#endif
+
 #if 1
   // 
   double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
   double Ly                =      12.0 * 1e-4;              
   double Lz                =      12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
-  double nx                = 44*16;
-  double ny                = 44;
-  double nz                = 44; 
+  double nx                = 40*16;
+  double ny                = 40;
+  double nz                = 40; 
   double topology_x        = 8;
   double topology_y        = 1;
   double topology_z        = 1;            
-  // single-processor mesh = 16 * 44 x 44 x 44
+  // single-processor mesh = 16 * 40 x 40 x 40
 #endif
 
-  double nppc               = 150;     // Ave. number of particles/cell in ea. species
+  double nppc               = 125;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
@@ -172,7 +251,7 @@ begin_initialization {
   double mime_H             = mic2_H /mec2; 
   double mime_He            = mic2_He/mec2; 
                             
-  double uth_e              = sqrt(t_e/mec2);     // vthe/c
+  double uthe               = sqrt(t_e/mec2);     // vthe/c
   double uthi_H             = sqrt(t_i/mic2_H);   // vthi/c for H
   double uthi_He            = sqrt(t_i/mic2_He);  // vthi/c for He
 
@@ -180,7 +259,7 @@ begin_initialization {
   double delta = (vacuum_wavelength / (2*M_PI) ) / sqrt( n_e_over_n_crit ); 
 
   double n_e   = c_vac*c_vac*m_e/(4*M_PI*ec*ec*delta*delta); // electron density in cm^-3
-  double debye = uth_e*delta;                     // electron Debye length (cm)
+  double debye = uthe*delta;                      // electron Debye length (cm)
   double omega = sqrt( 1/n_e_over_n_crit );       // laser beam freq. in wpe
 
   // Peak instantaneous E field in "natural units" 
@@ -213,17 +292,16 @@ begin_initialization {
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1; 
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
-  //double t_stop            = 11;               // Runtime in 1/wpe
-  double t_stop            = 101;               // Runtime in 1/wpe
-  //double t_stop            = 600001;               // Runtime in 1/wpe
+  //double t_stop            = 101;                 // Runtime in 1/wpe
+  double t_stop            = 10;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
 //????????????????????????????????????????????????????????
-  //int field_interval       = int(100.0/dt);                  // Num. steps between saving field, hydro data
-  int field_interval       = 0;                              // Num. steps between saving field, hydro data
-  int velocity_interval    = int(100.0/dt);                  // How frequently to dump binned velocity space data
-  int restart_interval     = int(150.0/dt);                  // Num. steps between restart dumps
+  //int field_interval       = int(100.0/dt);       // Num. steps between saving field, hydro data
+  int field_interval       = 0;                   // Num. steps between saving field, hydro data
+  int velocity_interval    = int(100.0/dt);       // How frequently to dump binned velocity space data
+  int restart_interval     = int(150.0/dt);       // Num. steps between restart dumps
   int quota_check_interval = 20;
 
   // Ben:  This quota thing gracefully terminates after writing a final restart after 
@@ -259,7 +337,7 @@ begin_initialization {
   sim_log("* nsteps_cycle =                 "<<nsteps_cycle);
   sim_log("* Time step, max time, nsteps:    "<<dt<<" "<<t_stop<<" "<<int(t_stop/(dt))); 
   sim_log("* Debye length, XYZ cell sizes:   "<<debye<<" "<<cell_size_x<<" "<<cell_size_y<<" "<<cell_size_z);
-  sim_log("* Real cell sizes (in Debyes):    "<<hx/uth_e<<" "<<hy/uth_e<<" "<<hz/uth_e);
+  sim_log("* Real cell sizes (in Debyes):    "<<hx/uthe<<" "<<hy/uthe<<" "<<hz/uthe);
   sim_log("* Lx, Ly, Lz =                    "<<Lx<<" "<<Ly<<" "<<Lz);
   sim_log("* nx, ny, nz =                    "<<nx<<" "<<ny<<" "<<nz);
   sim_log("* Charge/macro electron =         "<<q_e);
@@ -273,7 +351,7 @@ begin_initialization {
   sim_log("* m_e, m_H, m_He                  "<<"1 "<<mime_H<<" "<<mime_He);
   sim_log("* Radiation damping:              "<<damp);
   sim_log("* Fraction of courant limit:      "<<cfl_req);
-  sim_log("* vthe/c:                         "<<uth_e);
+  sim_log("* vthe/c:                         "<<uthe);
   sim_log("* vthi_H /c:                      "<<uthi_H);
   sim_log("* vthe_He/c:                      "<<uthi_He);
   sim_log("* emax at entrance:               "<<e0);
@@ -300,8 +378,7 @@ begin_initialization {
   num_step             = int(t_stop/(dt)); 
 
 //??????????????????????????????????????????????????????????
-  //status_interval      = 200; 
-  status_interval      = 20; 
+  status_interval      = 10; 
   sync_shared_interval = status_interval/1;
   clean_div_e_interval = status_interval/1;
   clean_div_b_interval = status_interval/10; 
@@ -309,10 +386,10 @@ begin_initialization {
   // Turn off some of the spam
   verbose = 1; 
 
-  // For maxwellian reinjectoin, we need more than the default number of 
+  // For maxwellian reinjection, we need more than the default number of 
   // passes (3) through the boundary handler
   // Note:  We have to adjust sort intervals for maximum performance on Cell. 
-  num_comm_round = 6;
+  num_comm_round = 16;
 
   global->e0                   = e0; 
   global->omega                = omega; 
@@ -345,28 +422,13 @@ begin_initialization {
   global->write_eb_faces       = write_eb_faces;      
   global->write_backscatter_only = write_backscatter_only; 
 
-  global->vthe                 = uth_e; 
+  global->vthe                 = uthe; 
   global->vthi_H               = uthi_H; 
   global->vthi_He              = uthi_He; 
   global->velocity_interval    = velocity_interval; 
 
   // Set up the species
   // Allow additional local particles in case of non-uniformity.
-
-  sim_log("Setting up species."); 
-  double max_local_np = 1.3*N_e/nproc(); 
-//??????????????????????????????????????????????????????????????????????????????????????
-  double max_local_nm = max_local_np/10.0;
-  species_t * electron = define_species("electron", -1, max_local_np, max_local_nm, 15, 1); 
-
-  // Start with two ion species.  We have option to go to Xe and Kr gas fills if 
-  // we need a higher ion/electron macroparticle ratio.  
-
-  species_t *ion_H, *ion_He; 
-  if ( mobile_ions ) {
-    if ( H_present  ) ion_H  = define_species("H",  Z_H /mime_H,  max_local_np, max_local_nm, 100, 1); 
-    if ( He_present ) ion_He = define_species("He", Z_He/mime_He, max_local_np, max_local_nm, 100, 1); 
-  }
 
   // Set up grid
   sim_log("Setting up computational grid."); 
@@ -376,7 +438,6 @@ begin_initialization {
   grid->dt       = dt; 
   grid->cvac     = 1;
   grid->eps0     = 1; 
-  grid->damp     = damp; 
 
   sim_log("Setting up absorbing mesh."); 
   define_absorbing_grid( 0,         -0.5*Ly,    -0.5*Lz,        // Low corner
@@ -384,6 +445,21 @@ begin_initialization {
                          nx,         ny,         nz,            // Resolution
                          topology_x, topology_y, topology_z,    // Topology
                          reflect_particles );                   // Default particle boundary condition 
+
+  sim_log("Setting up species."); 
+  double max_local_np = 1.3*N_e/nproc(); 
+//??????????????????????????????????????????????????????????????????????????????????????
+  double max_local_nm = max_local_np/10.0;
+  species_t * electron = define_species("electron", -1, 1, max_local_np, max_local_nm, 20, 1); 
+
+  // Start with two ion species.  We have option to go to Xe and Kr gas fills if 
+  // we need a higher ion/electron macroparticle ratio.  
+
+  species_t *ion_H, *ion_He; 
+  if ( mobile_ions ) {
+    if ( H_present  ) ion_H  = define_species("H",  Z_H,  mime_H,  max_local_np, max_local_nm, 100, 1); 
+    if ( He_present ) ion_He = define_species("He", Z_He, mime_He, max_local_np, max_local_nm, 100, 1); 
+  }
 
   // From grid/partition.c: used to determine which domains are on edge
 # define RANK_TO_INDEX(rank,ix,iy,iz) BEGIN_PRIMITIVE {                   \
@@ -399,47 +475,31 @@ begin_initialization {
   } END_PRIMITIVE 
 
   sim_log("Overriding x boundaries to absorb fields."); 
-  int ix, iy, iz;        // Domain location in mesh
-  RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
+  // int ix, iy, iz;        // Domain location in mesh
+  // RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
+  // cgw 20140506 - fix error message for above
 
   // Set up Maxwellian reinjection B.C. 
 
   sim_log("Setting up Maxwellian reinjection boundary condition."); 
 
-  maxwellian_reflux_t boundary_data[1];
-  boundary_data->ut_perp[electron->id] = uth_e;     // vth_e in perp direction
-  boundary_data->ut_para[electron->id] = uth_e;     // vth_e in para direction
-
-  // Ions
+  particle_bc_t * maxwellian_reinjection = 
+    define_particle_bc( maxwellian_reflux( species_list, entropy ) ); 
+  set_reflux_temp( maxwellian_reinjection, electron, uthe, uthe );
   if ( mobile_ions ) { 
-    if ( H_present ) { 
-      boundary_data->ut_perp[ion_H->id] = uthi_H; 
-      boundary_data->ut_para[ion_H->id] = uthi_H; 
-    } 
-    if ( He_present ) { 
-      boundary_data->ut_perp[ion_He->id] = uthi_He; 
-      boundary_data->ut_para[ion_He->id] = uthi_He; 
-    } 
+    if ( H_present  ) set_reflux_temp( maxwellian_reinjection, ion_H,  uthi_H,  uthi_H  ); 
+    if ( He_present ) set_reflux_temp( maxwellian_reinjection, ion_He, uthi_He, uthi_He ); 
   }
-  int maxwellian_reinjection = add_boundary( grid, maxwellian_reflux, boundary_data ); 
- 
-  if(maxwellian_reinjection == INVALID_BOUNDARY) {
-  	ERROR(("Invalid Boundary Encountered"));
-  } // if
 
   // Set up materials
   sim_log("Setting up materials."); 
   define_material( "vacuum", 1 );
-
-  define_material( "impermeable_vacuum", 1 ); 
-
-  finalize_field_advance( vacuum_field_advance); 
+  define_field_array( NULL, damp ); 
  
   // Paint the simulation volume with materials and boundary conditions
 # define iv_region (   x<      hx*iv_thick || x>Lx  -hx*iv_thick  \
                     || y<-Ly/2+hy*iv_thick || y>Ly/2-hy*iv_thick  \
                     || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) /* all boundaries are i.v. */ 
-  set_region_material( iv_region, "impermeable_vacuum",     "impermeable_vacuum" ); 
   set_region_bc( iv_region, maxwellian_reinjection, maxwellian_reinjection, maxwellian_reinjection ); 
 
   // Load particles 
@@ -450,25 +510,25 @@ begin_initialization {
     double ymin=grid->y0, ymax=grid->y1;
     double zmin=grid->z0, zmax=grid->z1;
     repeat( N_e/(topology_x*topology_y*topology_z) ) {
-      double x = uniform_rand( xmin, xmax );
-      double y = uniform_rand( ymin, ymax );
-      double z = uniform_rand( zmin, zmax );
+      double x = uniform( rng(0), xmin, xmax );
+      double y = uniform( rng(0), ymin, ymax );
+      double z = uniform( rng(0), zmin, zmax );
       if ( iv_region ) continue;           // Particle fell in iv_region.  Don't load.
       inject_particle( electron, x, y, z,
-                       maxwellian_rand(uth_e),
-                       maxwellian_rand(uth_e),
-                       maxwellian_rand(uth_e), q_e, 0, 0 );
+                       normal( rng(0), 0, uthe),
+                       normal( rng(0), 0, uthe),
+                       normal( rng(0), 0, uthe), q_e, 0, 0 );
       if ( mobile_ions ) {
         if ( H_present )  // Inject an H macroion on top of macroelectron
           inject_particle( ion_H, x, y, z, 
-                           maxwellian_rand(uthi_H), 
-                           maxwellian_rand(uthi_H), 
-                           maxwellian_rand(uthi_H), qi_H, 0, 0 ); 
+                           normal( rng(0), 0, uthi_H), 
+                           normal( rng(0), 0, uthi_H), 
+                           normal( rng(0), 0, uthi_H), qi_H, 0, 0 ); 
         if ( He_present ) // Inject an H macroion on top of macroelectron
           inject_particle( ion_He, x, y, z, 
-                           maxwellian_rand(uthi_He), 
-                           maxwellian_rand(uthi_He), 
-                           maxwellian_rand(uthi_He), qi_He, 0, 0 ); 
+                           normal( rng(0), 0, uthi_He), 
+                           normal( rng(0), 0, uthi_He), 
+                           normal( rng(0), 0, uthi_He), qi_He, 0, 0 ); 
       }
     }
   }
@@ -495,7 +555,7 @@ begin_initialization {
   *   ex0 ex1 ex2 ... exN ey0 ey1 ey2 ...
   *   
   *------------------------------------------------------------------------*/
-  sim_log("Setting up hydro and field diagnostics.");
+  sim_log( "Setting up hydro and field diagnostics." );
 
   global->fdParams.format = band;
   sim_log ( "Field output format          : band" );
@@ -733,727 +793,8 @@ begin_initialization {
 
 
 begin_diagnostics {
-  if ( step%200==0 ) sim_log("Time step: "<<step); 
-
-# define should_dump(x) \
-  (global->x##_interval>0 && remainder(step,global->x##_interval)==0)
-
-  // Do a mkdir at time t=0 to ensure we have all the directories we need
-  if ( step==0 ) {
-    dump_mkdir("rundata"); 
-    dump_mkdir("field"); 
-    dump_mkdir("ehydro"); 
-    dump_mkdir("Hhydro"); 
-    dump_mkdir("Hehydro"); 
-    dump_mkdir("restart"); 
-    dump_mkdir("particle"); 
-    dump_mkdir("poynting"); 
-    dump_mkdir("velocity"); 
-
-    // Turn off rundata for now
-    // dump_grid("rundata/grid");
-    // dump_materials("rundata/materials");
-    // dump_species("rundata/species");
-    global_header("global", global->outputParams);
-
-  }
-
-  // Field and hydro data
-
-  if ( should_dump(field) ) {
-    field_dump( global->fdParams ); 
-
-//?????????????????????????????????????????????????????????????????????????
-#if 0  
-    if ( global->load_particles ) {
-      hydro_dump( "electron", global->hedParams );
-      if ( global->mobile_ions ) {
-        if ( global->H_present  ) hydro_dump( "H",  global->hHdParams );
-        if ( global->He_present ) hydro_dump( "He", global->hHedParams );
-      }
-    }
-#endif
-
-  }
-
-  // Particle dump data
-
-  if ( should_dump(particle) && global->load_particles ) {
-    dump_particles( "electron", "particle/eparticle" );
-    if ( global->mobile_ions ) {
-      if ( global->H_present  ) dump_particles( "H",  "particle/Hparticle" );
-      if ( global->He_present ) dump_particles( "He", "particle/Heparticle" );
-    }
-  } 
-
-//?????????????????????????????????????????????????????????????????????????
-#if 1
-  //------------------------------------------------------------------------------------
-  // Old Poynting diagnostic (from GB run); only computes an integrated Poynting flux on
-  // lower-x boundary. 
-  //
-  // Ponyting data - send to stdout for GB run
-  // Write Poynting flux at left boundary
-  // Poynting flux is defined positive if directed in the +x direction. 
-  // TODO: It is assumed that Ponyting dumps are infrequent, so we can afford the 
-  // mpi_allreduce() here.  This needs to be verified on RR hardware. 
-
-  // If we use this stub, put the following in the globals block above: 
-  // int write_poynting_data;     // Whether to write poynting data to file (or just stdout)
-  
-#define ALLOCATE(A,LEN,TYPE)                                             \
-  if ( !((A)=(TYPE *)malloc((size_t)(LEN)*sizeof(TYPE))) ) ERROR(("Cannot allocate.")); 
-
-  static float *pvec=NULL; 
-  static double psum, gpsum; 
-  FileIO       fileIO; 
-  FileIOStatus status; 
-  static char fname_poynting[]="poynting/poynting";
-  static int stride, initted=0; 
-  
-  if ( !initted ) { 
-    stride=(grid->ny-1)*(grid->nz-1); 
-    ALLOCATE( pvec, stride, float ); 
-    initted=1; 
-  }
-
-  if ( step>0 && should_dump(poynting) ) {
-    int i, j, k, k1, k2, ix, iy, iz; 
-    for ( i=0; i<stride; ++i ) pvec[i]=0;     // Initialize pvec to zero. 
-    RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
-    if ( ix==0 ) {                            // Compute Poynting for domains on left of box
-      for ( j=1; j<grid->ny; ++j ) {
-        for ( k=1; k<grid->nz; ++k ) {
-          k1 = INDEX_FORTRAN_3(1,j+1,k+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-          k2 = INDEX_FORTRAN_3(2,j+1,k+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-          pvec[(j-1)*(grid->nz-1)+k-1] = (  field[k2].ey*0.5*(field[k1].cbz+field[k2].cbz)
-                                          - field[k2].ez*0.5*(field[k1].cby+field[k2].cby) )
-                                          / (grid->cvac*grid->cvac*global->e0*global->e0);
-        }
-      }
-    }                                         // Leave pvec = zero in mp_allsum_d for interior
-
-    // Sum poynting flux on surface
-    for ( i=0, psum=0; i<stride; ++i ) psum+=pvec[i]; 
-    // Sum over all surfaces
-    mp_allsum_d(&psum, &gpsum, 1, grid->mp);  
-    // Divide by number of mesh points summed over
-    gpsum /= stride*global->topology_y*global->topology_z; 
-    
-    if ( rank()==0 && global->write_poynting_data ) { 
-      sim_log("Starting to write Poynting data."); 
-      status=fileIO.open( fname_poynting, (step==global->poynting_interval ? io_write : io_read_write) );
-      if ( status==fail ) ERROR(("Could not open file."));
-      fileIO.seek( uint64_t((step/global->poynting_interval-1)*sizeof(double)), SEEK_SET );
-      fileIO.write( &gpsum, 1 );
-      fileIO.close(); 
-      sim_log("Finished writing Poynting data."); 
-    } 
-    sim_log("** step = "<<step<<" Poynting = "<<gpsum);  // Dump data to stdout
-  }
-
-#endif 
-
-#if 0
-  //----------------------------------------------------------------------------
-  // New Poynting diagnostic.  Lin needs the raw E and B fields at the boundary
-  // in order to perform digital filtering to extract the SRS component from the 
-  // SBS.  We use random access binary writes with a stride of length:
-  // 
-  // stride =   2* grid->ny*grid->nz * global->topology_y*global->topology_z  // lower, upper x faces
-  //          + 2* grid->nz*grid->nx * global->topology_z*global->topology_x  // lower, upper y faces
-  //          + 2* grid->nx*grid->ny * global->topology_x*global->topology_y; // lower, upper z faces
-  // 
-  // On the x faces, e1 = ey, e2 = ez, cb1 = cby, cb2 = cbz
-  // On the y faces, e1 = ez, e2 = ex, cb1 = cbz, cb2 = cbx
-  // On the z faces, e1 = ex, e2 = ey, cb1 = cbx, cb2 = cby
-  //
-  // We also write 6-element arrays of integrated poynting flux on each face:
-  // 
-  // vals = {lower x, upper x, lower y, upper y, lower z, upper z}
-  // 
-  // Note:  This diagnostic assumes uniform domains.
-  // 
-  // Also note:  Poynting flux in a given direction is defined as the projection
-  // of E x B along the unit vector in that direction.  
-  //---------------------------------------------------------------------------- 
-  
-#define ALLOCATE(A,LEN,TYPE)                                             \
-  if ( !((A)=(TYPE *)malloc((size_t)(LEN)*sizeof(TYPE))) ) ERROR(("Cannot allocate.")); 
-
-  BEGIN_PRIMITIVE { 
-    static double *pvec =NULL, *e1vec =NULL, *e2vec =NULL, *cb1vec =NULL, *cb2vec =NULL; 
-    static double *gpvec=NULL, *ge1vec=NULL, *ge2vec=NULL, *gcb1vec=NULL, *gcb2vec=NULL; 
-    static double *psum, *gpsum, norm; 
-    FileIO       fileIO; 
-    FileIOStatus status; 
-    static char fname_poynting_sum[]="poynting/poynting_sum",
-                fname_poynting[]    ="poynting/poynting"    ,
-                fname_e1[]          ="poynting/e1"          ,
-                fname_e2[]          ="poynting/e2"          ,
-                fname_cb1[]         ="poynting/cb1"         ,
-                fname_cb2[]         ="poynting/cb2"         ;
-    static uint64_t stride;  // Force tmp variable in seek() to be uint64_t and not int!
-    static int sum_stride, initted=0; 
-    int ncells_yz = int(grid->ny*grid->nz*global->topology_y*global->topology_z);
-    int ncells_zx = int(grid->nz*grid->nx*global->topology_z*global->topology_x);
-    int ncells_xy = int(grid->nx*grid->ny*global->topology_x*global->topology_y);
-
-   
-    if ( !initted ) { 
-      if ( global->write_backscatter_only ) {
-        stride     = uint64_t(ncells_yz); // x faces
-        sum_stride = 1; 
-      } else {
-        stride     = uint64_t(  2*( ncells_yz + ncells_zx + ncells_xy ) ); 
-        sum_stride = 6;
-      }
-      ALLOCATE( psum, sum_stride, double ); ALLOCATE( gpsum, sum_stride, double ); 
-      ALLOCATE( pvec,   stride, double ); ALLOCATE( gpvec,   stride, double ); 
-      ALLOCATE( e1vec,  stride, double ); ALLOCATE( ge1vec,  stride, double ); 
-      ALLOCATE( e2vec,  stride, double ); ALLOCATE( ge2vec,  stride, double ); 
-      ALLOCATE( cb1vec, stride, double ); ALLOCATE( gcb1vec, stride, double ); 
-      ALLOCATE( cb2vec, stride, double ); ALLOCATE( gcb2vec, stride, double ); 
-      norm = 1.0 / (grid->cvac*grid->cvac*global->e0*global->e0);
-      initted=1; 
-    }
- 
-    // FIXME:  On real 3D problem, measure overhead from MPI collectives
-    // FIXME:  Rewrite using permutation-symmetric macros
-    // FIXME:  Don't we have to do something special for mp on Roadrunner? 
-
-
-    // Note:  Will dump core if we dump poynting by mistake on time t=0  
-
-    if ( step>0 && should_dump(poynting) ) {
-      uint64_t ii;  // To shut the compiler up.
-      int i, j, k, k1, k2, ix, iy, iz, skip, index; 
-
-      // Initialize arrays to zero
-      for ( ii=0; ii<stride; ++ii ) { 
-        pvec[ii]    = 0;  
-        e1vec[ii]   = 0; 
-        e2vec[ii]   = 0; 
-        cb1vec[ii]  = 0;
-        cb2vec[ii]  = 0;
-        gpvec[ii]   = 0; 
-        ge1vec[ii]  = 0;
-        ge2vec[ii]  = 0;
-        gcb1vec[ii] = 0;
-        gcb2vec[ii] = 0;
-      }
-      RANK_TO_INDEX( int(rank()), ix, iy, iz );  // Get position of domain in global topology
-
-      skip=0;
- 
-      // Lower x face
-      if ( ix==0 ) {
-        for ( j=1; j<=grid->ny; ++j ) {
-          for ( k=1; k<=grid->nz; ++k ) {
-            float e1, e2, cb1, cb2;
-            // In output, the 2D surface arrays A[j,k] are FORTRAN indexed: 
-            // The j quantity varyies fastest, k, slowest. 
-            index = int(  ((iy*grid->ny) + j-1)  
-                        + ((iz*grid->nz) + k-1) * (grid->ny*global->topology_y) 
-                        + skip); 
-            k1  = INDEX_FORTRAN_3(1,j+1,k+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-            k2  = INDEX_FORTRAN_3(2,j+1,k+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-            e1  = field[k2].ey;
-            e2  = field[k2].ez;
-            cb1 = 0.5*(field[k1].cby+field[k2].cby); 
-            cb2 = 0.5*(field[k1].cbz+field[k2].cbz);
-            pvec[index]   = ( e1*cb2-e2*cb1 )*norm; 
-            e1vec[index]  = e1;         
-            e2vec[index]  = e2;
-            cb1vec[index] = cb1;
-            cb2vec[index] = cb2;
-          }
-        }
-      }
-
-      if ( global->write_backscatter_only==0 ) {  
-
-        skip+=ncells_yz;
-  
-        // Upper x face
-        if ( ix==global->topology_x-1 ) {
-          for ( j=1; j<=grid->ny; ++j ) {
-            for ( k=1; k<=grid->nz; ++k ) {
-              float e1, e2, cb1, cb2;
-              index = int(  ((iy*grid->ny) + j-1)  
-                          + ((iz*grid->nz) + k-1) * (grid->ny*global->topology_y) 
-                          + skip); 
-              k1  = INDEX_FORTRAN_3(grid->nx-1,j+1,k+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              k2  = INDEX_FORTRAN_3(grid->nx  ,j+1,k+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              e1  = field[k2].ey;
-              e2  = field[k2].ez;
-              cb1 = 0.5*(field[k1].cby+field[k2].cby); 
-              cb2 = 0.5*(field[k1].cbz+field[k2].cbz);
-              pvec[index]   = ( e1*cb2-e2*cb1 )*norm; 
-              e1vec[index]  = e1;         
-              e2vec[index]  = e2;
-              cb1vec[index] = cb1;
-              cb2vec[index] = cb2;
-            }
-          }
-        }                       
-        skip+=ncells_yz;
-
-        // Lower y face
-        if ( iy==0 ) {
-          for ( j=1; j<=grid->nz; ++j ) {
-            for ( k=1; k<=grid->nx; ++k ) {
-              float e1, e2, cb1, cb2;
-              index = int(  ((iz*grid->nz) + j-1)  
-                          + ((ix*grid->nx) + k-1) * (grid->nz*global->topology_z) 
-                          + skip); 
-              k1  = INDEX_FORTRAN_3(k+1,1,j+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              k2  = INDEX_FORTRAN_3(k+1,2,j+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              e1  = field[k2].ez;
-              e2  = field[k2].ex;
-              cb1 = 0.5*(field[k1].cbz+field[k2].cbz); 
-              cb2 = 0.5*(field[k1].cbx+field[k2].cbx);
-              pvec[index]   = ( e1*cb2-e2*cb1 )*norm; 
-              e1vec[index]  = e1;         
-              e2vec[index]  = e2;
-              cb1vec[index] = cb1;
-              cb2vec[index] = cb2;
-            }
-          }
-        }                      
-        skip+=ncells_zx;
-  
-        // Upper y face
-        if ( iy==global->topology_y-1 ) {  
-          for ( j=1; j<=grid->nz; ++j ) {
-            for ( k=1; k<=grid->nx; ++k ) {
-              float e1, e2, cb1, cb2;
-              index = int(  ((iz*grid->nz) + j-1)  
-                          + ((ix*grid->nx) + k-1) * (grid->nz*global->topology_z) 
-                          + skip); 
-              k1  = INDEX_FORTRAN_3(k+1,grid->ny-1,j+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              k2  = INDEX_FORTRAN_3(k+1,grid->ny  ,j+1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              e1  = field[k2].ez;
-              e2  = field[k2].ex;
-              cb1 = 0.5*(field[k1].cbz+field[k2].cbz); 
-              cb2 = 0.5*(field[k1].cbx+field[k2].cbx);
-              pvec[index]   = ( e1*cb2-e2*cb1 )*norm; 
-              e1vec[index]  = e1;         
-              e2vec[index]  = e2;
-              cb1vec[index] = cb1;
-              cb2vec[index] = cb2;
-            }
-          }
-        }                         
-        skip+=ncells_zx;
-  
-        // Lower z face
-        if ( iz==0 ) {
-          for ( j=1; j<=grid->nx; ++j ) {
-            for ( k=1; k<=grid->ny; ++k ) {
-              float e1, e2, cb1, cb2;
-              index = int(  ((ix*grid->nx) + j-1)  
-                          + ((iy*grid->ny) + k-1) * (grid->nx*global->topology_x) 
-                          + skip); 
-              k1  = INDEX_FORTRAN_3(j+1,k+1,1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              k2  = INDEX_FORTRAN_3(j+1,k+1,2,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              e1  = field[k2].ex;
-              e2  = field[k2].ey;
-              cb1 = 0.5*(field[k1].cbx+field[k2].cbx); 
-              cb2 = 0.5*(field[k1].cby+field[k2].cby);
-              pvec[index]   = ( e1*cb2-e2*cb1 )*norm; 
-              e1vec[index]  = e1;         
-              e2vec[index]  = e2;
-              cb1vec[index] = cb1;
-              cb2vec[index] = cb2;
-            }
-          }
-        }                      
-        skip+=ncells_xy;
-  
-        // Upper z face
-        if ( iz==global->topology_z-1 ) {  
-          for ( j=1; j<=grid->nx; ++j ) {
-            for ( k=1; k<=grid->ny; ++k ) {
-              float e1, e2, cb1, cb2;
-              index = int(  ((ix*grid->nx) + j-1)  
-                          + ((iy*grid->ny) + k-1) * (grid->nx*global->topology_x) 
-                          + skip); 
-              k1  = INDEX_FORTRAN_3(j+1,k+1,grid->nz-1,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              k2  = INDEX_FORTRAN_3(j+1,k+1,grid->nz  ,0,grid->nx+1,0,grid->ny+1,0,grid->nz+1);
-              e1  = field[k2].ex;
-              e2  = field[k2].ey;
-              cb1 = 0.5*(field[k1].cbx+field[k2].cbx); 
-              cb2 = 0.5*(field[k1].cby+field[k2].cby);
-              pvec[index]   = ( e1*cb2-e2*cb1 )*norm; 
-              e1vec[index]  = e1;         
-              e2vec[index]  = e2;
-              cb1vec[index] = cb1;
-              cb2vec[index] = cb2;
-            }
-          }
-        }                         
-      }
- 
-      if ( global->write_poynting_sum ) {  
-        // Sum poynting flux on surface
-        skip=0;
-  
-        // Lower x face
-        for ( i=0, psum[0]=0; i<ncells_yz; ++i ) psum[0]+=pvec[i+skip]; 
-        if ( global->write_backscatter_only==0 ) {  
-
-          // Upper x face
-          skip+=ncells_yz;
-          for ( i=0, psum[1]=0; i<ncells_yz; ++i ) psum[1]+=pvec[i+skip]; 
-
-          // Lower y face
-          skip+=ncells_yz;
-          for ( i=0, psum[2]=0; i<ncells_zx; ++i ) psum[2]+=pvec[i+skip]; 
-   
-          // Upper y face
-          skip+=ncells_zx;
-          for ( i=0, psum[3]=0; i<ncells_zx; ++i ) psum[3]+=pvec[i+skip]; 
-
-          // Lower z face
-          skip+=ncells_zx;
-          for ( i=0, psum[4]=0; i<ncells_xy; ++i ) psum[4]+=pvec[i+skip]; 
-
-          // Upper z face
-          skip+=ncells_xy;
-          for ( i=0, psum[5]=0; i<ncells_xy; ++i ) psum[5]+=pvec[i+skip]; 
-        }
-
-  
-        // Sum over all surfaces
-        mp_allsum_d(psum, gpsum, sum_stride, grid->mp);  
-        // Divide by number of mesh points summed over
-        gpsum[0] /= ncells_yz; 
-        if ( global->write_backscatter_only==0 ) {  
-          gpsum[1] /= ncells_yz; 
-          gpsum[2] /= ncells_zx; 
-          gpsum[3] /= ncells_zx; 
-          gpsum[4] /= ncells_xy; 
-          gpsum[5] /= ncells_xy; 
-        }
-  
-        // Write summed Poynting data
-        if ( rank()==0 && global->write_poynting_sum ) { 
-          status=fileIO.open( fname_poynting_sum, 
-                              (step==global->poynting_interval ? io_write : io_read_write) );
-          if ( status==fail ) ERROR(("Could not open file."));
-          fileIO.seek( uint64_t(sum_stride*(step/global->poynting_interval-1)*sizeof(double)), 
-                       SEEK_SET );
-          fileIO.write( gpsum, sum_stride );
-          fileIO.close(); 
-        } 
-      }
-      sim_log("** step = "<<step<<" Lower x Poynting = "<<gpsum[0]);  // Dump data to stdout
-      if ( global->write_backscatter_only==0 ) {  
-        sim_log("**        "<<step<<" Upper x Poynting = "<<gpsum[1]);  // Dump data to stdout
-        sim_log("**        "<<step<<" Lower y Poynting = "<<gpsum[2]);  // Dump data to stdout
-        sim_log("**        "<<step<<" Upper y Poynting = "<<gpsum[3]);  // Dump data to stdout
-        sim_log("**        "<<step<<" Lower z Poynting = "<<gpsum[4]);  // Dump data to stdout
-        sim_log("**        "<<step<<" Upper z Poynting = "<<gpsum[5]);  // Dump data to stdout
-      }
- 
-      // FIXME:  Is the paranoia of explicit casts inside fileIO.seek() necessary?  
-
-      if ( global->write_poynting_faces ) {  
-        // Sum across all processors to get quantities on each surface, then write from proc 0 
-        mp_allsum_d(pvec,   gpvec,   stride, grid->mp);  
-        if ( rank()==0 ) { 
-          status=fileIO.open( fname_poynting, 
-                              (step==global->poynting_interval ? io_write : io_read_write) );
-          if ( status==fail ) ERROR(("Could not open file."));
-          fileIO.seek( stride * uint64_t(step/global->poynting_interval-1)
-                              * uint64_t(sizeof(double)), 
-                       SEEK_SET );
-          fileIO.write( gpvec, stride );
-          fileIO.close(); 
-        }
-      } 
-
-      if ( global->write_eb_faces ) {  
-        // Sum across all processors to get quantities on each surface, then write from proc 0 
-        mp_allsum_d(e1vec,  ge1vec,  stride, grid->mp);  
-        mp_allsum_d(e2vec,  ge2vec,  stride, grid->mp);  
-        mp_allsum_d(cb1vec, gcb1vec, stride, grid->mp);  
-        mp_allsum_d(cb2vec, gcb2vec, stride, grid->mp);  
-
-        if ( rank()==0 ) { 
-          // Write e1 face data
-          status=fileIO.open( fname_e1, 
-                              (step==global->poynting_interval ? io_write : io_read_write) );
-          if ( status==fail ) ERROR(("Could not open file."));
-          fileIO.seek( stride * uint64_t(step/global->poynting_interval-1)
-                              * uint64_t(sizeof(double)), 
-                       SEEK_SET );
-          fileIO.write( ge1vec, stride );
-          fileIO.close(); 
-    
-          // Write e2 data
-          status=fileIO.open( fname_e2, 
-                              (step==global->poynting_interval ? io_write : io_read_write) );
-          if ( status==fail ) ERROR(("Could not open file."));
-          fileIO.seek( stride * uint64_t(step/global->poynting_interval-1)
-                              * uint64_t(sizeof(double)), 
-                       SEEK_SET );
-          fileIO.write( ge2vec, stride );
-          fileIO.close(); 
-    
-          // Write cb1 data
-          status=fileIO.open( fname_cb1, 
-                              (step==global->poynting_interval ? io_write : io_read_write) );
-          if ( status==fail ) ERROR(("Could not open file."));
-          fileIO.seek( stride * uint64_t(step/global->poynting_interval-1)
-                              * uint64_t(sizeof(double)), 
-                       SEEK_SET );
-          fileIO.write( gcb1vec, stride );
-          fileIO.close(); 
-    
-          // Write cb2 Poynting data
-          status=fileIO.open( fname_cb2, 
-                              (step==global->poynting_interval ? io_write : io_read_write) );
-          if ( status==fail ) ERROR(("Could not open file."));
-          fileIO.seek( stride * uint64_t(step/global->poynting_interval-1)
-                              * uint64_t(sizeof(double)), 
-                       SEEK_SET );
-          fileIO.write( gcb2vec, stride );
-          fileIO.close(); 
-        }
-      }
-    } // if
-  } END_PRIMITIVE; 
-#endif // switch for poynting diagnostic 
-
-
-// How to implement a spatial mask on particles. 
-
-# if 0
-// Example of how to sum over only those particles in a cylinder with 
-// radius PRMAX cells
-
-/* Set PZMASK to an appropriate value */
-// PRMAX is the number of cells each side from the center line z = 0
-//#define PRMAX 100
-//#define PMASK (pz*pz+py*py<PRMAX*PRMAX)
-
-// Set mask to sum over all particles
-#define PMASK 1
-
-//FIXME: Use memset to speed up the zeroing of the distribution
-#define PREPARE_VELOCITY_SPACE_DATA(SUFF, NAME)                           \
-    {                                                                     \
-      species_t *sp;                                                      \
-      for (int i=0; i<NVX; ++i)                                           \
-        for (int j=0; j<NVZ; ++j)                                         \
-          f_##SUFF[i*NVZ+j]=0;                                            \
-      sp = find_species_name(NAME, species_list);                         \
-      for (int ip=0; ip<sp->np; ip++) {                                   \
-        particle_t *p=&sp->p[ip];                                         \
-        /* Lots of stuff commented because PMASK only has pz */           \
-        int nxp2=grid->nx+2;                                              \
-        int nyp2=grid->ny+2;                                              \
-        /* int nzp2=grid->nz+2;    */                                     \
-        /* Turn index i into separate ix, iy, iz indices */               \
-        int iz = p->i/(nxp2*nyp2);                                        \
-        int iy = (p->i-iz*nxp2*nyp2)/nxp2;                                \
-        /* int ix = p->i-nxp2*(iy+nyp2*iz); */                            \
-        /* Compute real particle position from relative coords and grid data */ \
-        /* double px = grid->x0+((ix-1)+(p->dx+1)*0.5)*grid->dx; */       \
-        double py = grid->y0+((iy-1)+(p->dy+1)*0.5)*grid->dy;             \
-        double pz = grid->z0+((iz-1)+(p->dz+1)*0.5)*grid->dz;             \
-        float invgamma=1/sqrt(1+p->ux*p->ux+p->uy*p->uy+p->uz*p->uz);     \
-        float vx=p->ux*grid->cvac*invgamma;                               \
-        float vz=p->uz*grid->cvac*invgamma;                               \
-        long ivx=long(vx/dvx_##SUFF+(NVX/2));                             \
-        long ivz=long(vz/dvz_##SUFF+(NVZ/2));                             \
-        if ( abs(ivx)<NVX && abs(ivz)<NVZ && PMASK ) f_##SUFF[ivx*NVZ+ivz]+=p->q;  \
-      }                                                                   \
-    }
-#endif 
-
-#if 1
-  // -------------------------------------------------------------------------
-  // Diagnostic to write a 2d vx, vz binned velocity distribution 
-  // Note that we have converted, using the relativistic gammas, from momentum
-  // (which the code uses) to velocity prior to binning. 
-  //
-#define NVX 100
-#define NVZ 100
-
-//FIXME: Use memset to speed up the zeroing of the distribution
-#define PREPARE_VELOCITY_SPACE_DATA(SUFF, NAME)                       \
-    {                                                                 \
-      species_t *sp;                                                  \
-      for (int i=0; i<NVX; ++i)                                       \
-        for (int j=0; j<NVZ; ++j)                                     \
-          f_##SUFF[i*NVZ+j]=0;                                        \
-      sp = find_species_name(NAME, species_list);                     \
-      for (int ip=0; ip<sp->np; ip++) {                               \
-        particle_t *p=&sp->p[ip];                                     \
-        float invgamma=1/sqrt(1+p->ux*p->ux+p->uy*p->uy+p->uz*p->uz); \
-        float vx=p->ux*grid->cvac*invgamma;                           \
-        float vz=p->uz*grid->cvac*invgamma;                           \
-        long ivx=long(vx/dvx_##SUFF+(NVX/2));                         \
-        long ivz=long(vz/dvz_##SUFF+(NVZ/2));                         \
-        if ( abs(ivx)<NVX && abs(ivz)<NVZ )                           \
-          f_##SUFF[ivx*NVZ+ivz]+=p->q;                                \
-      }                                                               \
-    }
-
-#define DUMP_VELOCITY_DATA(SUFF,LEN,HEADER_SIZE)                    \
-    {                                                               \
-      status = fileIO_##SUFF.open( fname_##SUFF,                    \
-                              (step==global->velocity_interval ? io_write : io_read_write) ); \
-      if ( status==fail ) ERROR(("Could not open file."));          \
-      fileIO_##SUFF.seek( uint64_t( HEADER_SIZE +                   \
-                                    (step/global->velocity_interval-1) \
-                                    * LEN * sizeof(float)) ,        \
-                          SEEK_SET );                               \
-      fileIO_##SUFF.write( f_##SUFF, LEN );                         \
-      fileIO_##SUFF.close();                                        \
-    }
-
-#define INCLUDE_VELOCITY_HEADER 0
-#if INCLUDE_VELOCITY_HEADER 
-#  define VELOCITY_HEADER_SIZE (2*sizeof(int)+2*sizeof(float))
-#  define WRITE_VELOCITY_HEADER(SUFF)                               \
-    {                                                               \
-      int nvpts[2] = { NVX, NVZ };                                  \
-      float dv[2];                                                  \
-      dv[0] = dvx_##SUFF; dv[1] = dvz_##SUFF;                       \
-      status = fileIO_##SUFF.open( fname_##SUFF, io_write );        \
-      if ( status==fail ) ERROR(("Could not open file."));          \
-      fileIO_##SUFF.write( &nvpts, 2 );                             \
-      fileIO_##SUFF.write( &dv,    2 );                             \
-      fileIO_##SUFF.close();                                        \
-    }
-#else
-#  define VELOCITY_HEADER_SIZE 0
-#  define WRITE_VELOCITY_HEADER(SUFF) 
-#endif
-
-  BEGIN_PRIMITIVE {
-    float f_e[NVX*NVZ], f_He[NVX*NVZ], f_H[NVX*NVZ];
-    float vmax_e  = 10*global->vthe,    dvx_e,  dvz_e;
-    float vmax_H  = 10*global->vthi_H,  dvx_H,  dvz_H;
-    float vmax_He = 10*global->vthi_He, dvx_He, dvz_He;
-    //FILE *fp_e, *fp_H, *fp_He;
-    FileIO       fileIO_e, fileIO_H, fileIO_He; 
-    FileIOStatus status; 
-
-    static char fname_e[256], fname_H[256], fname_He[256];
-    dvx_e  = dvz_e  = 2*vmax_e /NVX;
-    dvx_H  = dvz_H  = 2*vmax_H /NVX;
-    dvx_He = dvz_He = 2*vmax_He/NVX;
-    sprintf( fname_e,  "velocity/velocity_e.%i",  (int)rank() );
-    sprintf( fname_H,  "velocity/velocity_H.%i",  (int)rank() );
-    sprintf( fname_He, "velocity/velocity_He.%i", (int)rank() );
-
-    // Prepare header (if necessary)
-    if ( !step ) {
-      WRITE_VELOCITY_HEADER(e);
-      if ( global->mobile_ions ) {
-        if ( global->H_present )  WRITE_VELOCITY_HEADER(H);
-        if ( global->He_present ) WRITE_VELOCITY_HEADER(He);
-      }
-    }
-    
-    // Bin particle data and write to file. 
-    if (step && !(step%global->velocity_interval) ) {
-      PREPARE_VELOCITY_SPACE_DATA(e, "electron");
-      if ( global->mobile_ions ) {
-        if ( global->H_present )  PREPARE_VELOCITY_SPACE_DATA(H, "H");
-        if ( global->He_present ) PREPARE_VELOCITY_SPACE_DATA(He, "He");
-      }
-      DUMP_VELOCITY_DATA(e, NVX*NVZ, VELOCITY_HEADER_SIZE);
-      if ( global->mobile_ions ) {
-        if ( global->H_present )  DUMP_VELOCITY_DATA(H,  NVX*NVZ, VELOCITY_HEADER_SIZE);
-        if ( global->He_present ) DUMP_VELOCITY_DATA(He, NVX*NVZ, VELOCITY_HEADER_SIZE);
-      }
-    }
-  } END_PRIMITIVE; 
-#endif 
-
-
-  // You SHALL use periodic checkpoint/restart on Roadrunner unless the file 
-  // system proves to be so flaky that commenting it out as below is necessary to 
-  // do any work!
-
-# if 0
-  // Restart dump 
-
-  if ( step>0 && should_dump(restart) ) {
-    static const char * restart_fbase[2] = { "restart/restart0", "restart/restart1" }; 
-
-    double dumpstart = mp_elapsed(grid->mp);
-    dump_restart( restart_fbase[global->rtoggle], 0 ); 
-    double dumpelapsed = mp_elapsed(grid->mp) - dumpstart;
-
-	sim_log("Restart duration "<<dumpelapsed);
-
-    global->rtoggle^=1; 
-  } 
-# endif 
-
-  if ( step>0 && should_dump(restart) ) {
-    static const char * restart_fbase[2] = { "restart/restart0", "restart/restart1" };
-    double dumpstart = mp_elapsed(grid->mp);
-
-    // Employ turnstiles to partially serialize the writes
-    // NUM_TURNSTILES is define above
-    begin_turnstile(NUM_TURNSTILES);
-    dump_restart( restart_fbase[global->rtoggle], 0 );
-    end_turnstile;
-
-    double dumpelapsed = mp_elapsed(grid->mp) - dumpstart;
-
-    sim_log("Restart duration "<<dumpelapsed);
-
-    global->rtoggle^=1;
-  }
-
-
-#if 0
-  if ( step == 30470 ) {
-    dump_restart( "restart/restart", 0 ); 
-    sim_log( "Restart dump restart completed." ); 
-  }
-# endif 
-
-#if 0
-  if ( step>0 && global->quota_check_interval && (step%global->quota_check_interval)==0 ) { 
-    if ( mp_elapsed(grid->mp) > global->quota_sec ) {
-      dump_restart( "restart/restart", 0 ); 
-      sim_log( "Restart dump restart completed." ); 
-      sim_log( "Allowed runtime exceeded for this job.  Terminating." ); 
-      mp_barrier( grid->mp ); // Just to be safe
-      mp_finalize( grid->mp ); 
-      exit(0); 
-    }
-  }
-# endif 
-
-  if ( step>0 && global->quota_check_interval && (step%global->quota_check_interval)==0 ) {
-    if ( mp_elapsed(grid->mp) > global->quota_sec ) {
-
-      // Employ turnstiles to partially serialize the writes
-      // NUM_TURNSTILES is define above
-      begin_turnstile(NUM_TURNSTILES);
-      dump_restart( "restart/restart", 0 );
-      end_turnstile;
-
-      sim_log( "Restart dump restart completed." );
-      sim_log( "Allowed runtime exceeded for this job.  Terminating." );
-      mp_barrier( grid->mp ); // Just to be safe
-      mp_finalize( grid->mp );
-      exit(0);
-    }
-  }
-
 } 
+
 begin_field_injection { 
   // Inject a light wave from lhs boundary with E aligned along y
   // Use scalar diffraction theory for the Gaussian beam source.  (This is approximate). 
@@ -1474,7 +815,7 @@ begin_field_injection {
     double alpha      = grid->cvac*grid->dt/grid->dx;
     double emax_coeff = (4/(1+alpha))*global->omega*grid->dt*global->e0;
     double prefactor  = emax_coeff*sqrt(2/M_PI); 
-    double t          = grid->dt*step; 
+    double t          = grid->dt*step(); 
 
     // Compute Rayleigh length in c/wpe
     double rl         = M_PI*global->waist*global->waist/global->lambda; 

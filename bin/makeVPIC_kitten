@@ -237,7 +237,7 @@ if [ $ARCH = "KITTEN_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
   cd $VPIC_DIR
   config/bootstrap
   configure \
-      --with-machine=standard_64_port \
+      --with-machine=standard_gnu_v4_port \
       --prefix=$VPIC_DIR
   make
 fi

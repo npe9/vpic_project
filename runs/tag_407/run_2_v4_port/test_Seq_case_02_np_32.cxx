@@ -125,6 +125,100 @@ begin_initialization {
 
   // Simulation parameters 
 
+#if 0
+  // 2048 processors
+  double Lx                = 4*35.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                = 2*6.0 * 1e-4;              
+  double Lz                = 2*6.0 * 1e-4;                 
+  double nx                = 8192;
+  double ny                = 512;
+  double nz                = 512; 
+  double topology_x        = 64;
+  double topology_y        = 4;
+  double topology_z        = 8;            
+  // single-processor mesh = 128 x 128 x 64
+#endif
+
+#if 0
+//???????????????????????????????????????????????????????
+  // 14300x4 processors
+  double Lx                = 120.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                = 12.0 * 1e-4;              
+  double Lz                = 12.0 * 1e-4;                 
+  double nx                = 6292;
+  double ny                = 440;
+  double nz                = 440; 
+  double topology_x        = 143;
+  double topology_y        = 10;
+  double topology_z        = 10;            
+  // single-processor mesh = 44 x 44 x 44
+#endif
+
+#if 0
+  // 2*4096 processors
+  double Lx                = 4*35.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                = 2*6.0 * 1e-4;              
+  double Lz                = 2*6.0 * 1e-4;                 
+  double nx                = 8192;
+  double ny                = 512;
+  double nz                = 512; 
+  double topology_x        = 128;
+  double topology_y        = 8;
+  double topology_z        = 8;            
+  // single-processor mesh = 64 x 64 x 64
+#endif
+
+  // This choice of nx, ny, nz and topology values imply that the  
+  // grid is 102 x 42 x 42 cells.  The transverse size is slightly smaller than 
+  // in the original deck in order to enable more choices for down-sampling/striding 
+  // the field and hydro output.  (The original had 43 cells in each direction, which
+  // is prime and therefore not strideable with Ben's output format). 
+
+# if 0
+  // one processor problem, for debugging
+  Lx /= topology_x;  nx /= topology_x;
+  Ly /= topology_y;  ny /= topology_y;   
+  Lz /= topology_z;  nz /= topology_z; 
+
+  topology_x = 1; 
+  topology_y = 1;  
+  topology_z = 1; 
+# endif  
+
+# if 0
+  // twoprocessor problem, for debugging
+  Lx /= (topology_x/2);  nx /= (topology_x/2);
+  Ly /= topology_y;  ny /= topology_y;   
+  Lz /= topology_z;  nz /= topology_z; 
+
+  topology_x = 2; 
+  topology_y = 1;  
+  topology_z = 1; 
+# endif  
+
+// Run a smaller problem for debugging purposes
+#if 0
+
+  double Lx                = 120.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
+  double Ly                = 1.20 * 1e-4;              
+  double Lz                = 1.20 * 1e-4;                 
+  double nx                = 6292;
+  double ny                = 44;
+  double nz                = 44; 
+  double topology_x        = 143;
+  double topology_y        = 1;
+  double topology_z        = 1;            
+
+  // nproc() x 1 x 1 : 
+  double topology          = nproc(); 
+  Lx         /= 143; Lx         *= topology; 
+  nx         /= 143; nx         *= topology;
+  topology_x /= 143; topology_x *= topology; 
+
+  // single-processor mesh = 44 x 44 x 44
+#endif
+
+#if 1
   // 
   double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
   double Ly                =      12.0 * 1e-4;              
@@ -133,10 +227,11 @@ begin_initialization {
   double nx                = 40*16;
   double ny                = 40;
   double nz                = 40; 
-  double topology_x        = 16;
+  double topology_x        = 32;
   double topology_y        = 1;
   double topology_z        = 1;            
   // single-processor mesh = 16 * 40 x 40 x 40
+#endif
 
   double nppc               = 125;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
@@ -156,7 +251,7 @@ begin_initialization {
   double mime_H             = mic2_H /mec2; 
   double mime_He            = mic2_He/mec2; 
                             
-  double uth_e              = sqrt(t_e/mec2);     // vthe/c
+  double uthe               = sqrt(t_e/mec2);     // vthe/c
   double uthi_H             = sqrt(t_i/mic2_H);   // vthi/c for H
   double uthi_He            = sqrt(t_i/mic2_He);  // vthi/c for He
 
@@ -164,7 +259,7 @@ begin_initialization {
   double delta = (vacuum_wavelength / (2*M_PI) ) / sqrt( n_e_over_n_crit ); 
 
   double n_e   = c_vac*c_vac*m_e/(4*M_PI*ec*ec*delta*delta); // electron density in cm^-3
-  double debye = uth_e*delta;                     // electron Debye length (cm)
+  double debye = uthe*delta;                      // electron Debye length (cm)
   double omega = sqrt( 1/n_e_over_n_crit );       // laser beam freq. in wpe
 
   // Peak instantaneous E field in "natural units" 
@@ -197,8 +292,8 @@ begin_initialization {
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1; 
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
-  double t_stop            = 101;                 // Runtime in 1/wpe
-  //double t_stop            = 10;                  // Runtime in 1/wpe
+  //double t_stop            = 101;                 // Runtime in 1/wpe
+  double t_stop            = 10;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
@@ -242,7 +337,7 @@ begin_initialization {
   sim_log("* nsteps_cycle =                 "<<nsteps_cycle);
   sim_log("* Time step, max time, nsteps:    "<<dt<<" "<<t_stop<<" "<<int(t_stop/(dt))); 
   sim_log("* Debye length, XYZ cell sizes:   "<<debye<<" "<<cell_size_x<<" "<<cell_size_y<<" "<<cell_size_z);
-  sim_log("* Real cell sizes (in Debyes):    "<<hx/uth_e<<" "<<hy/uth_e<<" "<<hz/uth_e);
+  sim_log("* Real cell sizes (in Debyes):    "<<hx/uthe<<" "<<hy/uthe<<" "<<hz/uthe);
   sim_log("* Lx, Ly, Lz =                    "<<Lx<<" "<<Ly<<" "<<Lz);
   sim_log("* nx, ny, nz =                    "<<nx<<" "<<ny<<" "<<nz);
   sim_log("* Charge/macro electron =         "<<q_e);
@@ -256,7 +351,7 @@ begin_initialization {
   sim_log("* m_e, m_H, m_He                  "<<"1 "<<mime_H<<" "<<mime_He);
   sim_log("* Radiation damping:              "<<damp);
   sim_log("* Fraction of courant limit:      "<<cfl_req);
-  sim_log("* vthe/c:                         "<<uth_e);
+  sim_log("* vthe/c:                         "<<uthe);
   sim_log("* vthi_H /c:                      "<<uthi_H);
   sim_log("* vthe_He/c:                      "<<uthi_He);
   sim_log("* emax at entrance:               "<<e0);
@@ -327,7 +422,7 @@ begin_initialization {
   global->write_eb_faces       = write_eb_faces;      
   global->write_backscatter_only = write_backscatter_only; 
 
-  global->vthe                 = uth_e; 
+  global->vthe                 = uthe; 
   global->vthi_H               = uthi_H; 
   global->vthi_He              = uthi_He; 
   global->velocity_interval    = velocity_interval; 
@@ -343,7 +438,6 @@ begin_initialization {
   grid->dt       = dt; 
   grid->cvac     = 1;
   grid->eps0     = 1; 
-  grid->damp     = damp; 
 
   sim_log("Setting up absorbing mesh."); 
   define_absorbing_grid( 0,         -0.5*Ly,    -0.5*Lz,        // Low corner
@@ -356,15 +450,15 @@ begin_initialization {
   double max_local_np = 1.3*N_e/nproc(); 
 //??????????????????????????????????????????????????????????????????????????????????????
   double max_local_nm = max_local_np/10.0;
-  species_t * electron = define_species("electron", -1/1, max_local_np, max_local_nm, 20, 1); 
+  species_t * electron = define_species("electron", -1, 1, max_local_np, max_local_nm, 20, 1); 
 
   // Start with two ion species.  We have option to go to Xe and Kr gas fills if 
   // we need a higher ion/electron macroparticle ratio.  
 
   species_t *ion_H, *ion_He; 
   if ( mobile_ions ) {
-    if ( H_present  ) ion_H  = define_species("H",  Z_H/mime_H,   max_local_np, max_local_nm, 100, 1); 
-    if ( He_present ) ion_He = define_species("He", Z_He/mime_He, max_local_np, max_local_nm, 100, 1); 
+    if ( H_present  ) ion_H  = define_species("H",  Z_H,  mime_H,  max_local_np, max_local_nm, 100, 1); 
+    if ( He_present ) ion_He = define_species("He", Z_He, mime_He, max_local_np, max_local_nm, 100, 1); 
   }
 
   // From grid/partition.c: used to determine which domains are on edge
@@ -381,47 +475,31 @@ begin_initialization {
   } END_PRIMITIVE 
 
   sim_log("Overriding x boundaries to absorb fields."); 
-  int ix, iy, iz;        // Domain location in mesh
-  RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
+  // int ix, iy, iz;        // Domain location in mesh
+  // RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
+  // cgw 20140506 - fix error message for above
 
   // Set up Maxwellian reinjection B.C. 
 
   sim_log("Setting up Maxwellian reinjection boundary condition."); 
 
-  maxwellian_reflux_t boundary_data[1];
-  boundary_data->ut_perp[electron->id] = uth_e;     // vth_e in perp direction
-  boundary_data->ut_para[electron->id] = uth_e;     // vth_e in para direction
-
-  // Ions
+  particle_bc_t * maxwellian_reinjection = 
+    define_particle_bc( maxwellian_reflux( species_list, entropy ) ); 
+  set_reflux_temp( maxwellian_reinjection, electron, uthe, uthe );
   if ( mobile_ions ) { 
-    if ( H_present ) { 
-      boundary_data->ut_perp[ion_H->id] = uthi_H; 
-      boundary_data->ut_para[ion_H->id] = uthi_H; 
-    } 
-    if ( He_present ) { 
-      boundary_data->ut_perp[ion_He->id] = uthi_He; 
-      boundary_data->ut_para[ion_He->id] = uthi_He; 
-    } 
+    if ( H_present  ) set_reflux_temp( maxwellian_reinjection, ion_H,  uthi_H,  uthi_H  ); 
+    if ( He_present ) set_reflux_temp( maxwellian_reinjection, ion_He, uthi_He, uthi_He ); 
   }
-  int maxwellian_reinjection = add_boundary( grid, maxwellian_reflux, boundary_data ); 
- 
-  if(maxwellian_reinjection == INVALID_BOUNDARY) {
-  	ERROR(("Invalid Boundary Encountered"));
-  } // if
 
   // Set up materials
   sim_log("Setting up materials."); 
   define_material( "vacuum", 1 );
-
-  define_material( "impermeable_vacuum", 1 ); 
-
-  finalize_field_advance( vacuum_field_advance); 
+  define_field_array( NULL, damp ); 
  
   // Paint the simulation volume with materials and boundary conditions
 # define iv_region (   x<      hx*iv_thick || x>Lx  -hx*iv_thick  \
                     || y<-Ly/2+hy*iv_thick || y>Ly/2-hy*iv_thick  \
                     || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) /* all boundaries are i.v. */ 
-  set_region_material( iv_region, "impermeable_vacuum",     "impermeable_vacuum" ); 
   set_region_bc( iv_region, maxwellian_reinjection, maxwellian_reinjection, maxwellian_reinjection ); 
 
   // Load particles 
@@ -432,28 +510,29 @@ begin_initialization {
     double ymin=grid->y0, ymax=grid->y1;
     double zmin=grid->z0, zmax=grid->z1;
     repeat( N_e/(topology_x*topology_y*topology_z) ) {
-      double x = uniform_rand( xmin, xmax );
-      double y = uniform_rand( ymin, ymax );
-      double z = uniform_rand( zmin, zmax );
+      double x = uniform( rng(0), xmin, xmax );
+      double y = uniform( rng(0), ymin, ymax );
+      double z = uniform( rng(0), zmin, zmax );
       if ( iv_region ) continue;           // Particle fell in iv_region.  Don't load.
       inject_particle( electron, x, y, z,
-                       maxwellian_rand(uth_e),
-                       maxwellian_rand(uth_e),
-                       maxwellian_rand(uth_e), q_e, 0, 0 );
+                       normal( rng(0), 0, uthe),
+                       normal( rng(0), 0, uthe),
+                       normal( rng(0), 0, uthe), q_e, 0, 0 );
       if ( mobile_ions ) {
         if ( H_present )  // Inject an H macroion on top of macroelectron
           inject_particle( ion_H, x, y, z, 
-                           maxwellian_rand(uthi_H), 
-                           maxwellian_rand(uthi_H), 
-                           maxwellian_rand(uthi_H), qi_H, 0, 0 ); 
+                           normal( rng(0), 0, uthi_H), 
+                           normal( rng(0), 0, uthi_H), 
+                           normal( rng(0), 0, uthi_H), qi_H, 0, 0 ); 
         if ( He_present ) // Inject an H macroion on top of macroelectron
           inject_particle( ion_He, x, y, z, 
-                           maxwellian_rand(uthi_He), 
-                           maxwellian_rand(uthi_He), 
-                           maxwellian_rand(uthi_He), qi_He, 0, 0 ); 
+                           normal( rng(0), 0, uthi_He), 
+                           normal( rng(0), 0, uthi_He), 
+                           normal( rng(0), 0, uthi_He), qi_He, 0, 0 ); 
       }
     }
   }
+
 
  /*--------------------------------------------------------------------------
   * New dump definition
@@ -712,6 +791,7 @@ begin_initialization {
   // - (periodically) Print a status message
 } 
 
+
 begin_diagnostics {
 } 
 
@@ -735,7 +815,7 @@ begin_field_injection {
     double alpha      = grid->cvac*grid->dt/grid->dx;
     double emax_coeff = (4/(1+alpha))*global->omega*grid->dt*global->e0;
     double prefactor  = emax_coeff*sqrt(2/M_PI); 
-    double t          = grid->dt*step; 
+    double t          = grid->dt*step(); 
 
     // Compute Rayleigh length in c/wpe
     double rl         = M_PI*global->waist*global->waist/global->lambda; 
@@ -756,9 +836,11 @@ begin_field_injection {
   }
 }
 
+
 begin_particle_injection {
   // No particle injection for this simulation
 }
+
 
 begin_current_injection {
   // No current injection for this simulation
@@ -767,3 +849,4 @@ begin_current_injection {
 begin_particle_collisions {
   // No particle collisions for this simulation
 }
+
