@@ -73,10 +73,14 @@ if [ $ARCH = "KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
 
   cd $VPIC_DIR
-  config/bootstrap
-  configure \
-      --with-machine=standard_gnu_v4_port \
-      --prefix=$VPIC_DIR
+  mkdir build
+  cd build
+  ccmake ..
+  cmake -DENABLE_MPI ..
+# config/bootstrap
+# configure \
+#     --with-machine=standard_gnu_v4_port \
+#     --prefix=$VPIC_DIR
   make
 # make check
 fi
