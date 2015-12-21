@@ -13,15 +13,15 @@
 #/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
 #mv makeVPIC_kitten.log build/$ARCH/vpic
 
-ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE
-BRANCH=master_wdn_vec_mods
-/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
-mv makeVPIC_kitten.log build/$ARCH/vpic
+#ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
+#mv makeVPIC_kitten.log build/$ARCH/vpic
 
-ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT
-BRANCH=master_wdn_vec_mods
-/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
-mv makeVPIC_kitten.log build/$ARCH/vpic
+#ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
+#mv makeVPIC_kitten.log build/$ARCH/vpic
 
 ###ARCH=KITTEN_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
 ###BRANCH=master_wdn_vec_mods
@@ -64,7 +64,7 @@ mv makeVPIC_kitten.log build/$ARCH/vpic
 #/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
 #mv makeVPIC_kitten.log build/$ARCH/vpic
 
-#ARCH=KITTEN_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT
-#BRANCH=tag_407_wdn
-#/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
-#mv makeVPIC_kitten.log build/$ARCH/vpic
+ARCH=KITTEN_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT
+BRANCH=tag_407_wdn
+/usr/bin/time -p bin/makeVPIC_kitten $ARCH $BRANCH 16 >& makeVPIC_kitten.log
+mv makeVPIC_kitten.log build/$ARCH/vpic
