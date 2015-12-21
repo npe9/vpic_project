@@ -1,0 +1,331 @@
+#!/bin/bash
+
+################################################################################
+# Set some high level variables.
+
+ARCH=$1
+
+BRANCH=$2
+
+NJ=$3
+
+VPIC_ROOT=$PWD
+
+export VPIC_DIR=$VPIC_ROOT/build/$ARCH/vpic
+
+################################################################################
+# Switch to the build directory and copy the VPIC source.  First check for the
+# existence of an old VPIC directory and remove it if it does exist.
+
+cd build
+
+if [ -d $ARCH ]; then
+  rm -rf $ARCH
+fi
+
+mkdir $ARCH
+cd $ARCH
+
+cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
+
+cd $VPIC_DIR
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    ..
+  make VERBOSE=1
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_AVX" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard_gnu_v8_avx \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard_gnu_v8_port \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_NONE" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  CXX=icpc CC=icc configure \
+      --with-machine=standard_int_v4_none \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  CXX=icpc CC=icc configure \
+      --with-machine=standard_int_v4_sse \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  CXX=icpc CC=icc configure \
+      --with-machine=standard_int_v4_port \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  CXX=icpc CC=icc configure \
+      --with-machine=standard_int_v8_avx \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT" ]; then
+  source /opt/intel/bin/iccvars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  CXX=icpc CC=icc configure \
+      --with-machine=standard_int_v8_port \
+      --prefix=$VPIC_DIR
+  make
+# make check
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard_64 \
+      --prefix=$VPIC_DIR
+  make
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "DENALI_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=standard_64_port \
+      --prefix=$VPIC_DIR
+  make
+fi
+
+################################################################################

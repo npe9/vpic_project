@@ -1,0 +1,98 @@
+#!/bin/bash
+
+################################################################################
+# Build the optimized Gnu cases using openmpi for the master branch.
+
+#ARCH=DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_AVX
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+#ARCH=DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_PORT
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+#ARCH=DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE
+#BRANCH=master_wdn
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+#ARCH=DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT
+#BRANCH=master_wdn
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+#ARCH=DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
+#BRANCH=master_wdn
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+################################################################################
+# Build the debug Gnu cases using openmpi for the master branch.
+
+#ARCH=DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V8_AVX
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+#ARCH=DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V8_PORT
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+ARCH=DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_SSE
+BRANCH=master_wdn
+/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+mv makeVPIC_denali.log build/$ARCH/vpic
+
+ARCH=DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_PORT
+BRANCH=master_wdn
+/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+mv makeVPIC_denali.log build/$ARCH/vpic
+
+ARCH=DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_NONE
+BRANCH=master_wdn
+/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+mv makeVPIC_denali.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases using openmpi for the master branch.
+
+#ARCH=DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+#ARCH=DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT
+#BRANCH=master_wdn_vec_mods
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+###ARCH=DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE
+###BRANCH=master_wdn_vec_mods
+###/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+###mv makeVPIC_denali.log build/$ARCH/vpic
+
+###ARCH=DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT
+###BRANCH=master_wdn_vec_mods
+###/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+###mv makeVPIC_denali.log build/$ARCH/vpic
+
+###ARCH=DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_NONE
+###BRANCH=master_wdn_vec_mods
+###/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+###mv makeVPIC_denali.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Gnu cases using openmpi for the tag_407 branch.
+
+#ARCH=DENALI_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_SSE
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
+
+#ARCH=DENALI_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT
+#BRANCH=tag_407_wdn
+#/usr/bin/time -p bin/makeVPIC_denali $ARCH $BRANCH 8 >& makeVPIC_denali.log
+#mv makeVPIC_denali.log build/$ARCH/vpic
