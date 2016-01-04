@@ -475,9 +475,8 @@ begin_initialization {
   } END_PRIMITIVE 
 
   sim_log("Overriding x boundaries to absorb fields."); 
-  // int ix, iy, iz;        // Domain location in mesh
-  // RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
-  // cgw 20140506 - fix error message for above
+  int ix, iy, iz;        // Domain location in mesh
+  RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
 
   // Set up Maxwellian reinjection B.C. 
 
@@ -533,7 +532,6 @@ begin_initialization {
       }
     }
   }
-
 
  /*--------------------------------------------------------------------------
   * New dump definition
@@ -792,7 +790,6 @@ begin_initialization {
   // - (periodically) Print a status message
 } 
 
-
 begin_diagnostics {
 } 
 
@@ -837,11 +834,9 @@ begin_field_injection {
   }
 }
 
-
 begin_particle_injection {
   // No particle injection for this simulation
 }
-
 
 begin_current_injection {
   // No current injection for this simulation
@@ -850,4 +845,3 @@ begin_current_injection {
 begin_particle_collisions {
   // No particle collisions for this simulation
 }
-

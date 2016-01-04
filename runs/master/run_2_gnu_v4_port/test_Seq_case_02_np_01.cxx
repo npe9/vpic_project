@@ -197,8 +197,8 @@ begin_initialization {
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1; 
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
-  double t_stop            = 101;                 // Runtime in 1/wpe
-  //double t_stop            = 10;                  // Runtime in 1/wpe
+  //double t_stop            = 101;                 // Runtime in 1/wpe
+  double t_stop            = 10;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
