@@ -33,6 +33,45 @@ cd $VPIC_DIR
 ################################################################################################################################################################
 
 ################################################################################
+# Build an optimized version of VPIC v407 branch with GNU compilers and OpenMPI.
+# Use the portable implementation of the V4 SIMD vector class.
+
+if [ $ARCH = "DENALI_V407_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=denali_v4_port \
+      --prefix=$VPIC_DIR
+  make
+fi
+
+################################################################################
+# Build an optimized version of VPIC v407 branch with GNU compilers and OpenMPI.
+# Use the portable implementation of the V4 SIMD vector class.  Also use HIO.
+
+if [ $ARCH = "DENALI_V407_LINUX_GNU_OPT_OPENMPI_V4_PORT_HIO" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  export EXTRA_CPPFLAGS="-I/home/wdn/Packages/hio/hio_1.2.0.1_gcc_511/include"
+  export EXTRA_LIBS="-L/home/wdn/Packages/hio/hio_1.2.0.1_gcc_511/lib -lhio"
+
+  cd $VPIC_DIR
+  config/bootstrap
+  configure \
+      --with-machine=denali_v4_port_hio \
+      --prefix=$VPIC_DIR
+  make
+fi
+
+################################################################################################################################################################
+
+################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
 if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE" ]; then
