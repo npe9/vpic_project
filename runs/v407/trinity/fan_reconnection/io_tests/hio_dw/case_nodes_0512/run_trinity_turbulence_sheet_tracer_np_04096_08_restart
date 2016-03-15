@@ -1,0 +1,22 @@
+#!/bin/bash
+#MSUB -l walltime=8:00:00
+#MSUB -l nodes=512:ppn=8
+#MSUB -N asymmetric
+#MSUB -j oe
+
+#DW jobdw access_mode=striped type=scratch capacity=48TiB
+
+module swap PrgEnv-intel PrgEnv-gnu
+
+#export HIO_data_roots=.
+
+export HIO_data_roots=DataWarp,posix:.
+#export HIO_datawarp_root=/tmp/dw_vpic/users/wdn/fan_reconnection/case_nodes_0512
+
+#export HIO_print_statistics=true
+
+module load dws
+
+dwstat all >& dwstat_restart.log
+
+/usr/bin/time -p aprun -n 4096 -N 8 -S 4 -d 8 -j 2 turbulence_sheet_tracer_np_04096_08.op -tpp=8 restart restart1/restart >& run_turbulence_sheet_tracer_np_04096_08_restart.log

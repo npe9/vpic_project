@@ -1,0 +1,8 @@
+#!/bin/bash
+
+module swap PrgEnv-intel PrgEnv-gnu
+
+#export HIO_data_roots=DataWarp,posix:.
+#export HIO_datawarp_root=/tmp/dw_vpic/users/wdn/reconnection_407_np_32_02
+
+/usr/bin/time -p aprun -n 32 -d 2 -j 2 reconnection_407_np_32.op -tpp=2 restart restart1/restart >& run_reconnection_407_np_32_2_restart.log

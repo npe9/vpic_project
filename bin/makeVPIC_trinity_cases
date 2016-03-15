@@ -1,0 +1,14 @@
+#!/bin/bash
+
+################################################################################
+# Build the optimized GNU cases using Cray mpi for the v407 branch.
+
+#ARCH=TRINITY_V407_GNU_OPT_CRAYMPI_V4_SSE
+#BRANCH=v407_wdn
+#/usr/bin/time -p bin/makeVPIC_trinity $ARCH $BRANCH 8 >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+ARCH=TRINITY_V407_GNU_OPT_CRAYMPI_V4_SSE_HIO
+BRANCH=v407_wdn
+/usr/bin/time -p bin/makeVPIC_trinity $ARCH $BRANCH 8 >& makeVPIC_trinity.log
+mv makeVPIC_trinity.log build/$ARCH/vpic

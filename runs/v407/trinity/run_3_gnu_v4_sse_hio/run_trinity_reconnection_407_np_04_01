@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export PATH=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511/bin:$PATH
+
+export LD_LIBRARY_PATH=/home/wdn/Packages/hio/hio_git_gcc_511/lib:$LD_LIBRARY_PATH
+
+export HIO_TEST_ROOTS=.
+
+/usr/bin/time -p mpirun -n 4 reconnection_407_np_04.op >& run_reconnection_407_np_04_1.log
