@@ -66,6 +66,10 @@ begin_globals {
   int dis_begin_int;                // the first time step of the interval  : initialized in dissipation.cxx
 };
 
+begin_initialization_io {
+  use_hio = false;
+}
+
 begin_initialization {
 
   // use natural PIC units

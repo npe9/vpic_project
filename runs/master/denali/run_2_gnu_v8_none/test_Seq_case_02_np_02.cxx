@@ -224,16 +224,16 @@ begin_initialization {
   double Ly                =      12.0 * 1e-4;              
   double Lz                =      12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
-  double nx                = 44*16;
-  double ny                = 44;
-  double nz                = 44; 
-  double topology_x        = 16;
+  double nx                = 40*16;
+  double ny                = 40;
+  double nz                = 40; 
+  double topology_x        = 2;
   double topology_y        = 1;
   double topology_z        = 1;            
-  // single-processor mesh = 16 * 44 x 44 x 44
+  // single-processor mesh = 16 * 40 x 40 x 40
 #endif
 
-  double nppc               = 150;     // Ave. number of particles/cell in ea. species
+  double nppc               = 125;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
@@ -292,7 +292,8 @@ begin_initialization {
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1; 
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
-  double t_stop            = 101;                 // Runtime in 1/wpe
+  //double t_stop            = 101;                 // Runtime in 1/wpe
+  double t_stop            = 10;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
@@ -377,7 +378,7 @@ begin_initialization {
   num_step             = int(t_stop/(dt)); 
 
 //??????????????????????????????????????????????????????????
-  status_interval      = 20; 
+  status_interval      = 10; 
   sync_shared_interval = status_interval/1;
   clean_div_e_interval = status_interval/1;
   clean_div_b_interval = status_interval/10; 
@@ -385,10 +386,10 @@ begin_initialization {
   // Turn off some of the spam
   verbose = 1; 
 
-  // For maxwellian reinjectoin, we need more than the default number of 
+  // For maxwellian reinjection, we need more than the default number of 
   // passes (3) through the boundary handler
   // Note:  We have to adjust sort intervals for maximum performance on Cell. 
-  num_comm_round = 6;
+  num_comm_round = 16;
 
   global->e0                   = e0; 
   global->omega                = omega; 
@@ -513,10 +514,11 @@ begin_initialization {
       double y = uniform( rng(0), ymin, ymax );
       double z = uniform( rng(0), zmin, zmax );
       if ( iv_region ) continue;           // Particle fell in iv_region.  Don't load.
+      // third to last arg is "weight," a positive number
       inject_particle( electron, x, y, z,
                        normal( rng(0), 0, uthe),
                        normal( rng(0), 0, uthe),
-                       normal( rng(0), 0, uthe), q_e, 0, 0 );
+                       normal( rng(0), 0, uthe), -q_e, 0, 0 );
       if ( mobile_ions ) {
         if ( H_present )  // Inject an H macroion on top of macroelectron
           inject_particle( ion_H, x, y, z, 
