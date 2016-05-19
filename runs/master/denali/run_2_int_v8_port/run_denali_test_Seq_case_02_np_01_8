@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source /opt/intel/bin/compilervars.sh intel64
+
+export PATH=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01/bin:$PATH
+
+export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+/usr/bin/time -p mpirun -n 1 test_Seq_case_02_np_01.Linux --tpp 8 >& run_test_Seq_case_02_np_01_8.log
