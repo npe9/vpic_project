@@ -380,8 +380,9 @@ begin_initialization {
   } END_PRIMITIVE 
 
   sim_log("Overriding x boundaries to absorb fields."); 
-  int ix, iy, iz;        // Domain location in mesh
-  RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
+  // int ix, iy, iz;        // Domain location in mesh
+  // RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
+  // cgw 20140506 - fix error message for above
 
   // Set up Maxwellian reinjection B.C. 
 
