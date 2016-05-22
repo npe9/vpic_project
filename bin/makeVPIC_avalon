@@ -39,6 +39,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_NONE" ]; then
   module swap PrgEnv-cray PrgEnv-intel
   module swap intel/16.0.3.210 intel/17.0.0.042.beta
 
+  module list
+
   export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
@@ -203,6 +205,8 @@ fi
 if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_NONE" ]; then
   module swap PrgEnv-cray PrgEnv-gnu
   module swap gcc/5.3.0 gcc/6.1.0
+
+  module list
 
   export MPI_ROOT=$MPICH_DIR
 
