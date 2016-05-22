@@ -33,6 +33,339 @@ cd $VPIC_DIR
 ################################################################################################################################################################
 
 ################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_NONE" ]; then
+  module swap PrgEnv-cray PrgEnv-intel
+  module swap intel/16.0.3.210 intel/17.0.0.042.beta
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_PORT" ]; then
+  module swap PrgEnv-cray PrgEnv-intel
+  module swap intel/16.0.3.210 intel/17.0.0.042.beta
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_SSE" ]; then
+  module swap PrgEnv-cray PrgEnv-intel
+  module swap intel/16.0.3.210 intel/17.0.0.042.beta
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_AVX2" ]; then
+  module swap PrgEnv-cray PrgEnv-intel
+  module swap intel/16.0.3.210 intel/17.0.0.042.beta
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V8_PORT" ]; then
+  module swap PrgEnv-cray PrgEnv-intel
+  module swap intel/16.0.3.210 intel/17.0.0.042.beta
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V8_AVX2" ]; then
+  module swap PrgEnv-cray PrgEnv-intel
+  module swap intel/16.0.3.210 intel/17.0.0.042.beta
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_NONE" ]; then
+  module swap PrgEnv-cray PrgEnv-gnu
+  module swap gcc/5.3.0 gcc/6.1.0
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V4_PORT" ]; then
+  module swap PrgEnv-cray PrgEnv-gnu
+  module swap gcc/5.3.0 gcc/6.1.0
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V4_SSE" ]; then
+  module swap PrgEnv-cray PrgEnv-gnu
+  module swap gcc/5.3.0 gcc/6.1.0
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DCMAKE_C_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V4_AVX2" ]; then
+  module swap PrgEnv-cray PrgEnv-gnu
+  module swap gcc/5.3.0 gcc/6.1.0
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V8_PORT" ]; then
+  module swap PrgEnv-cray PrgEnv-gnu
+  module swap gcc/5.3.0 gcc/6.1.0
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V8_AVX2" ]; then
+  module swap PrgEnv-cray PrgEnv-gnu
+  module swap gcc/5.3.0 gcc/6.1.0
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################################################################################################################################################
+
+################################################################################
 # Build an optimized version of VPIC v407 branch with GNU compilers and OpenMPI.
 # Use the portable implementation of the V4 SIMD vector class.
 
