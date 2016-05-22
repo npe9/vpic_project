@@ -55,7 +55,7 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_NONE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -xMIC-AVX512" \
     -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
   make VERBOSE=1
@@ -227,8 +227,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_NONE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_C_FLAGS="-O2 -mavx512f -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx512f -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
   make VERBOSE=1
 fi
