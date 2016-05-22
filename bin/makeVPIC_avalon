@@ -50,8 +50,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_NONE" ]; then
     -DENABLE_COLOR_UNIT_TESTS=ON \
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
-    -DCMAKE_C_COMPILER=icc \
-    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2" \
     -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
@@ -77,8 +77,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_PORT" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
-    -DCMAKE_C_COMPILER=icc \
-    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2" \
     -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
@@ -104,8 +104,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_SSE" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_SSE=ON \
-    -DCMAKE_C_COMPILER=icc \
-    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2" \
     -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
@@ -131,8 +131,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_AVX2" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
-    -DCMAKE_C_COMPILER=icc \
-    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2" \
     -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
@@ -159,8 +159,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V8_PORT" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V8_PORTABLE=ON \
-    -DCMAKE_C_COMPILER=icc \
-    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2" \
     -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
@@ -187,8 +187,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V8_AVX2" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
-    -DCMAKE_C_COMPILER=icc \
-    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2" \
     -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
@@ -214,6 +214,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_NONE" ]; then
     -DENABLE_COLOR_UNIT_TESTS=ON \
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -239,6 +241,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V4_PORT" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -264,6 +268,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V4_SSE" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_SSE=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -289,6 +295,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V4_AVX2" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -314,6 +322,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V8_PORT" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V8_PORTABLE=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -340,6 +350,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_GNU_OPT_V8_AVX2" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
