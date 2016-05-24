@@ -138,7 +138,8 @@ begin_initialization {
   double topology_z        = 1;            
   // single-processor mesh = 16 * 40 x 40 x 40
 
-  double nppc               = 125;     // Ave. number of particles/cell in ea. species
+  //  double nppc               = 125;     // Ave. number of particles/cell in ea. species
+  double nppc               = 400;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
@@ -197,8 +198,8 @@ begin_initialization {
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1; 
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
-  //double t_stop            = 101;                 // Runtime in 1/wpe
-  double t_stop            = 10;                  // Runtime in 1/wpe
+  double t_stop            = 12;                  // Runtime in 1/wpe
+  // double t_stop            = 10;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
@@ -283,7 +284,8 @@ begin_initialization {
   num_step             = int(t_stop/(dt)); 
 
 //??????????????????????????????????????????????????????????
-  status_interval      = 10; 
+//status_interval      = 10; 
+  status_interval      = 21; 
   sync_shared_interval = status_interval/1;
   clean_div_e_interval = status_interval/1;
   clean_div_b_interval = status_interval/10; 
@@ -380,9 +382,8 @@ begin_initialization {
   } END_PRIMITIVE 
 
   sim_log("Overriding x boundaries to absorb fields."); 
-  // int ix, iy, iz;        // Domain location in mesh
-  // RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
-  // cgw 20140506 - fix error message for above
+  int ix, iy, iz;        // Domain location in mesh
+  RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
 
   // Set up Maxwellian reinjection B.C. 
 
