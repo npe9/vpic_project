@@ -1,0 +1,9 @@
+build.op
+case_*
+*.log
+*.Linux
+*.x86_64
+*.powerpc64
+test_Seq_case_01.cxx
+test_Seq_case_01_np_*.cxx
+vpic
