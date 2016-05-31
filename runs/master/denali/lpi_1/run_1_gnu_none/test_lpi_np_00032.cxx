@@ -127,18 +127,18 @@ begin_initialization {
 
   // 
   double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                =  4 * 12.0 * 1e-4;              
-  double Lz                =  4 * 12.0 * 1e-4;                 
+  double Ly                =  2 * 12.0 * 1e-4;              
+  double Lz                =  2 * 12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
   double nx                = 40*16;
-  double ny                = 40*4;
-  double nz                = 40*4;
+  double ny                = 40*2;
+  double nz                = 40*2;
   double topology_x        = 8;
   double topology_y        = 2;
-  double topology_z        = 2;            
-  // single-processor mesh = 80 x 80 x 80
+  double topology_z        = 2;
+  // single-processor mesh = 80 x 40 x 40
 
-  double nppc               = 125;     // Ave. number of particles/cell in ea. species
+  double nppc               = 100;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
