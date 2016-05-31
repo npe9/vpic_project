@@ -36,6 +36,8 @@ cd $VPIC_DIR
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
+  module swap intel/15.0.5 intel/16.0.3
+
   export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
@@ -59,6 +61,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW" ]; then
+  module swap intel/15.0.5 intel/16.0.3
+
   export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
@@ -83,6 +87,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW" ]; then
+  module swap intel/15.0.5 intel/16.0.3
+
   export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
@@ -107,6 +113,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW" ]; then
+  module swap intel/15.0.5 intel/16.0.3
+
   export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
@@ -131,6 +139,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW" ]; then
+  module swap intel/15.0.5 intel/16.0.3
+
   export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
@@ -156,6 +166,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW" ]; then
+  module swap intel/15.0.5 intel/16.0.3
+
   export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
