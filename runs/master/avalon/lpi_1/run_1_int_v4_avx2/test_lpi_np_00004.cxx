@@ -125,115 +125,21 @@ begin_initialization {
 
   // Simulation parameters 
 
-#if 0
-  // 2048 processors
-  double Lx                = 4*35.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                = 2*6.0 * 1e-4;              
-  double Lz                = 2*6.0 * 1e-4;                 
-  double nx                = 8192;
-  double ny                = 512;
-  double nz                = 512; 
-  double topology_x        = 64;
-  double topology_y        = 4;
-  double topology_z        = 8;            
-  // single-processor mesh = 128 x 128 x 64
-#endif
-
-#if 0
-//???????????????????????????????????????????????????????
-  // 14300x4 processors
-  double Lx                = 120.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                = 12.0 * 1e-4;              
-  double Lz                = 12.0 * 1e-4;                 
-  double nx                = 6292;
-  double ny                = 440;
-  double nz                = 440; 
-  double topology_x        = 143;
-  double topology_y        = 10;
-  double topology_z        = 10;            
-  // single-processor mesh = 44 x 44 x 44
-#endif
-
-#if 0
-  // 2*4096 processors
-  double Lx                = 4*35.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                = 2*6.0 * 1e-4;              
-  double Lz                = 2*6.0 * 1e-4;                 
-  double nx                = 8192;
-  double ny                = 512;
-  double nz                = 512; 
-  double topology_x        = 128;
-  double topology_y        = 8;
-  double topology_z        = 8;            
-  // single-processor mesh = 64 x 64 x 64
-#endif
-
-  // This choice of nx, ny, nz and topology values imply that the  
-  // grid is 102 x 42 x 42 cells.  The transverse size is slightly smaller than 
-  // in the original deck in order to enable more choices for down-sampling/striding 
-  // the field and hydro output.  (The original had 43 cells in each direction, which
-  // is prime and therefore not strideable with Ben's output format). 
-
-# if 0
-  // one processor problem, for debugging
-  Lx /= topology_x;  nx /= topology_x;
-  Ly /= topology_y;  ny /= topology_y;   
-  Lz /= topology_z;  nz /= topology_z; 
-
-  topology_x = 1; 
-  topology_y = 1;  
-  topology_z = 1; 
-# endif  
-
-# if 0
-  // twoprocessor problem, for debugging
-  Lx /= (topology_x/2);  nx /= (topology_x/2);
-  Ly /= topology_y;  ny /= topology_y;   
-  Lz /= topology_z;  nz /= topology_z; 
-
-  topology_x = 2; 
-  topology_y = 1;  
-  topology_z = 1; 
-# endif  
-
-// Run a smaller problem for debugging purposes
-#if 0
-
-  double Lx                = 120.0* 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                = 1.20 * 1e-4;              
-  double Lz                = 1.20 * 1e-4;                 
-  double nx                = 6292;
-  double ny                = 44;
-  double nz                = 44; 
-  double topology_x        = 143;
-  double topology_y        = 1;
-  double topology_z        = 1;            
-
-  // nproc() x 1 x 1 : 
-  double topology          = nproc(); 
-  Lx         /= 143; Lx         *= topology; 
-  nx         /= 143; nx         *= topology;
-  topology_x /= 143; topology_x *= topology; 
-
-  // single-processor mesh = 44 x 44 x 44
-#endif
-
-#if 1
   // 
   double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                =      12.0 * 1e-4;              
-  double Lz                =      12.0 * 1e-4;                 
+  double Ly                =  2 * 12.0 * 1e-4;              
+  double Lz                =  2 * 12.0 * 1e-4;                 
 //???????????????????????????????????????????????????????
   double nx                = 40*16;
-  double ny                = 40;
-  double nz                = 40; 
+  double ny                = 40*2;
+  double nz                = 40*2;
   double topology_x        = 4;
   double topology_y        = 1;
-  double topology_z        = 1;            
-  // single-processor mesh = 16 * 40 x 40 x 40
-#endif
+  double topology_z        = 1;
+  // single-processor mesh = 160 x 80 x 80
 
-  double nppc               = 125;     // Ave. number of particles/cell in ea. species
+  // double nppc               = 100;     // Ave. number of particles/cell in ea. species
+  double nppc               = 500;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
@@ -255,7 +161,7 @@ begin_initialization {
   double uthi_H             = sqrt(t_i/mic2_H);   // vthi/c for H
   double uthi_He            = sqrt(t_i/mic2_He);  // vthi/c for He
 
-  // Plasma skin deptth in cm
+  // Plasma skin depth in cm
   double delta = (vacuum_wavelength / (2*M_PI) ) / sqrt( n_e_over_n_crit ); 
 
   double n_e   = c_vac*c_vac*m_e/(4*M_PI*ec*ec*delta*delta); // electron density in cm^-3
@@ -292,8 +198,8 @@ begin_initialization {
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1; 
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
-  //double t_stop            = 101;                 // Runtime in 1/wpe
-  double t_stop            = 10;                  // Runtime in 1/wpe
+  double t_stop            = 12;                  // Runtime in 1/wpe
+  // double t_stop            = 10;                  // Runtime in 1/wpe
   int particle_interval    = 0; 
   //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
   int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
@@ -378,11 +284,12 @@ begin_initialization {
   num_step             = int(t_stop/(dt)); 
 
 //??????????????????????????????????????????????????????????
-  status_interval      = 10; 
+//status_interval      = 10;
+  status_interval      = 21;
   sync_shared_interval = status_interval/1;
   clean_div_e_interval = status_interval/1;
   clean_div_b_interval = status_interval/10; 
-  
+
   // Turn off some of the spam
   verbose = 1; 
 
@@ -475,9 +382,8 @@ begin_initialization {
   } END_PRIMITIVE 
 
   sim_log("Overriding x boundaries to absorb fields."); 
-  // int ix, iy, iz;        // Domain location in mesh
-  // RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
-  // cgw 20140506 - fix error message for above
+  int ix, iy, iz;        // Domain location in mesh
+  RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
 
   // Set up Maxwellian reinjection B.C. 
 
@@ -533,7 +439,6 @@ begin_initialization {
       }
     }
   }
-
 
  /*--------------------------------------------------------------------------
   * New dump definition
@@ -792,7 +697,6 @@ begin_initialization {
   // - (periodically) Print a status message
 } 
 
-
 begin_diagnostics {
 } 
 
@@ -837,11 +741,9 @@ begin_field_injection {
   }
 }
 
-
 begin_particle_injection {
   // No particle injection for this simulation
 }
-
 
 begin_current_injection {
   // No current injection for this simulation
@@ -850,4 +752,3 @@ begin_current_injection {
 begin_particle_collisions {
   // No particle collisions for this simulation
 }
-
