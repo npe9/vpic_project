@@ -51,8 +51,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -77,8 +77,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_HSW" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -103,8 +103,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_HSW" ]; then
     -DUSE_V4_SSE=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -129,8 +129,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_HSW" ]; then
     -DUSE_V4_AVX2=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -156,8 +156,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_HSW" ]; then
     -DUSE_V8_PORTABLE=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -183,8 +183,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_HSW" ]; then
     -DUSE_V8_AVX2=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -364,6 +364,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -379,8 +381,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -389,6 +391,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -405,8 +409,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_KNL" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -415,6 +419,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -431,8 +437,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_KNL" ]; then
     -DUSE_V4_SSE=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -441,6 +447,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -457,8 +465,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_KNL" ]; then
     -DUSE_V4_AVX2=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -467,6 +475,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -484,8 +494,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_KNL" ]; then
     -DUSE_V8_PORTABLE=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -494,6 +504,8 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -511,8 +523,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
     -DUSE_V8_AVX2=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
@@ -524,6 +536,7 @@ fi
 
 if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_KNL" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
 
   module list
 
@@ -550,6 +563,7 @@ fi
 
 if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_KNL" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
 
   module list
 
@@ -578,6 +592,7 @@ fi
 
 if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_KNL" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
 
   module list
 
@@ -606,6 +621,7 @@ fi
 
 if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_KNL" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
 
   module list
 
@@ -634,6 +650,7 @@ fi
 
 if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_KNL" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
 
   module list
 
@@ -662,6 +679,7 @@ fi
 
 if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_KNL" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
 
   module list
 
