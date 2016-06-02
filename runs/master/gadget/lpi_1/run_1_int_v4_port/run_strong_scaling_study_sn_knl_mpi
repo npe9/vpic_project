@@ -1,8 +1,8 @@
 #!/bin/bash
 
-aprun -n 256 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00256.Linux >& run_test_lpi_np_00256_001.log
-aprun -n 128 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00128.Linux >& run_test_lpi_np_00128_001.log
-aprun -n  64 -d 1 -j 2 /usr/bin/time -p test_lpi_np_00064.Linux >& run_test_lpi_np_00064_001.log
+aprun -n 256 -d 1 -j 4 /usr/bin/time -p test_lpi_np_00256.Linux >& run_test_lpi_np_00256_001.log
+aprun -n 128 -d 1 -j 2 /usr/bin/time -p test_lpi_np_00128.Linux >& run_test_lpi_np_00128_001.log
+aprun -n  64 -d 1 -j 1 /usr/bin/time -p test_lpi_np_00064.Linux >& run_test_lpi_np_00064_001.log
 aprun -n  32 -d 1 -j 1 /usr/bin/time -p test_lpi_np_00032.Linux >& run_test_lpi_np_00032_001.log
 aprun -n  16 -d 1 -j 1 /usr/bin/time -p test_lpi_np_00016.Linux >& run_test_lpi_np_00016_001.log
 aprun -n   8 -d 1 -j 1 /usr/bin/time -p test_lpi_np_00008.Linux >& run_test_lpi_np_00008_001.log
