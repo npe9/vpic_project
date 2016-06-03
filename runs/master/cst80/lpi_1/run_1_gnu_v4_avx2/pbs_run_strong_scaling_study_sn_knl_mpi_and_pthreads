@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -j eo
+#PBS -j oe
 #PBS -N vpic_knl_sn_mpi
 #PBS -l walltime=10:00:00
 #PBS -l nodes=1
