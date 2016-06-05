@@ -1,0 +1,15 @@
+#!/bin/bash
+
+aprun -n 32 -S 16 -d 2 -j 2 /usr/bin/time -p reconnection_hbm_nn_0001_nppn_032.Linux --tpp 2 >& run_reconnection_hbm_nn_0001_nppn_032_002.log
+aprun -n 16 -S  8 -d 2 -j 2 /usr/bin/time -p reconnection_hbm_nn_0001_nppn_016.Linux --tpp 2 >& run_reconnection_hbm_nn_0001_nppn_016_002.log
+aprun -n  8 -S  4 -d 2 -j 2 /usr/bin/time -p reconnection_hbm_nn_0001_nppn_008.Linux --tpp 2 >& run_reconnection_hbm_nn_0001_nppn_008_002.log
+aprun -n  4 -S  2 -d 2 -j 2 /usr/bin/time -p reconnection_hbm_nn_0001_nppn_004.Linux --tpp 2 >& run_reconnection_hbm_nn_0001_nppn_004_002.log
+aprun -n  2 -S  1 -d 2 -j 2 /usr/bin/time -p reconnection_hbm_nn_0001_nppn_002.Linux --tpp 2 >& run_reconnection_hbm_nn_0001_nppn_002_002.log
+aprun -n  1 -S  1 -d 2 -j 2 /usr/bin/time -p reconnection_hbm_nn_0001_nppn_001.Linux --tpp 2 >& run_reconnection_hbm_nn_0001_nppn_001_002.log
+
+aprun -n 32 -S 16 -d 2 -j 2 /usr/bin/time -p reconnection_nn_0001_nppn_032.Linux --tpp 2 >& run_reconnection_nn_0001_nppn_032_002.log
+aprun -n 16 -S  8 -d 2 -j 2 /usr/bin/time -p reconnection_nn_0001_nppn_016.Linux --tpp 2 >& run_reconnection_nn_0001_nppn_016_002.log
+aprun -n  8 -S  4 -d 2 -j 2 /usr/bin/time -p reconnection_nn_0001_nppn_008.Linux --tpp 2 >& run_reconnection_nn_0001_nppn_008_002.log
+aprun -n  4 -S  2 -d 2 -j 2 /usr/bin/time -p reconnection_nn_0001_nppn_004.Linux --tpp 2 >& run_reconnection_nn_0001_nppn_004_002.log
+aprun -n  2 -S  1 -d 2 -j 2 /usr/bin/time -p reconnection_nn_0001_nppn_002.Linux --tpp 2 >& run_reconnection_nn_0001_nppn_002_002.log
+aprun -n  1 -S  1 -d 2 -j 2 /usr/bin/time -p reconnection_nn_0001_nppn_001.Linux --tpp 2 >& run_reconnection_nn_0001_nppn_001_002.log
