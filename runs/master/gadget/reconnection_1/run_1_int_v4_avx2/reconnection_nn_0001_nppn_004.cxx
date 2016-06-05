@@ -125,9 +125,13 @@ begin_initialization {
   double topology_y = 2; 
   double topology_z = 1;  
 
-  double nx = 128;
-  double ny = 64;
-  double nz = 64;
+  double nx = 256;
+  double ny = 128;
+  double nz = 128;
+
+  // double nx = 128;
+  // double ny = 64;
+  // double nz = 64;
 
   double hx = Lx/nx;
   double hy = Ly/ny;
