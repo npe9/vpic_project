@@ -154,7 +154,8 @@ begin_initialization {
   //  int restart_interval = int(10000.0/(wci*dt));
   int restart_interval = 8000;
   int energies_interval = 100;
-  int interval = int(5.0/(wci*dt)); 
+  // int interval = int(5.0/(wci*dt));
+  int interval = 500;
   int fields_interval = interval;
   int ehydro_interval = interval;
   int Hhydro_interval = interval;
@@ -182,7 +183,8 @@ begin_initialization {
 
   ///////////////////////////////////////////////
   // Setup high level simulation parameters
-  num_step             = int(taui/(wci*dt));
+  // num_step             = int(taui/(wci*dt));
+  num_step             = 300;
   status_interval      = 200;
   sync_shared_interval = status_interval/2;
   clean_div_e_interval = status_interval/2;
