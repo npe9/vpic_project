@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -j oe
+#PBS -N vpic_knl_mpi_0064
+#PBS -l walltime=2:00:00
+#PBS -l nodes=64
+
+#set -x
+
+cd ${PBS_O_WORKDIR}
+
+source ./bashrc.modules
+
+module list
+
+aprun -n 16384 -N 256 -d 1 -j 4 reconnection_nn_0064_nppn_256.Linux >& run_reconnection_nn_0064_nppn_256_001.log
