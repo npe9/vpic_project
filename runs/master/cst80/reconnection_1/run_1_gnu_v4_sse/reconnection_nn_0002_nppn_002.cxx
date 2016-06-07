@@ -117,16 +117,16 @@ begin_initialization {
 
   double nppc  =  200; // Average number of macro particle per cell per species
 
-  double Lx  =   30.0/sqrt(mi_me)*di; // size of box in x dimension
-  double Ly  =   30.0/sqrt(mi_me)*di; // size of box in y dimension
-  double Lz  =   15.0/sqrt(mi_me)*di; // size of box in z dimension
+  double Lx  =      30.0/sqrt(mi_me)*di; // size of box in x dimension
+  double Ly  =    2*15.0/sqrt(mi_me)*di; // size of box in y dimension
+  double Lz  =      15.0/sqrt(mi_me)*di; // size of box in z dimension
 
   double topology_x = 2;  // Number of domains in x, y, and z
-  double topology_y = 2; 
+  double topology_y = 1*2; 
   double topology_z = 1;  
 
   double nx = 256;
-  double ny = 256;
+  double ny = 128*2;
   double nz = 128;
 
   double hx = Lx/nx;
