@@ -1,0 +1,56 @@
+#!/bin/bash
+
+aprun -n 64 -d 4 -j 4 /usr/bin/time -p test_lpi_hbm_np_00064.Linux --tpp 4 >& run_test_lpi_hbm_np_00064_004.log
+aprun -n 32 -d 4 -j 4 /usr/bin/time -p test_lpi_hbm_np_00032.Linux --tpp 4 >& run_test_lpi_hbm_np_00032_004.log
+aprun -n 16 -d 4 -j 4 /usr/bin/time -p test_lpi_hbm_np_00016.Linux --tpp 4 >& run_test_lpi_hbm_np_00016_004.log
+aprun -n  8 -d 4 -j 4 /usr/bin/time -p test_lpi_hbm_np_00008.Linux --tpp 4 >& run_test_lpi_hbm_np_00008_004.log
+aprun -n  4 -d 4 -j 4 /usr/bin/time -p test_lpi_hbm_np_00004.Linux --tpp 4 >& run_test_lpi_hbm_np_00004_004.log
+aprun -n  2 -d 4 -j 4 /usr/bin/time -p test_lpi_hbm_np_00002.Linux --tpp 4 >& run_test_lpi_hbm_np_00002_004.log
+aprun -n  1 -d 4 -j 4 /usr/bin/time -p test_lpi_hbm_np_00001.Linux --tpp 4 >& run_test_lpi_hbm_np_00001_004.log
+
+aprun -n 64 -d 3 -j 3 /usr/bin/time -p test_lpi_hbm_np_00064.Linux --tpp 3 >& run_test_lpi_hbm_np_00064_003.log
+aprun -n 32 -d 3 -j 3 /usr/bin/time -p test_lpi_hbm_np_00032.Linux --tpp 3 >& run_test_lpi_hbm_np_00032_003.log
+aprun -n 16 -d 3 -j 3 /usr/bin/time -p test_lpi_hbm_np_00016.Linux --tpp 3 >& run_test_lpi_hbm_np_00016_003.log
+aprun -n  8 -d 3 -j 3 /usr/bin/time -p test_lpi_hbm_np_00008.Linux --tpp 3 >& run_test_lpi_hbm_np_00008_003.log
+aprun -n  4 -d 3 -j 3 /usr/bin/time -p test_lpi_hbm_np_00004.Linux --tpp 3 >& run_test_lpi_hbm_np_00004_003.log
+aprun -n  2 -d 3 -j 3 /usr/bin/time -p test_lpi_hbm_np_00002.Linux --tpp 3 >& run_test_lpi_hbm_np_00002_003.log
+aprun -n  1 -d 3 -j 3 /usr/bin/time -p test_lpi_hbm_np_00001.Linux --tpp 3 >& run_test_lpi_hbm_np_00001_003.log
+
+aprun -n 64 -d 2 -j 2 /usr/bin/time -p test_lpi_hbm_np_00064.Linux --tpp 2 >& run_test_lpi_hbm_np_00064_002.log
+aprun -n 32 -d 2 -j 2 /usr/bin/time -p test_lpi_hbm_np_00032.Linux --tpp 2 >& run_test_lpi_hbm_np_00032_002.log
+aprun -n 16 -d 2 -j 2 /usr/bin/time -p test_lpi_hbm_np_00016.Linux --tpp 2 >& run_test_lpi_hbm_np_00016_002.log
+aprun -n  8 -d 2 -j 2 /usr/bin/time -p test_lpi_hbm_np_00008.Linux --tpp 2 >& run_test_lpi_hbm_np_00008_002.log
+aprun -n  4 -d 2 -j 2 /usr/bin/time -p test_lpi_hbm_np_00004.Linux --tpp 2 >& run_test_lpi_hbm_np_00004_002.log
+aprun -n  2 -d 2 -j 2 /usr/bin/time -p test_lpi_hbm_np_00002.Linux --tpp 2 >& run_test_lpi_hbm_np_00002_002.log
+aprun -n  1 -d 2 -j 2 /usr/bin/time -p test_lpi_hbm_np_00001.Linux --tpp 2 >& run_test_lpi_hbm_np_00001_002.log
+
+aprun -n 64 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00064.Linux --tpp 4 >& run_test_lpi_np_00064_004.log
+aprun -n 32 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00032.Linux --tpp 4 >& run_test_lpi_np_00032_004.log
+aprun -n 16 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00016.Linux --tpp 4 >& run_test_lpi_np_00016_004.log
+aprun -n  8 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00008.Linux --tpp 4 >& run_test_lpi_np_00008_004.log
+aprun -n  4 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00004.Linux --tpp 4 >& run_test_lpi_np_00004_004.log
+aprun -n  2 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00002.Linux --tpp 4 >& run_test_lpi_np_00002_004.log
+aprun -n  1 -d 4 -j 4 /usr/bin/time -p test_lpi_np_00001.Linux --tpp 4 >& run_test_lpi_np_00001_004.log
+
+aprun -n 64 -d 3 -j 3 /usr/bin/time -p test_lpi_np_00064.Linux --tpp 3 >& run_test_lpi_np_00064_003.log
+aprun -n 32 -d 3 -j 3 /usr/bin/time -p test_lpi_np_00032.Linux --tpp 3 >& run_test_lpi_np_00032_003.log
+aprun -n 16 -d 3 -j 3 /usr/bin/time -p test_lpi_np_00016.Linux --tpp 3 >& run_test_lpi_np_00016_003.log
+aprun -n  8 -d 3 -j 3 /usr/bin/time -p test_lpi_np_00008.Linux --tpp 3 >& run_test_lpi_np_00008_003.log
+aprun -n  4 -d 3 -j 3 /usr/bin/time -p test_lpi_np_00004.Linux --tpp 3 >& run_test_lpi_np_00004_003.log
+aprun -n  2 -d 3 -j 3 /usr/bin/time -p test_lpi_np_00002.Linux --tpp 3 >& run_test_lpi_np_00002_003.log
+aprun -n  1 -d 3 -j 3 /usr/bin/time -p test_lpi_np_00001.Linux --tpp 3 >& run_test_lpi_np_00001_003.log
+
+aprun -n 64 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00064.Linux --tpp 2 >& run_test_lpi_np_00064_002.log
+aprun -n 32 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00032.Linux --tpp 2 >& run_test_lpi_np_00032_002.log
+aprun -n 16 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00016.Linux --tpp 2 >& run_test_lpi_np_00016_002.log
+aprun -n  8 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00008.Linux --tpp 2 >& run_test_lpi_np_00008_002.log
+aprun -n  4 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00004.Linux --tpp 2 >& run_test_lpi_np_00004_002.log
+aprun -n  2 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00002.Linux --tpp 2 >& run_test_lpi_np_00002_002.log
+aprun -n  1 -d 2 -j 2 /usr/bin/time -p test_lpi_np_00001.Linux --tpp 2 >& run_test_lpi_np_00001_002.log
+
+#aprun -n 2 -d  1 -j 1 /usr/bin/time -p test_lpi_np_00001.Linux --tpp  1 >& run_test_lpi_np_00002_001.log
+#aprun -n 2 -d  2 -j 1 /usr/bin/time -p test_lpi_np_00001.Linux --tpp  2 >& run_test_lpi_np_00002_002.log
+#aprun -n 2 -d  4 -j 1 /usr/bin/time -p test_lpi_np_00001.Linux --tpp  4 >& run_test_lpi_np_00002_004.log
+#aprun -n 2 -d  8 -j 1 /usr/bin/time -p test_lpi_np_00001.Linux --tpp  8 >& run_test_lpi_np_00002_008.log
+#aprun -n 2 -d 16 -j 1 /usr/bin/time -p test_lpi_np_00001.Linux --tpp 16 >& run_test_lpi_np_00002_016.log
+#aprun -n 2 -d 16 -j 2 /usr/bin/time -p test_lpi_np_00001.Linux --tpp 32 >& run_test_lpi_np_00002_032.log
