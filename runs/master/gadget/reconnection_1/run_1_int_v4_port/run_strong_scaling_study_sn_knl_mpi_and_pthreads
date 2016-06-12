@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export MPICH_MEMORY_REPORT=3
+
 aprun -n 64 -d 4 -j 4 /usr/bin/time -p reconnection_nn_0001_nppn_064.Linux --tpp 4 >& run_reconnection_nn_0001_nppn_064_004.log
 aprun -n 32 -d 4 -j 4 /usr/bin/time -p reconnection_nn_0001_nppn_032.Linux --tpp 4 >& run_reconnection_nn_0001_nppn_032_004.log
 aprun -n 16 -d 4 -j 4 /usr/bin/time -p reconnection_nn_0001_nppn_016.Linux --tpp 4 >& run_reconnection_nn_0001_nppn_016_004.log

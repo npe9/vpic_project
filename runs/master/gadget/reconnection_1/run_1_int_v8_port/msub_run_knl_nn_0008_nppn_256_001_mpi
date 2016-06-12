@@ -1,15 +1,17 @@
 #!/bin/bash
 #PBS -j oe
-#PBS -N vpic_knl_mpi_0256
+#PBS -N vpic_knl_mpi_0008
 #PBS -l walltime=2:00:00
-#PBS -l nodes=256
+#PBS -l nodes=8
 
 #set -x
 
-cd ${PBS_O_WORKDIR}
+#cd ${PBS_O_WORKDIR}
 
 source ./bashrc.modules
 
 module list
 
-aprun -n 65536 -N 256 -d 1 -j 4 reconnection_nn_0256_nppn_256.Linux >& run_reconnection_nn_0256_nppn_256_001.log
+export MPICH_MEMORY_REPORT=3
+
+aprun -n 2048 -N 256 -d 1 -j 4 reconnection_nn_0008_nppn_256.Linux >& run_reconnection_nn_0008_nppn_256_001.log
