@@ -772,18 +772,24 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX2" ]; then
   cmake \
     -LAH \
     -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
     -DENABLE_COLOR_UNIT_TESTS=ON \
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
-    -DCMAKE_C_COMPILER=icc \
-    -DCMAKE_CXX_COMPILER=icpc \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+    -DMPIEXEC=`which mpirun` \
     ..
   make VERBOSE=1
 fi
+
+#    -DCMAKE_C_FLAGS="-g -O2" \
+#    -DCMAKE_CXX_FLAGS="-g -O2" \
 
 #    -DCMAKE_C_FLAGS="-rdynamic -dynamic" \
 #    -DCMAKE_CXX_FLAGS="-rdynamic -dynamic" \
