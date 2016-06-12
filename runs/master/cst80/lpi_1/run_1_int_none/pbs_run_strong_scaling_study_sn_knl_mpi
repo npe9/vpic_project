@@ -12,6 +12,8 @@ source ./bashrc.modules
 
 module list
 
+export MPICH_MEMORY_REPORT=3
+
 aprun -n 256 -d 1 -j 4 /usr/bin/time -p test_lpi_hbm_np_00256.Linux >& run_test_lpi_hbm_np_00256_001.log
 aprun -n 128 -d 1 -j 2 /usr/bin/time -p test_lpi_hbm_np_00128.Linux >& run_test_lpi_hbm_np_00128_001.log
 aprun -n  64 -d 1 -j 1 /usr/bin/time -p test_lpi_hbm_np_00064.Linux >& run_test_lpi_hbm_np_00064_001.log

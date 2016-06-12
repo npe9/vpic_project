@@ -12,6 +12,8 @@ source ./bashrc.modules
 
 module list
 
+export MPICH_MEMORY_REPORT=3
+
 aprun -n 1 -d 1 -j 1 /usr/bin/time -p numactl --physcpubind=+0-63,68-131,136-199,204-267 test_lpi_hbm_np_00001.Linux --tpp 256 >& run_test_lpi_hbm_np_00001_256.log
 aprun -n 1 -d 1 -j 1 /usr/bin/time -p numactl --physcpubind=+0-63,68-131                 test_lpi_hbm_np_00001.Linux --tpp 128 >& run_test_lpi_hbm_np_00001_128.log
 aprun -n 1 -d 1 -j 1 /usr/bin/time -p numactl --physcpubind=+0-63                        test_lpi_hbm_np_00001.Linux --tpp  64 >& run_test_lpi_hbm_np_00001_064.log

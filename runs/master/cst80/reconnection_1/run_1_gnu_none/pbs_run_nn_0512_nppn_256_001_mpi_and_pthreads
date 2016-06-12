@@ -12,4 +12,6 @@ source ./bashrc.modules
 
 module list
 
+export MPICH_MEMORY_REPORT=3
+
 aprun -n 32768 -N 64 -d 4 -j 4 reconnection_nn_0512_nppn_064.Linux --tpp 4 >& run_reconnection_nn_0512_nppn_064_004.log
