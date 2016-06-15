@@ -36,8 +36,9 @@ cd $VPIC_DIR
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_NONE_HSW" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -63,8 +64,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V4_PORT_HSW" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -91,8 +93,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V4_SSE_HSW" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -119,8 +122,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V4_AVX2_HSW" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -147,8 +151,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V8_PORT_HSW" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -176,8 +181,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V8_AVX2_HSW" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -207,6 +213,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_NONE_HSW" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -232,6 +239,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V4_PORT_HSW" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -259,6 +267,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V4_SSE_HSW" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -286,6 +295,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V4_AVX2_HSW" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -313,6 +323,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V8_PORT_HSW" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -340,6 +351,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V8_AVX2_HSW" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -370,8 +382,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_NONE_KNL" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1-knl
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -397,8 +410,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V4_PORT_KNL" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1-knl
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -425,8 +439,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V4_SSE_KNL" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1-knl
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -453,8 +468,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V4_AVX2_KNL" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1-knl
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -481,8 +497,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V8_PORT_KNL" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1-knl
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -510,8 +527,9 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_INT_OPT_V8_AVX2_KNL" ]; then
+  module load cmake
   module load intel/parallel_studio_xe_2017_beta_update1
-  module load openmpi/1.10.2-intel_16.0.1-knl
+  source /projects/opt/intel/parallel_studio_xe_2017.0.022/psxevars.sh intel64
 
   module list
 
@@ -541,6 +559,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_NONE_KNL" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -566,6 +585,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V4_PORT_KNL" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -593,6 +613,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V4_SSE_KNL" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -620,6 +641,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V4_AVX2_KNL" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -647,6 +669,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V8_PORT_KNL" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
@@ -674,6 +697,7 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "DARWIN_MASTER_LINUX_GNU_OPT_V8_AVX2_KNL" ]; then
+  module load cmake
   module load gcc/6.1.0
   module load openmpi/1.10.2-gcc_6.1.0
 
