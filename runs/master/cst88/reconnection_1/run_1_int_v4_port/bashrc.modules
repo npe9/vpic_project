@@ -1,0 +1,5 @@
+#!/bin/bash
+
+module swap PrgEnv-cray PrgEnv-intel
+module swap intel/16.0.3.210 intel/17.0.0.042.beta
+module load craype-mic-knl
