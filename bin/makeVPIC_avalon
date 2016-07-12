@@ -39,6 +39,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_NONE" ]; then
   module swap PrgEnv-cray PrgEnv-intel
   module swap intel/16.0.3.210 intel/17.0.0.042.beta
   module load craype-mic-knl
+  module load perftools-lite
+  module load cmake
 
   module list
 
@@ -68,6 +70,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_PORT" ]; then
   module swap PrgEnv-cray PrgEnv-intel
   module swap intel/16.0.3.210 intel/17.0.0.042.beta
   module load craype-mic-knl
+  module load perftools-lite
+  module load cmake
 
   module list
 
@@ -98,6 +102,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_SSE" ]; then
   module swap PrgEnv-cray PrgEnv-intel
   module swap intel/16.0.3.210 intel/17.0.0.042.beta
   module load craype-mic-knl
+  module load perftools-lite
+  module load cmake
 
   module list
 
@@ -128,6 +134,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V4_AVX2" ]; then
   module swap PrgEnv-cray PrgEnv-intel
   module swap intel/16.0.3.210 intel/17.0.0.042.beta
   module load craype-mic-knl
+  module load perftools-lite
+  module load cmake
 
   module list
 
@@ -158,6 +166,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V8_PORT" ]; then
   module swap PrgEnv-cray PrgEnv-intel
   module swap intel/16.0.3.210 intel/17.0.0.042.beta
   module load craype-mic-knl
+  module load perftools-lite
+  module load cmake
 
   module list
 
@@ -189,6 +199,8 @@ if [ $ARCH = "AVALON_MASTER_CLE_INT_OPT_V8_AVX2" ]; then
   module swap PrgEnv-cray PrgEnv-intel
   module swap intel/16.0.3.210 intel/17.0.0.042.beta
   module load craype-mic-knl
+  module load perftools-lite
+  module load cmake
 
   module list
 

@@ -42,38 +42,38 @@ mv makeVPIC_avalon.log build/$ARCH/vpic
 ################################################################################
 # Build the optimized GNU case for the master branch without vector support.
 
-ARCH=AVALON_MASTER_CLE_GNU_OPT_NONE
-BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
-mv makeVPIC_avalon.log build/$ARCH/vpic
+#ARCH=AVALON_MASTER_CLE_GNU_OPT_NONE
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
+#mv makeVPIC_avalon.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
-ARCH=AVALON_MASTER_CLE_GNU_OPT_V4_PORT
-BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
-mv makeVPIC_avalon.log build/$ARCH/vpic
+#ARCH=AVALON_MASTER_CLE_GNU_OPT_V4_PORT
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
+#mv makeVPIC_avalon.log build/$ARCH/vpic
 
-ARCH=AVALON_MASTER_CLE_GNU_OPT_V4_SSE
-BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
-mv makeVPIC_avalon.log build/$ARCH/vpic
+#ARCH=AVALON_MASTER_CLE_GNU_OPT_V4_SSE
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
+#mv makeVPIC_avalon.log build/$ARCH/vpic
 
-ARCH=AVALON_MASTER_CLE_GNU_OPT_V4_AVX2
-BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
-mv makeVPIC_avalon.log build/$ARCH/vpic
+#ARCH=AVALON_MASTER_CLE_GNU_OPT_V4_AVX2
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
+#mv makeVPIC_avalon.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
-ARCH=AVALON_MASTER_CLE_GNU_OPT_V8_PORT
-BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
-mv makeVPIC_avalon.log build/$ARCH/vpic
+#ARCH=AVALON_MASTER_CLE_GNU_OPT_V8_PORT
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
+#mv makeVPIC_avalon.log build/$ARCH/vpic
 
-ARCH=AVALON_MASTER_CLE_GNU_OPT_V8_AVX2
-BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
-mv makeVPIC_avalon.log build/$ARCH/vpic
+#ARCH=AVALON_MASTER_CLE_GNU_OPT_V8_AVX2
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_avalon $ARCH $BRANCH 8 >& makeVPIC_avalon.log
+#mv makeVPIC_avalon.log build/$ARCH/vpic
