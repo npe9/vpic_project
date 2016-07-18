@@ -125,18 +125,17 @@ begin_initialization {
 
   // Simulation parameters 
 
-  // 
-  double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                =  2 * 12.0 * 1e-4;              
-  double Lz                =  2 * 12.0 * 1e-4;                 
-//???????????????????????????????????????????????????????
-  double nx                = 40*16;
-  double ny                = 40*2;
-  double nz                = 40*2;
+  double Lx                = 17 * 0.8 * 12.0 * 1e-4;  // In cm (note: 1 micron = 1e-4 cm)
+  double Ly                =  3 * 0.8 * 12.0 * 1e-4;
+  double Lz                =  3 * 0.8 * 12.0 * 1e-4;
+
+  double nx                = 32*17;
+  double ny                = 32*3;
+  double nz                = 32*3;
+
   double topology_x        = 16;
   double topology_y        = 4;
   double topology_z        = 4;
-  // single-processor mesh = 40 x 20 x 20
 
   // double nppc               = 100;     // Ave. number of particles/cell in ea. species
   double nppc               = 360;     // Ave. number of particles/cell in ea. species
