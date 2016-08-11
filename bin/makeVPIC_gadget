@@ -2259,8 +2259,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2291,8 +2291,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2323,8 +2323,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2355,8 +2355,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2388,8 +2388,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2421,8 +2421,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2453,8 +2453,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2485,8 +2487,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2517,8 +2521,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2549,8 +2555,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2581,8 +2589,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2614,8 +2624,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2648,8 +2660,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2681,8 +2695,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2714,8 +2730,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2747,8 +2763,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2781,8 +2797,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2815,8 +2831,8 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2848,8 +2864,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2881,8 +2899,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2914,8 +2934,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2947,8 +2969,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -2980,8 +3004,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
@@ -3014,8 +3040,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                     -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
+                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
