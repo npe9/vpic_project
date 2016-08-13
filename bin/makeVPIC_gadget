@@ -542,13 +542,10 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O0 -inline-forceinline -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
   make VERBOSE=1
 fi
-
-#    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
 
 ################################################################################################################################################################
 
@@ -2665,11 +2662,14 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
                      -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_CXX_FLAGS="-g -O0 -inline-forceinline -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make VERBOSE=1
 fi
+
+#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+#                       -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
 
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
