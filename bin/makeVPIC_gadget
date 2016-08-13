@@ -542,10 +542,13 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -inline-forceinline -craype-verbose" \
     ..
   make VERBOSE=1
 fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
 
 ################################################################################################################################################################
 
