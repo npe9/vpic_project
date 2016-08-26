@@ -5,78 +5,78 @@
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -85,78 +85,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -165,78 +165,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU case for the master branch without vector support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -245,78 +245,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -325,78 +325,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -405,78 +405,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU case for the master branch without vector support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -485,78 +485,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -565,78 +565,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT_LITE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -645,78 +645,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU case for the master branch without vector support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT_LITE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -725,78 +725,78 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_VTUNE
 BRANCH=master_wdn_v8
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################################################################################################
 
@@ -805,75 +805,75 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU case for the master branch without vector support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V4 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized GNU cases for the master branch with V8 support.
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_VTUNE
 #BRANCH=master_wdn_v8
-#/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH 8 >& makeVPIC_gadget.log
-#mv makeVPIC_gadget.log build/$ARCH/vpic
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 8 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
