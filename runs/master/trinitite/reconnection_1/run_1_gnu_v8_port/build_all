@@ -1,0 +1,53 @@
+#!/bin/bash
+
+source ./bashrc.modules
+
+vpic reconnection_nn_0001_nppn_001.cxx
+vpic reconnection_nn_0001_nppn_002.cxx
+vpic reconnection_nn_0001_nppn_004.cxx
+vpic reconnection_nn_0001_nppn_008.cxx
+vpic reconnection_nn_0001_nppn_016.cxx
+vpic reconnection_nn_0001_nppn_032.cxx
+vpic reconnection_nn_0001_nppn_064.cxx
+vpic reconnection_nn_0001_nppn_128.cxx
+vpic reconnection_nn_0001_nppn_256.cxx
+
+vpic reconnection_nn_0002_nppn_001.cxx
+vpic reconnection_nn_0002_nppn_002.cxx
+vpic reconnection_nn_0002_nppn_004.cxx
+vpic reconnection_nn_0002_nppn_008.cxx
+vpic reconnection_nn_0002_nppn_016.cxx
+vpic reconnection_nn_0002_nppn_032.cxx
+vpic reconnection_nn_0002_nppn_064.cxx
+vpic reconnection_nn_0002_nppn_128.cxx
+vpic reconnection_nn_0002_nppn_256.cxx
+
+vpic reconnection_nn_0004_nppn_001.cxx
+vpic reconnection_nn_0004_nppn_002.cxx
+vpic reconnection_nn_0004_nppn_004.cxx
+vpic reconnection_nn_0004_nppn_008.cxx
+vpic reconnection_nn_0004_nppn_016.cxx
+vpic reconnection_nn_0004_nppn_032.cxx
+vpic reconnection_nn_0004_nppn_064.cxx
+vpic reconnection_nn_0004_nppn_128.cxx
+vpic reconnection_nn_0004_nppn_256.cxx
+
+vpic reconnection_nn_0008_nppn_001.cxx
+vpic reconnection_nn_0008_nppn_002.cxx
+vpic reconnection_nn_0008_nppn_004.cxx
+vpic reconnection_nn_0008_nppn_008.cxx
+vpic reconnection_nn_0008_nppn_016.cxx
+vpic reconnection_nn_0008_nppn_032.cxx
+vpic reconnection_nn_0008_nppn_064.cxx
+vpic reconnection_nn_0008_nppn_128.cxx
+vpic reconnection_nn_0008_nppn_256.cxx
+
+vpic reconnection_nn_0016_nppn_001.cxx
+vpic reconnection_nn_0016_nppn_002.cxx
+vpic reconnection_nn_0016_nppn_004.cxx
+vpic reconnection_nn_0016_nppn_008.cxx
+vpic reconnection_nn_0016_nppn_016.cxx
+vpic reconnection_nn_0016_nppn_032.cxx
+vpic reconnection_nn_0016_nppn_064.cxx
+vpic reconnection_nn_0016_nppn_128.cxx
+vpic reconnection_nn_0016_nppn_256.cxx
