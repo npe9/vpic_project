@@ -36,6 +36,12 @@ cd $VPIC_DIR
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -62,6 +68,12 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -89,6 +101,12 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -116,6 +134,12 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -143,6 +167,12 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -171,6 +201,12 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
+
   module list
 
   export MPI_ROOT=$MPICH_DIR
@@ -201,7 +237,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -228,7 +269,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -257,7 +303,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -286,7 +337,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -315,7 +371,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -344,7 +405,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -376,7 +442,11 @@ fi
 # Build an optimized version of VPIC with Cray compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -404,7 +474,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -433,7 +507,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -462,7 +540,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -491,7 +573,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -521,7 +607,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
 
   module list
 
@@ -553,6 +643,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -581,6 +676,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -610,6 +710,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -639,6 +744,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -668,6 +778,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -698,6 +813,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -730,7 +850,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -758,7 +883,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -788,7 +918,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -818,7 +953,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -848,7 +988,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -878,7 +1023,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -911,7 +1061,11 @@ fi
 # Build an optimized version of VPIC with Cray compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -940,7 +1094,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -970,7 +1128,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -1000,7 +1162,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -1030,7 +1196,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -1061,7 +1231,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
 
   module list
@@ -1094,6 +1268,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1123,6 +1302,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1153,6 +1337,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1183,6 +1372,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1213,6 +1407,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1244,6 +1443,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1277,7 +1481,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1306,7 +1515,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1337,7 +1551,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1368,7 +1587,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1399,7 +1623,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1430,7 +1659,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1464,7 +1698,11 @@ fi
 # Build an optimized version of VPIC with Cray compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1494,7 +1732,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1525,7 +1767,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1556,7 +1802,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1587,7 +1837,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1619,7 +1873,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
 
@@ -1653,6 +1911,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1683,6 +1946,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1714,6 +1982,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1745,6 +2018,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1776,6 +2054,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1808,6 +2091,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1842,7 +2130,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1872,7 +2165,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1904,7 +2202,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1936,7 +2239,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -1968,7 +2276,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2000,7 +2313,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2035,7 +2353,11 @@ fi
 # Build an optimized version of VPIC with Cray compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2066,7 +2388,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2098,7 +2424,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2130,7 +2460,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2162,7 +2496,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2195,7 +2533,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
@@ -2230,6 +2572,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2259,6 +2606,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2289,6 +2641,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2319,6 +2676,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2349,6 +2711,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2380,6 +2747,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2413,7 +2785,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2442,7 +2819,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2473,7 +2855,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2504,7 +2891,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2535,7 +2927,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2566,7 +2963,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2600,7 +3002,11 @@ fi
 # Build an optimized version of VPIC with Cray compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2630,7 +3036,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2661,7 +3071,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2692,7 +3106,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2723,7 +3141,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2755,7 +3177,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
 
@@ -2789,6 +3215,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -2819,6 +3250,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -2850,6 +3286,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -2881,6 +3322,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -2912,6 +3358,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -2944,6 +3395,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
+  module swap intel/16.0.3 intel/17.0.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -2978,7 +3434,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3008,7 +3469,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3040,7 +3506,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3072,7 +3543,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3104,7 +3580,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3136,7 +3617,12 @@ fi
 # Build an optimized version of VPIC with GNU compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
+  module swap PrgEnv-gnu/6.0.2 PrgEnv-gnu/6.0.3
+  module swap gcc/5.3.0 gcc/6.1.0
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3171,7 +3657,11 @@ fi
 # Build an optimized version of VPIC with Cray compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3202,7 +3692,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3234,7 +3728,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3266,7 +3764,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3298,7 +3800,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
@@ -3331,7 +3837,11 @@ fi
 # Build an optimized version of VPIC with Intel compilers.
 
 if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+  module load friendly-testing
+  module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
+  module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
+  module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
