@@ -35,6 +35,70 @@ cd $VPIC_DIR
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
+if [ $ARCH = "GADGET_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "GADGET_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
   module list
 
@@ -55,7 +119,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -82,7 +146,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_HSW" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -109,7 +173,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_HSW" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -136,7 +200,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_HSW" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -164,7 +228,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_HSW" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -192,7 +256,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_HSW" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -221,7 +285,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_HSW" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -250,7 +314,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_HSW" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -279,7 +343,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_HSW" ]; then
     -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -308,7 +372,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_HSW" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -337,7 +401,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_HSW" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -367,7 +431,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_HSW" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -397,7 +461,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -426,7 +490,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_KNL" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -455,7 +519,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_KNL" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -484,7 +548,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_KNL" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -514,7 +578,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_KNL" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -544,7 +608,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -574,7 +638,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_KNL" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -604,7 +668,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_KNL" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -634,7 +698,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_KNL" ]; then
     -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -664,7 +728,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_KNL" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -694,7 +758,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_KNL" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -725,7 +789,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_KNL" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -756,7 +820,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -786,7 +850,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -816,7 +880,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -846,7 +910,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -877,7 +941,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -908,7 +972,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -939,7 +1003,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -970,7 +1034,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1001,7 +1065,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1032,7 +1096,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1063,7 +1127,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1095,7 +1159,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -1127,7 +1191,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1158,7 +1222,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1189,7 +1253,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1220,7 +1284,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1252,7 +1316,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1284,7 +1348,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -1316,7 +1380,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1348,7 +1412,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1380,7 +1444,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1412,7 +1476,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1444,7 +1508,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1477,7 +1541,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -1508,7 +1572,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1538,7 +1602,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1568,7 +1632,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1598,7 +1662,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1629,7 +1693,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1660,7 +1724,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -1691,7 +1755,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1722,7 +1786,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1753,7 +1817,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1784,7 +1848,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1815,7 +1879,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1847,7 +1911,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -1879,7 +1943,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1910,7 +1974,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1941,7 +2005,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -1972,7 +2036,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2004,7 +2068,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2036,7 +2100,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -2068,7 +2132,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2100,7 +2164,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2132,7 +2196,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2164,7 +2228,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2196,7 +2260,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2229,7 +2293,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -2262,7 +2326,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2294,7 +2358,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2326,7 +2390,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2358,7 +2422,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2391,7 +2455,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2424,7 +2488,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -2458,7 +2522,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_HSW_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2492,7 +2556,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2526,7 +2590,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2560,7 +2624,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2594,7 +2658,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2629,7 +2693,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################################################################################################
@@ -2665,7 +2729,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2700,7 +2764,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2733,7 +2797,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2766,7 +2830,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2800,7 +2864,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2835,7 +2899,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-g -O0 -inline-forceinline -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 #    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
@@ -2872,7 +2936,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_NONE_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2907,7 +2971,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2942,7 +3006,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -2977,7 +3041,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -3012,7 +3076,7 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
@@ -3048,5 +3112,5 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
-  make VERBOSE=1
+  make -j $NJ VERBOSE=1
 fi

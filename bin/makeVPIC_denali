@@ -31,6 +31,80 @@ cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
 cd $VPIC_DIR
 
 ################################################################################################################################################################
+# Intel optimized builds of master branch with Pthreads or OpenMP support.
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_PTH_V8_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_OMP_V8_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+
+
+
+
+
+
+
+################################################################################################################################################################
 # Intel optimized builds of master branch.
 
 ################################################################################
