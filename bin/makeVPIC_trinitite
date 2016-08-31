@@ -58,8 +58,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -91,8 +91,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -124,8 +124,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -157,8 +157,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -191,8 +191,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -225,8 +225,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -464,8 +464,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -497,8 +497,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -530,8 +530,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -563,8 +563,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -597,8 +597,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -631,8 +631,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -666,8 +666,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -700,8 +700,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -734,8 +734,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -768,8 +768,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -803,8 +803,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -838,8 +838,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1084,8 +1084,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1118,8 +1118,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1152,8 +1152,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1186,8 +1186,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1221,8 +1221,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1256,8 +1256,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1275,6 +1275,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1292,8 +1294,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1309,6 +1311,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1327,8 +1331,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1344,6 +1348,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1362,8 +1368,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1379,6 +1385,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1397,8 +1405,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1414,6 +1422,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1433,8 +1443,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1450,6 +1460,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1469,8 +1481,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1489,6 +1501,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1523,6 +1537,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1559,6 +1575,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1595,6 +1613,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1631,6 +1651,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1667,6 +1689,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1705,6 +1729,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1722,8 +1748,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1739,6 +1765,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1757,8 +1785,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1774,6 +1802,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1792,8 +1822,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1809,6 +1839,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1827,8 +1859,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1844,6 +1876,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1863,8 +1897,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1880,6 +1914,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1899,8 +1935,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1919,6 +1955,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1936,8 +1974,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1954,6 +1992,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1972,8 +2012,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1990,6 +2030,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2008,8 +2050,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2026,6 +2068,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2044,8 +2088,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2062,6 +2106,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2081,8 +2127,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2099,6 +2145,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2118,8 +2166,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2139,6 +2187,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2174,6 +2224,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2211,6 +2263,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2248,6 +2302,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2285,6 +2341,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2322,6 +2380,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2361,6 +2421,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2378,8 +2440,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2396,6 +2458,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2414,8 +2478,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2432,6 +2496,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2450,8 +2516,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2468,6 +2534,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2486,8 +2554,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2504,6 +2572,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2523,8 +2593,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2541,6 +2611,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2560,8 +2632,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2579,6 +2651,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2596,8 +2670,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2613,6 +2687,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2631,8 +2707,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2648,6 +2724,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2666,8 +2744,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2683,6 +2761,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2701,8 +2781,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2718,6 +2798,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2737,8 +2819,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2754,6 +2836,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2773,8 +2857,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2793,6 +2877,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2827,6 +2913,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2863,6 +2951,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2899,6 +2989,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2935,6 +3027,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2971,6 +3065,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3009,6 +3105,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3026,8 +3124,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3043,6 +3141,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3061,8 +3161,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3078,6 +3178,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3096,8 +3198,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3113,6 +3215,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3131,8 +3235,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3148,6 +3252,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3167,8 +3273,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3184,6 +3290,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3203,8 +3311,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3223,6 +3331,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3240,8 +3350,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3258,6 +3368,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3276,8 +3388,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3294,6 +3406,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3312,8 +3426,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3330,6 +3444,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3348,8 +3464,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3366,6 +3482,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3385,8 +3503,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3403,6 +3521,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3422,8 +3542,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3443,6 +3563,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3478,6 +3600,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3515,6 +3639,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3552,6 +3678,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3589,6 +3717,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3626,6 +3756,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3665,6 +3797,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3682,8 +3816,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3700,6 +3834,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3718,8 +3854,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3736,6 +3872,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3754,8 +3892,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3772,6 +3910,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3790,8 +3930,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3808,6 +3948,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3827,8 +3969,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3845,6 +3987,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3864,8 +4008,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3897,8 +4041,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3929,8 +4073,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3961,8 +4105,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3993,8 +4137,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4026,8 +4170,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4059,8 +4203,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4298,9 +4442,9 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                      -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
@@ -4333,9 +4477,9 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                      -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
@@ -4368,8 +4512,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4401,8 +4545,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4435,8 +4579,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4469,14 +4613,14 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O0 -inline-forceinline -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
 
-#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
 
 ################################################################################################################################################################
 
@@ -4719,8 +4863,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4754,8 +4898,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4789,8 +4933,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4824,8 +4968,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4860,8 +5004,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4896,8 +5040,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5149,8 +5293,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5184,8 +5328,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5219,8 +5363,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5254,8 +5398,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5290,8 +5434,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5326,8 +5470,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5363,8 +5507,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5399,8 +5543,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5435,8 +5579,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5471,8 +5615,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5508,8 +5652,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5545,8 +5689,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5805,8 +5949,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5841,8 +5985,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5877,8 +6021,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5913,8 +6057,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5950,8 +6094,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5987,8 +6131,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6006,6 +6150,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6025,8 +6171,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6042,6 +6188,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6062,8 +6210,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6079,6 +6227,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6099,8 +6249,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6116,6 +6266,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6136,8 +6288,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6153,6 +6305,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6174,8 +6328,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6191,6 +6345,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6212,8 +6368,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6232,6 +6388,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6268,6 +6426,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6306,6 +6466,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6344,6 +6506,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6382,6 +6546,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6420,6 +6586,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6460,6 +6628,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6479,8 +6649,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6496,6 +6666,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6516,8 +6688,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6533,6 +6705,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6553,8 +6727,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6570,6 +6744,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6590,8 +6766,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6607,6 +6783,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6628,8 +6806,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6645,6 +6823,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6666,8 +6846,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6686,6 +6866,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6705,8 +6887,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6723,6 +6905,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6743,8 +6927,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6761,6 +6945,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6781,8 +6967,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6799,6 +6985,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6819,8 +7007,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6837,6 +7025,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6858,8 +7048,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6876,6 +7066,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6897,8 +7089,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6918,6 +7110,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6955,6 +7149,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6994,6 +7190,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7033,6 +7231,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7072,6 +7272,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7111,6 +7313,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7152,6 +7356,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7171,8 +7377,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7189,6 +7395,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7209,8 +7417,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7227,6 +7435,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7247,8 +7457,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7265,6 +7475,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7285,8 +7497,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7303,6 +7515,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7324,8 +7538,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7342,6 +7556,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7363,8 +7579,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7382,6 +7598,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7401,8 +7619,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7418,6 +7636,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7438,8 +7658,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7455,6 +7675,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7475,8 +7697,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7492,6 +7714,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7512,8 +7736,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7529,6 +7753,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7550,8 +7776,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7567,6 +7793,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7588,8 +7816,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7608,6 +7836,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7644,6 +7874,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7682,6 +7914,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7720,6 +7954,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7758,6 +7994,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7796,6 +8034,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7836,6 +8076,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7855,8 +8097,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7872,6 +8114,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7892,8 +8136,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7909,6 +8153,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7929,8 +8175,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7946,6 +8192,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7966,8 +8214,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7983,6 +8231,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8004,8 +8254,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8021,6 +8271,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8042,8 +8294,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8062,6 +8314,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8081,8 +8335,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8099,6 +8353,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8119,8 +8375,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8137,6 +8393,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8157,8 +8415,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8175,6 +8433,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8195,8 +8455,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8213,6 +8473,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8234,8 +8496,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8252,6 +8514,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8273,8 +8537,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8294,6 +8558,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8331,6 +8597,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8370,6 +8638,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8409,6 +8679,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8448,6 +8720,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8487,6 +8761,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8528,6 +8804,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8547,8 +8825,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8565,6 +8843,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8585,8 +8865,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8603,6 +8883,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8623,8 +8905,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8641,6 +8923,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8661,8 +8945,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8679,6 +8963,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8700,8 +8986,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8718,6 +9004,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap craype-haswell craype-mic-knl
   module load perftools-base
   module load perftools-lite
+  module swap perftools-base/6.3.2 perftools-base/6.4.1
+  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8739,8 +9027,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8774,8 +9062,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8808,8 +9096,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8842,8 +9130,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8876,8 +9164,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8911,8 +9199,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8946,8 +9234,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -9199,9 +9487,9 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                      -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
@@ -9236,9 +9524,9 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                      -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
@@ -9273,8 +9561,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -9308,8 +9596,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -9344,8 +9632,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -9380,14 +9668,14 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+    -DCMAKE_C_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     -DCMAKE_CXX_FLAGS="-g -O0 -inline-forceinline -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF \
                        -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
     ..
   make -j $NJ VERBOSE=1
 fi
 
-#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -qopt-report=3 -qopt-report-phase=all -craype-verbose -DVPIC_USE_VTUNE_OFF -debug inline-debug-info -parallel-source-info=2 -I$VTUNE_AMPLIFIER_XE_2016_DIR/include" \
 
 ################################################################################################################################################################
 
