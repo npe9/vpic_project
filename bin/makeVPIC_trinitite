@@ -35,7 +35,7 @@ cd $VPIC_DIR
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -67,7 +67,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -100,7 +100,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -133,7 +133,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -166,7 +166,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -200,7 +200,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -236,7 +236,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -268,7 +268,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -302,7 +302,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -336,7 +336,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -370,7 +370,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -404,7 +404,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -441,7 +441,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -464,8 +464,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -473,7 +473,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -497,8 +497,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -506,7 +506,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -530,8 +530,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -539,7 +539,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -563,8 +563,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -572,7 +572,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -597,8 +597,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -606,7 +606,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -631,8 +631,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -642,7 +642,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -675,7 +675,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -709,7 +709,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -743,7 +743,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -777,7 +777,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -812,7 +812,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -849,7 +849,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -882,7 +882,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -917,7 +917,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -952,7 +952,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -987,7 +987,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1022,7 +1022,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1060,7 +1060,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1084,8 +1084,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1093,7 +1093,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1118,8 +1118,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1127,7 +1127,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1152,8 +1152,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1161,7 +1161,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1186,8 +1186,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1195,7 +1195,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1221,8 +1221,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1230,7 +1230,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1256,8 +1256,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1267,16 +1267,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1303,16 +1302,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1340,16 +1338,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1377,16 +1374,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1414,16 +1410,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1452,16 +1447,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1492,7 +1486,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1500,9 +1494,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1528,7 +1521,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1536,9 +1529,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1566,7 +1558,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1574,9 +1566,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1604,7 +1595,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1612,9 +1603,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1642,7 +1632,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1650,9 +1640,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1680,7 +1669,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1688,9 +1677,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1721,16 +1709,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1748,8 +1735,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1757,16 +1744,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1785,8 +1771,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1794,16 +1780,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1822,8 +1807,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1831,16 +1816,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1859,8 +1843,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1868,16 +1852,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1897,8 +1880,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1906,16 +1889,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1935,8 +1917,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1946,7 +1928,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -1954,9 +1936,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -1983,7 +1964,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -1991,9 +1972,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2021,7 +2001,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -2029,9 +2009,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2059,7 +2038,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -2067,9 +2046,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2097,7 +2075,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -2105,9 +2083,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2136,7 +2113,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -2144,9 +2121,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2177,7 +2153,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2186,9 +2162,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2214,7 +2189,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2223,9 +2198,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2253,7 +2227,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2262,9 +2236,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2292,7 +2265,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2301,9 +2274,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2331,7 +2303,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2340,9 +2312,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2370,7 +2341,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2379,9 +2350,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2412,7 +2382,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2420,9 +2390,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2440,8 +2409,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2449,7 +2418,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2457,9 +2426,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2478,8 +2446,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2487,7 +2455,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2495,9 +2463,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2516,8 +2483,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2525,7 +2492,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2533,9 +2500,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2554,8 +2520,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2563,7 +2529,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2571,9 +2537,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2593,8 +2558,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2602,7 +2567,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2610,9 +2575,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -2632,8 +2596,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -2643,16 +2607,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2679,16 +2642,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2716,16 +2678,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2753,16 +2714,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2790,16 +2750,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2828,16 +2787,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2868,7 +2826,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2876,9 +2834,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2904,7 +2861,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2912,9 +2869,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2942,7 +2898,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2950,9 +2906,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -2980,7 +2935,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2988,9 +2943,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3018,7 +2972,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3026,9 +2980,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3056,7 +3009,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3064,9 +3017,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3097,16 +3049,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3124,8 +3075,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3133,16 +3084,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3161,8 +3111,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3170,16 +3120,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3198,8 +3147,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3207,16 +3156,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3235,8 +3183,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3244,16 +3192,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3273,8 +3220,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3282,16 +3229,15 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3311,8 +3257,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3322,7 +3268,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -3330,9 +3276,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3359,7 +3304,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -3367,9 +3312,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3397,7 +3341,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -3405,9 +3349,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3435,7 +3378,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -3443,9 +3386,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3473,7 +3415,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -3481,9 +3423,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3512,7 +3453,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel/6.0.2 PrgEnv-intel/6.0.3
@@ -3520,9 +3461,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3553,7 +3493,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3562,9 +3502,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3590,7 +3529,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3599,9 +3538,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3629,7 +3567,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3638,9 +3576,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3668,7 +3605,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3677,9 +3614,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3707,7 +3643,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3716,9 +3652,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3746,7 +3681,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3755,9 +3690,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3788,7 +3722,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3796,9 +3730,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3816,8 +3749,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3825,7 +3758,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3833,9 +3766,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3854,8 +3786,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3863,7 +3795,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3871,9 +3803,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3892,8 +3823,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3901,7 +3832,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3909,9 +3840,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3930,8 +3860,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3939,7 +3869,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3947,9 +3877,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -3969,8 +3898,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -3978,7 +3907,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3986,9 +3915,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -4008,8 +3936,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -4019,7 +3947,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module load intel-performance-tools/2016.3.067
 
@@ -4050,7 +3978,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module load intel-performance-tools/2016.3.067
 
@@ -4082,7 +4010,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module load intel-performance-tools/2016.3.067
 
@@ -4114,7 +4042,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module load intel-performance-tools/2016.3.067
 
@@ -4146,7 +4074,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module load intel-performance-tools/2016.3.067
 
@@ -4179,7 +4107,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module load intel-performance-tools/2016.3.067
 
@@ -4214,7 +4142,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module load intel-performance-tools/2016.3.067
 
@@ -4246,7 +4174,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module load intel-performance-tools/2016.3.067
 
@@ -4280,7 +4208,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module load intel-performance-tools/2016.3.067
 
@@ -4314,7 +4242,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module load intel-performance-tools/2016.3.067
 
@@ -4348,7 +4276,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module load intel-performance-tools/2016.3.067
 
@@ -4382,7 +4310,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module load intel-performance-tools/2016.3.067
 
@@ -4419,7 +4347,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4453,7 +4381,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4488,7 +4416,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4521,7 +4449,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4554,7 +4482,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4588,7 +4516,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module swap intel/17.0.0 intel/16.0.3
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4627,7 +4555,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4660,7 +4588,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4695,7 +4623,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4730,7 +4658,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4765,7 +4693,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -4800,7 +4728,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITITE_MASTER_CLE_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
   module load intel-performance-tools/2016.3.067
@@ -5293,8 +5221,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5328,8 +5256,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5363,8 +5291,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5398,8 +5326,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5434,8 +5362,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5470,8 +5398,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5949,8 +5877,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -5985,8 +5913,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6021,8 +5949,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6057,8 +5985,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6094,8 +6022,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6131,8 +6059,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6149,9 +6077,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6187,9 +6114,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6226,9 +6152,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6265,9 +6190,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6304,9 +6228,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6344,9 +6267,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6387,9 +6309,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6425,9 +6346,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6465,9 +6385,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6505,9 +6424,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6545,9 +6463,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6585,9 +6502,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6627,9 +6543,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6649,8 +6564,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6665,9 +6580,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6688,8 +6602,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6704,9 +6618,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6727,8 +6640,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6743,9 +6656,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6766,8 +6678,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6782,9 +6694,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6806,8 +6717,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6822,9 +6733,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6846,8 +6756,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -6865,9 +6775,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6904,9 +6813,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6944,9 +6852,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -6984,9 +6891,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7024,9 +6930,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7065,9 +6970,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7109,9 +7013,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7148,9 +7051,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7189,9 +7091,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7230,9 +7131,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7271,9 +7171,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7312,9 +7211,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7355,9 +7253,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7377,8 +7274,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7394,9 +7291,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7417,8 +7313,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7434,9 +7330,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7457,8 +7352,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7474,9 +7369,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7497,8 +7391,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7514,9 +7408,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7538,8 +7431,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7555,9 +7448,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools/6.3.2 perftools/6.4.1
 
   module list
 
@@ -7579,8 +7471,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7597,9 +7489,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7635,9 +7526,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7674,9 +7564,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7713,9 +7602,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7752,9 +7640,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7792,9 +7679,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap intel/16.0.3 intel/17.0.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7835,9 +7721,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7873,9 +7758,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7913,9 +7797,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7953,9 +7836,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -7993,9 +7875,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8033,9 +7914,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap gcc/5.3.0 gcc/6.1.0
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8075,9 +7955,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8097,8 +7976,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8113,9 +7992,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8136,8 +8014,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8152,9 +8030,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8175,8 +8052,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8191,9 +8068,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8214,8 +8090,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8230,9 +8106,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8254,8 +8129,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8270,9 +8145,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module swap PrgEnv-cray/6.0.2 PrgEnv-cray/6.0.3
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8294,8 +8168,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8313,9 +8187,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8352,9 +8225,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8392,9 +8264,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8432,9 +8303,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8472,9 +8342,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8513,9 +8382,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8557,9 +8425,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8596,9 +8463,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8637,9 +8503,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8678,9 +8543,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8719,9 +8583,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8760,9 +8623,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8803,9 +8665,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8825,8 +8686,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8842,9 +8703,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8865,8 +8725,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8882,9 +8742,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8905,8 +8764,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8922,9 +8781,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8945,8 +8803,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -8962,9 +8820,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -8986,8 +8843,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -9003,9 +8860,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module swap cray-mpich/7.3.3 cray-mpich/7.4.2
   module swap craype-haswell craype-mic-knl
   module load perftools-base
+  module swap perftools-base perftools-base/6.4.1
   module load perftools-lite
-  module swap perftools-base/6.3.2 perftools-base/6.4.1
-  module swap perftools-lite/6.3.2 perftools-lite/6.4.1
 
   module list
 
@@ -9027,8 +8883,8 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-O2 -hlist=a -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-O2 -hlist=ad -hipa5 -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
