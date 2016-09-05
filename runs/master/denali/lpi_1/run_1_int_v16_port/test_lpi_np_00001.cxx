@@ -405,8 +405,8 @@ begin_initialization {
 # define iv_region (   x<      hx*iv_thick || x>Lx  -hx*iv_thick  \
                     || y<-Ly/2+hy*iv_thick || y>Ly/2-hy*iv_thick  \
                     || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) /* all boundaries are i.v. */ 
-  //   set_region_bc( iv_region, maxwellian_reinjection, maxwellian_reinjection, maxwellian_reinjection ); 
-  set_region_bc( iv_region, reflect_particles, reflect_particles, reflect_particles ); 
+  set_region_bc( iv_region, maxwellian_reinjection, maxwellian_reinjection, maxwellian_reinjection ); 
+  // set_region_bc( iv_region, reflect_particles, reflect_particles, reflect_particles ); 
 
   // Load particles 
   if ( load_particles ) {

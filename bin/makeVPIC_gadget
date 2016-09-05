@@ -35,70 +35,6 @@ cd $VPIC_DIR
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL" ]; then
-  module swap craype-haswell craype-mic-knl
-
-  module list
-
-  export MPI_ROOT=$MPICH_DIR
-
-  cd $VPIC_DIR
-  mkdir build
-  cd build
-  cmake \
-    -LAH \
-    -DCMAKE_BUILD_TYPE=None \
-    -DENABLE_COLOR_UNIT_TESTS=ON \
-    -DENABLE_INTEGRATED_TESTS=ON \
-    -DENABLE_UNIT_TESTS=ON \
-    -DUSE_V4_AVX2=ON \
-    -DUSE_V8_AVX2=ON \
-    -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DUSE_OPENMP=ON \
-    -DUSE_PTHREADS=OFF \
-    -DCMAKE_C_COMPILER=cc \
-    -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    ..
-  make -j $NJ VERBOSE=1
-fi
-
-################################################################################
-# Build an optimized version of VPIC with Intel compilers.
-
-if [ $ARCH = "GADGET_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL" ]; then
-  module swap craype-haswell craype-mic-knl
-
-  module list
-
-  export MPI_ROOT=$MPICH_DIR
-
-  cd $VPIC_DIR
-  mkdir build
-  cd build
-  cmake \
-    -LAH \
-    -DCMAKE_BUILD_TYPE=None \
-    -DENABLE_COLOR_UNIT_TESTS=ON \
-    -DENABLE_INTEGRATED_TESTS=ON \
-    -DENABLE_UNIT_TESTS=ON \
-    -DUSE_V4_AVX2=ON \
-    -DUSE_V8_AVX2=ON \
-    -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DCMAKE_C_COMPILER=cc \
-    -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    ..
-  make -j $NJ VERBOSE=1
-fi
-
-################################################################################################################################################################
-
-################################################################################
-# Build an optimized version of VPIC with Intel compilers.
-
 if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_NONE_HSW" ]; then
   module list
 
@@ -255,6 +191,34 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_HSW" ]; then
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V16_PORT_HSW" ]; then
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -425,6 +389,35 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_HSW" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V16_PORT_HSW" ]; then
+  module swap PrgEnv-intel PrgEnv-gnu
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
@@ -611,6 +604,66 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
   make -j $NJ VERBOSE=1
 fi
 
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V16_PORT_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V16_AVX512_KNL" ]; then
+  module swap craype-haswell craype-mic-knl
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V16_AVX512=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
 ################################################################################################################################################################
 
 ################################################################################
@@ -783,6 +836,67 @@ if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V8_AVX2_KNL" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V16_PORT_KNL" ]; then
+  module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "GADGET_MASTER_CLE_GNU_OPT_V16_AVX512_KNL" ]; then
+  module swap PrgEnv-intel PrgEnv-gnu
+  module swap craype-haswell craype-mic-knl
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V16_AVX512=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \

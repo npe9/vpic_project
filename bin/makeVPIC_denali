@@ -129,8 +129,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_NONE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=mpicc \
     -DCMAKE_CXX_COMPILER=mpicxx \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
     -DMPIEXEC=`which mpirun` \
     ..
   make -k VERBOSE=1
@@ -162,8 +162,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
     ..
   make VERBOSE=1
 fi
@@ -191,8 +191,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
     ..
   make VERBOSE=1
 fi
@@ -220,8 +220,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_AVX2" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
     ..
   make VERBOSE=1
 fi
@@ -250,11 +250,20 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
     ..
   make VERBOSE=1
 fi
+
+#    -DCMAKE_C_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
 
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
@@ -280,12 +289,15 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX2" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=mpicc \
     -DCMAKE_CXX_COMPILER=mpicxx \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
     -DMPIEXEC=`which mpirun` \
     ..
   make VERBOSE=1
 fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
 
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
@@ -311,11 +323,26 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V16_PORT" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
     ..
   make VERBOSE=1
 fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O2" \
+#    -DCMAKE_CXX_FLAGS="-g -O2" \
 
 ################################################################################################################################################################
 # Intel optimized builds of master branch using vtune.

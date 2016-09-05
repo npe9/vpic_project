@@ -125,20 +125,20 @@ begin_initialization {
 
   // Simulation parameters 
 
-  // 
-  double Lx                = 16 * 12.0 * 1e-4;   // In cm (note: 1 micron = 1e-4 cm)   
-  double Ly                =  2 * 12.0 * 1e-4;              
-  double Lz                =  2 * 12.0 * 1e-4;                 
-//???????????????????????????????????????????????????????
-  double nx                = 40*16;
-  double ny                = 40*2;
-  double nz                = 40*2;
-  double topology_x        = 1;
-  double topology_y        = 1;
-  double topology_z        = 1;
-  // single-processor mesh = 640 x 80 x 80
+  double Lx                = 17 * 0.8 * 12.0 * 1e-4;  // In cm (note: 1 micron = 1e-4 cm)
+  double Ly                =  3 * 0.8 * 12.0 * 1e-4;
+  double Lz                =  3 * 0.8 * 12.0 * 1e-4;
 
-  double nppc               = 100;     // Ave. number of particles/cell in ea. species
+  double nx                = 32*17;
+  double ny                = 32*3;
+  double nz                = 32*3;
+
+  double topology_x        = 2;
+  double topology_y        = 2;
+  double topology_z        = 1;
+
+  // double nppc               = 100;     // Ave. number of particles/cell in ea. species
+  double nppc               = 360;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
@@ -406,7 +406,6 @@ begin_initialization {
                     || y<-Ly/2+hy*iv_thick || y>Ly/2-hy*iv_thick  \
                     || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) /* all boundaries are i.v. */ 
   set_region_bc( iv_region, maxwellian_reinjection, maxwellian_reinjection, maxwellian_reinjection ); 
-  // set_region_bc( iv_region, reflect_particles, reflect_particles, reflect_particles ); 
 
   // Load particles 
   if ( load_particles ) {
