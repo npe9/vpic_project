@@ -598,11 +598,14 @@ if [ $ARCH = "GADGET_MASTER_CLE_INT_OPT_V8_AVX2_KNL" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
-    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
 fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -dynamic -craype-verbose" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -dynamic -craype-verbose" \
 
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
