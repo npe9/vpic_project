@@ -1,0 +1,39 @@
+#!/bin/bash
+
+source /gpfs/gpfs_gl4_16mb/sfantao/coral-compiler/coral-compiler.sh
+source /vol/ibmplatform/lsf/conf/profile.lsf
+source /gpfs/gpfs_stage1/b6p169za/git_08.sh 
+
+export PATH=/gpfs/gpfs_stage1/hfwen/build/bin/:$PATH
+export PATH=/gpfs/gpfs_stage1/b6p169za/mpich/bin:$PATH
+export LD_LIBRARY_PATH=/gpfs/gpfs_stage1/b6p169za/mpich/lib:$LD_LIBRARY_PATH
+
+vpic test_lpi_hbm_np_00001.cxx
+vpic test_lpi_hbm_np_00002.cxx
+vpic test_lpi_hbm_np_00004.cxx
+vpic test_lpi_hbm_np_00005.cxx
+vpic test_lpi_hbm_np_00008.cxx
+vpic test_lpi_hbm_np_00010.cxx
+vpic test_lpi_hbm_np_00016.cxx
+vpic test_lpi_hbm_np_00020.cxx
+vpic test_lpi_hbm_np_00032.cxx
+vpic test_lpi_hbm_np_00040.cxx
+vpic test_lpi_hbm_np_00064.cxx
+vpic test_lpi_hbm_np_00080.cxx
+vpic test_lpi_hbm_np_00128.cxx
+vpic test_lpi_hbm_np_00160.cxx
+
+vpic test_lpi_np_00001.cxx
+vpic test_lpi_np_00002.cxx
+vpic test_lpi_np_00004.cxx
+vpic test_lpi_np_00005.cxx
+vpic test_lpi_np_00008.cxx
+vpic test_lpi_np_00010.cxx
+vpic test_lpi_np_00016.cxx
+vpic test_lpi_np_00020.cxx
+vpic test_lpi_np_00032.cxx
+vpic test_lpi_np_00040.cxx
+vpic test_lpi_np_00064.cxx
+vpic test_lpi_np_00080.cxx
+vpic test_lpi_np_00128.cxx
+vpic test_lpi_np_00160.cxx

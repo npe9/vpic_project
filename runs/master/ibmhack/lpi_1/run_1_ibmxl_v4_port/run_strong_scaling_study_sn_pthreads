@@ -1,0 +1,6 @@
+#!/bin/bash
+
+/usr/bin/time -p numactl --physcpubind=+0   test_lpi_np_00001.Linux --tpp 1 >& run_test_lpi_np_00001_001.log
+/usr/bin/time -p numactl --physcpubind=+0-1 test_lpi_np_00001.Linux --tpp 2 >& run_test_lpi_np_00001_002.log
+/usr/bin/time -p numactl --physcpubind=+0-3 test_lpi_np_00001.Linux --tpp 4 >& run_test_lpi_np_00001_004.log
+/usr/bin/time -p numactl --physcpubind=+0-7 test_lpi_np_00001.Linux --tpp 8 >& run_test_lpi_np_00001_008.log

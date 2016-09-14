@@ -1,0 +1,103 @@
+#!/bin/bash
+
+source /gpfs/gpfs_gl4_16mb/sfantao/coral-compiler/coral-compiler.sh
+source /vol/ibmplatform/lsf/conf/profile.lsf
+source /gpfs/gpfs_stage1/b6p169za/git_08.sh 
+
+export PATH=/gpfs/gpfs_stage1/hfwen/build/bin/:$PATH
+export PATH=/gpfs/gpfs_stage1/b6p169za/mpich/bin:$PATH
+
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$PATH
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/bin:$PATH
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/include:$PATH
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI:$PATH
+
+export LD_LIBRARY_PATH=/gpfs/gpfs_stage1/b6p169za/mpich/lib:$LD_LIBRARY_PATH
+
+echo $PATH
+
+which mpirun
+
+export MP_PROCS=160
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_160
+
+mpirun -n 160 -npersocket 80 /usr/bin/time -p test_lpi_np_00160.Linux >& run_test_lpi_np_00160_001.log
+
+export MP_PROCS=128
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_128
+
+mpirun -n 128 -npersocket 64 /usr/bin/time -p test_lpi_np_00128.Linux >& run_test_lpi_np_00128_001.log
+
+export MP_PROCS=80
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_080
+
+mpirun -n 80 -npersocket 40 /usr/bin/time -p test_lpi_np_00080.Linux >& run_test_lpi_np_00080_001.log
+
+export MP_PROCS=64
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_064
+
+mpirun -n 64 -npersocket 32 /usr/bin/time -p test_lpi_np_00064.Linux >& run_test_lpi_np_00064_001.log
+
+export MP_PROCS=40
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_040
+
+mpirun -n 40 -npersocket 20 /usr/bin/time -p test_lpi_np_00040.Linux >& run_test_lpi_np_00040_001.log
+
+export MP_PROCS=32
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_032
+
+mpirun -n 32 -npersocket 16 /usr/bin/time -p test_lpi_np_00032.Linux >& run_test_lpi_np_00032_001.log
+
+export MP_PROCS=20
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_020
+
+mpirun -n 20 -npersocket 10 /usr/bin/time -p test_lpi_np_00020.Linux >& run_test_lpi_np_00020_001.log
+
+export MP_PROCS=16
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_016
+
+mpirun -n 16 -npersocket 8 /usr/bin/time -p test_lpi_np_00016.Linux >& run_test_lpi_np_00016_001.log
+
+export MP_PROCS=10
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_010
+
+mpirun -n 10 -npersocket 5 /usr/bin/time -p test_lpi_np_00010.Linux >& run_test_lpi_np_00010_001.log
+
+export MP_PROCS=8
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_008
+
+mpirun -n 8 -npersocket 4 /usr/bin/time -p test_lpi_np_00008.Linux >& run_test_lpi_np_00008_001.log
+
+export MP_PROCS=5
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_005
+
+mpirun -n 5 /usr/bin/time -p test_lpi_np_00005.Linux >& run_test_lpi_np_00005_001.log
+
+export MP_PROCS=4
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_004
+
+mpirun -n 4 -npersocket 2 /usr/bin/time -p test_lpi_np_00004.Linux >& run_test_lpi_np_00004_001.log
+
+export MP_PROCS=2
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_002
+
+mpirun -n 2 -npersocket 1 /usr/bin/time -p test_lpi_np_00002.Linux >& run_test_lpi_np_00002_001.log
+
+export MP_PROCS=1
+export MP_RESD=poe
+export MP_HOSTFILE=./hostfile_001
+
+mpirun -n 1 /usr/bin/time -p test_lpi_np_00001.Linux >& run_test_lpi_np_00001_001.log
