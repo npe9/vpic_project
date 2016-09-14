@@ -5,8 +5,13 @@ source /vol/ibmplatform/lsf/conf/profile.lsf
 source /gpfs/gpfs_stage1/b6p169za/git_08.sh 
 
 export PATH=/gpfs/gpfs_stage1/hfwen/build/bin/:$PATH
-export PATH=/gpfs/gpfs_stage1/b6p169za/mpich/bin:$PATH
-export LD_LIBRARY_PATH=/gpfs/gpfs_stage1/b6p169za/mpich/lib:$LD_LIBRARY_PATH
+
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$PATH
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/bin:$PATH
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/include:$PATH
+export PATH=/vol/ibmplatform/IBM_Spectrum_MPI:$PATH
+
+export LD_LIBRARY_PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$LD_LIBRARY_PATH
 
 vpic test_lpi_hbm_np_00001.cxx
 vpic test_lpi_hbm_np_00002.cxx
