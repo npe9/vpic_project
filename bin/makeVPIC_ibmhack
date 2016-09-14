@@ -231,7 +231,7 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMXL_OPT_NONE" ]; then
     -DCMAKE_C_COMPILER=xlc_r \
     -DCMAKE_CXX_COMPILER=xlc++_r \
     -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -std=c++11" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -269,7 +269,7 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMXL_OPT_V4_PORT" ]; then
     -DCMAKE_C_COMPILER=xlc_r \
     -DCMAKE_CXX_COMPILER=xlc++_r \
     -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -std=c++11" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -310,7 +310,7 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMXL_OPT_NONE" ]; then
     -DCMAKE_C_COMPILER=xlc_r \
     -DCMAKE_CXX_COMPILER=xlc++_r \
     -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -std=c++11" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -350,7 +350,7 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMXL_OPT_V4_PORT" ]; then
     -DCMAKE_C_COMPILER=xlc_r \
     -DCMAKE_CXX_COMPILER=xlc++_r \
     -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -std=c++11" \
     ..
   make -j $NJ VERBOSE=1
 fi
