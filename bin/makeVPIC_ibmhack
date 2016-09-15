@@ -70,7 +70,7 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMCLANG_OPT_NONE" ]; then
 fi
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers.
+# Build an optimized version of VPIC with IBM Clang compilers.
 
 if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMCLANG_OPT_V4_PORT" ]; then
   source /gpfs/gpfs_gl4_16mb/sfantao/coral-compiler/coral-compiler.sh
@@ -107,10 +107,48 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMCLANG_OPT_V4_PORT" ]; then
   make -j $NJ VERBOSE=1
 fi
 
+################################################################################
+# Build an optimized version of VPIC with IBM Clang compilers.
+
+if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMCLANG_OPT_V4_ALTIVEC" ]; then
+  source /gpfs/gpfs_gl4_16mb/sfantao/coral-compiler/coral-compiler.sh
+  source /vol/ibmplatform/lsf/conf/profile.lsf
+  source /gpfs/gpfs_stage1/b6p169za/git_08.sh 
+
+  export PATH=/gpfs/gpfs_stage1/hfwen/build/bin/:$PATH
+
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/bin:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/include:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI:$PATH
+
+  export LD_LIBRARY_PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$LD_LIBRARY_PATH
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_ALTIVEC=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=clang \
+    -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_C_FLAGS="-g -O2 -finline-hint-functions -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -finline-hint-functions -Winline" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
 ################################################################################################################################################################
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers.
+# Build an optimized version of VPIC with IBM Clang compilers.
 
 if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMCLANG_OPT_NONE" ]; then
   source /gpfs/gpfs_gl4_16mb/sfantao/coral-compiler/coral-compiler.sh
@@ -155,7 +193,7 @@ fi
 #    -DCMAKE_CXX_FLAGS="-g -O2" \
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers.
+# Build an optimized version of VPIC with IBM Clang compilers.
 
 if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMCLANG_OPT_V4_PORT" ]; then
   source /gpfs/gpfs_gl4_16mb/sfantao/coral-compiler/coral-compiler.sh
@@ -183,6 +221,49 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMCLANG_OPT_V4_PORT" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=clang \
+    -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_C_FLAGS="-g -O2 -fopenmp -finline-hint-functions -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -fopenmp -finline-hint-functions -Winline" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2" \
+#    -DCMAKE_CXX_FLAGS="-g -O2" \
+
+################################################################################
+# Build an optimized version of VPIC with IBM Clang compilers.
+
+if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMCLANG_OPT_V4_ALTIVEC" ]; then
+  source /gpfs/gpfs_gl4_16mb/sfantao/coral-compiler/coral-compiler.sh
+  source /vol/ibmplatform/lsf/conf/profile.lsf
+  source /gpfs/gpfs_stage1/b6p169za/git_08.sh 
+
+  export PATH=/gpfs/gpfs_stage1/hfwen/build/bin/:$PATH
+
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/bin:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/include:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI:$PATH
+
+  export LD_LIBRARY_PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$LD_LIBRARY_PATH
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_ALTIVEC=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DUSE_OPENMP=ON \
     -DUSE_PTHREADS=OFF \
@@ -237,7 +318,7 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMXL_OPT_NONE" ]; then
 fi
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers.
+# Build an optimized version of VPIC with IBM XL compilers.
 
 if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMXL_OPT_V4_PORT" ]; then
   source /gpfs/gpfs_gl4_16mb/xl-compilers/xl-compiler.sh
@@ -274,10 +355,48 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMXL_OPT_V4_PORT" ]; then
   make -j $NJ VERBOSE=1
 fi
 
+################################################################################
+# Build an optimized version of VPIC with IBM XL compilers.
+
+if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMXL_OPT_V4_ALTIVEC" ]; then
+  source /gpfs/gpfs_gl4_16mb/xl-compilers/xl-compiler.sh
+  source /vol/ibmplatform/lsf/conf/profile.lsf
+  source /gpfs/gpfs_stage1/b6p169za/git_08.sh 
+
+  export PATH=/gpfs/gpfs_stage1/hfwen/build/bin/:$PATH
+
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/bin:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/include:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI:$PATH
+
+  export LD_LIBRARY_PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$LD_LIBRARY_PATH
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_ALTIVEC=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DCMAKE_C_COMPILER=xlc_r \
+    -DCMAKE_CXX_COMPILER=xlc++_r \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -std=c++11" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
 ################################################################################################################################################################
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers.
+# Build an optimized version of VPIC with IBM XL compilers.
 
 if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMXL_OPT_NONE" ]; then
   source /gpfs/gpfs_gl4_16mb/xl-compilers/xl-compiler.sh
@@ -316,7 +435,7 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMXL_OPT_NONE" ]; then
 fi
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers.
+# Build an optimized version of VPIC with IBM XL compilers.
 
 if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMXL_OPT_V4_PORT" ]; then
   source /gpfs/gpfs_gl4_16mb/xl-compilers/xl-compiler.sh
@@ -344,6 +463,46 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMXL_OPT_V4_PORT" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=xlc_r \
+    -DCMAKE_CXX_COMPILER=xlc++_r \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -std=c++11" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with IBM XL compilers.
+
+if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMXL_OPT_V4_ALTIVEC" ]; then
+  source /gpfs/gpfs_gl4_16mb/xl-compilers/xl-compiler.sh
+  source /vol/ibmplatform/lsf/conf/profile.lsf
+  source /gpfs/gpfs_stage1/b6p169za/git_08.sh 
+
+  export PATH=/gpfs/gpfs_stage1/hfwen/build/bin/:$PATH
+
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/bin:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI/include:$PATH
+  export PATH=/vol/ibmplatform/IBM_Spectrum_MPI:$PATH
+
+  export LD_LIBRARY_PATH=/vol/ibmplatform/IBM_Spectrum_MPI/lib:$LD_LIBRARY_PATH
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_ALTIVEC=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DUSE_OPENMP=ON \
     -DUSE_PTHREADS=OFF \
