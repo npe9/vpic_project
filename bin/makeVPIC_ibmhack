@@ -139,8 +139,8 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_PTH_IBMCLANG_OPT_V4_ALTIVEC" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DCMAKE_C_COMPILER=clang \
     -DCMAKE_CXX_COMPILER=clang++ \
-    -DCMAKE_C_FLAGS="-g -O2 -faltivec -finline-hint-functions -Winline" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -faltivec -finline-hint-functions -Winline" \
+    -DCMAKE_C_FLAGS="-g -O2 -faltivec -w -finline-hint-functions -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -faltivec -w -finline-hint-functions -Winline" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -269,8 +269,8 @@ if [ $ARCH = "IBMHACK_MASTER_LINUX_OMP_IBMCLANG_OPT_V4_ALTIVEC" ]; then
     -DUSE_PTHREADS=OFF \
     -DCMAKE_C_COMPILER=clang \
     -DCMAKE_CXX_COMPILER=clang++ \
-    -DCMAKE_C_FLAGS="-g -O2 -faltivec -fopenmp -finline-hint-functions -Winline" \
-    -DCMAKE_CXX_FLAGS="-g -O2 -faltivec -fopenmp -finline-hint-functions -Winline" \
+    -DCMAKE_C_FLAGS="-g -O2 -faltivec -w -fopenmp -finline-hint-functions -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -faltivec -w -fopenmp -finline-hint-functions -Winline" \
     ..
   make -j $NJ VERBOSE=1
 fi
