@@ -138,7 +138,7 @@ begin_initialization {
   double topology_z        = 4;
 
   // double nppc               = 100;     // Ave. number of particles/cell in ea. species
-  double nppc               = 360;     // Ave. number of particles/cell in ea. species
+  double nppc               = 320;     // Ave. number of particles/cell in ea. species
   int load_particles        = 1;       // Flag to turn on/off particle load 
   int mobile_ions           = 0;       // Whether or not to push ions
   double f_He               = 0;       // Ratio of number density of He to total ion density
