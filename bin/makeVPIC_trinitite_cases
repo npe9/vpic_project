@@ -40,6 +40,19 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
+# Build the optimized Intel cases for the master branch with V16 support.
+
+ARCH=TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+ARCH=TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW
@@ -78,10 +91,18 @@ BRANCH=master_wdn_v8
 /usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
+################################################################################
+# Build the optimized Intel cases for the master branch with V16 support.
+
+ARCH=TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
 ################################################################################################################################################################
 
 ################################################################################
-# Build the optimized Intel case for the master branch without vector support.
+# Build the optimized Cray case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL
 BRANCH=master_wdn_v8
@@ -89,7 +110,7 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
-# Build the optimized Intel cases for the master branch with V4 support.
+# Build the optimized Cray cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL
 BRANCH=master_wdn_v8
@@ -107,7 +128,7 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
-# Build the optimized Intel cases for the master branch with V8 support.
+# Build the optimized Cray cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL
 BRANCH=master_wdn_v8
@@ -120,7 +141,20 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
-# Build the optimized Intel case for the master branch without vector support.
+# Build the optimized Cray cases for the master branch with V16 support.
+
+ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Cray case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW
 BRANCH=master_wdn_v8
@@ -128,7 +162,7 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
-# Build the optimized Intel cases for the master branch with V4 support.
+# Build the optimized Cray cases for the master branch with V4 support.
 
 ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW
 BRANCH=master_wdn_v8
@@ -146,7 +180,7 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
-# Build the optimized Intel cases for the master branch with V8 support.
+# Build the optimized Cray cases for the master branch with V8 support.
 
 ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW
 BRANCH=master_wdn_v8
@@ -154,6 +188,14 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Cray cases for the master branch with V16 support.
+
+ARCH=TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW
 BRANCH=master_wdn_v8
 /usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
 mv makeVPIC_trinitite.log build/$ARCH/vpic
@@ -200,6 +242,19 @@ mv makeVPIC_trinitite.log build/$ARCH/vpic
 #mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
+# Build the optimized GNU cases for the master branch with V16 support.
+
+#ARCH=TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+#ARCH=TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+################################################################################
 # Build the optimized GNU case for the master branch without vector support.
 
 #ARCH=TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW
@@ -234,6 +289,14 @@ mv makeVPIC_trinitite.log build/$ARCH/vpic
 #mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 #ARCH=TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW
+#BRANCH=master_wdn_v8
+#/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+#mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V16 support.
+
+#ARCH=TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW
 #BRANCH=master_wdn_v8
 #/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
 #mv makeVPIC_trinitite.log build/$ARCH/vpic
