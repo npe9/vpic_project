@@ -981,6 +981,19 @@ BRANCH=master_wdn_v8
 mv makeVPIC_trinitite.log build/$ARCH/vpic
 
 ################################################################################
+# Build the optimized Intel cases for the master branch with V16 support.
+
+ARCH=TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+ARCH=TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinitite $ARCH $BRANCH 16 >& makeVPIC_trinitite.log
+mv makeVPIC_trinitite.log build/$ARCH/vpic
+
+################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW
