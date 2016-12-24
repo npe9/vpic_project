@@ -592,11 +592,17 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_NONE" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DCMAKE_C_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
-    -DCMAKE_CXX_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
-  make VERBOSE=1
+  make -k VERBOSE=1
 fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
