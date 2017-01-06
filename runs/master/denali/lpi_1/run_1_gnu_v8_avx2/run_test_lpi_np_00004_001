@@ -1,5 +1,8 @@
 #!/bin/bash
 
-export PATH=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511/bin:$PATH
+export PATH=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531/bin:$PATH
 
-/usr/bin/time -p mpirun -n 4 test_Seq_case_02_np_04.Linux >& run_test_Seq_case_02_np_04_1.log
+#mpirun -n 1 /usr/bin/time -p test_lpi_np_00001.Linux >& run_test_lpi_np_00001_001.log
+#mpirun -n 2 /usr/bin/time -p test_lpi_np_00002.Linux >& run_test_lpi_np_00002_001.log
+mpirun -n 4 /usr/bin/time -p test_lpi_np_00004.Linux >& run_test_lpi_np_00004_001.log
+#mpirun -n 8 /usr/bin/time -p test_lpi_np_00008.Linux >& run_test_lpi_np_00008_001.log

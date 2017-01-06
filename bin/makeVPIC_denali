@@ -623,8 +623,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
   make VERBOSE=1
 fi
@@ -698,8 +698,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V8_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
   make VERBOSE=1
 fi
@@ -724,8 +724,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_AVX2" ]; then
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
   make VERBOSE=1
 fi
@@ -749,8 +749,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V16_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V16_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
-    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
   make VERBOSE=1
 fi
