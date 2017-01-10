@@ -31,15 +31,155 @@ cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
 cd $VPIC_DIR
 
 ################################################################################################################################################################
-# Intel optimized builds of master branch with Pthreads or OpenMP support.
+# GNU optimized builds of master branch.
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_PTH_V8_AVX2" ]; then
-  source /opt/intel/bin/compilervars.sh intel64
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
 
-  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+#    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V4_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V8_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+#    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V8_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
 
@@ -55,22 +195,178 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_PTH_V8_AVX2" ]; then
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DCMAKE_C_COMPILER=mpicc \
-    -DCMAKE_CXX_COMPILER=mpicxx \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
-    -DMPIEXEC=`which mpirun` \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
   make VERBOSE=1
 fi
 
 ################################################################################
-# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_OMP_V8_AVX2" ]; then
-  source /opt/intel/bin/compilervars.sh intel64
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V16_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
 
-  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+#    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+
+################################################################################################################################################################
+# GNU debug builds of master branch.
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOS_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O0 -g" \
+    -DCMAKE_CXX_FLAGS="-O0 -g " \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOS_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O0 -g" \
+    -DCMAKE_CXX_FLAGS="-O0 -g " \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOS_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOS_V4_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOS_V8_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOS_V8_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
 
@@ -86,23 +382,38 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_OMP_V8_AVX2" ]; then
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
-    -DUSE_OPENMP=ON \
-    -DUSE_PTHREADS=OFF \
-    -DCMAKE_C_COMPILER=mpicc \
-    -DCMAKE_CXX_COMPILER=mpicxx \
-    -DCMAKE_C_FLAGS="-g -O2" \
-    -DCMAKE_CXX_FLAGS="-g -O2" \
-    -DMPIEXEC=`which mpirun` \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
   make VERBOSE=1
 fi
 
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
 
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOS_V16_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
 
-
-
-
-
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
 
 ################################################################################################################################################################
 # Intel optimized builds of master branch.
@@ -110,7 +421,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_NONE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_NONE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -127,6 +438,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_NONE" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=mpicc \
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
@@ -142,7 +455,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V4_PORT" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -160,6 +473,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
@@ -171,7 +486,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V4_SSE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -189,6 +504,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_SSE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
@@ -200,7 +517,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_AVX2" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V4_AVX2" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -218,6 +535,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_AVX2" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
@@ -229,7 +548,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V8_PORT" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -248,6 +567,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V8_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
@@ -268,7 +589,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX2" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V8_AVX2" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -287,6 +608,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX2" ]; then
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=mpicc \
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
@@ -302,7 +625,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V16_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V16_PORT" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -321,6 +644,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V16_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V16_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
@@ -350,7 +675,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_NONE_VTUNE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_NONE_VTUNE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -367,6 +692,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_NONE_VTUNE" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2" \
@@ -378,7 +705,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT_VTUNE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V4_PORT_VTUNE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -396,6 +723,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT_VTUNE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2" \
@@ -407,7 +736,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE_VTUNE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V4_SSE_VTUNE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -425,6 +754,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE_VTUNE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_SSE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2" \
@@ -436,7 +767,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_AVX2_VTUNE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V4_AVX2_VTUNE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -454,6 +785,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V4_AVX2_VTUNE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2" \
@@ -465,7 +798,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT_VTUNE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V8_PORT_VTUNE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -484,6 +817,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_PORT_VTUNE" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V8_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2" \
@@ -495,7 +830,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX2_VTUNE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V8_AVX2_VTUNE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -516,6 +851,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V8_AVX2_VTUNE" ]; then
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=mpicc \
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O2" \
@@ -545,7 +882,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V16_PORT_VTUNE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOS_V16_PORT_VTUNE" ]; then
   source /opt/intel/bin/compilervars.sh intel64
 
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
@@ -564,6 +901,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_INT_OPT_OPENMPI_V16_PORT_VTUNE" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V16_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
     -DCMAKE_C_COMPILER=icc \
     -DCMAKE_CXX_COMPILER=icpc \
     -DCMAKE_C_FLAGS="-g -O2" \
@@ -578,7 +917,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_NONE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOS_NONE" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -592,6 +931,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_NONE" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -607,7 +948,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOS_V4_PORT" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -623,6 +964,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
@@ -632,7 +975,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOS_V4_SSE" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -648,6 +991,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_SSE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -657,7 +1002,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_AVX2" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOS_V4_AVX2" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -673,6 +1018,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V4_AVX2" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -682,7 +1029,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOS_V8_PORT" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -698,6 +1045,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V8_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
@@ -707,7 +1056,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_AVX2" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOS_V8_AVX2" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -724,6 +1073,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V8_AVX2" ]; then
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
@@ -733,7 +1084,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V16_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOS_V16_PORT" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -749,6 +1100,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_OPT_OPENMPI_V16_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V16_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
     ..
@@ -761,7 +1114,7 @@ fi
 ################################################################################
 # Build a debug version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_NONE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOS_NONE" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -776,6 +1129,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_NONE" ]; then
     -DENABLE_INTEGRATED_TESTS=ON \
     -DENABLE_UNIT_TESTS=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O0 -g" \
     -DCMAKE_CXX_FLAGS="-O0 -g " \
     ..
@@ -785,7 +1140,7 @@ fi
 ################################################################################
 # Build a debug version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOS_V4_PORT" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -801,6 +1156,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_PORT" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-O0 -g" \
     -DCMAKE_CXX_FLAGS="-O0 -g " \
     ..
@@ -810,7 +1167,7 @@ fi
 ################################################################################
 # Build a debug version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_SSE" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOS_V4_SSE" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -825,6 +1182,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_SSE" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_SSE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     ..
   make VERBOSE=1
 fi
@@ -832,7 +1191,7 @@ fi
 ################################################################################
 # Build a debug version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_AVX2" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOS_V4_AVX2" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -847,6 +1206,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V4_AVX2" ]; then
     -DENABLE_UNIT_TESTS=ON \
     -DUSE_V4_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     ..
   make VERBOSE=1
 fi
@@ -854,7 +1215,7 @@ fi
 ################################################################################
 # Build a debug version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V8_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOS_V8_PORT" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -870,6 +1231,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V8_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V8_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     ..
   make VERBOSE=1
 fi
@@ -877,7 +1240,7 @@ fi
 ################################################################################
 # Build a debug version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V8_AVX2" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOS_V8_AVX2" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -894,6 +1257,8 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V8_AVX2" ]; then
     -DUSE_V4_AVX2=ON \
     -DUSE_V8_AVX2=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
     -DCMAKE_C_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     -DCMAKE_CXX_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
     ..
@@ -903,7 +1268,7 @@ fi
 ################################################################################
 # Build a debug version of VPIC with GNU compilers and OpenMPI.
 
-if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V16_PORT" ]; then
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOS_V16_PORT" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -919,6 +1284,504 @@ if [ $ARCH = "DENALI_MASTER_LINUX_GNU_DBG_OPENMPI_V16_PORT" ]; then
     -DUSE_V4_PORTABLE=ON \
     -DUSE_V16_PORTABLE=ON \
     -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################################################################################################
+# Intel optimized builds of master branch.
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_NONE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make -k VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -DVPIC_USE_AOSOA_P" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -DVPIC_USE_AOSOA_P" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V4_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V4_SSE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V4_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V8_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V8_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V16_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O2" \
+#    -DCMAKE_CXX_FLAGS="-g -O2" \
+
+################################################################################################################################################################
+# Intel optimized builds of master branch using vtune.
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_NONE_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V4_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V4_SSE_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V4_AVX2_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V8_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V8_AVX2_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+
+#    -DCMAKE_C_FLAGS="-rdynamic -dynamic" \
+#    -DCMAKE_CXX_FLAGS="-rdynamic -dynamic" \
+#    -DCMAKE_EXE_LINKER_FLAGS="-rdynamic -dynamic" \
+#    -DMPI_C_LIBRARIES="" \
+#    -DMPI_CXX_LIBRARIES="" \
+#    -DMPI_C_INCLUDE_PATH="" \
+#    -DMPI_CXX_INCLUDE_PATH="" \
+#    -DMPI_C_COMPILER="" \
+#    -DMPI_CXX_COMPILER="" \
+
+#    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+#    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+#    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOS_V16_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
     ..
   make VERBOSE=1
 fi
@@ -930,7 +1793,7 @@ fi
 # Build an optimized version of VPIC v407 branch with GNU compilers and OpenMPI.
 # Use the portable implementation of the V4 SIMD vector class.
 
-if [ $ARCH = "DENALI_V407_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
+if [ $ARCH = "DENALI_V407_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V4_PORT" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -947,7 +1810,7 @@ fi
 # Build an optimized version of VPIC v407 branch with GNU compilers and OpenMPI.
 # Use the portable implementation of the V4 SIMD vector class.  Also use HIO.
 
-if [ $ARCH = "DENALI_V407_LINUX_GNU_OPT_OPENMPI_V4_PORT_HIO" ]; then
+if [ $ARCH = "DENALI_V407_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V4_PORT_HIO" ]; then
   export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
   export PATH=$MPI_ROOT/bin:$PATH
   export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
@@ -967,3 +1830,1753 @@ if [ $ARCH = "DENALI_V407_LINUX_GNU_OPT_OPENMPI_V4_PORT_HIO" ]; then
 fi
 
 ################################################################################
+
+################################################################################################################################################################
+# GNU optimized builds of master branch.
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOSOA_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+    ..
+  make -k VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+#    -DCMAKE_CXX_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOSOA_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd -DVPIC_USE_AOSOA_P" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd -DVPIC_USE_AOSOA_P" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+#    -DCMAKE_CXX_FLAGS="-g -O0 -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOSOA_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOSOA_V4_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOSOA_V8_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOSOA_V8_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOSOA_V16_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################################################################################################
+# GNU debug builds of master branch.
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOSOA_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O0 -g" \
+    -DCMAKE_CXX_FLAGS="-O0 -g " \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOSOA_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O0 -g" \
+    -DCMAKE_CXX_FLAGS="-O0 -g " \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOSOA_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOSOA_V4_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOSOA_V8_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOSOA_V8_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_DBG_OPENMPI_AOSOA_V16_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################################################################################################
+# Intel optimized builds of master branch.
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_NONE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make -k VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -DVPIC_USE_AOSOA_P" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -DVPIC_USE_AOSOA_P" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V4_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V4_SSE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V4_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V8_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V8_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V16_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O2" \
+#    -DCMAKE_CXX_FLAGS="-g -O2" \
+
+################################################################################################################################################################
+# Intel optimized builds of master branch using vtune.
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_NONE_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V4_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V4_SSE_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V4_AVX2_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V8_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V8_AVX2_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+
+#    -DCMAKE_C_FLAGS="-rdynamic -dynamic" \
+#    -DCMAKE_CXX_FLAGS="-rdynamic -dynamic" \
+#    -DCMAKE_EXE_LINKER_FLAGS="-rdynamic -dynamic" \
+#    -DMPI_C_LIBRARIES="" \
+#    -DMPI_CXX_LIBRARIES="" \
+#    -DMPI_C_INCLUDE_PATH="" \
+#    -DMPI_CXX_INCLUDE_PATH="" \
+#    -DMPI_C_COMPILER="" \
+#    -DMPI_CXX_COMPILER="" \
+
+#    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+#    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+#    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_INT_OPT_OPENMPI_AOSOA_V16_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################################################################################################
+# GNU optimized builds of master branch.
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOSOA_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+    ..
+  make -k VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DVPIC_USE_AOSOA_P" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOSOA_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOSOA_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOSOA_V4_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOSOA_V8_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOSOA_V8_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_OPT_OPENMPI_AOSOA_V16_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################################################################################################
+# GNU debug builds of master branch.
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOSOA_NONE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O0 -g" \
+    -DCMAKE_CXX_FLAGS="-O0 -g " \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOSOA_V4_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-O0 -g" \
+    -DCMAKE_CXX_FLAGS="-O0 -g " \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOSOA_V4_SSE" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOSOA_V4_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOSOA_V8_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOSOA_V8_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-g -O0 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build a debug version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_GNU_DBG_OPENMPI_AOSOA_V16_PORT" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################################################################################################
+# Intel optimized builds of master branch.
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_NONE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make -k VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -DVPIC_USE_AOSOA_P" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -DVPIC_USE_AOSOA_P" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V4_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V4_SSE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V4_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V8_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -Ofast -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V8_AVX2" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V16_PORT" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -inline-forceinline -vec-threshold0 -qopt-report=3 -qopt-report-phase=all -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-forceinline -Winline -qoverride-limits" \
+
+#    -DCMAKE_C_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -qopt-report=3 -qopt-report-phase=all -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+#    -DCMAKE_CXX_FLAGS="-g -O3 -qopt-report=3 -qopt-report-phase=all -inline-factor=200 -Winline" \
+
+#    -DCMAKE_C_FLAGS="-g -O2" \
+#    -DCMAKE_CXX_FLAGS="-g -O2" \
+
+################################################################################################################################################################
+# Intel optimized builds of master branch using vtune.
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_NONE_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V4_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V4_SSE_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V4_AVX2_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V8_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V8_AVX2_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    -DMPIEXEC=`which mpirun` \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_C_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+#    -DCMAKE_CXX_FLAGS="-g -O2 -I/opt/intel/vtune_amplifier_xe/include" \
+
+#    -DCMAKE_C_FLAGS="-rdynamic -dynamic" \
+#    -DCMAKE_CXX_FLAGS="-rdynamic -dynamic" \
+#    -DCMAKE_EXE_LINKER_FLAGS="-rdynamic -dynamic" \
+#    -DMPI_C_LIBRARIES="" \
+#    -DMPI_CXX_LIBRARIES="" \
+#    -DMPI_C_INCLUDE_PATH="" \
+#    -DMPI_CXX_INCLUDE_PATH="" \
+#    -DMPI_C_COMPILER="" \
+#    -DMPI_CXX_COMPILER="" \
+
+#    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+#    -DCMAKE_C_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+#    -DCMAKE_CXX_FLAGS="-O2 -mavx2 -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer" \
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_OMP_INT_OPT_OPENMPI_AOSOA_V16_PORT_VTUNE" ]; then
+  source /opt/intel/bin/compilervars.sh intel64
+
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_int_1700_beta_01
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=icc \
+    -DCMAKE_CXX_COMPILER=icpc \
+    -DCMAKE_C_FLAGS="-g -O2" \
+    -DCMAKE_CXX_FLAGS="-g -O2" \
+    ..
+  make VERBOSE=1
+fi
