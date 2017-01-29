@@ -60,10 +60,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -98,10 +98,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -136,10 +136,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -174,10 +174,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -213,10 +213,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -252,10 +252,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -291,10 +291,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -833,10 +833,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -872,10 +872,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -911,10 +911,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -950,10 +950,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -990,10 +990,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1030,10 +1030,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1070,10 +1070,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1110,10 +1110,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1743,10 +1743,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1784,10 +1784,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1825,10 +1825,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1866,10 +1866,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1908,10 +1908,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1950,10 +1950,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -1992,10 +1992,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2579,10 +2579,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2621,10 +2621,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2663,10 +2663,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2705,10 +2705,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2748,10 +2748,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2791,10 +2791,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2834,10 +2834,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -2877,10 +2877,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -3558,10 +3558,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -3599,10 +3599,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -3640,10 +3640,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -3681,10 +3681,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -3723,10 +3723,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -3765,10 +3765,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -3807,10 +3807,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4394,10 +4394,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4436,10 +4436,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4478,10 +4478,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4520,10 +4520,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4563,10 +4563,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4606,10 +4606,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4649,10 +4649,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -4692,10 +4692,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -5373,13 +5373,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -5420,13 +5420,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -5467,13 +5467,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -5514,13 +5514,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -5562,13 +5562,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -5610,13 +5610,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -5658,13 +5658,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6307,13 +6307,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6355,13 +6355,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6403,13 +6403,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6451,13 +6451,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6500,13 +6500,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6549,13 +6549,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6598,13 +6598,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -6647,13 +6647,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -7395,11 +7395,51 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_AVEC_HSW" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap intel/16.0.3 intel/17.0.1
+  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DUSE_ADVANCE_P_AUTOVEC=YES \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic -craype-verbose \
+                     -no-ansi-alias" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic -craype-verbose \
+                       -no-ansi-alias" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -7433,10 +7473,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -7471,10 +7511,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -7509,10 +7549,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -7548,10 +7588,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -7587,10 +7627,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -7626,10 +7666,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8168,10 +8208,49 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_AVEC_KNL" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap intel/16.0.3 intel/17.0.1
+  module swap craype-haswell craype-mic-knl
+  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DUSE_ADVANCE_P_AUTOVEC=YES \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8207,10 +8286,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8246,10 +8325,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8285,10 +8364,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8325,10 +8404,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8365,10 +8444,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8405,10 +8484,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -8445,10 +8524,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9078,10 +9157,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9119,10 +9198,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9160,10 +9239,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9201,10 +9280,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9243,10 +9322,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9285,10 +9364,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9327,10 +9406,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9914,10 +9993,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9956,10 +10035,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -9998,10 +10077,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10040,10 +10119,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10083,10 +10162,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10126,10 +10205,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10169,10 +10248,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10212,10 +10291,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10893,10 +10972,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10934,10 +11013,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -10975,10 +11054,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11016,10 +11095,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11058,10 +11137,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11100,10 +11179,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11142,10 +11221,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11729,10 +11808,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11771,10 +11850,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11813,10 +11892,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11855,10 +11934,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11898,10 +11977,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11941,10 +12020,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -11984,10 +12063,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -12027,10 +12106,10 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
   make -j $NJ VERBOSE=1
@@ -12708,13 +12787,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -12755,13 +12834,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -12802,13 +12881,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -12849,13 +12928,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -12897,13 +12976,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -12945,13 +13024,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -12993,13 +13072,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13642,13 +13721,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13690,13 +13769,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13738,13 +13817,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13786,13 +13865,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13835,13 +13914,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13884,13 +13963,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13933,13 +14012,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
@@ -13982,13 +14061,13 @@ if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
     -DCMAKE_C_COMPILER=cc \
     -DCMAKE_CXX_COMPILER=CC \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                     -qopt-report=3 -qopt-report-phase=all -Winline \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
-                       -qopt-report=3 -qopt-report-phase=all -Winline \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
