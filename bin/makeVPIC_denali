@@ -197,11 +197,54 @@ if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_V8_AVX2" ]; then
     -DVPIC_PRINT_MORE_DIGITS=ON \
     -DUSE_OPENMP=OFF \
     -DUSE_PTHREADS=ON \
-    -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
-    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fopenmp-simd" \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -fopenmp-simd \
+                     -rdynamic -ffast-math -fno-unsafe-math-optimizations \
+                     -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -fopenmp-simd \
+                       -rdynamic -ffast-math -fno-unsafe-math-optimizations \
+                       -fno-strict-aliasing -fomit-frame-pointer" \
     ..
   make VERBOSE=1
 fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers and OpenMPI.
+
+if [ $ARCH = "DENALI_MASTER_LINUX_PTH_GNU_OPT_OPENMPI_AOS_HIO_V8_AVX2" ]; then
+  export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+  export PATH=$MPI_ROOT/bin:$PATH
+  export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+  export HIO_ROOT=/home/wdn/Projects/hio_project/build/DENALI_MASTER_LINUX_GNU_OPT_OPENMPI/hio
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_FLAGS="-O3 -mavx2 -mavx -mfma -fopenmp-simd \
+                     -DVPIC_USE_HIO -I$HIO_ROOT/include \
+                     -rdynamic -ffast-math -fno-unsafe-math-optimizations \
+                     -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O3 -mavx2 -mavx -mfma -fopenmp-simd \
+                       -DVPIC_USE_HIO -I$HIO_ROOT/include \
+                       -rdynamic -ffast-math -fno-unsafe-math-optimizations \
+                       -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_EXE_LINKER_FLAGS="$HIO_ROOT/lib/libhio.so" \
+    ..
+  make VERBOSE=1
+fi
+
+#    -DCMAKE_EXE_LINKER_FLAGS="-L/home/wdn/Projects/hio_project/build/DENALI_MASTER_LINUX_GNU_OPT_OPENMPI/hio/lib -lhio" \
+#    -DCMAKE_STATIC_LINKER_FLAGS="-L/home/wdn/Projects/hio_project/build/DENALI_MASTER_LINUX_GNU_OPT_OPENMPI/hio/lib -lhio" \
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers and OpenMPI.
