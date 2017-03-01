@@ -264,6 +264,49 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
+if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_HIO" ]; then
+  module load friendly-testing
+  module load sandbox
+  module swap intel/16.0.3 intel/17.0.1
+  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+  export HIO_ROOT=/users/wdn/Projects/hio_project/build/TRINITITE_MASTER_INT_OPT_CRAYMPI/hio
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -DVPIC_USE_HIO -I$HIO_ROOT/include \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -DVPIC_USE_HIO -I$HIO_ROOT/include \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    -DCMAKE_EXE_LINKER_FLAGS="$HIO_ROOT/lib/libhio.a" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
