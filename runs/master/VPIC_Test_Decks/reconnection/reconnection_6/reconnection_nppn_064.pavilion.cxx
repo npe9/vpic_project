@@ -1,23 +1,25 @@
-////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 //
-//  Reconnection Problem --> single Force-Free Current Sheet with conductive BC
+// Reconnection Problem --> single Force-Free Current Sheet with conductive BC
 //
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
 #include <math.h>
 
 // structure to hold the data for energy diagnostics
-struct edata {
-  species_id sp_id;         /* species id */ 
-  double     vth;          /* thermal energy */ 
-  char fname[256];        /* file to save data */ 
+struct edata
+{
+  species_id sp_id;      // species id
+  double     vth;        // thermal energy
+  char       fname[256]; // file to save data
 };
 
 // naming convention for the hydro dump files
 #define HYDRO_FILE_FORMAT "hydro/T.%d/%s.%d.%d"     
 
 // Vadim's in-line average 
- #define ALLOCATE(A,LEN,TYPE)                                             \
-   if ( !((A)=(TYPE *)malloc((size_t)(LEN)*sizeof(TYPE))) ) ERROR(("Cannot allocate."));
+#define ALLOCATE(A,LEN,TYPE) \
+  if ( !((A)=(TYPE *)malloc((size_t)(LEN)*sizeof(TYPE))) ) ERROR(("Cannot allocate."));
 
 begin_globals
 {
@@ -52,12 +54,12 @@ begin_globals
   double emax;                       // maximum energy (in units of me*c**2)
   int nex;                           // number of energy bins
 
-  //Vadim:  modified restart machinary
+  // Vadim:  modified restart machinary
 
   int write_restart ;                 // global flag for all to write restart files
   int write_end_restart ;             // global flag for all to write restart files
 
-  //Vadim: E*j variables
+  // Vadim: E*j variables
 
   int nsp;                            // number of species
   int dis_nav;                         // number of steps to average over 
@@ -66,40 +68,39 @@ begin_globals
   int dis_begin_int;                  // the first time step of the interval  : initialized in dissipation.cxx
 };
 
-
 begin_initialization
 {
- // use natural PIC units
+  // Use natural PIC units.
 
- double ec   = 1;         // Charge normalization
- double me   = 1;         // Mass normalization
- double c    = 1;         // Speed of light
- double de   = 1;         // Length normalization (electron inertial length)
- double eps0 = 1;         // Permittivity of space
+  double ec   = 1;        // Charge normalization
+  double me   = 1;        // Mass normalization
+  double c    = 1;        // Speed of light
+  double de   = 1;        // Length normalization (electron inertial length)
+  double eps0 = 1;        // Permittivity of space
 
-  double cfl_req   = 0.7;  // How close to Courant should we try to run
-  double wpedt_max = 0.2;  // How big a timestep is allowed if Courant is not too restrictive
-  int rng_seed     = 1;     // Random number seed increment
+  double cfl_req   = 0.7; // How close to Courant should we try to run
+  double wpedt_max = 0.2; // How big a timestep is allowed if Courant is not too restrictive
+  int rng_seed     = 1;   // Random number seed increment
 
-  // Physics parameters
+  // Physics parameters.
 
-  double mi_me   = 1.0;    // Ion mass / electron mass
-  double L_di    = 1.0/sqrt(mi_me);  // Sheet thickness / ion inertial length
-  double Ti_Te   = 1.0;      // Ion temperature / electron temperature
-  double vthe    = 0.2;     //  Electron thermal speed over c
-  double wpe_wce = 2.0;      // electron plasma freq / electron cyclotron freq
-  double bg = 0.0;           // electron plasma freq / electron cyclotron freq
-  double theta   = 0.0;        // B0 = Bx
-  double taui    = 20000;      // simulation wci's to run
-  
-  double quota     = 14.4;        // Run quota in hours
-  double quota_sec = quota*3600;  // Run quota in seconds
+  double mi_me   = 1.0;             // Ion mass / electron mass
+  double L_di    = 1.0/sqrt(mi_me); // Sheet thickness / ion inertial length
+  double Ti_Te   = 1.0;             // Ion temperature / electron temperature
+  double vthe    = 0.2;             // Electron thermal speed over c
+  double wpe_wce = 2.0;             // Electron plasma freq / electron cyclotron freq
+  double bg      = 0.0;             // Electron plasma freq / electron cyclotron freq
+  double theta   = 0.0;             // B0 = Bx
+  double taui    = 20000;           // Simulation wci's to run
+
+  double quota     = 14.4;          // Run quota in hours
+  double quota_sec = quota*3600;    // Run quota in seconds
 
   double pi = 3.1415927;
   double cs = cos(theta/180.0*pi);
   double sn = sin(theta/180.0*pi);
 
-  // derived quantities
+  // Derived quantities.
 
   double mi   = me*mi_me;                                 // Ion mass
   double vthi = vthe*sqrt(Ti_Te/mi_me);                   // Ion thermal velocity
@@ -113,7 +114,7 @@ begin_initialization
   double      ion_sort_interval = 25;   // Injector moments are also updated at this interval
   double electron_sort_interval = 25;   // Injector moments are also updated at this interval
 
-  // Numerical parameters
+  // Numerical parameters.
 
   double nppc = REPLACE_nppc; // Average number of macro particle per cell per species
 
@@ -121,7 +122,7 @@ begin_initialization
   double Ly  = REPLACE_Ly_scale*1.50*15.0/sqrt(mi_me)*di; // size of box in y dimension
   double Lz  =                  1.00*15.0/sqrt(mi_me)*di; // size of box in z dimension
 
-  double topology_x = 8;     // Number of domains in x, y, and z
+  double topology_x = 8;      // Number of domains in x, y, and z
   double topology_y = 4*REPLACE_topology_y_scale; 
   double topology_z = 2;  
 
@@ -753,7 +754,7 @@ begin_diagnostics
    * Normal rundata dump
    *------------------------------------------------------------------------*/
 
-  if( step() == 0 )
+  if ( step() == 0 )
   {
     dump_mkdir( "fields" );
     dump_mkdir( "hydro" );
@@ -774,7 +775,7 @@ begin_diagnostics
    * Normal rundata energies dump
    *------------------------------------------------------------------------*/
 
-  if( should_dump( energies ) )
+  if ( should_dump( energies ) )
   {
     dump_energies( "rundata/energies", step() == 0 ? 0 : 1 );
   }
@@ -783,27 +784,51 @@ begin_diagnostics
    * Field data output
    *------------------------------------------------------------------------*/
 
-  if( step() == 1 || should_dump( fields ) )
+  if ( step() == 1 || should_dump( fields ) )
   {
+    double dumpstart = uptime();
+
     field_dump( global->fdParams );
+
+    sim_log( "Field dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Field dump duration " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
    * Electron species output
    *------------------------------------------------------------------------*/
 
-  if( should_dump( ehydro ) )
+  if ( should_dump( ehydro ) )
   {
+    double dumpstart = uptime();
+
     hydro_dump( "electron", global->hedParams );
+
+    sim_log( "Electron hydro dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Electron hydro dump duration " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
    * Ion species output
    *------------------------------------------------------------------------*/
 
-  if( should_dump( Hhydro ) )
+  if ( should_dump( Hhydro ) )
   {
+    double dumpstart = uptime();
+
     hydro_dump( "ion", global->hHdParams );
+
+    sim_log( "Ion hydro dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Ion hydro dump duration " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
@@ -812,7 +837,7 @@ begin_diagnostics
 
   //	#include "energy.cxx"   //  Subroutine to compute energy spectrum diagnostic
 
-  //Vadim: 
+  // Vadim: 
 
   //#include "dissipation.cxx"
   //#include "Ohms_exp_all_v2.cxx"
@@ -821,50 +846,58 @@ begin_diagnostics
    * Restart dump
    *------------------------------------------------------------------------*/
 
-  //Vadim:
+  // Vadim:
 
-  if( step() && !( step()%global->restart_interval ) )
+  if ( step() && !( step()%global->restart_interval ) )
   {
-    global->write_restart = 1; // set restart flag. the actual restart files are written during the next step
+    // Set restart flag. The actual restart files are written during the
+    // next step.
+    global->write_restart = 1;
   }
+
   else
   {
-    if( global->write_restart )
+    if ( global->write_restart )
     {
       global->write_restart = 0; // reset restart flag
 
       double dumpstart = uptime();
 
-      if( !global->rtoggle )
+      if ( !global->rtoggle )
       {
 	global->rtoggle = 1;
-	checkpt("restart1/restart", 0);
+
+	checkpt( "restart1/restart", 0 );
       }
+
       else
       {
 	global->rtoggle = 0;
-	checkpt("restart2/restart", 0);
+
+	checkpt( "restart2/restart", 0 );
       }
-   
-      mp_barrier(  ); // Just to be safe
+
+      mp_barrier(); // Just to be safe
 
       double dumpelapsed = uptime() - dumpstart;
+
       sim_log("Restart duration "<<dumpelapsed);
 
-      //Vadim
-      if( rank() == 0 )
+      // Vadim
+      if ( rank() == 0 )
       {
         FileIO fp_restart_info;
 
-        if( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
+        if ( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
 	{
 	  ERROR( ( "Cannot open file." ) );
 	}
 
-        if( !global->rtoggle )
+        if ( !global->rtoggle )
 	{
           fp_restart_info.print( "restart restart2/restart" );
         }
+
 	else
 	{
           fp_restart_info.print( "restart restart1/restart" );
@@ -875,13 +908,13 @@ begin_diagnostics
     }
   }
 
-  // Dump particle data
+  // Dump particle data.
 
   char subdir[36];
 
-  if( should_dump( eparticle ) &&
-      ( step() != 0 ) &&
-      step() > 0*( global->fields_interval ) )
+  if ( should_dump( eparticle ) &&
+       ( step() != 0 ) &&
+       step() > 0*( global->fields_interval ) )
   {
     sprintf( subdir, "particle/T.%d", step() );
 
@@ -889,7 +922,15 @@ begin_diagnostics
 
     sprintf( subdir, "particle/T.%d/eparticle", step() );
 
+    double dumpstart = uptime();
+
     dump_particles( "electron", subdir );
+
+    sim_log( "Electron particle dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Electron particle dump duration " << dumpelapsed );
   }
 
   // Shut down simulation when wall clock time exceeds global->quota_sec. 
@@ -899,14 +940,14 @@ begin_diagnostics
   // few timesteps to eliminate the expensive mp_elapsed call from every
   // timestep. mp_elapsed has an ALL_REDUCE in it!
 
-  //Vadim:
+  // Vadim:
 
-  if( ( step() > 0 &&
-	global->quota_check_interval > 0 &&
-	( step() & global->quota_check_interval ) == 0 ) ||
-      ( global->write_end_restart ) )
+  if ( ( step() > 0 &&
+	 global->quota_check_interval > 0 &&
+	 ( step() & global->quota_check_interval ) == 0 ) ||
+       ( global->write_end_restart ) )
   {
-    if( global->write_end_restart )
+    if ( global->write_end_restart )
     {
       global->write_end_restart = 0; // reset restart flag
 		   
@@ -916,21 +957,21 @@ begin_diagnostics
 
       checkpt( "restart0/restart", 0 );
 
-      mp_barrier(  ); // Just to be safe
+      mp_barrier(); // Just to be safe
 
-      sim_log( "Restart dump restart completed." );
+      sim_log( "Restart dump completed." );
 
       double dumpelapsed = uptime() - dumpstart;
 
       sim_log( "Restart duration " << dumpelapsed );
 
-      //Vadim:
+      // Vadim:
 
-      if( rank() == 0 )
+      if ( rank() == 0 )
       {
 	FileIO fp_restart_info;
 
-	if( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
+        if ( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
 	{
 	  ERROR( ( "Cannot open file." ) );
 
@@ -942,7 +983,7 @@ begin_diagnostics
 	exit(0); // Exit or abort?
       }
 
-      if( uptime() > global->quota_sec )
+      if ( uptime() > global->quota_sec )
       {
 	global->write_end_restart = 1;
       }

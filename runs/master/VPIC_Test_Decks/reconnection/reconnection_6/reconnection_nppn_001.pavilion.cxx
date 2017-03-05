@@ -54,12 +54,12 @@ begin_globals
   double emax;                       // maximum energy (in units of me*c**2)
   int nex;                           // number of energy bins
 
-  //Vadim:  modified restart machinary
+  // Vadim:  modified restart machinary
 
   int write_restart ;                 // global flag for all to write restart files
   int write_end_restart ;             // global flag for all to write restart files
 
-  //Vadim: E*j variables
+  // Vadim: E*j variables
 
   int nsp;                            // number of species
   int dis_nav;                         // number of steps to average over 
@@ -754,7 +754,7 @@ begin_diagnostics
    * Normal rundata dump
    *------------------------------------------------------------------------*/
 
-  if( step() == 0 )
+  if ( step() == 0 )
   {
     dump_mkdir( "fields" );
     dump_mkdir( "hydro" );
@@ -775,7 +775,7 @@ begin_diagnostics
    * Normal rundata energies dump
    *------------------------------------------------------------------------*/
 
-  if( should_dump( energies ) )
+  if ( should_dump( energies ) )
   {
     dump_energies( "rundata/energies", step() == 0 ? 0 : 1 );
   }
@@ -784,27 +784,51 @@ begin_diagnostics
    * Field data output
    *------------------------------------------------------------------------*/
 
-  if( step() == 1 || should_dump( fields ) )
+  if ( step() == 1 || should_dump( fields ) )
   {
+    double dumpstart = uptime();
+
     field_dump( global->fdParams );
+
+    sim_log( "Field dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Field dump duration " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
    * Electron species output
    *------------------------------------------------------------------------*/
 
-  if( should_dump( ehydro ) )
+  if ( should_dump( ehydro ) )
   {
+    double dumpstart = uptime();
+
     hydro_dump( "electron", global->hedParams );
+
+    sim_log( "Electron hydro dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Electron hydro dump duration " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
    * Ion species output
    *------------------------------------------------------------------------*/
 
-  if( should_dump( Hhydro ) )
+  if ( should_dump( Hhydro ) )
   {
+    double dumpstart = uptime();
+
     hydro_dump( "ion", global->hHdParams );
+
+    sim_log( "Ion hydro dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Ion hydro dump duration " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
@@ -813,7 +837,7 @@ begin_diagnostics
 
   //	#include "energy.cxx"   //  Subroutine to compute energy spectrum diagnostic
 
-  //Vadim: 
+  // Vadim: 
 
   //#include "dissipation.cxx"
   //#include "Ohms_exp_all_v2.cxx"
@@ -822,50 +846,58 @@ begin_diagnostics
    * Restart dump
    *------------------------------------------------------------------------*/
 
-  //Vadim:
+  // Vadim:
 
-  if( step() && !( step()%global->restart_interval ) )
+  if ( step() && !( step()%global->restart_interval ) )
   {
-    global->write_restart = 1; // set restart flag. the actual restart files are written during the next step
+    // Set restart flag. The actual restart files are written during the
+    // next step.
+    global->write_restart = 1;
   }
+
   else
   {
-    if( global->write_restart )
+    if ( global->write_restart )
     {
       global->write_restart = 0; // reset restart flag
 
       double dumpstart = uptime();
 
-      if( !global->rtoggle )
+      if ( !global->rtoggle )
       {
 	global->rtoggle = 1;
-	checkpt("restart1/restart", 0);
+
+	checkpt( "restart1/restart", 0 );
       }
+
       else
       {
 	global->rtoggle = 0;
-	checkpt("restart2/restart", 0);
+
+	checkpt( "restart2/restart", 0 );
       }
-   
-      mp_barrier(  ); // Just to be safe
+
+      mp_barrier(); // Just to be safe
 
       double dumpelapsed = uptime() - dumpstart;
+
       sim_log("Restart duration "<<dumpelapsed);
 
-      //Vadim
-      if( rank() == 0 )
+      // Vadim
+      if ( rank() == 0 )
       {
         FileIO fp_restart_info;
 
-        if( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
+        if ( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
 	{
 	  ERROR( ( "Cannot open file." ) );
 	}
 
-        if( !global->rtoggle )
+        if ( !global->rtoggle )
 	{
           fp_restart_info.print( "restart restart2/restart" );
         }
+
 	else
 	{
           fp_restart_info.print( "restart restart1/restart" );
@@ -876,13 +908,13 @@ begin_diagnostics
     }
   }
 
-  // Dump particle data
+  // Dump particle data.
 
   char subdir[36];
 
-  if( should_dump( eparticle ) &&
-      ( step() != 0 ) &&
-      step() > 0*( global->fields_interval ) )
+  if ( should_dump( eparticle ) &&
+       ( step() != 0 ) &&
+       step() > 0*( global->fields_interval ) )
   {
     sprintf( subdir, "particle/T.%d", step() );
 
@@ -890,7 +922,15 @@ begin_diagnostics
 
     sprintf( subdir, "particle/T.%d/eparticle", step() );
 
+    double dumpstart = uptime();
+
     dump_particles( "electron", subdir );
+
+    sim_log( "Electron particle dump completed." );
+
+    double dumpelapsed = uptime() - dumpstart;
+
+    sim_log( "Electron particle dump duration " << dumpelapsed );
   }
 
   // Shut down simulation when wall clock time exceeds global->quota_sec. 
@@ -900,14 +940,14 @@ begin_diagnostics
   // few timesteps to eliminate the expensive mp_elapsed call from every
   // timestep. mp_elapsed has an ALL_REDUCE in it!
 
-  //Vadim:
+  // Vadim:
 
-  if( ( step() > 0 &&
-	global->quota_check_interval > 0 &&
-	( step() & global->quota_check_interval ) == 0 ) ||
-      ( global->write_end_restart ) )
+  if ( ( step() > 0 &&
+	 global->quota_check_interval > 0 &&
+	 ( step() & global->quota_check_interval ) == 0 ) ||
+       ( global->write_end_restart ) )
   {
-    if( global->write_end_restart )
+    if ( global->write_end_restart )
     {
       global->write_end_restart = 0; // reset restart flag
 		   
@@ -917,21 +957,21 @@ begin_diagnostics
 
       checkpt( "restart0/restart", 0 );
 
-      mp_barrier(  ); // Just to be safe
+      mp_barrier(); // Just to be safe
 
-      sim_log( "Restart dump restart completed." );
+      sim_log( "Restart dump completed." );
 
       double dumpelapsed = uptime() - dumpstart;
 
       sim_log( "Restart duration " << dumpelapsed );
 
-      //Vadim:
+      // Vadim:
 
-      if( rank() == 0 )
+      if ( rank() == 0 )
       {
 	FileIO fp_restart_info;
 
-	if( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
+        if ( !( fp_restart_info.open( "latest_restart", io_write ) == ok ) )
 	{
 	  ERROR( ( "Cannot open file." ) );
 
@@ -943,7 +983,7 @@ begin_diagnostics
 	exit(0); // Exit or abort?
       }
 
-      if( uptime() > global->quota_sec )
+      if ( uptime() > global->quota_sec )
       {
 	global->write_end_restart = 1;
       }
