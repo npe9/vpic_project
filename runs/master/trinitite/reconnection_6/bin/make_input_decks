@@ -1,0 +1,28 @@
+#!/bin/bash
+
+test_home=../../../VPIC_Test_Decks/reconnection/reconnection_6
+
+#######################################################################
+# Set run parameters.
+
+nnodes=$1
+nppn=$2
+ntpp=$3
+nppc=$4
+nstep=$5
+nrestart=$6
+size=$7
+
+#######################################################################
+# Edit the input file to use our configurable input parameters.
+
+update='
+s/REPLACE_Ly_scale/'$((10#${nnodes}))'/
+s/REPLACE_topology_y_scale/'$((10#${nnodes}))'/
+s/REPLACE_ny_scale/'$((10#${nnodes}))'/
+s/REPLACE_nppc/'${nppc}'/
+s/REPLACE_nstep/'${nstep}'/
+s/REPLACE_nrestart/'${nrestart}'/
+'
+
+cat ${test_home}/reconnection_nppn_${nppn}.pavilion.cxx | sed -e "$update" >& reconnection_${size}_nn_${nnodes}_nppn_${nppn}_ntpp_${ntpp}.cxx

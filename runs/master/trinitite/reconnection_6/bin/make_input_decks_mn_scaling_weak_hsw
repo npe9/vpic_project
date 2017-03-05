@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#######################################################################
+# Documentation of run parameters.
+#
+# $1 = nnodes
+# $2 = nppn
+# $3 = ntpp
+# $4 = nppc
+# $5 = nstep
+# $6 = nrestart
+# $7 = size
+#
+#######################################################################
+# Create the input decks.
+
+#-----------------------------------------
+#                $1   $2  $3  $4 $5 $6 $7
+#-----------------------------------------
+make_input_decks 0001 064 001 50 61 15 ddr
+make_input_decks 0002 064 001 50 61 15 ddr
+make_input_decks 0004 064 001 50 61 15 ddr
+make_input_decks 0008 064 001 50 61 15 ddr
+make_input_decks 0016 064 001 50 61 15 ddr
+make_input_decks 0032 064 001 50 61 15 ddr
+make_input_decks 0064 064 001 50 61 15 ddr
+
+#-----------------------------------------
+#                $1   $2  $3  $4 $5 $6 $7
+#-----------------------------------------
+make_input_decks 0001 064 001 20 61 15 hbm
+make_input_decks 0002 064 001 20 61 15 hbm
+make_input_decks 0004 064 001 20 61 15 hbm
+make_input_decks 0008 064 001 20 61 15 hbm
+make_input_decks 0016 064 001 20 61 15 hbm
+make_input_decks 0032 064 001 20 61 15 hbm
+make_input_decks 0064 064 001 20 61 15 hbm
