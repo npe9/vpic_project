@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+#DW jobdw type=scratch access_mode=striped capacity=1TiB
+
+module load friendly-testing
+module load sandbox
+module swap intel/16.0.3 intel/17.0.1
+module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+module load datawarp
+module load lustre-default
+
+module list
+
+#export HIO_data_roots=dw,posix:/lustre/ttscratch1/wdn/vpic
+
+export HIO_data_roots=dw,posix:/lustre/ttscratch1/wdn/vpic_project/runs/master/trinitite/reconnection_6/run_1_int_v8_avx2_hsw_hio_dw
+
+set | egrep "^HIO|^DW|^PBS"
+
+aprun -n   64 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_ddr_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_ddr_nn_0001_nppn_064_ntpp_001_restart.log
+#aprun -n  128 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_ddr_nn_0002_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_ddr_nn_0002_nppn_064_ntpp_001_restart.log
+#aprun -n  256 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_ddr_nn_0004_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_ddr_nn_0004_nppn_064_ntpp_001_restart.log
+#aprun -n  512 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_ddr_nn_0008_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_ddr_nn_0008_nppn_064_ntpp_001_restart.log
+#aprun -n 1024 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_ddr_nn_0016_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_ddr_nn_0016_nppn_064_ntpp_001_restart.log
+#aprun -n 2048 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_ddr_nn_0032_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_ddr_nn_0032_nppn_064_ntpp_001_restart.log
+#aprun -n 4096 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_ddr_nn_0064_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_ddr_nn_0064_nppn_064_ntpp_001_restart.log
+
+#aprun -n   64 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_hbm_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_hbm_nn_0001_nppn_064_ntpp_001_restart.log
+#aprun -n  128 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_hbm_nn_0002_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_hbm_nn_0002_nppn_064_ntpp_001_restart.log
+#aprun -n  256 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_hbm_nn_0004_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_hbm_nn_0004_nppn_064_ntpp_001_restart.log
+#aprun -n  512 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_hbm_nn_0008_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_hbm_nn_0008_nppn_064_ntpp_001_restart.log
+#aprun -n 1024 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_hbm_nn_0016_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_hbm_nn_0016_nppn_064_ntpp_001_restart.log
+#aprun -n 2048 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_hbm_nn_0032_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_hbm_nn_0032_nppn_064_ntpp_001_restart.log
+#aprun -n 4096 -N 64 -S 32 -d 1 -j 2 /usr/bin/time -p reconnection_hbm_nn_0064_nppn_064_ntpp_001.Linux --tpp 1 --restore ./restart1/restart.0 2>&1 | tee reconnection_hbm_nn_0064_nppn_064_ntpp_001_restart.log
