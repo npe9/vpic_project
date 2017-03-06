@@ -154,15 +154,17 @@ begin_initialization
    
   //  int restart_interval = int(10000.0/(wci*dt));
   int restart_interval = REPLACE_nrestart;
-  int energies_interval = 100;
+  int energies_interval = 10;
   // int interval = int(5.0/(wci*dt));
-  int interval = 500;
+  int interval = 10;
   int fields_interval = interval;
   int ehydro_interval = interval;
   int Hhydro_interval = interval;
-  int eparticle_interval = 200000*interval;
-  int Hparticle_interval = 200000*interval;
-  int quota_check_interval     = 100;
+  int eparticle_interval = interval;
+  int Hparticle_interval = interval;
+  // int eparticle_interval = 200000*interval;
+  // int Hparticle_interval = 200000*interval;
+  int quota_check_interval = 100;
 
   //  Determine which domains area along the boundaries - Use macro from grid/partition.c
 
