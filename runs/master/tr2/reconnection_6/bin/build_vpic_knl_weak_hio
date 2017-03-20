@@ -6,7 +6,7 @@ module swap intel/16.0.3 intel/17.0.2
 module swap cray-mpich/7.4.2 cray-mpich/7.5.2
 module load datawarp
 #module load lustre-utils
-#module load lustre-default
+module load lustre-default
 module load lustre-cray_ari_s_rhine
 module swap craype-haswell craype-mic-knl
 
