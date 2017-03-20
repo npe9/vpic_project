@@ -17,35 +17,35 @@
 #-----------------------------------------
 #                $1   $2  $3  $4 $5 $6 $7
 #-----------------------------------------
-make_input_decks 0001 272 001 50 61 15 ddr
-make_input_decks 0002 272 001 50 61 15 ddr
-make_input_decks 0004 272 001 50 61 15 ddr
-make_input_decks 0008 272 001 50 61 15 ddr
-make_input_decks 0016 272 001 50 61 15 ddr
-make_input_decks 0032 272 001 50 61 15 ddr
-make_input_decks 0064 272 001 50 61 15 ddr
-make_input_decks 0128 272 001 50 61 15 ddr
-make_input_decks 0256 272 001 50 61 15 ddr
-make_input_decks 0512 272 001 50 61 15 ddr
-make_input_decks 1024 272 001 50 61 15 ddr
-make_input_decks 2048 272 001 50 61 15 ddr
-make_input_decks 4096 272 001 50 61 15 ddr
-make_input_decks 8192 272 001 50 61 15 ddr
+make_input_decks 0001 068 004 50 61 15 ddr
+make_input_decks 0002 068 004 50 61 15 ddr
+make_input_decks 0004 068 004 50 61 15 ddr
+make_input_decks 0008 068 004 50 61 15 ddr
+make_input_decks 0016 068 004 50 61 15 ddr
+make_input_decks 0032 068 004 50 61 15 ddr
+make_input_decks 0064 068 004 50 61 15 ddr
+make_input_decks 0128 068 004 50 61 15 ddr
+make_input_decks 0256 068 004 50 61 15 ddr
+make_input_decks 0512 068 004 50 61 15 ddr
+make_input_decks 1024 068 004 50 61 15 ddr
+make_input_decks 2048 068 004 50 61 15 ddr
+make_input_decks 4096 068 004 50 61 15 ddr
+make_input_decks 8192 068 004 50 61 15 ddr
 
 #-----------------------------------------
 #                $1   $2  $3  $4 $5 $6 $7
 #-----------------------------------------
-make_input_decks 0001 272 001 20 61 15 hbm
-make_input_decks 0002 272 001 20 61 15 hbm
-make_input_decks 0004 272 001 20 61 15 hbm
-make_input_decks 0008 272 001 20 61 15 hbm
-make_input_decks 0016 272 001 20 61 15 hbm
-make_input_decks 0032 272 001 20 61 15 hbm
-make_input_decks 0064 272 001 20 61 15 hbm
-make_input_decks 0128 272 001 20 61 15 hbm
-make_input_decks 0256 272 001 20 61 15 hbm
-make_input_decks 0512 272 001 20 61 15 hbm
-make_input_decks 1024 272 001 20 61 15 hbm
-make_input_decks 2048 272 001 20 61 15 hbm
-make_input_decks 4096 272 001 20 61 15 hbm
-make_input_decks 8192 272 001 20 61 15 hbm
+make_input_decks 0001 068 004 20 61 15 hbm
+make_input_decks 0002 068 004 20 61 15 hbm
+make_input_decks 0004 068 004 20 61 15 hbm
+make_input_decks 0008 068 004 20 61 15 hbm
+make_input_decks 0016 068 004 20 61 15 hbm
+make_input_decks 0032 068 004 20 61 15 hbm
+make_input_decks 0064 068 004 20 61 15 hbm
+make_input_decks 0128 068 004 20 61 15 hbm
+make_input_decks 0256 068 004 20 61 15 hbm
+make_input_decks 0512 068 004 20 61 15 hbm
+make_input_decks 1024 068 004 20 61 15 hbm
+make_input_decks 2048 068 004 20 61 15 hbm
+make_input_decks 4096 068 004 20 61 15 hbm
+make_input_decks 8192 068 004 20 61 15 hbm
