@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+#MSUB -joe
+
+module load friendly-testing
+module load sandbox
+module swap intel/16.0.3 intel/17.0.2
+module swap cray-mpich/7.4.2 cray-mpich/7.5.2
+
+module list
+
+aprun -n     68 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0001_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0001_nppn_068_ntpp_004.log
+aprun -n    136 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0002_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0002_nppn_068_ntpp_004.log
+aprun -n    272 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0004_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0004_nppn_068_ntpp_004.log
+aprun -n    544 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0008_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0008_nppn_068_ntpp_004.log
+aprun -n   1088 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0016_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0016_nppn_068_ntpp_004.log
+aprun -n   2176 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0032_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0032_nppn_068_ntpp_004.log
+aprun -n   4352 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0064_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0064_nppn_068_ntpp_004.log
+aprun -n   8704 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0128_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0128_nppn_068_ntpp_004.log
+aprun -n  17408 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0256_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0256_nppn_068_ntpp_004.log
+aprun -n  34816 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_0512_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_0512_nppn_068_ntpp_004.log
+aprun -n  69632 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_1024_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_1024_nppn_068_ntpp_004.log
+aprun -n 139264 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_2048_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_2048_nppn_068_ntpp_004.log
+aprun -n 278528 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_4096_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_4096_nppn_068_ntpp_004.log
+aprun -n 557056 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_ddr_nn_8192_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_ddr_nn_8192_nppn_068_ntpp_004.log
+
+#aprun -n     68 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0001_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0001_nppn_068_ntpp_004.log
+#aprun -n    136 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0002_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0002_nppn_068_ntpp_004.log
+#aprun -n    272 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0004_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0004_nppn_068_ntpp_004.log
+#aprun -n    544 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0008_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0008_nppn_068_ntpp_004.log
+#aprun -n   1088 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0016_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0016_nppn_068_ntpp_004.log
+#aprun -n   2176 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0032_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0032_nppn_068_ntpp_004.log
+#aprun -n   4352 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0064_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0064_nppn_068_ntpp_004.log
+#aprun -n   8704 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0128_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0128_nppn_068_ntpp_004.log
+#aprun -n  17408 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0256_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0256_nppn_068_ntpp_004.log
+#aprun -n  34816 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_0512_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_0512_nppn_068_ntpp_004.log
+#aprun -n  69632 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_1024_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_1024_nppn_068_ntpp_004.log
+#aprun -n 139264 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_2048_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_2048_nppn_068_ntpp_004.log
+#aprun -n 278528 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_4096_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_4096_nppn_068_ntpp_004.log
+#aprun -n 557056 -N 68 -d 4 -j 4 numactl --preferred=1 reconnection_hbm_nn_8192_nppn_068_ntpp_004.Linux --tpp 4 2>&1 reconnection_hbm_nn_8192_nppn_068_ntpp_004.log
