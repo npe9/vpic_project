@@ -30,6 +30,16 @@ cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
 
 cd $VPIC_DIR
 
+################################################################################
+# Set some high level variables to control module versions.
+
+VERSION_CMAKE=3.7.1
+VERSION_INTEL=17.0.2
+VERSION_CRAY=8.5.8
+VERSION_GNU=6.3.0                      # Not implemented yet.
+VERSION_CRAY_MPICH=7.5.4
+VERSION_INTEL_PERF_TOOLS=2017.2.028
+
 ################################################################################################################################################################
 
 ################################################################################
@@ -38,8 +48,10 @@ cd $VPIC_DIR
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -75,8 +87,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -113,8 +127,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -151,8 +167,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -189,8 +207,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -228,8 +248,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -267,8 +289,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_HIO" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -310,8 +334,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -351,8 +377,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -385,8 +413,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -421,8 +451,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -457,8 +489,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -493,8 +527,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -529,8 +565,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -566,8 +604,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -604,9 +644,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -638,9 +680,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -673,9 +717,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -708,9 +754,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -743,9 +791,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -779,9 +829,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -815,9 +867,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -853,9 +907,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -891,9 +947,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -930,9 +988,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -969,9 +1029,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1008,9 +1070,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1048,9 +1112,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1088,9 +1154,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1128,9 +1196,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1170,9 +1240,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1205,9 +1277,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1242,9 +1316,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1279,9 +1355,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1316,9 +1394,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1353,9 +1433,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1391,9 +1473,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1428,9 +1512,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1468,10 +1554,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1503,10 +1591,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1539,10 +1629,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1575,10 +1667,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1611,10 +1705,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1648,10 +1744,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1685,10 +1783,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1722,10 +1822,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -1761,8 +1863,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -1801,8 +1905,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -1842,8 +1948,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -1883,8 +1991,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -1924,8 +2034,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -1966,8 +2078,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2008,8 +2122,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2052,8 +2168,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2089,8 +2207,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2128,8 +2248,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2167,8 +2289,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2206,8 +2330,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2245,8 +2371,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2285,8 +2413,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2326,9 +2456,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2363,9 +2495,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2401,9 +2535,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2439,9 +2575,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2477,9 +2615,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2516,9 +2656,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2555,9 +2697,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2596,9 +2740,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2637,9 +2783,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2679,9 +2827,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2721,9 +2871,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2763,9 +2915,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2806,9 +2960,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2849,9 +3005,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2892,9 +3050,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2937,9 +3097,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -2975,9 +3137,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3015,9 +3179,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3055,9 +3221,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3095,9 +3263,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3135,9 +3305,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3176,9 +3348,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3216,9 +3390,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3259,10 +3435,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3297,10 +3475,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3336,10 +3516,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3375,10 +3557,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3414,10 +3598,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3454,10 +3640,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3494,10 +3682,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3534,10 +3724,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -3576,8 +3768,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3616,8 +3810,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3657,8 +3853,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3698,8 +3896,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3739,8 +3939,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3781,8 +3983,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3823,8 +4027,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3867,8 +4073,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3904,8 +4112,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3943,8 +4153,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -3982,8 +4194,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4021,8 +4235,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4060,8 +4276,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4100,8 +4318,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4141,9 +4361,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4178,9 +4400,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4216,9 +4440,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4254,9 +4480,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4292,9 +4520,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4331,9 +4561,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4370,9 +4602,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4411,9 +4645,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4452,9 +4688,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4494,9 +4732,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4536,9 +4776,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4578,9 +4820,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4621,9 +4865,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4664,9 +4910,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4707,9 +4955,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4752,9 +5002,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4790,9 +5042,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4830,9 +5084,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4870,9 +5126,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4910,9 +5168,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4950,9 +5210,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -4991,9 +5253,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5031,9 +5295,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5074,10 +5340,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5112,10 +5380,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5151,10 +5421,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5190,10 +5462,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5229,10 +5503,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5269,10 +5545,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5309,10 +5587,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5349,10 +5629,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -5391,9 +5673,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5437,9 +5722,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5484,9 +5772,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5531,9 +5822,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5578,9 +5872,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5626,9 +5923,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5674,9 +5974,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5724,9 +6027,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5765,9 +6071,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5808,9 +6117,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5851,9 +6163,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5894,9 +6209,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5937,9 +6255,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -5981,9 +6302,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6026,10 +6350,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6067,10 +6394,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6109,10 +6439,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6151,10 +6484,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6193,10 +6529,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6236,10 +6575,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6279,10 +6621,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6324,10 +6669,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6371,10 +6719,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6419,10 +6770,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6467,10 +6821,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6515,10 +6872,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6564,10 +6924,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6613,10 +6976,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6662,10 +7028,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6713,10 +7082,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6755,10 +7127,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6799,10 +7174,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6843,10 +7221,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6887,10 +7268,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6931,10 +7315,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -6976,10 +7363,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7020,10 +7410,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7067,11 +7460,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7109,11 +7505,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7152,11 +7551,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7195,11 +7597,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7238,11 +7643,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7282,11 +7690,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7326,11 +7737,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7370,11 +7784,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -7416,8 +7833,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7453,8 +7872,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_AVEC_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7493,8 +7914,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7531,8 +7954,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7569,8 +7994,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7607,8 +8034,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7646,8 +8075,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7685,8 +8116,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7726,8 +8159,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7760,8 +8195,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7796,8 +8233,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7832,8 +8271,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7868,8 +8309,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7904,8 +8347,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7941,8 +8386,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -7979,9 +8426,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8013,9 +8462,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8048,9 +8499,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8083,9 +8536,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8118,9 +8573,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8154,9 +8611,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8190,9 +8649,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8228,9 +8689,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8266,9 +8729,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_AVEC_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8305,9 +8770,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8344,9 +8811,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8383,9 +8852,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8422,9 +8893,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8462,9 +8935,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8502,9 +8977,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8542,9 +9019,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8584,9 +9063,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8619,9 +9100,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8656,9 +9139,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8693,9 +9178,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8730,9 +9217,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8767,9 +9256,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8805,9 +9296,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8842,9 +9335,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8882,10 +9377,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8917,10 +9414,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8953,10 +9452,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -8989,10 +9490,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -9025,10 +9528,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -9062,10 +9567,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -9099,10 +9606,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -9136,10 +9645,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
 
   module list
 
@@ -9175,8 +9686,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9215,8 +9728,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9256,8 +9771,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9297,8 +9814,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9338,8 +9857,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9380,8 +9901,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9422,8 +9945,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9466,8 +9991,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9503,8 +10030,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9542,8 +10071,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9581,8 +10112,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9620,8 +10153,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9659,8 +10194,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9699,8 +10236,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9740,9 +10279,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9777,9 +10318,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9815,9 +10358,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9853,9 +10398,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9891,9 +10438,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9930,9 +10479,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -9969,9 +10520,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10010,9 +10563,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10051,9 +10606,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10093,9 +10650,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10135,9 +10694,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10177,9 +10738,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10220,9 +10783,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10263,9 +10828,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10306,9 +10873,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10351,9 +10920,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10389,9 +10960,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10429,9 +11002,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10469,9 +11044,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10509,9 +11086,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10549,9 +11128,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10590,9 +11171,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10630,9 +11213,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10673,10 +11258,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10711,10 +11298,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10750,10 +11339,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10789,10 +11380,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10828,10 +11421,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10868,10 +11463,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10908,10 +11505,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10948,10 +11547,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools
@@ -10990,8 +11591,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11030,8 +11633,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11071,8 +11676,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11112,8 +11719,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11153,8 +11762,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11195,8 +11806,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11237,8 +11850,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11281,8 +11896,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11318,8 +11935,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11357,8 +11976,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11396,8 +12017,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11435,8 +12058,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11474,8 +12099,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11514,8 +12141,10 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11555,9 +12184,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11592,9 +12223,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11630,9 +12263,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11668,9 +12303,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11706,9 +12343,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11745,9 +12384,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11784,9 +12425,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11825,9 +12468,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11866,9 +12511,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11908,9 +12555,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11950,9 +12599,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -11992,9 +12643,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12035,9 +12688,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12078,9 +12733,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12121,9 +12778,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12166,9 +12825,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12204,9 +12865,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12244,9 +12907,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12284,9 +12949,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12324,9 +12991,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12364,9 +13033,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12405,9 +13076,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12445,9 +13118,11 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12488,10 +13163,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12526,10 +13203,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12565,10 +13244,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12604,10 +13285,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12643,10 +13326,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12683,10 +13368,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12723,10 +13410,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12763,10 +13452,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
   module load perftools-base
   module swap perftools-base perftools-base/6.4.2
   module load perftools-lite
@@ -12805,9 +13496,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -12851,9 +13545,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -12898,9 +13595,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -12945,9 +13645,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -12992,9 +13695,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13040,9 +13746,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13088,9 +13797,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13138,9 +13850,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13179,9 +13894,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13222,9 +13940,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13265,9 +13986,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13308,9 +14032,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13351,9 +14078,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13395,9 +14125,12 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13440,10 +14173,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13481,10 +14217,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13523,10 +14262,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13565,10 +14307,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13607,10 +14352,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13650,10 +14398,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13693,10 +14444,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cce cce/$VERSION_CRAY
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13738,10 +14492,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13785,10 +14542,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13833,10 +14593,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13881,10 +14644,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13929,10 +14695,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -13978,10 +14747,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14027,10 +14799,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14076,10 +14851,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
-  module swap intel/16.0.3 intel/17.0.1
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14127,10 +14905,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14169,10 +14950,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14213,10 +14997,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14257,10 +15044,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14301,10 +15091,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14345,10 +15138,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14390,10 +15186,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14434,10 +15233,13 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-gnu
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14481,11 +15283,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14523,11 +15328,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14566,11 +15374,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14609,11 +15420,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14652,11 +15466,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14696,11 +15513,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14740,11 +15560,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
@@ -14784,11 +15607,14 @@ fi
 if [ $ARCH = "TRINITITE_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
   module swap PrgEnv-intel PrgEnv-cray
-  module swap cce/8.5.2 cce/8.5.3
+  module swap cce cce/$VERSION_CRAY
   module swap craype-haswell craype-mic-knl
-  module swap cray-mpich/7.4.2 cray-mpich/7.5.0
-  module load intel-performance-tools/2017.1.024
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
   module list
 
