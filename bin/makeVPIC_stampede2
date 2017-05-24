@@ -1276,6 +1276,29 @@ fi
 
 if [ $ARCH = "STAMPEDE2_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_CATALYST" ]; then
   module load cmake
+  module load swr
+  module load python
+  module load boost
+
+  export OSPRAY=/home1/01249/gda/ospray
+
+  PV=/home1/01249/gda/paraview/pv.osmesa.nox
+
+  echo $PV
+
+  export PATH=$PATH:/work/01249/gda/ispc/ispc-v1.9.1-linux:/home1/01249/gda/Qt5.8.0/5.8/gcc_64/bin
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home1/apps/swr/17.0.0/lib:$OSPRAY/lib64
+  export LD_LIBRARY_PATH+=:/opt/intel/tbb/lib
+  export LD_LIBRARY_PATH=/opt/apps/gcc/6.3.0/lib64:/opt/apps/gcc/6.3.0/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PV/lib/paraview-5.3
+  export TACC_SWR_PATH=$TACC_SWR_DIR
+  export PATH=$PATH:$PV/bin
+
+  export PATH=$PV/bin:$PATH
+  export LD_LIBRARY_PATH=$PV/lib/paraview-5.3:$LD_LIBRARY_PATH
+  export PYTHONPATH=$PV/lib/paraview-5.3/site-packages:$PYTHONPATH
+
+  #export CC=mpicc CXX=mpicxx
 
   module list
 
