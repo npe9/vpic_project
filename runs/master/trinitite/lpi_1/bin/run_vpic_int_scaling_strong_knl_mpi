@@ -1,0 +1,122 @@
+#!/bin/bash
+
+module load friendly-testing
+module load sandbox
+module swap intel intel/17.0.4
+module swap cray-mpich cray-mpich/7.5.4
+module swap craype-haswell craype-mic-knl
+
+module list
+
+vtime='/usr/bin/time -p'
+vnuma='numactl --preferred=1'
+
+########################################################################################################################################################
+# Large DDR problem, strong scaled across 8 nodes.
+
+export OMP_NUM_THREADS=1
+
+########################################################################################################################################################
+# MPI only, 4 ranks/core.
+
+srun -n 2176 -N 8 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0008_nppn_272_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0008_nppn_272_nrpc_004.log
+srun -n 2048 -N 8 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0008_nppn_256_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0008_nppn_256_nrpc_004.log
+srun -n 1088 -N 4 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0004_nppn_272_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0004_nppn_272_nrpc_004.log
+srun -n 1024 -N 4 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0004_nppn_256_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0004_nppn_256_nrpc_004.log
+srun -n  544 -N 2 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0002_nppn_272_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0002_nppn_272_nrpc_004.log
+srun -n  512 -N 2 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0002_nppn_256_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0002_nppn_256_nrpc_004.log
+srun -n  272 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_272_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_272_nrpc_004.log
+srun -n  256 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_256_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_256_nrpc_004.log
+srun -n  136 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_136_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_136_nrpc_004.log
+srun -n  128 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_128_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_128_nrpc_004.log
+srun -n   68 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_068_nrpc_004.log
+srun -n   64 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_064_nrpc_004.log
+srun -n   32 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_032_nrpc_004.log
+srun -n   16 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_016_nrpc_004.log
+srun -n    8 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_008_nrpc_004.log
+srun -n    4 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_004_nrpc_004.log
+
+########################################################################################################################################################
+# MPI only, 2 ranks/core.
+
+srun -n 1088 -N 8 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0008_nppn_136_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0008_nppn_136_nrpc_002.log
+srun -n 1024 -N 8 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0008_nppn_128_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0008_nppn_128_nrpc_002.log
+srun -n  544 -N 4 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0004_nppn_136_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0004_nppn_136_nrpc_002.log
+srun -n  512 -N 4 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0004_nppn_128_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0004_nppn_128_nrpc_002.log
+srun -n  272 -N 2 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0002_nppn_136_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0002_nppn_136_nrpc_002.log
+srun -n  256 -N 2 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0002_nppn_128_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0002_nppn_128_nrpc_002.log
+srun -n  136 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_136_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_136_nrpc_002.log
+srun -n  128 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_128_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_128_nrpc_002.log
+srun -n   68 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_068_nrpc_002.log
+srun -n   64 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_064_nrpc_002.log
+srun -n   34 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_034_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_034_nrpc_002.log
+srun -n   32 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_032_nrpc_002.log
+srun -n   16 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_016_nrpc_002.log
+srun -n    8 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_008_nrpc_002.log
+srun -n    4 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_004_nrpc_002.log
+srun -n    2 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_002_nrpc_002.log
+
+########################################################################################################################################################
+# MPI only, 1 rank/core.
+
+srun -n  544 -N 8 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0008_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0008_nppn_068_nrpc_001.log
+srun -n  512 -N 8 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0008_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0008_nppn_064_nrpc_001.log
+srun -n  272 -N 4 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0004_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0004_nppn_068_nrpc_001.log
+srun -n  256 -N 4 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0004_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0004_nppn_064_nrpc_001.log
+srun -n  136 -N 2 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0002_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0002_nppn_068_nrpc_001.log
+srun -n  128 -N 2 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0002_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0002_nppn_064_nrpc_001.log
+srun -n   68 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_068_nrpc_001.log
+srun -n   64 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_064_nrpc_001.log
+srun -n   34 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_034_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_034_nrpc_001.log
+srun -n   32 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_032_nrpc_001.log
+srun -n   17 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_017_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_017_nrpc_001.log
+srun -n   16 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_016_nrpc_001.log
+srun -n    8 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_008_nrpc_001.log
+srun -n    4 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_004_nrpc_001.log
+srun -n    2 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_002_nrpc_001.log
+srun -n    1 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_ddr_nn_0001_nppn_001_ntpp_001.Linux --tpp 1 >& lpi_ddr_nn_0001_nppn_001_nrpc_001.log
+
+########################################################################################################################################################
+# Small HBM problem, strong scaled across 1 node.
+
+########################################################################################################################################################
+# MPI only, 4 ranks/core.
+
+srun -n  272 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_272_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_272_nrpc_004.log
+srun -n  256 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_256_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_256_nrpc_004.log
+srun -n  136 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_136_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_136_nrpc_004.log
+srun -n  128 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_128_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_128_nrpc_004.log
+srun -n   68 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_068_nrpc_004.log
+srun -n   64 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_064_nrpc_004.log
+srun -n   32 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_032_nrpc_004.log
+srun -n   16 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_016_nrpc_004.log
+srun -n    8 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_008_nrpc_004.log
+srun -n    4 -N 1 -c 1 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_004_nrpc_004.log
+
+########################################################################################################################################################
+# MPI only, 2 ranks/core.
+
+srun -n  136 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_136_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_136_nrpc_002.log
+srun -n  128 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_128_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_128_nrpc_002.log
+srun -n   68 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_068_nrpc_002.log
+srun -n   64 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_064_nrpc_002.log
+srun -n   34 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_034_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_034_nrpc_002.log
+srun -n   32 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_032_nrpc_002.log
+srun -n   16 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_016_nrpc_002.log
+srun -n    8 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_008_nrpc_002.log
+srun -n    4 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_004_nrpc_002.log
+srun -n    2 -N 1 -c 2 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_002_nrpc_002.log
+
+########################################################################################################################################################
+# MPI only, 1 rank/core.
+
+srun -n   68 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_068_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_068_nrpc_001.log
+srun -n   64 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_064_nrpc_001.log
+srun -n   34 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_034_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_034_nrpc_001.log
+srun -n   32 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_032_nrpc_001.log
+srun -n   17 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_017_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_017_nrpc_001.log
+srun -n   16 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_016_nrpc_001.log
+srun -n    8 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_008_nrpc_001.log
+srun -n    4 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_004_nrpc_001.log
+srun -n    2 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_002_nrpc_001.log
+srun -n    1 -N 1 -c 4 --cpu_bind=threads ${vtime} ${vnuma} lpi_hbm_nn_0001_nppn_001_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_001_nrpc_001.log

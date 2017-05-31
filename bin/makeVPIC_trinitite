@@ -34,7 +34,7 @@ cd $VPIC_DIR
 # Set some high level variables to control module versions.
 
 VERSION_CMAKE=3.7.1
-VERSION_INTEL=17.0.2
+VERSION_INTEL=17.0.4
 VERSION_CRAY=8.5.8
 VERSION_GNU=6.3.0                      # Not implemented yet.
 VERSION_CRAY_MPICH=7.5.4
