@@ -1,0 +1,77 @@
+#!/bin/bash
+
+cd master
+git clone --recursive ~/repos/git/vpic
+cd ..
+
+cd knl_open_science
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science
+cd ../..
+
+cd knl_open_science_aosoa
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_aosoa
+cd ../..
+
+cd knl_open_science_catalyst
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_catalyst
+cd ../..
+
+cd knl_open_science_cout
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_cout
+cd ../..
+
+cd knl_open_science_hio
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_hio
+cd ../..
+
+cd knl_open_science_hio_debug
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_hio_debug
+cd ../..
+
+cd knl_open_science_ls_perf
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_ls_perf
+cd ../..
+
+cd knl_open_science_new
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_new
+cd ../..
+
+cd knl_open_science_old
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout knl_open_science_old
+cd ../..
+
+cd pavilion
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout pavilion
+cd ../..
+
+cd pavilion_new
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout pavilion_new
+cd ../..
+
+cd pavilion_old
+git clone --recursive ~/repos/git/vpic
+cd vpic
+git checkout pavilion_old
+cd ../..
