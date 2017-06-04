@@ -35,7 +35,7 @@ cd $VPIC_DIR
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -72,7 +72,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -110,7 +110,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -148,7 +148,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -186,7 +186,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -225,7 +225,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -264,7 +264,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_HIO" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_HSW_HIO" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -307,7 +307,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -348,7 +348,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -382,7 +382,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -418,7 +418,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -454,7 +454,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -490,7 +490,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -526,7 +526,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -563,7 +563,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -601,7 +601,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -635,7 +635,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -670,7 +670,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -705,7 +705,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -740,7 +740,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -776,7 +776,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -812,7 +812,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -850,7 +850,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -888,7 +888,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -927,7 +927,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -966,7 +966,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1005,7 +1005,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1045,7 +1045,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1085,7 +1085,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1125,7 +1125,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1167,7 +1167,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1202,7 +1202,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1239,7 +1239,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1276,7 +1276,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1313,7 +1313,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1350,7 +1350,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1388,7 +1388,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1425,7 +1425,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -1465,7 +1465,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1500,7 +1500,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1536,7 +1536,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1572,7 +1572,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1608,7 +1608,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1645,7 +1645,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1682,7 +1682,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1719,7 +1719,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -1758,7 +1758,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1798,7 +1798,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1839,7 +1839,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1880,7 +1880,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1921,7 +1921,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -1963,7 +1963,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2005,7 +2005,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2049,7 +2049,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2086,7 +2086,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2125,7 +2125,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2164,7 +2164,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2203,7 +2203,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2242,7 +2242,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2282,7 +2282,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2323,7 +2323,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2360,7 +2360,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2398,7 +2398,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2436,7 +2436,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2474,7 +2474,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2513,7 +2513,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2552,7 +2552,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -2593,7 +2593,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2634,7 +2634,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2676,7 +2676,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2718,7 +2718,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2760,7 +2760,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2803,7 +2803,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2846,7 +2846,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2889,7 +2889,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -2934,7 +2934,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -2972,7 +2972,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3012,7 +3012,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3052,7 +3052,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3092,7 +3092,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3132,7 +3132,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3173,7 +3173,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3213,7 +3213,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3256,7 +3256,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3294,7 +3294,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3333,7 +3333,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3372,7 +3372,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3411,7 +3411,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3451,7 +3451,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3491,7 +3491,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3531,7 +3531,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -3573,7 +3573,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -3613,7 +3613,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -3654,7 +3654,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -3695,7 +3695,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -3736,7 +3736,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -3778,7 +3778,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -3820,7 +3820,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -3864,7 +3864,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3901,7 +3901,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3940,7 +3940,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -3979,7 +3979,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4018,7 +4018,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4057,7 +4057,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4097,7 +4097,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4138,7 +4138,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -4175,7 +4175,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -4213,7 +4213,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -4251,7 +4251,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -4289,7 +4289,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -4328,7 +4328,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -4367,7 +4367,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -4408,7 +4408,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4449,7 +4449,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4491,7 +4491,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4533,7 +4533,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4575,7 +4575,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4618,7 +4618,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4661,7 +4661,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4704,7 +4704,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -4749,7 +4749,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4787,7 +4787,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4827,7 +4827,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4867,7 +4867,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4907,7 +4907,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4947,7 +4947,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -4988,7 +4988,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5028,7 +5028,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5071,7 +5071,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5109,7 +5109,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5148,7 +5148,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5187,7 +5187,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5226,7 +5226,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5266,7 +5266,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5306,7 +5306,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5346,7 +5346,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -5388,7 +5388,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -5434,7 +5434,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -5481,7 +5481,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -5528,7 +5528,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -5575,7 +5575,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -5623,7 +5623,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -5671,7 +5671,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -5721,7 +5721,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5762,7 +5762,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5805,7 +5805,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5848,7 +5848,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5891,7 +5891,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5934,7 +5934,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -5978,7 +5978,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -6023,7 +6023,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -6064,7 +6064,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -6106,7 +6106,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -6148,7 +6148,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -6190,7 +6190,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -6233,7 +6233,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -6276,7 +6276,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -6321,7 +6321,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6368,7 +6368,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6416,7 +6416,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6464,7 +6464,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6512,7 +6512,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6561,7 +6561,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6610,7 +6610,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6659,7 +6659,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -6710,7 +6710,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -6752,7 +6752,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -6796,7 +6796,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -6840,7 +6840,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -6884,7 +6884,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -6928,7 +6928,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -6973,7 +6973,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7017,7 +7017,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_GNU_OPT_V16_AVX512_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_GNU_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7064,7 +7064,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7106,7 +7106,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7149,7 +7149,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7192,7 +7192,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7235,7 +7235,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7279,7 +7279,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7323,7 +7323,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7367,7 +7367,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_PTH_CCE_OPT_V16_AVX512_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_PTH_CCE_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -7413,7 +7413,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7450,7 +7450,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_AVEC_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_AVEC_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7490,7 +7490,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7528,7 +7528,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7566,7 +7566,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7604,7 +7604,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7643,7 +7643,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7682,7 +7682,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -7723,7 +7723,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7757,7 +7757,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7793,7 +7793,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7829,7 +7829,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7865,7 +7865,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7901,7 +7901,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7938,7 +7938,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -7976,7 +7976,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8010,7 +8010,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8045,7 +8045,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8080,7 +8080,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8115,7 +8115,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8151,7 +8151,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8187,7 +8187,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_HSW" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8225,7 +8225,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8263,7 +8263,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_AVEC_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_AVEC_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8302,7 +8302,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8341,7 +8341,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8380,7 +8380,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8419,7 +8419,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8459,7 +8459,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8499,7 +8499,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8539,7 +8539,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -8581,7 +8581,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8616,7 +8616,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8653,7 +8653,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8690,7 +8690,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8727,7 +8727,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8764,7 +8764,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8802,7 +8802,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8839,7 +8839,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -8879,7 +8879,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8914,7 +8914,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8950,7 +8950,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -8986,7 +8986,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9022,7 +9022,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9059,7 +9059,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9096,7 +9096,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9133,7 +9133,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_AVX512_KNL" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9172,7 +9172,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -9212,7 +9212,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -9253,7 +9253,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -9294,7 +9294,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -9335,7 +9335,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -9377,7 +9377,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -9419,7 +9419,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -9463,7 +9463,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -9500,7 +9500,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -9539,7 +9539,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -9578,7 +9578,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -9617,7 +9617,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -9656,7 +9656,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -9696,7 +9696,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -9737,7 +9737,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9774,7 +9774,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9812,7 +9812,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9850,7 +9850,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9888,7 +9888,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9927,7 +9927,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -9966,7 +9966,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_HSW_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10007,7 +10007,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10048,7 +10048,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10090,7 +10090,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10132,7 +10132,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10174,7 +10174,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10217,7 +10217,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10260,7 +10260,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10303,7 +10303,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -10348,7 +10348,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10386,7 +10386,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10426,7 +10426,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10466,7 +10466,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10506,7 +10506,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10546,7 +10546,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10587,7 +10587,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10627,7 +10627,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -10670,7 +10670,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10708,7 +10708,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10747,7 +10747,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10786,7 +10786,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10825,7 +10825,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10865,7 +10865,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10905,7 +10905,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10945,7 +10945,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL_CPAT" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_AVX512_KNL_CPAT" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -10987,7 +10987,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11027,7 +11027,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11068,7 +11068,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11109,7 +11109,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11150,7 +11150,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11192,7 +11192,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11234,7 +11234,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11278,7 +11278,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -11315,7 +11315,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -11354,7 +11354,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -11393,7 +11393,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -11432,7 +11432,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -11471,7 +11471,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -11511,7 +11511,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -11552,7 +11552,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -11589,7 +11589,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -11627,7 +11627,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -11665,7 +11665,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -11703,7 +11703,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -11742,7 +11742,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -11781,7 +11781,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_HSW_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -11822,7 +11822,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11863,7 +11863,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11905,7 +11905,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11947,7 +11947,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -11989,7 +11989,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12032,7 +12032,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12075,7 +12075,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12118,7 +12118,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12163,7 +12163,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12201,7 +12201,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12241,7 +12241,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12281,7 +12281,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12321,7 +12321,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12361,7 +12361,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12402,7 +12402,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12442,7 +12442,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -12485,7 +12485,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12523,7 +12523,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12562,7 +12562,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12601,7 +12601,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12640,7 +12640,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12680,7 +12680,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12720,7 +12720,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12760,7 +12760,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_AVX512_KNL_CPAT_LITE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -12802,7 +12802,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12848,7 +12848,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12895,7 +12895,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12942,7 +12942,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -12989,7 +12989,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13037,7 +13037,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13085,7 +13085,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13135,7 +13135,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -13176,7 +13176,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -13219,7 +13219,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -13262,7 +13262,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -13305,7 +13305,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -13348,7 +13348,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -13392,7 +13392,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -13437,7 +13437,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -13478,7 +13478,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -13520,7 +13520,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -13562,7 +13562,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -13604,7 +13604,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -13647,7 +13647,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -13690,7 +13690,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_HSW_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -13735,7 +13735,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13782,7 +13782,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13830,7 +13830,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13878,7 +13878,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13926,7 +13926,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -13975,7 +13975,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -14024,7 +14024,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -14073,7 +14073,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap intel/16.0.3 intel/17.0.1
@@ -14124,7 +14124,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14166,7 +14166,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14210,7 +14210,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14254,7 +14254,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14298,7 +14298,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14342,7 +14342,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14387,7 +14387,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14431,7 +14431,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_GNU_OPT_V16_AVX512_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_GNU_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-gnu
@@ -14478,7 +14478,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_NONE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_NONE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -14520,7 +14520,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -14563,7 +14563,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_SSE_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_SSE_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -14606,7 +14606,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V4_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V4_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -14649,7 +14649,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -14693,7 +14693,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V8_AVX2_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V8_AVX2_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -14737,7 +14737,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_PORT_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_PORT_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
@@ -14781,7 +14781,7 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Cray compilers.
 
-if [ $ARCH = "TRINITY_MASTER_CLE_OMP_CCE_OPT_V16_AVX512_KNL_VTUNE" ]; then
+if [ $ARCH = "TRINITY_OMP_CCE_OPT_V16_AVX512_KNL_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
   module swap PrgEnv-intel PrgEnv-cray
