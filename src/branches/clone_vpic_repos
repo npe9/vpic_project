@@ -5,73 +5,49 @@ git clone --recursive ~/repos/git/vpic
 cd ..
 
 cd knl_open_science
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science
-cd ../..
+git clone --recursive --branch knl_open_science ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_aosoa
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_aosoa
-cd ../..
+git clone --recursive --branch knl_open_science_aosoa ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_catalyst
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_catalyst
-cd ../..
+git clone --recursive --branch knl_open_science_catalyst ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_cout
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_cout
-cd ../..
+git clone --recursive --branch knl_open_science_cout ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_hio
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_hio
-cd ../..
+git clone --recursive --branch knl_open_science_hio ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_hio_debug
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_hio_debug
-cd ../..
+git clone --recursive --branch knl_open_science_hio_debug ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_ls_perf
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_ls_perf
-cd ../..
+git clone --recursive --branch knl_open_science_ls_perf ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_new
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_new
-cd ../..
+git clone --recursive --branch knl_open_science_new ~/repos/git/vpic
+cd ..
 
 cd knl_open_science_old
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout knl_open_science_old
-cd ../..
+git clone --recursive --branch knl_open_science_old ~/repos/git/vpic
+cd ..
 
 cd pavilion
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout pavilion
-cd ../..
+git clone --recursive --branch pavilion ~/repos/git/vpic
+cd ..
 
 cd pavilion_new
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout pavilion_new
-cd ../..
+git clone --recursive --branch pavilion_new ~/repos/git/vpic
+cd ..
 
 cd pavilion_old
-git clone --recursive ~/repos/git/vpic
-cd vpic
-git checkout pavilion_old
-cd ../..
+git clone --recursive --branch pavilion_old ~/repos/git/vpic
+cd ..
