@@ -19,8 +19,13 @@ vpic lpi_ddr_nn_0001_nppn_016_ntpp_001.cxx
 vpic lpi_ddr_nn_0001_nppn_032_ntpp_001.cxx
 vpic lpi_ddr_nn_0001_nppn_064_ntpp_001.cxx
 
+vpic lpi_ddr_nn_0002_nppn_032_ntpp_001.cxx
 vpic lpi_ddr_nn_0002_nppn_064_ntpp_001.cxx
+
+vpic lpi_ddr_nn_0004_nppn_032_ntpp_001.cxx
 vpic lpi_ddr_nn_0004_nppn_064_ntpp_001.cxx
+
+vpic lpi_ddr_nn_0008_nppn_032_ntpp_001.cxx
 vpic lpi_ddr_nn_0008_nppn_064_ntpp_001.cxx
 
 vpic lpi_hbm_nn_0001_nppn_001_ntpp_001.cxx
