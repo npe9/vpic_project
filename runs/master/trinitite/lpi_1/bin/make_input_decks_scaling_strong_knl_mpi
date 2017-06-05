@@ -34,24 +34,27 @@ make_input_decks 00256 0001 256 001 290 20 1500 ddr
 make_input_decks 00272 0001 272 001 290 20 1500 ddr
 
 make_input_decks 00128 0002 064 001 290 20 1500 ddr
-make_input_decks 00136 0002 068 001 290 20 1500 ddr
-make_input_decks 00256 0002 128 001 290 20 1500 ddr
-make_input_decks 00272 0002 136 001 290 20 1500 ddr
-make_input_decks 00512 0002 256 001 290 20 1500 ddr
-make_input_decks 00544 0002 272 001 290 20 1500 ddr
-
 make_input_decks 00256 0004 064 001 290 20 1500 ddr
-make_input_decks 00272 0004 068 001 290 20 1500 ddr
-make_input_decks 00512 0004 128 001 290 20 1500 ddr
-make_input_decks 00544 0004 136 001 290 20 1500 ddr
-make_input_decks 01024 0004 256 001 290 20 1500 ddr
-make_input_decks 01088 0004 272 001 290 20 1500 ddr
-
 make_input_decks 00512 0008 064 001 290 20 1500 ddr
+
+make_input_decks 00136 0002 068 001 290 20 1500 ddr
+make_input_decks 00272 0004 068 001 290 20 1500 ddr
 make_input_decks 00544 0008 068 001 290 20 1500 ddr
+
+make_input_decks 00256 0002 128 001 290 20 1500 ddr
+make_input_decks 00512 0004 128 001 290 20 1500 ddr
 make_input_decks 01024 0008 128 001 290 20 1500 ddr
+
+make_input_decks 00272 0002 136 001 290 20 1500 ddr
+make_input_decks 00544 0004 136 001 290 20 1500 ddr
 make_input_decks 01088 0008 136 001 290 20 1500 ddr
+
+make_input_decks 00512 0002 256 001 290 20 1500 ddr
+make_input_decks 01024 0004 256 001 290 20 1500 ddr
 make_input_decks 02048 0008 256 001 290 20 1500 ddr
+
+make_input_decks 00544 0002 272 001 290 20 1500 ddr
+make_input_decks 01088 0004 272 001 290 20 1500 ddr
 make_input_decks 02176 0008 272 001 290 20 1500 ddr
 
 #--------------------------------------------------

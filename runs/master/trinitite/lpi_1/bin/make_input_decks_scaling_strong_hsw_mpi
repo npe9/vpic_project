@@ -1,0 +1,46 @@
+#!/bin/bash
+
+#######################################################################
+# Documentation of run parameters.
+#
+# $1 = np
+# $2 = nnodes
+# $3 = nppn
+# $4 = ntpp
+# $5 = nppc
+# $6 = nstep
+# $7 = nrestart
+# $8 = size
+#
+#######################################################################
+# Create the input decks.
+
+#--------------------------------------------------
+#                $1    $2   $3  $4  $5  $6 $7   $8
+#--------------------------------------------------
+make_input_decks 00001 0001 001 001 290 20 1500 ddr
+make_input_decks 00002 0001 002 001 290 20 1500 ddr
+make_input_decks 00004 0001 004 001 290 20 1500 ddr
+make_input_decks 00008 0001 008 001 290 20 1500 ddr
+make_input_decks 00016 0001 016 001 290 20 1500 ddr
+make_input_decks 00032 0001 032 001 290 20 1500 ddr
+make_input_decks 00064 0001 064 001 290 20 1500 ddr
+
+make_input_decks 00064 0002 032 001 290 20 1500 ddr
+make_input_decks 00128 0004 032 001 290 20 1500 ddr
+make_input_decks 00256 0008 032 001 290 20 1500 ddr
+
+make_input_decks 00128 0002 064 001 290 20 1500 ddr
+make_input_decks 00256 0004 064 001 290 20 1500 ddr
+make_input_decks 00512 0008 064 001 290 20 1500 ddr
+
+#--------------------------------------------------
+#                $1    $2   $3  $4  $5  $6 $7   $8
+#--------------------------------------------------
+make_input_decks 00001 0001 001 001 40  20 1500 hbm
+make_input_decks 00002 0001 002 001 40  20 1500 hbm
+make_input_decks 00004 0001 004 001 40  20 1500 hbm
+make_input_decks 00008 0001 008 001 40  20 1500 hbm
+make_input_decks 00016 0001 016 001 40  20 1500 hbm
+make_input_decks 00032 0001 032 001 40  20 1500 hbm
+make_input_decks 00064 0001 064 001 40  20 1500 hbm
