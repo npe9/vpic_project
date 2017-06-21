@@ -34,7 +34,7 @@ cd $VPIC_DIR
 # Set some high level variables to control module versions.
 
 VERSION_CMAKE=3.7.1
-VERSION_INTEL=17.0.4
+VERSION_INTEL=17.0.1
 VERSION_GNU=6.3.0                      # Not implemented yet.
 VERSION_INTEL_PERF_TOOLS=2017.2.028
 
@@ -50,6 +50,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_NONE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -89,6 +90,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V4_PORT" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -129,6 +131,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V4_SSE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -169,6 +172,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V4_AVX2" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -209,6 +213,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V8_PORT" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -250,6 +255,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V8_AVX2" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -291,6 +297,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V8_AVX2_HIO" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -336,6 +343,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V16_PORT" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -377,7 +385,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_NONE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -412,7 +421,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V4_PORT" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -449,7 +459,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V4_SSE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -486,7 +497,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V4_AVX2" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -523,7 +535,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V8_PORT" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -560,7 +573,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V8_AVX2" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -598,7 +612,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V16_PORT" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -639,6 +654,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_NONE_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -688,6 +704,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V4_PORT_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -738,6 +755,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V4_SSE_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -788,6 +806,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V4_AVX2_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -838,6 +857,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V8_PORT_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -889,6 +909,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V8_AVX2_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -940,6 +961,7 @@ if [ $ARCH = "SNOW_PTH_INT_OPT_V16_PORT_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -991,7 +1013,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_NONE_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1034,7 +1057,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V4_PORT_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1079,7 +1103,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V4_SSE_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1124,7 +1149,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V4_AVX2_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1169,7 +1195,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V8_PORT_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1214,7 +1241,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V8_AVX2_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1260,7 +1288,8 @@ if [ $ARCH = "SNOW_PTH_GNU_OPT_V16_PORT_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1309,6 +1338,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_NONE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1348,6 +1378,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_AVEC" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1390,6 +1421,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V4_PORT" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1430,6 +1462,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V4_SSE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1470,6 +1503,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V4_AVX2" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1510,6 +1544,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V8_PORT" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1551,6 +1586,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V8_AVX2" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1592,6 +1628,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V16_PORT" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
 
   module list
 
@@ -1633,7 +1670,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_NONE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -1668,7 +1706,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V4_PORT" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -1705,7 +1744,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V4_SSE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -1742,7 +1782,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V4_AVX2" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -1779,7 +1820,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V8_PORT" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -1816,7 +1858,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V8_AVX2" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -1854,7 +1897,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V16_PORT" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
 
   module list
 
@@ -1895,6 +1939,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_NONE_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1944,6 +1989,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V4_PORT_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -1994,6 +2040,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V4_SSE_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2044,6 +2091,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V4_AVX2_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2094,6 +2142,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V8_PORT_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2145,6 +2194,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V8_AVX2_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2196,6 +2246,7 @@ if [ $ARCH = "SNOW_OMP_INT_OPT_V16_PORT_VTUNE" ]; then
   module swap cmake cmake/$VERSION_CMAKE
   module load intel
   module swap intel intel/$VERSION_INTEL
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2247,7 +2298,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_NONE_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2290,7 +2342,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V4_PORT_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2335,7 +2388,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V4_SSE_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2380,7 +2434,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V4_AVX2_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2425,7 +2480,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V8_PORT_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2470,7 +2526,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V8_AVX2_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
@@ -2516,7 +2573,8 @@ if [ $ARCH = "SNOW_OMP_GNU_OPT_V16_PORT_VTUNE" ]; then
   module load sandbox
   module load cmake
   module swap cmake cmake/$VERSION_CMAKE
-  module swap PrgEnv-intel PrgEnv-gnu
+  module load gcc
+  module load openmpi
   module load intel-performance-tools
   module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
 
