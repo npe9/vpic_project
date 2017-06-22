@@ -91,6 +91,11 @@ BRANCH=master_wdn_v8
 /usr/bin/time -p bin/makeVPIC_trinity $ARCH $BRANCH 32 >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
+ARCH=TRINITY_PTH_INT_OPT_V8_AVX2_HSW_HIO
+BRANCH=master_wdn_v8
+/usr/bin/time -p bin/makeVPIC_trinity $ARCH $BRANCH 32 >& makeVPIC_trinity.log
+mv makeVPIC_trinity.log build/$ARCH/vpic
+
 ################################################################################
 # Build the optimized Intel case for the master branch with V16 support.
 
