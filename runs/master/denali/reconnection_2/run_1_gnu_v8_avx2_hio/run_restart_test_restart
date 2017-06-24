@@ -1,9 +1,0 @@
-#!/bin/bash
-
-export PATH=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531/bin:$PATH
-
-export LD_LIBRARY_PATH=/home/wdn/Projects/hio_project/build/DENALI_MASTER_LINUX_GNU_OPT_OPENMPI/hio/lib:$LD_LIBRARY_PATH
-
-#mpirun -n 1 /usr/bin/time -p reconnection_nppn_001.Linux --restore ./restart1/restart.0 >& reconnection_nppn_001_restart1.log
-#mpirun -n 2 /usr/bin/time -p reconnection_nppn_002.Linux --restore ./restart1/restart.0 >& reconnection_nppn_002_restart1.log
-mpirun -n 4 /usr/bin/time -p reconnection_nppn_004.Linux --restore ./restart1/restart.0 >& reconnection_nppn_004_restart1.log
