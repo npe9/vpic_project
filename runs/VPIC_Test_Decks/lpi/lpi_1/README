@@ -1,4 +1,0 @@
-This set of input files is designed to allow for strong scaling studies of
-an LPI problem on Trinity Haswell, Trinity KNL and CTS1 Broadwell nodes.  As
-a consequence, the grid dimensions has factors of 2, 17 and two factors of 3.
-This particular setup allows for a strong scaling study up to 8 nodes.
