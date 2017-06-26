@@ -1,0 +1,12 @@
+*.log
+*.log.*
+*.Linux
+*.cxx.*
+snout
+z_*
+lpi_1
+reconnection_1
+reconnection_2
+reconnection_3
+reconnection_4
+reconnection_6
