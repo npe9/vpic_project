@@ -1,0 +1,106 @@
+#!/bin/bash
+
+#######################################################################
+# Documentation of run parameters.
+#
+# $1 = np
+# $2 = nnodes
+# $3 = nppn
+# $4 = ntpp
+# $5 = nppc
+# $6 = nstep
+# $7 = nrestart
+# $8 = size
+#
+#######################################################################
+# Create the input decks for 1 thread/rank i.e. MPI only case.
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00001 0001 001 001 150 301 1500 ddr
+make_input_decks 00002 0001 002 001 150 301 1500 ddr
+make_input_decks 00004 0001 004 001 150 301 1500 ddr
+make_input_decks 00008 0001 008 001 150 301 1500 ddr
+make_input_decks 00016 0001 016 001 150 301 1500 ddr
+make_input_decks 00032 0001 032 001 150 301 1500 ddr
+make_input_decks 00064 0001 064 001 150 301 1500 ddr
+make_input_decks 00128 0001 128 001 150 301 1500 ddr
+make_input_decks 00256 0001 256 001 150 301 1500 ddr
+
+make_input_decks 00512 0002 256 001 150 301 1500 ddr
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00001 0001 001 001  40 301 1500 hbm
+make_input_decks 00002 0001 002 001  40 301 1500 hbm
+make_input_decks 00004 0001 004 001  40 301 1500 hbm
+make_input_decks 00008 0001 008 001  40 301 1500 hbm
+make_input_decks 00016 0001 016 001  40 301 1500 hbm
+make_input_decks 00032 0001 032 001  40 301 1500 hbm
+make_input_decks 00064 0001 064 001  40 301 1500 hbm
+make_input_decks 00128 0001 128 001  40 301 1500 hbm
+make_input_decks 00256 0001 256 001  40 301 1500 hbm
+
+#######################################################################
+# Create the input decks for 2 threads/rank i.e. MPI+threads case.
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00001 0001 001 002 150 301 1500 ddr
+make_input_decks 00002 0001 002 002 150 301 1500 ddr
+make_input_decks 00004 0001 004 002 150 301 1500 ddr
+make_input_decks 00008 0001 008 002 150 301 1500 ddr
+make_input_decks 00016 0001 016 002 150 301 1500 ddr
+make_input_decks 00032 0001 032 002 150 301 1500 ddr
+make_input_decks 00064 0001 064 002 150 301 1500 ddr
+make_input_decks 00128 0001 128 002 150 301 1500 ddr
+
+make_input_decks 00256 0002 128 002 150 301 1500 ddr
+
+make_input_decks 00512 0004 128 002 150 301 1500 ddr
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00001 0001 001 002  40 301 1500 hbm
+make_input_decks 00002 0001 002 002  40 301 1500 hbm
+make_input_decks 00004 0001 004 002  40 301 1500 hbm
+make_input_decks 00008 0001 008 002  40 301 1500 hbm
+make_input_decks 00016 0001 016 002  40 301 1500 hbm
+make_input_decks 00032 0001 032 002  40 301 1500 hbm
+make_input_decks 00064 0001 064 002  40 301 1500 hbm
+make_input_decks 00128 0001 128 002  40 301 1500 hbm
+
+#######################################################################
+# Create the input decks for 4 threads/rank i.e. MPI+threads case.
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00001 0001 001 004 150 301 1500 ddr
+make_input_decks 00002 0001 002 004 150 301 1500 ddr
+make_input_decks 00004 0001 004 004 150 301 1500 ddr
+make_input_decks 00008 0001 008 004 150 301 1500 ddr
+make_input_decks 00016 0001 016 004 150 301 1500 ddr
+make_input_decks 00032 0001 032 004 150 301 1500 ddr
+make_input_decks 00064 0001 064 004 150 301 1500 ddr
+
+make_input_decks 00128 0002 064 004 150 301 1500 ddr
+
+make_input_decks 00256 0004 064 004 150 301 1500 ddr
+
+make_input_decks 00512 0008 064 004 150 301 1500 ddr
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00001 0001 001 004  40 301 1500 hbm
+make_input_decks 00002 0001 002 004  40 301 1500 hbm
+make_input_decks 00004 0001 004 004  40 301 1500 hbm
+make_input_decks 00008 0001 008 004  40 301 1500 hbm
+make_input_decks 00016 0001 016 004  40 301 1500 hbm
+make_input_decks 00032 0001 032 004  40 301 1500 hbm
+make_input_decks 00064 0001 064 004  40 301 1500 hbm
