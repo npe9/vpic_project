@@ -146,3 +146,37 @@ vpic reconnection_hbm_nn_0001_nppn_032_ntpp_004.cxx
 vpic reconnection_hbm_nn_0001_nppn_034_ntpp_004.cxx
 vpic reconnection_hbm_nn_0001_nppn_064_ntpp_004.cxx
 vpic reconnection_hbm_nn_0001_nppn_068_ntpp_004.cxx
+
+#######################################################################
+# Build executables for 1 rank/core, 2 threads/rank i.e. MPI + threads
+# case.
+
+vpic reconnection_ddr_nn_0001_nppn_001_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_002_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_004_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_008_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_016_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_017_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_032_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_034_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_064_ntpp_002.cxx
+vpic reconnection_ddr_nn_0001_nppn_068_ntpp_002.cxx
+
+vpic reconnection_ddr_nn_0002_nppn_064_ntpp_002.cxx
+vpic reconnection_ddr_nn_0004_nppn_064_ntpp_002.cxx
+vpic reconnection_ddr_nn_0008_nppn_064_ntpp_002.cxx
+
+vpic reconnection_ddr_nn_0002_nppn_068_ntpp_002.cxx
+vpic reconnection_ddr_nn_0004_nppn_068_ntpp_002.cxx
+vpic reconnection_ddr_nn_0008_nppn_068_ntpp_002.cxx
+
+vpic reconnection_hbm_nn_0001_nppn_001_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_002_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_004_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_008_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_016_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_017_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_032_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_034_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_064_ntpp_002.cxx
+vpic reconnection_hbm_nn_0001_nppn_068_ntpp_002.cxx
