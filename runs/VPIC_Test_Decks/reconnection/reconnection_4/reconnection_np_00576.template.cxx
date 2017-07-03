@@ -127,7 +127,7 @@ begin_initialization
   double Lz = 15.0/sqrt(mi_me)*di;                             // size of box in z dimension
 
   double topology_x = 2*8;                      // Number of domains in x, y, and z
-  double topology_y = 1*9*REPLACE_topology_y_scale; 
+  double topology_y = 2*9*REPLACE_topology_y_scale; 
   double topology_z = 2*1;
 
   double nx = 16*17;

@@ -126,8 +126,8 @@ begin_initialization
   double Ly = 15.0/sqrt(mi_me)*di*(9.0/8.0)*REPLACE_Ly_scale;  // size of box in y dimension
   double Lz = 15.0/sqrt(mi_me)*di;                             // size of box in z dimension
 
-  double topology_x = 2*8;                      // Number of domains in x, y, and z
-  double topology_y = 1*9*REPLACE_topology_y_scale; 
+  double topology_x = 2*17;                      // Number of domains in x, y, and z
+  double topology_y = 1*16*REPLACE_topology_y_scale; 
   double topology_z = 2*1;
 
   double nx = 16*17;
@@ -760,30 +760,30 @@ begin_diagnostics
 
   if ( step() == 0 )
   {
-    dump_mkdir( "fields" );
-    dump_mkdir( "hydro" );
+    // dump_mkdir( "fields" );
+    // dump_mkdir( "hydro" );
     dump_mkdir( "rundata" );
-    dump_mkdir( "restart0" );
-    dump_mkdir( "restart1" );  // 1st backup
-    dump_mkdir( "restart2" );  // 2nd backup
-    dump_mkdir( "particle" );
+    // dump_mkdir( "restart0" );
+    // dump_mkdir( "restart1" );  // 1st backup
+    // dump_mkdir( "restart2" );  // 2nd backup
+    // dump_mkdir( "particle" );
 
-    double dumpstart = uptime();
+    // double dumpstart = uptime();
 
-    REPLACE_begin_turnstile
-    dump_grid( "rundata/grid" );
-    REPLACE_end_turnstile
+    // REPLACE_begin_turnstile
+    // dump_grid( "rundata/grid" );
+    // REPLACE_end_turnstile
 
-    sim_log( "Grid dump completed, REPLACE_io_type." );
+    // sim_log( "Grid dump completed, REPLACE_io_type." );
 
-    double dumpelapsed = uptime() - dumpstart;
+    // double dumpelapsed = uptime() - dumpstart;
 
-    sim_log( "Grid dump duration, REPLACE_io_type " << dumpelapsed );
+    // sim_log( "Grid dump duration, REPLACE_io_type " << dumpelapsed );
 
-    dump_materials( "rundata/materials" );
-    dump_species( "rundata/species" );
+    // dump_materials( "rundata/materials" );
+    // dump_species( "rundata/species" );
 
-    global_header( "global", global->outputParams );
+    // global_header( "global", global->outputParams );
   }
 
   /*--------------------------------------------------------------------------
@@ -801,17 +801,17 @@ begin_diagnostics
 
   if ( step() == 1 || should_dump( fields ) )
   {
-    double dumpstart = uptime();
+    // double dumpstart = uptime();
 
-    REPLACE_begin_turnstile
-    field_dump( global->fdParams );
-    REPLACE_end_turnstile
+    // REPLACE_begin_turnstile
+    // field_dump( global->fdParams );
+    // REPLACE_end_turnstile
 
-    sim_log( "Field dump completed, REPLACE_io_type." );
+    // sim_log( "Field dump completed, REPLACE_io_type." );
 
-    double dumpelapsed = uptime() - dumpstart;
+    // double dumpelapsed = uptime() - dumpstart;
 
-    sim_log( "Field dump duration, REPLACE_io_type " << dumpelapsed );
+    // sim_log( "Field dump duration, REPLACE_io_type " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
@@ -820,15 +820,15 @@ begin_diagnostics
 
   if ( should_dump( ehydro ) )
   {
-    double dumpstart = uptime();
+    // double dumpstart = uptime();
 
-    hydro_dump( "electron", global->hedParams );
+    // hydro_dump( "electron", global->hedParams );
 
-    sim_log( "Electron hydro dump completed, REPLACE_io_type." );
+    // sim_log( "Electron hydro dump completed, REPLACE_io_type." );
 
-    double dumpelapsed = uptime() - dumpstart;
+    // double dumpelapsed = uptime() - dumpstart;
 
-    sim_log( "Electron hydro dump duration, REPLACE_io_type " << dumpelapsed );
+    // sim_log( "Electron hydro dump duration, REPLACE_io_type " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
@@ -837,15 +837,15 @@ begin_diagnostics
 
   if ( should_dump( Hhydro ) )
   {
-    double dumpstart = uptime();
+    // double dumpstart = uptime();
 
-    hydro_dump( "ion", global->hHdParams );
+    // hydro_dump( "ion", global->hHdParams );
 
-    sim_log( "Ion hydro dump completed, REPLACE_io_type." );
+    // sim_log( "Ion hydro dump completed, REPLACE_io_type." );
 
-    double dumpelapsed = uptime() - dumpstart;
+    // double dumpelapsed = uptime() - dumpstart;
 
-    sim_log( "Ion hydro dump duration, REPLACE_io_type " << dumpelapsed );
+    // sim_log( "Ion hydro dump duration, REPLACE_io_type " << dumpelapsed );
   }
 
   /*--------------------------------------------------------------------------
@@ -939,23 +939,23 @@ begin_diagnostics
        ( step() != 0 ) &&
        step() > 0*( global->fields_interval ) )
   {
-    sprintf( subdir, "particle/T.%d", step() );
+    // sprintf( subdir, "particle/T.%d", step() );
 
-    dump_mkdir( subdir );
+    // dump_mkdir( subdir );
 
-    sprintf( subdir, "particle/T.%d/eparticle", step() );
+    // sprintf( subdir, "particle/T.%d/eparticle", step() );
 
-    double dumpstart = uptime();
+    // double dumpstart = uptime();
 
-    REPLACE_begin_turnstile
-    dump_particles( "electron", subdir );
-    REPLACE_end_turnstile
+    // REPLACE_begin_turnstile
+    // dump_particles( "electron", subdir );
+    // REPLACE_end_turnstile
 
-    sim_log( "Electron particle dump completed, REPLACE_io_type." );
+    // sim_log( "Electron particle dump completed, REPLACE_io_type." );
 
-    double dumpelapsed = uptime() - dumpstart;
+    // double dumpelapsed = uptime() - dumpstart;
 
-    sim_log( "Electron particle dump duration, REPLACE_io_type " << dumpelapsed );
+    // sim_log( "Electron particle dump duration, REPLACE_io_type " << dumpelapsed );
   }
 
   // Shut down simulation when wall clock time exceeds global->quota_sec. 
