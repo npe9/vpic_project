@@ -88,7 +88,7 @@ begin_initialization
 
   // Physics parameters.
 
-  double mi_me   = 1.0;             // Ion mass / electron mass
+  double mi_me   = REPLACE_mi_me;   // Ion mass / electron mass
   double L_di    = 1.0/sqrt(mi_me); // Sheet thickness / ion inertial length
   double Ti_Te   = 1.0;             // Ion temperature / electron temperature
   double vthe    = 0.2;             // Electron thermal speed over c
@@ -115,8 +115,8 @@ begin_initialization
   double di   = c/wpi;                                    // ion inertial length
   double L    = L_di*di;                                  // Sheet thickness in c/wpe
 
-  double      ion_sort_interval = 25;   // Injector moments are also updated at this interval
-  double electron_sort_interval = 25;   // Injector moments are also updated at this interval
+  double      ion_sort_interval = REPLACE_ion_sort_interval; // Injector moments are also updated at this interval
+  double electron_sort_interval = REPLACE_eon_sort_interval; // Injector moments are also updated at this interval
 
   // Numerical parameters.
 
@@ -158,7 +158,7 @@ begin_initialization
 
   //  int restart_interval = int(10000.0/(wci*dt));
   int restart_interval = REPLACE_nrestart;
-  int energies_interval = 10;
+  int energies_interval = REPLACE_energies_interval;
   // int interval = int(5.0/(wci*dt));
   int interval = 10;
   int fields_interval = REPLACE_field_interval;
