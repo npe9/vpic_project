@@ -13,7 +13,8 @@
 # $8 = size
 #
 #######################################################################
-# Create the input decks for 1 thread/rank i.e. MPI only case.
+# Create the input decks for 4 ranks/core, 1 thread/rank i.e. MPI
+# only case.
 
 #---------------------------------------------------
 #                $1    $2   $3  $4  $5  $6  $7   $8
@@ -29,6 +30,8 @@ make_input_decks 00128 0001 128 001 150 301 1500 ddr
 make_input_decks 00256 0001 256 001 150 301 1500 ddr
 
 make_input_decks 00512 0002 256 001 150 301 1500 ddr
+make_input_decks 01024 0004 256 001 150 301 1500 ddr
+make_input_decks 02048 0008 256 001 150 301 1500 ddr
 
 #---------------------------------------------------
 #                $1    $2   $3  $4  $5  $6  $7   $8
@@ -44,7 +47,30 @@ make_input_decks 00128 0001 128 001  20 301 1500 hbm
 make_input_decks 00256 0001 256 001  20 301 1500 hbm
 
 #######################################################################
-# Create the input decks for 2 threads/rank i.e. MPI+threads case.
+# Create the input decks for 2 ranks/core, 1 thread/rank i.e. MPI
+# only case.
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00256 0002 128 001 150 301 1500 ddr
+make_input_decks 00512 0004 128 001 150 301 1500 ddr
+make_input_decks 01024 0008 128 001 150 301 1500 ddr
+
+#######################################################################
+# Create the input decks for 1 rank/core, 1 thread/rank i.e. MPI
+# only case.
+
+#---------------------------------------------------
+#                $1    $2   $3  $4  $5  $6  $7   $8
+#---------------------------------------------------
+make_input_decks 00128 0002 064 001 150 301 1500 ddr
+make_input_decks 00256 0004 064 001 150 301 1500 ddr
+make_input_decks 00512 0008 064 001 150 301 1500 ddr
+
+#######################################################################
+# Create the input decks for 2 ranks/core, 2 threads/rank i.e. MPI +
+# threads case.
 
 #---------------------------------------------------
 #                $1    $2   $3  $4  $5  $6  $7   $8
@@ -59,8 +85,8 @@ make_input_decks 00064 0001 064 002 150 301 1500 ddr
 make_input_decks 00128 0001 128 002 150 301 1500 ddr
 
 make_input_decks 00256 0002 128 002 150 301 1500 ddr
-
 make_input_decks 00512 0004 128 002 150 301 1500 ddr
+make_input_decks 01024 0008 128 002 150 301 1500 ddr
 
 #---------------------------------------------------
 #                $1    $2   $3  $4  $5  $6  $7   $8
@@ -75,7 +101,8 @@ make_input_decks 00064 0001 064 002  20 301 1500 hbm
 make_input_decks 00128 0001 128 002  20 301 1500 hbm
 
 #######################################################################
-# Create the input decks for 4 threads/rank i.e. MPI+threads case.
+# Create the input decks for 1 rank/core, 4 threads/rank i.e. MPI +
+# threads case.
 
 #---------------------------------------------------
 #                $1    $2   $3  $4  $5  $6  $7   $8
@@ -89,9 +116,7 @@ make_input_decks 00032 0001 032 004 150 301 1500 ddr
 make_input_decks 00064 0001 064 004 150 301 1500 ddr
 
 make_input_decks 00128 0002 064 004 150 301 1500 ddr
-
 make_input_decks 00256 0004 064 004 150 301 1500 ddr
-
 make_input_decks 00512 0008 064 004 150 301 1500 ddr
 
 #---------------------------------------------------
