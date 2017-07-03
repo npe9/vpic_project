@@ -4,6 +4,7 @@ module load friendly-testing
 module load sandbox
 module swap intel intel/17.0.4
 module swap cray-mpich cray-mpich/7.5.4
+
 #module load datawarp
 #module load lustre-utils
 #module load lustre-default
@@ -12,7 +13,8 @@ module swap cray-mpich cray-mpich/7.5.4
 module list
 
 #######################################################################
-# Build executables for 1 thread/rank i.e. MPI only case.
+# Build executables for 2 ranks/core, 1 thread/rank i.e. MPI only
+# case.
 
 vpic reconnection_ddr_nn_0001_nppn_001_ntpp_001.cxx
 vpic reconnection_ddr_nn_0001_nppn_002_ntpp_001.cxx
@@ -35,7 +37,16 @@ vpic reconnection_hbm_nn_0001_nppn_032_ntpp_001.cxx
 vpic reconnection_hbm_nn_0001_nppn_064_ntpp_001.cxx
 
 #######################################################################
-# Build executables for 2 threads/rank i.e. MPI+threads case.
+# Build executables for 1 rank/core, 1 thread/rank i.e. MPI only
+# case.
+
+vpic reconnection_ddr_nn_0002_nppn_032_ntpp_001.cxx
+vpic reconnection_ddr_nn_0004_nppn_032_ntpp_001.cxx
+vpic reconnection_ddr_nn_0008_nppn_032_ntpp_001.cxx
+
+#######################################################################
+# Build executables for 1 rank/core, 2 threads/rank i.e. MPI +
+# threads case.
 
 vpic reconnection_ddr_nn_0001_nppn_001_ntpp_002.cxx
 vpic reconnection_ddr_nn_0001_nppn_002_ntpp_002.cxx
