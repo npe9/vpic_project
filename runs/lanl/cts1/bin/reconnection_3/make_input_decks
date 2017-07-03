@@ -17,6 +17,7 @@ size=$8
 #######################################################################
 # Set some parameters that we don't want to vary right now.
 
+snodes='0001'
 io_type='none'
 field_io_format='band_interleave'
 num_turnstiles='2048'
@@ -45,9 +46,9 @@ fi
 update='
 s/REPLACE_begin_turnstile/'${begin_turnstile}'/
 s/REPLACE_end_turnstile/'${end_turnstile}'/
-s/REPLACE_Ly_scale/'$((10#${nnodes}))'/
-s/REPLACE_topology_y_scale/'$((10#${nnodes}))'/
-s/REPLACE_ny_scale/'$((10#${nnodes}))'/
+s/REPLACE_Ly_scale/'$((10#${snodes}))'/
+s/REPLACE_topology_y_scale/'$((10#${snodes}))'/
+s/REPLACE_ny_scale/'$((10#${snodes}))'/
 s/REPLACE_nppc/'${nppc}'/
 s/REPLACE_nstep/'${nstep}'/
 s/REPLACE_nrestart/'${nrestart}'/
