@@ -29,7 +29,7 @@ begin_globals
   double omega;                // angular freq. of the beam
 
   int energies_interval;       // how often to dump energy history data
-  int field_interval;          // how often to dump field and hydro
+  int fields_interval;         // how often to dump field and hydro
   int particle_interval;       // how often to dump particle data
   int poynting_interval;       // how often to compute poynting flux on boundary
   int restart_interval;        // how often to write restart data
@@ -223,15 +223,15 @@ begin_initialization
 
   double t_stop            = REPLACE_nstep*dt + 0.001*dt; // Runtime in 1/wpe
 
-  int ehydro_interval      = REPLACE_field_interval;
-  int Hhydro_interval      = REPLACE_field_interval;
+  int ehydro_interval      = REPLACE_fields_interval;
+  int Hhydro_interval      = REPLACE_fields_interval;
   int eparticle_interval   = REPLACE_particle_interval;
   int Hparticle_interval   = REPLACE_particle_interval;
-  int poynting_interval    = 0;                      // Num. steps between dumping poynting flux
-  int field_interval       = REPLACE_field_interval; // Num. steps between saving field data
-  int velocity_interval    = int(100.0/dt);          // How frequently to dump velocity space data
+  int poynting_interval    = 0;                       // Num. steps between dumping poynting flux
+  int fields_interval      = REPLACE_fields_interval; // Num. steps between saving field data
+  int velocity_interval    = int(100.0/dt);           // How frequently to dump velocity space data
   int energies_interval    = REPLACE_energies_interval;
-  int restart_interval     = REPLACE_nrestart;       // Num. steps between restart dumps
+  int restart_interval     = REPLACE_nrestart;        // Num. steps between restart dumps
   int quota_check_interval = 20;
 
   // Ben:  This quota thing gracefully terminates after writing a final restart after 
@@ -286,12 +286,12 @@ begin_initialization
   sim_log("* emax at entrance:               "<<e0);
   sim_log("* emax at waist:                  "<<e0/(waist/width));
   sim_log("* Poynting interval:              "<<poynting_interval); 
-  sim_log("* field interval:                 "<<field_interval); 
+  sim_log("* field interval:                 "<<fields_interval); 
   sim_log("* restart interval:               "<<restart_interval); 
   sim_log("* num vacuum edge grids:          "<<iv_thick);
   sim_log("* width, waist, xfocus:           "<<width<<" "<<waist<<" "<<xfocus); 
   sim_log("* ycenter, zcenter, mask:         "<<ycenter<<" "<<zcenter<<" "<<mask); 
-  sim_log("* field_interval                  "<<field_interval); 
+  sim_log("* fields_interval                 "<<fields_interval); 
   sim_log("* velocity_interval               "<<velocity_interval); 
   sim_log("* restart_interval:               "<<restart_interval); 
   sim_log("* quota_check_interval:           "<<quota_check_interval); 
@@ -325,7 +325,7 @@ begin_initialization
   global->omega                  = omega;
 
   global->energies_interval      = energies_interval;
-  global->field_interval         = field_interval;
+  global->fields_interval        = fields_interval;
   global->particle_interval      = particle_interval;
   global->poynting_interval      = poynting_interval;
   global->restart_interval       = restart_interval;
@@ -899,8 +899,8 @@ begin_diagnostics
   // Field data output.
   //--------------------------------------------------------------------------//
 
-  // if ( step() == 1 || should_dump( field ) )
-  if ( should_dump( field ) )
+  // if ( step() == 1 || should_dump( fields ) )
+  if ( should_dump( fields ) )
   {
     double dumpstart = uptime();
 
@@ -1039,7 +1039,7 @@ begin_diagnostics
 
   if ( should_dump( eparticle ) &&
        ( step() != 0 ) &&
-       step() > 0*( global->field_interval ) )
+       step() > 0*( global->fields_interval ) )
   {
     sprintf( subdir, "particle/T.%d", step() );
 
