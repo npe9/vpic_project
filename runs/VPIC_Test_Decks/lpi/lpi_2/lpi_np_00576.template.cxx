@@ -223,12 +223,12 @@ begin_initialization
 
   double t_stop            = REPLACE_nstep*dt + 0.001*dt; // Runtime in 1/wpe
 
-  int ehydro_interval      = REPLACE_fields_interval;
-  int Hhydro_interval      = REPLACE_fields_interval;
+  int ehydro_interval      = REPLACE_field_interval;
+  int Hhydro_interval      = REPLACE_field_interval;
   int eparticle_interval   = REPLACE_particle_interval;
   int Hparticle_interval   = REPLACE_particle_interval;
   int poynting_interval    = 0;                       // Num. steps between dumping poynting flux
-  int fields_interval      = REPLACE_fields_interval; // Num. steps between saving field data
+  int fields_interval      = REPLACE_field_interval;  // Num. steps between saving field data
   int velocity_interval    = int(100.0/dt);           // How frequently to dump velocity space data
   int energies_interval    = REPLACE_energies_interval;
   int restart_interval     = REPLACE_nrestart;        // Num. steps between restart dumps
