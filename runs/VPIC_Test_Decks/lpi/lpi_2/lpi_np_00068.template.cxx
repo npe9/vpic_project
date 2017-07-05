@@ -113,6 +113,11 @@ begin_globals
   DumpParameters hHdParams;
   DumpParameters hHedParams;
   std::vector<DumpParameters *> outputParams;
+
+  // Vadim:  modified restart machinery
+
+  int write_restart;       // global flag for all to write restart files
+  int write_end_restart;   // global flag for all to write restart files
 };
 
 //----------------------------------------------------------------------------//
