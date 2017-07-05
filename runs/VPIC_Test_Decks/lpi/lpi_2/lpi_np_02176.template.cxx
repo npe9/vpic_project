@@ -899,8 +899,8 @@ begin_diagnostics
   // Field data output.
   //--------------------------------------------------------------------------//
 
-  // if ( step() == 1 || should_dump( fields ) )
-  if ( should_dump( fields ) )
+  // if ( step() == 1 || should_dump( field ) )
+  if ( should_dump( field ) )
   {
     double dumpstart = uptime();
 
@@ -1039,7 +1039,7 @@ begin_diagnostics
 
   if ( should_dump( eparticle ) &&
        ( step() != 0 ) &&
-       step() > 0*( global->fields_interval ) )
+       step() > 0*( global->field_interval ) )
   {
     sprintf( subdir, "particle/T.%d", step() );
 
