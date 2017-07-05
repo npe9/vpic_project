@@ -176,9 +176,9 @@ make_input_decks 00128 0002 064 002 320 61 1500 ddr
 make_input_decks 00256 0004 064 002 320 61 1500 ddr
 make_input_decks 00512 0008 064 002 320 61 1500 ddr
 
-make_input_decks 00272 0002 068 002 320 61 1500 ddr
-make_input_decks 00544 0004 068 002 320 61 1500 ddr
-make_input_decks 01088 0008 068 002 320 61 1500 ddr
+make_input_decks 00136 0002 068 002 320 61 1500 ddr
+make_input_decks 00272 0004 068 002 320 61 1500 ddr
+make_input_decks 00544 0008 068 002 320 61 1500 ddr
 
 #--------------------------------------------------
 #                $1    $2   $3  $4  $5  $6 $7   $8
