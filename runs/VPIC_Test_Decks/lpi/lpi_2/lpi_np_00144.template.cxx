@@ -316,7 +316,7 @@ begin_initialization
   // Turn off some of the spam
   verbose = 1; 
 
-  // For maxwellian reinjection, we need more than the default number of 
+  // For maxwellian reinjection, we need more than the default number of
   // passes (3) through the boundary handler
   // Note:  We have to adjust sort intervals for maximum performance on Cell. 
   num_comm_round = 16;
@@ -330,6 +330,10 @@ begin_initialization
   global->poynting_interval      = poynting_interval;
   global->restart_interval       = restart_interval;
   global->quota_check_interval   = quota_check_interval;
+  global->ehydro_interval        = ehydro_interval;
+  global->Hhydro_interval        = Hhydro_interval;
+  global->eparticle_interval     = eparticle_interval;
+  global->Hparticle_interval     = Hparticle_interval;
 
   global->quota_sec              = quota_sec;
   global->rtoggle                = 0;
@@ -941,7 +945,7 @@ begin_diagnostics
   {
     double dumpstart = uptime();
 
-    hydro_dump( "ion", global->hHdParams );
+    hydro_dump( "H", global->hHdParams );
 
     sim_log( "Hydrogen ion hydro dump completed, REPLACE_io_type." );
 
