@@ -609,7 +609,7 @@ begin_initialization
   //--------------------------------------------------------------------------//
 
   // relative path to fields data from global header
-  sprintf( global->fdParams.baseDir, "field" );
+  sprintf( global->fdParams.baseDir, "fields" );
 
   // base file name for fields output
   sprintf( global->fdParams.baseFileName, "fields" );
@@ -631,7 +631,7 @@ begin_initialization
   //--------------------------------------------------------------------------//
 
   // relative path to electron species data from global header
-  sprintf( global->hedParams.baseDir, "ehydro" );
+  sprintf( global->hedParams.baseDir, "hydro" );
 
   // base file name for fields output
   sprintf( global->hedParams.baseFileName, "e_hydro" );
@@ -653,7 +653,7 @@ begin_initialization
   //--------------------------------------------------------------------------//
 
   // relative path to electron species data from global header
-  sprintf( global->hHdParams.baseDir, "Hhydro" );
+  sprintf( global->hHdParams.baseDir, "hydro" );
 
   // base file name for fields output
   sprintf( global->hHdParams.baseFileName, "H_hydro" );
@@ -675,7 +675,7 @@ begin_initialization
   //--------------------------------------------------------------------------//
 
   // relative path to electron species data from global header
-  sprintf( global->hHedParams.baseDir, "Hehydro" );
+  sprintf( global->hHedParams.baseDir, "hydro" );
 
   // base file name for fields output
   sprintf( global->hHedParams.baseFileName, "He_hydro" );
