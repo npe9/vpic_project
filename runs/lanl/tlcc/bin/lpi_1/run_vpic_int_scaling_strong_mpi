@@ -15,7 +15,7 @@ module list
 
 prob='lpi'
 
-vtime='/usr/bin/time -p'
+vtime=''
 
 voc='--vm-overcommit=enable'
 

@@ -16,7 +16,7 @@ module list
 
 prob=reconnection
 
-vtime='/usr/bin/time -p'
+vtime=''
 
 vnuma='numactl --preferred=1'
 
