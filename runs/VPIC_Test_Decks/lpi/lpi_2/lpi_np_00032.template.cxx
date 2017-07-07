@@ -28,12 +28,11 @@ begin_globals
   double e0;                   // peak amplitude of oscillating electric field
   double omega;                // angular freq. of the beam
 
-  int energies_interval;       // how often to dump energy history data
   int fields_interval;         // how often to dump field and hydro
-  int particle_interval;       // how often to dump particle data
   int poynting_interval;       // how often to compute poynting flux on boundary
   int restart_interval;        // how often to write restart data
   int quota_check_interval;    // how often to check if quota exceeded
+  int energies_interval;       // how often to dump energy history data
   int ehydro_interval;
   int Hhydro_interval;
   int eparticle_interval;
@@ -156,9 +155,9 @@ begin_initialization
   double ny                = 32*3;
   double nz                = 32*3;
 
-  double topology_x        = 1*4*REPLACE_scale_topology_x;
-  double topology_y        = 1*4;
-  double topology_z        = 1*2;
+  double topology_x        = 1*16*REPLACE_scale_topology_x;
+  double topology_y        = 1*2;
+  double topology_z        = 1*1;
 
   // single-processor mesh = 544 x 96 x 96
 
@@ -223,15 +222,15 @@ begin_initialization
 
   double t_stop            = REPLACE_nstep*dt + 0.001*dt; // Runtime in 1/wpe
 
+  int energies_interval    = REPLACE_energies_interval;
   int ehydro_interval      = REPLACE_field_interval;
   int Hhydro_interval      = REPLACE_field_interval;
   int eparticle_interval   = REPLACE_particle_interval;
   int Hparticle_interval   = REPLACE_particle_interval;
-  int poynting_interval    = 0;                       // Num. steps between dumping poynting flux
-  int fields_interval      = REPLACE_field_interval;  // Num. steps between saving field data
-  int velocity_interval    = int(100.0/dt);           // How frequently to dump velocity space data
-  int energies_interval    = REPLACE_energies_interval;
-  int restart_interval     = REPLACE_nrestart;        // Num. steps between restart dumps
+  int poynting_interval    = 0;                      // Num. steps between dumping poynting flux
+  int fields_interval      = REPLACE_field_interval; // Num. steps between saving field data
+  int velocity_interval    = int(100.0/dt);          // How frequently to dump velocity space data
+  int restart_interval     = REPLACE_nrestart;       // Num. steps between restart dumps
   int quota_check_interval = 20;
 
   // Ben:  This quota thing gracefully terminates after writing a final restart after 
@@ -285,16 +284,16 @@ begin_initialization
   sim_log("* vthe_He/c:                      "<<uthi_He);
   sim_log("* emax at entrance:               "<<e0);
   sim_log("* emax at waist:                  "<<e0/(waist/width));
+
   sim_log("* Poynting interval:              "<<poynting_interval); 
-  sim_log("* field interval:                 "<<fields_interval); 
+  sim_log("* fields interval:                "<<fields_interval); 
   sim_log("* restart interval:               "<<restart_interval); 
+  sim_log("* velocity interval               "<<velocity_interval); 
+  sim_log("* quota check interval:           "<<quota_check_interval); 
+
   sim_log("* num vacuum edge grids:          "<<iv_thick);
   sim_log("* width, waist, xfocus:           "<<width<<" "<<waist<<" "<<xfocus); 
   sim_log("* ycenter, zcenter, mask:         "<<ycenter<<" "<<zcenter<<" "<<mask); 
-  sim_log("* fields_interval                 "<<fields_interval); 
-  sim_log("* velocity_interval               "<<velocity_interval); 
-  sim_log("* restart_interval:               "<<restart_interval); 
-  sim_log("* quota_check_interval:           "<<quota_check_interval); 
   sim_log("* write_poynting_sum:             "<<(write_poynting_sum ? "Yes" : "No")); 
   sim_log("* write_poynting_faces:           "<<(write_poynting_faces? "Yes" : "No")); 
   sim_log("* write_eb_faces:                 "<<(write_eb_faces ? "Yes" : "No")); 
@@ -306,7 +305,6 @@ begin_initialization
   sim_log("Setting up high-level simulation parameters."); 
   num_step             = int(t_stop/(dt)); 
 
-//??????????????????????????????????????????????????????????
 //status_interval      = 10;
   status_interval      = 21;
   sync_shared_interval = status_interval/1;
@@ -318,18 +316,17 @@ begin_initialization
 
   // For maxwellian reinjection, we need more than the default number of
   // passes (3) through the boundary handler
-  // Note:  We have to adjust sort intervals for maximum performance on Cell. 
+  // Note:  We have to adjust sort intervals for maximum performance on Cell.
   num_comm_round = 16;
 
-  global->e0                     = e0; 
+  global->e0                     = e0;
   global->omega                  = omega;
 
-  global->energies_interval      = energies_interval;
   global->fields_interval        = fields_interval;
-  global->particle_interval      = particle_interval;
   global->poynting_interval      = poynting_interval;
   global->restart_interval       = restart_interval;
   global->quota_check_interval   = quota_check_interval;
+  global->energies_interval      = energies_interval;
   global->ehydro_interval        = ehydro_interval;
   global->Hhydro_interval        = Hhydro_interval;
   global->eparticle_interval     = eparticle_interval;
@@ -338,45 +335,47 @@ begin_initialization
   global->quota_sec              = quota_sec;
   global->rtoggle                = 0;
   global->load_particles         = load_particles;
-  global->mobile_ions            = mobile_ions; 
-  global->H_present              = H_present; 
-  global->He_present             = He_present; 
-  global->topology_x             = topology_x;  
-  global->topology_y             = topology_y;  
-  global->topology_z             = topology_z;  
-  global->xfocus                 = xfocus;  
-  global->ycenter                = ycenter; 
-  global->zcenter                = zcenter; 
-  global->mask                   = mask; 
-  global->waist                  = waist; 
-  global->width                  = width; 
-  global->lambda                 = lambda; 
+  global->mobile_ions            = mobile_ions;
+  global->H_present              = H_present;
+  global->He_present             = He_present;
+  global->topology_x             = topology_x;
+  global->topology_y             = topology_y;
+  global->topology_z             = topology_z;
+  global->xfocus                 = xfocus;
+  global->ycenter                = ycenter;
+  global->zcenter                = zcenter;
+  global->mask                   = mask;
+  global->waist                  = waist;
+  global->width                  = width;
+  global->lambda                 = lambda;
 
   global->write_poynting_data    = write_poynting_data;
 
-  global->write_poynting_sum     = write_poynting_sum; 
-  global->write_poynting_faces   = write_poynting_faces; 
-  global->write_eb_faces         = write_eb_faces;      
-  global->write_backscatter_only = write_backscatter_only; 
+  global->write_poynting_sum     = write_poynting_sum;
+  global->write_poynting_faces   = write_poynting_faces;
+  global->write_eb_faces         = write_eb_faces;
+  global->write_backscatter_only = write_backscatter_only;
 
-  global->vthe                   = uthe; 
-  global->vthi_H                 = uthi_H; 
-  global->vthi_He                = uthi_He; 
-  global->velocity_interval      = velocity_interval; 
+  global->vthe                   = uthe;
+  global->vthi_H                 = uthi_H;
+  global->vthi_He                = uthi_He;
+  global->velocity_interval      = velocity_interval;
 
-  // Set up the species
-  // Allow additional local particles in case of non-uniformity.
+  // Set up the species. Allow additional local particles in case of
+  // non-uniformity.
 
-  // Set up grid
-  sim_log("Setting up computational grid."); 
-  grid->dx       = hx; 
-  grid->dy       = hy; 
-  grid->dz       = hz; 
-  grid->dt       = dt; 
+  // Set up grid.
+  sim_log( "Setting up computational grid." );
+
+  grid->dx       = hx;
+  grid->dy       = hy;
+  grid->dz       = hz;
+  grid->dt       = dt;
   grid->cvac     = 1;
-  grid->eps0     = 1; 
+  grid->eps0     = 1;
 
-  sim_log("Setting up absorbing mesh."); 
+  sim_log( "Setting up absorbing mesh." );
+
   define_absorbing_grid( 0,         -0.5*Ly,    -0.5*Lz,        // Low corner
                          Lx,         0.5*Ly,     0.5*Lz,        // High corner 
                          nx,         ny,         nz,            // Resolution
@@ -412,7 +411,7 @@ begin_initialization
 			       max_local_np,
 			       max_local_nm,
 			       REPLACE_ion_sort_interval,
-			       1) ;
+			       1 );
     }
 
     if ( He_present )
@@ -440,42 +439,69 @@ begin_initialization
     (iz) = _iz;                                                           \
   } END_PRIMITIVE 
 
-  sim_log("Overriding x boundaries to absorb fields."); 
+  sim_log( "Overriding x boundaries to absorb fields." );
+
   int ix, iy, iz;        // Domain location in mesh
   RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
 
   // Set up Maxwellian reinjection B.C. 
 
-  sim_log("Setting up Maxwellian reinjection boundary condition."); 
+  sim_log( "Setting up Maxwellian reinjection boundary condition." );
 
-  particle_bc_t * maxwellian_reinjection = 
-    define_particle_bc( maxwellian_reflux( species_list, entropy ) ); 
-  set_reflux_temp( maxwellian_reinjection, electron, uthe, uthe );
-  if ( mobile_ions ) { 
-    if ( H_present  ) set_reflux_temp( maxwellian_reinjection, ion_H,  uthi_H,  uthi_H  ); 
-    if ( He_present ) set_reflux_temp( maxwellian_reinjection, ion_He, uthi_He, uthi_He ); 
+  particle_bc_t * maxwellian_reinjection =
+    define_particle_bc( maxwellian_reflux( species_list, entropy ) );
+
+  set_reflux_temp( maxwellian_reinjection,
+		   electron,
+		   uthe,
+		   uthe );
+
+  if ( mobile_ions )
+  {
+    if ( H_present )
+    {
+      set_reflux_temp( maxwellian_reinjection,
+		       ion_H,
+		       uthi_H,
+		       uthi_H );
+    }
+
+    if ( He_present )
+    {
+      set_reflux_temp( maxwellian_reinjection,
+		       ion_He,
+		       uthi_He,
+		       uthi_He );
+    }
   }
 
   // Set up materials
-  sim_log("Setting up materials."); 
+
+  sim_log( "Setting up materials." );
+
   define_material( "vacuum", 1 );
-  define_field_array( NULL, damp ); 
- 
+
+  define_field_array( NULL, damp );
+
   // Paint the simulation volume with materials and boundary conditions
+
 # define iv_region (   x<      hx*iv_thick || x>Lx  -hx*iv_thick  \
                     || y<-Ly/2+hy*iv_thick || y>Ly/2-hy*iv_thick  \
-                    || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) /* all boundaries are i.v. */ 
+		       || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) // all boundaries are i.v.
 
   set_region_bc( iv_region,
 		 maxwellian_reinjection,
 		 maxwellian_reinjection,
 		 maxwellian_reinjection );
 
-  // Load particles 
+  // Load particles.
+
   if ( load_particles )
   {
-    sim_log("Loading particles.");
+    sim_log( "Loading particles." );
+
     // Fast load of particles--don't bother fixing artificial domain correlations
+
     double xmin=grid->x0, xmax=grid->x1;
     double ymin=grid->y0, ymax=grid->y1;
     double zmin=grid->z0, zmax=grid->z1;
@@ -499,17 +525,17 @@ begin_initialization
       {
         if ( H_present )  // Inject an H macroion on top of macroelectron
 	{
-          inject_particle( ion_H, x, y, z, 
-                           normal( rng(0), 0, uthi_H), 
-                           normal( rng(0), 0, uthi_H), 
+          inject_particle( ion_H, x, y, z,
+                           normal( rng(0), 0, uthi_H),
+                           normal( rng(0), 0, uthi_H),
                            normal( rng(0), 0, uthi_H), qi_H, 0, 0 );
 	}
 
         if ( He_present ) // Inject an H macroion on top of macroelectron
 	{
-          inject_particle( ion_He, x, y, z, 
-                           normal( rng(0), 0, uthi_He), 
-                           normal( rng(0), 0, uthi_He), 
+          inject_particle( ion_He, x, y, z,
+                           normal( rng(0), 0, uthi_He),
+                           normal( rng(0), 0, uthi_He),
                            normal( rng(0), 0, uthi_He), qi_He, 0, 0 );
 	}
       }
@@ -590,14 +616,14 @@ begin_initialization
   //   global->fdParams.stride_x = 8; // illegal!!! -> 150/8 = 18.75
   //--------------------------------------------------------------------------//
 
-  // Strides for field and hydro arrays.  Note that here we have defined them 
+  // Strides for field and hydro arrays.  Note that here we have defined them
   // the same for fields and all hydro species; if desired, we could use
   // different strides for each.   Also note that strides must divide evenly
-  // into the number of cells in a given domain. 
+  // into the number of cells in a given domain.
 
   // Define strides and test that they evenly divide into grid->nx, ny, nz
 
-  int stride_x = 1, stride_y = 1, stride_z = 1; 
+  int stride_x = 1, stride_y = 1, stride_z = 1;
 
   if ( int( grid->nx )%stride_x )
     ERROR( ( "Stride doesn't evenly divide grid->nx." ) );
@@ -773,7 +799,7 @@ begin_initialization
   // Wrapup initialization.
   //--------------------------------------------------------------------------//
 
-  sim_log("***Finished with user-specified initialization ***"); 
+  sim_log( "***Finished with user-specified initialization ***" );
 
   //--------------------------------------------------------------------------//
   // Upon completion of the initialization, the following occurs:
@@ -1131,44 +1157,50 @@ begin_diagnostics
 //----------------------------------------------------------------------------//
 
 begin_field_injection
-{ 
-  // Inject a light wave from lhs boundary with E aligned along y
-  // Use scalar diffraction theory for the Gaussian beam source.  (This is approximate). 
-
-  // For quiet startup (i.e., so that we don't propagate a delta-function noise
-  // pulse at time t=0) we multiply by a constant phase term exp(i phi) where: 
-  //   phi = k*global->xfocus+atan(h)    (3d) 
-
+{
+  // Inject a light wave from lhs boundary with E aligned along y. Use scalar
+  // diffraction theory for the Gaussian beam source. (This is approximate). 
+  //
+  // For quiet startup (i.e., so that we don't propagate a delta-function
+  // noise pulse at time t=0) we multiply by a constant phase term exp(i phi)
+  // where:
+  //   phi = k*global->xfocus+atan(h)    (3d)
+  //
   // Inject from the left a field of the form ey = e0 sin( omega t )
 
 # define DY    ( grid->y0 + (iy-0.5)*grid->dy - global->ycenter )
 # define DZ    ( grid->z0 + (iz-1  )*grid->dz - global->zcenter )
-# define R2    ( DY*DY + DZ*DZ )                                   
+# define R2    ( DY*DY + DZ*DZ )
 # define PHASE ( global->omega*t + h*R2/(global->width*global->width) )
 # define MASK  ( R2<=pow(global->mask*global->width,2) ? 1 : 0 )
 
-  if ( grid->x0==0 ) {               // Node is on left boundary
+  if ( grid->x0 == 0 )               // Node is on left boundary
+  {
     double alpha      = grid->cvac*grid->dt/grid->dx;
     double emax_coeff = (4/(1+alpha))*global->omega*grid->dt*global->e0;
-    double prefactor  = emax_coeff*sqrt(2/M_PI); 
-    double t          = grid->dt*step(); 
+    double prefactor  = emax_coeff*sqrt(2/M_PI);
+    double t          = grid->dt*step();
 
     // Compute Rayleigh length in c/wpe
-    double rl         = M_PI*global->waist*global->waist/global->lambda; 
+    double rl         = M_PI*global->waist*global->waist/global->lambda;
 
     double pulse_shape_factor = 1;
-    float pulse_length        = 70;  // units of 1/wpe
-    float sin_t_tau           = sin(0.5*t*M_PI/pulse_length);
-    pulse_shape_factor        = ( t<pulse_length ? sin_t_tau : 1 );
-    double h                  = global->xfocus/rl;   // Distance / Rayleigh length
+    float pulse_length        = 70;                // units of 1/wpe
+    float sin_t_tau           = sin( 0.5 * t * M_PI / pulse_length );
+    pulse_shape_factor        = ( t < pulse_length ? sin_t_tau : 1 );
+    double h                  = global->xfocus/rl; // Distance / Rayleigh length
 
     // Loop over all Ey values on left edge of this node
-    for ( int iz=1; iz<=grid->nz+1; ++iz ) 
-      for ( int iy=1; iy<=grid->ny; ++iy )  
-        field(1,iy,iz).ey += prefactor 
-                             * cos(PHASE) 
-                             * exp(-R2/(global->width*global->width)) 
-                             * MASK * pulse_shape_factor; 
+    for( int iz = 1; iz <= grid->nz + 1; ++iz )
+    {
+      for( int iy = 1; iy <= grid->ny; ++iy )
+      {
+        field( 1, iy, iz ).ey += prefactor
+                                 * cos(PHASE)
+                                 * exp( -R2 / ( global->width*global->width ) )
+                                 * MASK * pulse_shape_factor;
+      }
+    }
   }
 }
 

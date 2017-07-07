@@ -1,4 +1,4 @@
-//========================================================================
+//============================================================================//
 //
 // LPI 3D deck - Linearly polarized (in y) plane wave incident from left 
 //               boundary 
@@ -9,22 +9,35 @@
 // 
 // Executable creates its own directory structure.  Remove the old with: 
 //
-// rm -rf rundata ehydro Hhydro Hehydro restart poynting velocity particle field
-//========================================================================
+// rm -rf rundata ehydro Hhydro Hehydro restart poynting velocity particle
+//        field
+//============================================================================//
 
 // Employ turnstiles to partially serialize the high-volume file writes. 
 // In this case, the restart dumps.  Set NUM_TURNSTILES to be the desired
-// number of simultaneous writes. 
-#define NUM_TURNSTILES 256 
+// number of simultaneous writes.
 
-begin_globals {
+#define NUM_TURNSTILES REPLACE_num_turnstiles
+
+//----------------------------------------------------------------------------//
+// 
+//----------------------------------------------------------------------------//
+
+begin_globals
+{
   double e0;                   // peak amplitude of oscillating electric field
   double omega;                // angular freq. of the beam
-  int field_interval;          // how often to dump field and hydro
-  int particle_interval;       // how often to dump particle data
+
+  int fields_interval;         // how often to dump field and hydro
   int poynting_interval;       // how often to compute poynting flux on boundary
   int restart_interval;        // how often to write restart data
   int quota_check_interval;    // how often to check if quota exceeded
+  int energies_interval;       // how often to dump energy history data
+  int ehydro_interval;
+  int Hhydro_interval;
+  int eparticle_interval;
+  int Hparticle_interval;
+
   double quota_sec;            // run quota in sec
   int rtoggle;                 // enable save of last 2 restart files for safety
   int load_particles;          // were particles loaded? 
@@ -99,10 +112,19 @@ begin_globals {
   DumpParameters hHdParams;
   DumpParameters hHedParams;
   std::vector<DumpParameters *> outputParams;
+
+  // Vadim:  modified restart machinery
+
+  int write_restart;       // global flag for all to write restart files
+  int write_end_restart;   // global flag for all to write restart files
 };
 
-begin_initialization {
-  
+//----------------------------------------------------------------------------//
+// 
+//----------------------------------------------------------------------------//
+
+begin_initialization
+{
   // System of units
   double ec         = 4.8032e-10;          // stat coulomb
   double c_vac      = 2.99792458e10;       // cm/sec
@@ -119,31 +141,31 @@ begin_initialization {
 
   double t_e               = 2600;         // electron temperature, eV
   double t_i               = 1300;         // ion temperature, eV
-  double n_e_over_n_crit   = 0.1415;         // n_e/n_crit
+  double n_e_over_n_crit   = 0.1415;       // n_e/n_crit
   double vacuum_wavelength = 527 * 1e-7;   // third micron light (cm)
-  double laser_intensity   = 6.0e15 * 1e7;   // in ergs/cm^2 (note: 1 W = 1e7 ergs)
+  double laser_intensity   = 6.0e15 * 1e7; // in ergs/cm^2 (note: 1 W = 1e7 ergs)
 
   // Simulation parameters 
 
-  double Lx                = 17 * 0.8 * 12.0 * 1e-4;  // In cm (note: 1 micron = 1e-4 cm)
+  double Lx                = 17 * 0.8 * 12.0 * 1e-4 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
   double Ly                =  3 * 0.8 * 12.0 * 1e-4;
   double Lz                =  3 * 0.8 * 12.0 * 1e-4;
 
-  double nx                = 32*17;
+  double nx                = 32*17*REPLACE_scale_nx;
   double ny                = 32*3;
   double nz                = 32*3;
 
-  double topology_x        = 1*17;
+  double topology_x        = 1*17*REPLACE_scale_topology_x;
   double topology_y        = 1*2;
   double topology_z        = 1*1;
 
   // single-processor mesh = 544 x 96 x 96
 
-  double nppc               = REPLACE_nppc; // Average number of macro particle per cell per species
-  int load_particles        = 1;            // Flag to turn on/off particle load 
-  int mobile_ions           = 0;            // Whether or not to push ions
-  double f_He               = 0;            // Ratio of number density of He to total ion density
-  double f_H                = 1-f_He;       // Ratio of number density of H  to total ion density
+  double nppc               = REPLACE_nppc;        // Average number macro particles per cell per species
+  int load_particles        = 1;                   // Flag to turn on/off particle load 
+  int mobile_ions           = REPLACE_mobile_ions; // Whether or not to push ions
+  double f_He               = 0;                   // Ratio of number density of He to total ion density
+  double f_H                = 1-f_He;              // Ratio of number density of H  to total ion density
   int H_present             = ( (f_H !=0) ? 1 : 0 );  
   int He_present            = ( (f_He!=0) ? 1 : 0 );  
 
@@ -199,21 +221,22 @@ begin_initialization {
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
   double t_stop            = REPLACE_nstep*dt + 0.001*dt; // Runtime in 1/wpe
-  int particle_interval    = 0; 
-  //int poynting_interval    = int(M_PI/((omega+1.5)*dt));     // Num. steps between dumping poynting flux
-  int poynting_interval    = 0;                              // Num. steps between dumping poynting flux
-//????????????????????????????????????????????????????????
-  //int field_interval       = int(100.0/dt);       // Num. steps between saving field, hydro data
-  int field_interval       = 0;                   // Num. steps between saving field, hydro data
-  int velocity_interval    = int(100.0/dt);       // How frequently to dump binned velocity space data
-  int restart_interval     = int(150.0/dt);       // Num. steps between restart dumps
+
+  int energies_interval    = REPLACE_energies_interval;
+  int ehydro_interval      = REPLACE_field_interval;
+  int Hhydro_interval      = REPLACE_field_interval;
+  int eparticle_interval   = REPLACE_particle_interval;
+  int Hparticle_interval   = REPLACE_particle_interval;
+  int poynting_interval    = 0;                      // Num. steps between dumping poynting flux
+  int fields_interval      = REPLACE_field_interval; // Num. steps between saving field data
+  int velocity_interval    = int(100.0/dt);          // How frequently to dump velocity space data
+  int restart_interval     = REPLACE_nrestart;       // Num. steps between restart dumps
   int quota_check_interval = 20;
 
   // Ben:  This quota thing gracefully terminates after writing a final restart after 
   // 11.5 hours; if you want a longer time before shutdown, set this value larger.  If 
   // you want the code to just run all weekend, then set it to very long (2400.*3500, e.g.) 
 
-//????????????????????????????????????????????????????????
   double quota_sec         = 11.6*3600;           // Run quota in sec. 
 
   // Turn on integrated backscatter poynting diagnostic - right now there is a bug in this, so we 
@@ -239,7 +262,7 @@ begin_initialization {
   sim_log("***** Simulation parameters *****");
   sim_log("* Processors:                     "<<nproc());
   sim_log("* Topology:                       "<<topology_x<<" "<<topology_y<<" "<<topology_z); 
-  sim_log("* nsteps_cycle =                 "<<nsteps_cycle);
+  sim_log("* nsteps_cycle =                  "<<nsteps_cycle);
   sim_log("* Time step, max time, nsteps:    "<<dt<<" "<<t_stop<<" "<<int(t_stop/(dt))); 
   sim_log("* Debye length, XYZ cell sizes:   "<<debye<<" "<<cell_size_x<<" "<<cell_size_y<<" "<<cell_size_z);
   sim_log("* Real cell sizes (in Debyes):    "<<hx/uthe<<" "<<hy/uthe<<" "<<hz/uthe);
@@ -261,16 +284,16 @@ begin_initialization {
   sim_log("* vthe_He/c:                      "<<uthi_He);
   sim_log("* emax at entrance:               "<<e0);
   sim_log("* emax at waist:                  "<<e0/(waist/width));
+
   sim_log("* Poynting interval:              "<<poynting_interval); 
-  sim_log("* field interval:                 "<<field_interval); 
+  sim_log("* fields interval:                "<<fields_interval); 
   sim_log("* restart interval:               "<<restart_interval); 
+  sim_log("* velocity interval               "<<velocity_interval); 
+  sim_log("* quota check interval:           "<<quota_check_interval); 
+
   sim_log("* num vacuum edge grids:          "<<iv_thick);
   sim_log("* width, waist, xfocus:           "<<width<<" "<<waist<<" "<<xfocus); 
   sim_log("* ycenter, zcenter, mask:         "<<ycenter<<" "<<zcenter<<" "<<mask); 
-  sim_log("* field_interval                  "<<field_interval); 
-  sim_log("* velocity_interval               "<<velocity_interval); 
-  sim_log("* restart_interval:               "<<restart_interval); 
-  sim_log("* quota_check_interval:           "<<quota_check_interval); 
   sim_log("* write_poynting_sum:             "<<(write_poynting_sum ? "Yes" : "No")); 
   sim_log("* write_poynting_faces:           "<<(write_poynting_faces? "Yes" : "No")); 
   sim_log("* write_eb_faces:                 "<<(write_eb_faces ? "Yes" : "No")); 
@@ -282,7 +305,6 @@ begin_initialization {
   sim_log("Setting up high-level simulation parameters."); 
   num_step             = int(t_stop/(dt)); 
 
-//??????????????????????????????????????????????????????????
 //status_interval      = 10;
   status_interval      = 21;
   sync_shared_interval = status_interval/1;
@@ -292,79 +314,116 @@ begin_initialization {
   // Turn off some of the spam
   verbose = 1; 
 
-  // For maxwellian reinjection, we need more than the default number of 
+  // For maxwellian reinjection, we need more than the default number of
   // passes (3) through the boundary handler
-  // Note:  We have to adjust sort intervals for maximum performance on Cell. 
+  // Note:  We have to adjust sort intervals for maximum performance on Cell.
   num_comm_round = 16;
 
-  global->e0                   = e0; 
-  global->omega                = omega; 
-  global->field_interval       = field_interval; 
-  global->particle_interval    = particle_interval;
-  global->poynting_interval    = poynting_interval;
-  global->restart_interval     = restart_interval;
-  global->quota_check_interval = quota_check_interval;
-  global->quota_sec            = quota_sec;
-  global->rtoggle              = 0;
-  global->load_particles       = load_particles;
-  global->mobile_ions          = mobile_ions; 
-  global->H_present            = H_present; 
-  global->He_present           = He_present; 
-  global->topology_x           = topology_x;  
-  global->topology_y           = topology_y;  
-  global->topology_z           = topology_z;  
-  global->xfocus               = xfocus;  
-  global->ycenter              = ycenter; 
-  global->zcenter              = zcenter; 
-  global->mask                 = mask; 
-  global->waist                = waist; 
-  global->width                = width; 
-  global->lambda               = lambda; 
+  global->e0                     = e0;
+  global->omega                  = omega;
 
-  global->write_poynting_data  = write_poynting_data;
+  global->fields_interval        = fields_interval;
+  global->poynting_interval      = poynting_interval;
+  global->restart_interval       = restart_interval;
+  global->quota_check_interval   = quota_check_interval;
+  global->energies_interval      = energies_interval;
+  global->ehydro_interval        = ehydro_interval;
+  global->Hhydro_interval        = Hhydro_interval;
+  global->eparticle_interval     = eparticle_interval;
+  global->Hparticle_interval     = Hparticle_interval;
 
-  global->write_poynting_sum   = write_poynting_sum; 
-  global->write_poynting_faces = write_poynting_faces; 
-  global->write_eb_faces       = write_eb_faces;      
-  global->write_backscatter_only = write_backscatter_only; 
+  global->quota_sec              = quota_sec;
+  global->rtoggle                = 0;
+  global->load_particles         = load_particles;
+  global->mobile_ions            = mobile_ions;
+  global->H_present              = H_present;
+  global->He_present             = He_present;
+  global->topology_x             = topology_x;
+  global->topology_y             = topology_y;
+  global->topology_z             = topology_z;
+  global->xfocus                 = xfocus;
+  global->ycenter                = ycenter;
+  global->zcenter                = zcenter;
+  global->mask                   = mask;
+  global->waist                  = waist;
+  global->width                  = width;
+  global->lambda                 = lambda;
 
-  global->vthe                 = uthe; 
-  global->vthi_H               = uthi_H; 
-  global->vthi_He              = uthi_He; 
-  global->velocity_interval    = velocity_interval; 
+  global->write_poynting_data    = write_poynting_data;
 
-  // Set up the species
-  // Allow additional local particles in case of non-uniformity.
+  global->write_poynting_sum     = write_poynting_sum;
+  global->write_poynting_faces   = write_poynting_faces;
+  global->write_eb_faces         = write_eb_faces;
+  global->write_backscatter_only = write_backscatter_only;
 
-  // Set up grid
-  sim_log("Setting up computational grid."); 
-  grid->dx       = hx; 
-  grid->dy       = hy; 
-  grid->dz       = hz; 
-  grid->dt       = dt; 
+  global->vthe                   = uthe;
+  global->vthi_H                 = uthi_H;
+  global->vthi_He                = uthi_He;
+  global->velocity_interval      = velocity_interval;
+
+  // Set up the species. Allow additional local particles in case of
+  // non-uniformity.
+
+  // Set up grid.
+  sim_log( "Setting up computational grid." );
+
+  grid->dx       = hx;
+  grid->dy       = hy;
+  grid->dz       = hz;
+  grid->dt       = dt;
   grid->cvac     = 1;
-  grid->eps0     = 1; 
+  grid->eps0     = 1;
 
-  sim_log("Setting up absorbing mesh."); 
+  sim_log( "Setting up absorbing mesh." );
+
   define_absorbing_grid( 0,         -0.5*Ly,    -0.5*Lz,        // Low corner
                          Lx,         0.5*Ly,     0.5*Lz,        // High corner 
                          nx,         ny,         nz,            // Resolution
                          topology_x, topology_y, topology_z,    // Topology
-                         reflect_particles );                   // Default particle boundary condition 
+                         reflect_particles );                   // Default particle BC
 
-  sim_log("Setting up species."); 
-  double max_local_np = 1.3*N_e/nproc(); 
-//??????????????????????????????????????????????????????????????????????????????????????
+  sim_log( "Setting up species." );
+
+  double max_local_np = 1.3*N_e/nproc();
+
   double max_local_nm = max_local_np/10.0;
-  species_t * electron = define_species("electron", -1, 1, max_local_np, max_local_nm, 20, 1); 
 
-  // Start with two ion species.  We have option to go to Xe and Kr gas fills if 
-  // we need a higher ion/electron macroparticle ratio.  
+  species_t * electron = define_species( "electron",
+					 -1,
+					 1,
+					 max_local_np,
+					 max_local_nm,
+					 REPLACE_eon_sort_interval,
+					 1 );
 
-  species_t *ion_H, *ion_He; 
-  if ( mobile_ions ) {
-    if ( H_present  ) ion_H  = define_species("H",  Z_H,  mime_H,  max_local_np, max_local_nm, 100, 1); 
-    if ( He_present ) ion_He = define_species("He", Z_He, mime_He, max_local_np, max_local_nm, 100, 1); 
+  // Start with two ion species.  We have option to go to Xe and Kr gas fills if
+  // we need a higher ion/electron macroparticle ratio.
+
+  species_t *ion_H, *ion_He;
+
+  if ( mobile_ions )
+  {
+    if ( H_present )
+    {
+      ion_H  = define_species( "H",
+			       Z_H,
+			       mime_H,
+			       max_local_np,
+			       max_local_nm,
+			       REPLACE_ion_sort_interval,
+			       1 );
+    }
+
+    if ( He_present )
+    {
+      ion_He = define_species( "He",
+			       Z_He,
+			       mime_He,
+			       max_local_np,
+			       max_local_nm,
+			       REPLACE_ion_sort_interval,
+			       1 );
+    }
   }
 
   // From grid/partition.c: used to determine which domains are on edge
@@ -380,295 +439,371 @@ begin_initialization {
     (iz) = _iz;                                                           \
   } END_PRIMITIVE 
 
-  sim_log("Overriding x boundaries to absorb fields."); 
+  sim_log( "Overriding x boundaries to absorb fields." );
+
   int ix, iy, iz;        // Domain location in mesh
   RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
 
   // Set up Maxwellian reinjection B.C. 
 
-  sim_log("Setting up Maxwellian reinjection boundary condition."); 
+  sim_log( "Setting up Maxwellian reinjection boundary condition." );
 
-  particle_bc_t * maxwellian_reinjection = 
-    define_particle_bc( maxwellian_reflux( species_list, entropy ) ); 
-  set_reflux_temp( maxwellian_reinjection, electron, uthe, uthe );
-  if ( mobile_ions ) { 
-    if ( H_present  ) set_reflux_temp( maxwellian_reinjection, ion_H,  uthi_H,  uthi_H  ); 
-    if ( He_present ) set_reflux_temp( maxwellian_reinjection, ion_He, uthi_He, uthi_He ); 
+  particle_bc_t * maxwellian_reinjection =
+    define_particle_bc( maxwellian_reflux( species_list, entropy ) );
+
+  set_reflux_temp( maxwellian_reinjection,
+		   electron,
+		   uthe,
+		   uthe );
+
+  if ( mobile_ions )
+  {
+    if ( H_present )
+    {
+      set_reflux_temp( maxwellian_reinjection,
+		       ion_H,
+		       uthi_H,
+		       uthi_H );
+    }
+
+    if ( He_present )
+    {
+      set_reflux_temp( maxwellian_reinjection,
+		       ion_He,
+		       uthi_He,
+		       uthi_He );
+    }
   }
 
   // Set up materials
-  sim_log("Setting up materials."); 
+
+  sim_log( "Setting up materials." );
+
   define_material( "vacuum", 1 );
-  define_field_array( NULL, damp ); 
- 
+
+  define_field_array( NULL, damp );
+
   // Paint the simulation volume with materials and boundary conditions
+
 # define iv_region (   x<      hx*iv_thick || x>Lx  -hx*iv_thick  \
                     || y<-Ly/2+hy*iv_thick || y>Ly/2-hy*iv_thick  \
-                    || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) /* all boundaries are i.v. */ 
-  set_region_bc( iv_region, maxwellian_reinjection, maxwellian_reinjection, maxwellian_reinjection ); 
+		       || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) // all boundaries are i.v.
 
-  // Load particles 
-  if ( load_particles ) {
-    sim_log("Loading particles.");
+  set_region_bc( iv_region,
+		 maxwellian_reinjection,
+		 maxwellian_reinjection,
+		 maxwellian_reinjection );
+
+  // Load particles.
+
+  if ( load_particles )
+  {
+    sim_log( "Loading particles." );
+
     // Fast load of particles--don't bother fixing artificial domain correlations
+
     double xmin=grid->x0, xmax=grid->x1;
     double ymin=grid->y0, ymax=grid->y1;
     double zmin=grid->z0, zmax=grid->z1;
-    repeat( N_e/(topology_x*topology_y*topology_z) ) {
+
+    repeat( N_e/(topology_x*topology_y*topology_z) )
+    {
       double x = uniform( rng(0), xmin, xmax );
       double y = uniform( rng(0), ymin, ymax );
       double z = uniform( rng(0), zmin, zmax );
+
       if ( iv_region ) continue;           // Particle fell in iv_region.  Don't load.
+
       // third to last arg is "weight," a positive number
+
       inject_particle( electron, x, y, z,
                        normal( rng(0), 0, uthe),
                        normal( rng(0), 0, uthe),
                        normal( rng(0), 0, uthe), -q_e, 0, 0 );
-      if ( mobile_ions ) {
+
+      if ( mobile_ions )
+      {
         if ( H_present )  // Inject an H macroion on top of macroelectron
-          inject_particle( ion_H, x, y, z, 
-                           normal( rng(0), 0, uthi_H), 
-                           normal( rng(0), 0, uthi_H), 
-                           normal( rng(0), 0, uthi_H), qi_H, 0, 0 ); 
+	{
+          inject_particle( ion_H, x, y, z,
+                           normal( rng(0), 0, uthi_H),
+                           normal( rng(0), 0, uthi_H),
+                           normal( rng(0), 0, uthi_H), qi_H, 0, 0 );
+	}
+
         if ( He_present ) // Inject an H macroion on top of macroelectron
-          inject_particle( ion_He, x, y, z, 
-                           normal( rng(0), 0, uthi_He), 
-                           normal( rng(0), 0, uthi_He), 
-                           normal( rng(0), 0, uthi_He), qi_He, 0, 0 ); 
+	{
+          inject_particle( ion_He, x, y, z,
+                           normal( rng(0), 0, uthi_He),
+                           normal( rng(0), 0, uthi_He),
+                           normal( rng(0), 0, uthi_He), qi_He, 0, 0 );
+	}
       }
     }
   }
 
- /*--------------------------------------------------------------------------
-  * New dump definition
-  *------------------------------------------------------------------------*/
+  //--------------------------------------------------------------------------//
+  // New dump definition
+  //--------------------------------------------------------------------------//
 
- /*--------------------------------------------------------------------------
-  * Set data output format
-  * 
-  * This option allows the user to specify the data format for an output
-  * dump.  Legal settings are 'band' and 'band_interleave'.  Band-interleave
-  * format is the native storage format for data in VPIC.  For field data,
-  * this looks something like:
-  * 
-  *   ex0 ey0 ez0 div_e_err0 cbx0 ... ex1 ey1 ez1 div_e_err1 cbx1 ...
-  *   
-  * Banded data format stores all data of a particular state variable as a
-  * contiguous array, and is easier for ParaView to process efficiently. 
-  * Banded data looks like:
-  * 
-  *   ex0 ex1 ex2 ... exN ey0 ey1 ey2 ...
-  *   
-  *------------------------------------------------------------------------*/
+  //--------------------------------------------------------------------------//
+  // Set data output format
+  // 
+  // This option allows the user to specify the data format for an output
+  // dump.  Legal settings are 'band' and 'band_interleave'.  Band-interleave
+  // format is the native storage format for data in VPIC.  For field data,
+  // this looks something like:
+  // 
+  //   ex0 ey0 ez0 div_e_err0 cbx0 ... ex1 ey1 ez1 div_e_err1 cbx1 ...
+  //   
+  // Banded data format stores all data of a particular state variable as a
+  // contiguous array, and is easier for ParaView to process efficiently. 
+  // Banded data looks like:
+  // 
+  //   ex0 ex1 ex2 ... exN ey0 ey1 ey2 ...
+  //   
+  //--------------------------------------------------------------------------//
+
   sim_log( "Setting up hydro and field diagnostics." );
 
-  global->fdParams.format = band;
-  sim_log ( "Field output format          : band" );
+  global->fdParams.format = REPLACE_field_io_format;
 
-  global->hedParams.format = band;
-  sim_log ( "Electron hydro output format : band" );
+  sim_log( "Field output format          : REPLACE_field_io_format" );
 
-  global->hHdParams.format = band;
-  sim_log ( "Hydrogen hydro output format : band" );
+  global->hedParams.format = REPLACE_field_io_format;
 
-  global->hHedParams.format = band;
-  sim_log ( "Helium hydro output format   : band" );
+  sim_log( "Electron hydro output format : REPLACE_field_io_format" );
 
- /*--------------------------------------------------------------------------
-  * Set stride
-  * 
-  * This option allows data down-sampling at output.  Data are down-sampled
-  * in each dimension by the stride specified for that dimension.  For
-  * example, to down-sample the x-dimension of the field data by a factor
-  * of 2, i.e., half as many data will be output, select:
-  * 
-  *   global->fdParams.stride_x = 2;
-  *
-  * The following 2-D example shows down-sampling of a 7x7 grid (nx = 7,
-  * ny = 7.  With ghost-cell padding the actual extents of the grid are 9x9.
-  * Setting the strides in x and y to equal 2 results in an output grid of
-  * nx = 4, ny = 4, with actual extents 6x6.
-  *
-  * G G G G G G G G G
-  * G X X X X X X X G
-  * G X X X X X X X G         G G G G G G
-  * G X X X X X X X G         G X X X X G
-  * G X X X X X X X G   ==>   G X X X X G
-  * G X X X X X X X G         G X X X X G
-  * G X X X X X X X G         G X X X X G
-  * G X X X X X X X G         G G G G G G
-  * G G G G G G G G G
-  *
-  * Note that grid extents in each dimension must be evenly divisible by
-  * the stride for that dimension:
-  *
-  *   nx = 150;
-  *   global->fdParams.stride_x = 10; // legal -> 150/10 = 15
-  *
-  *   global->fdParams.stride_x = 8; // illegal!!! -> 150/8 = 18.75
-  *------------------------------------------------------------------------*/
+  global->hHdParams.format = REPLACE_field_io_format;
 
-  // Strides for field and hydro arrays.  Note that here we have defined them 
-  // the same for fields and all hydro species; if desired, we could use different
-  // strides for each.   Also note that strides must divide evenly into the number 
-  // of cells in a given domain. 
+  sim_log( "Hydrogen hydro output format : REPLACE_field_io_format" );
+
+  global->hHedParams.format = REPLACE_field_io_format;
+
+  sim_log( "Helium hydro output format   : REPLACE_field_io_format" );
+
+  //--------------------------------------------------------------------------//
+  // Set stride
+  //
+  // This option allows data down-sampling at output.  Data are down-sampled
+  // in each dimension by the stride specified for that dimension.  For
+  // example, to down-sample the x-dimension of the field data by a factor
+  // of 2, i.e., half as many data will be output, select:
+  //
+  //   global->fdParams.stride_x = 2;
+  //
+  // The following 2-D example shows down-sampling of a 7x7 grid (nx = 7,
+  // ny = 7.  With ghost-cell padding the actual extents of the grid are 9x9.
+  // Setting the strides in x and y to equal 2 results in an output grid of
+  // nx = 4, ny = 4, with actual extents 6x6.
+  //
+  // G G G G G G G G G
+  // G X X X X X X X G
+  // G X X X X X X X G         G G G G G G
+  // G X X X X X X X G         G X X X X G
+  // G X X X X X X X G   ==>   G X X X X G
+  // G X X X X X X X G         G X X X X G
+  // G X X X X X X X G         G X X X X G
+  // G X X X X X X X G         G G G G G G
+  // G G G G G G G G G
+  //
+  // Note that grid extents in each dimension must be evenly divisible by
+  // the stride for that dimension:
+  //
+  //   nx = 150;
+  //   global->fdParams.stride_x = 10; // legal -> 150/10 = 15
+  //
+  //   global->fdParams.stride_x = 8; // illegal!!! -> 150/8 = 18.75
+  //--------------------------------------------------------------------------//
+
+  // Strides for field and hydro arrays.  Note that here we have defined them
+  // the same for fields and all hydro species; if desired, we could use
+  // different strides for each.   Also note that strides must divide evenly
+  // into the number of cells in a given domain.
 
   // Define strides and test that they evenly divide into grid->nx, ny, nz
-  // ????????????????????????????????????????????????????????????????????????
-  int stride_x = 1, stride_y = 1, stride_z = 1; 
-  if ( int(grid->nx)%stride_x ) ERROR(("Stride doesn't evenly divide grid->nx.")); 
-  if ( int(grid->ny)%stride_y ) ERROR(("Stride doesn't evenly divide grid->ny.")); 
-  if ( int(grid->nz)%stride_z ) ERROR(("Stride doesn't evenly divide grid->nz.")); 
 
-  //----------------------------------------------------------------------
+  int stride_x = 1, stride_y = 1, stride_z = 1;
+
+  if ( int( grid->nx )%stride_x )
+    ERROR( ( "Stride doesn't evenly divide grid->nx." ) );
+
+  if ( int( grid->ny )%stride_y )
+    ERROR( ( "Stride doesn't evenly divide grid->ny." ) );
+
+  if ( int( grid->nz )%stride_z )
+    ERROR( ( "Stride doesn't evenly divide grid->nz." ) );
+
+  //--------------------------------------------------------------------------//
   // Fields
+  //--------------------------------------------------------------------------//
 
   // relative path to fields data from global header
-  sprintf(global->fdParams.baseDir, "field");
+  sprintf( global->fdParams.baseDir, "fields" );
 
   // base file name for fields output
-  sprintf(global->fdParams.baseFileName, "fields");
+  sprintf( global->fdParams.baseFileName, "fields" );
 
   // set field strides
   global->fdParams.stride_x = stride_x;
   global->fdParams.stride_y = stride_y;
   global->fdParams.stride_z = stride_z;
-  sim_log ( "Fields x-stride " << global->fdParams.stride_x );
-  sim_log ( "Fields y-stride " << global->fdParams.stride_y );
-  sim_log ( "Fields z-stride " << global->fdParams.stride_z );
+
+  sim_log( "Fields x-stride " << global->fdParams.stride_x );
+  sim_log( "Fields y-stride " << global->fdParams.stride_y );
+  sim_log( "Fields z-stride " << global->fdParams.stride_z );
 
   // add field parameters to list
-  global->outputParams.push_back(&global->fdParams);
+  global->outputParams.push_back( &global->fdParams );
 
-  //----------------------------------------------------------------------
+  //--------------------------------------------------------------------------//
   // Electron hydro
+  //--------------------------------------------------------------------------//
 
   // relative path to electron species data from global header
-  sprintf(global->hedParams.baseDir, "ehydro");
+  sprintf( global->hedParams.baseDir, "hydro" );
 
   // base file name for fields output
-  sprintf(global->hedParams.baseFileName, "e_hydro");
+  sprintf( global->hedParams.baseFileName, "e_hydro" );
 
   // set electron hydro strides
   global->hedParams.stride_x = stride_x;
   global->hedParams.stride_y = stride_y;
   global->hedParams.stride_z = stride_z;
-  sim_log ( "Electron species x-stride " << global->hedParams.stride_x );
-  sim_log ( "Electron species y-stride " << global->hedParams.stride_y );
-  sim_log ( "Electron species z-stride " << global->hedParams.stride_z );
+
+  sim_log( "Electron species x-stride " << global->hedParams.stride_x );
+  sim_log( "Electron species y-stride " << global->hedParams.stride_y );
+  sim_log( "Electron species z-stride " << global->hedParams.stride_z );
 
   // add electron hydro parameters to list
-  global->outputParams.push_back(&global->hedParams);
+  global->outputParams.push_back( &global->hedParams );
 
-  //----------------------------------------------------------------------
+  //--------------------------------------------------------------------------//
   // Hydrogen hydro
+  //--------------------------------------------------------------------------//
 
   // relative path to electron species data from global header
-  sprintf(global->hHdParams.baseDir, "Hhydro");
+  sprintf( global->hHdParams.baseDir, "hydro" );
 
   // base file name for fields output
-  sprintf(global->hHdParams.baseFileName, "H_hydro");
+  sprintf( global->hHdParams.baseFileName, "H_hydro" );
 
   // set hydrogen hydro strides
   global->hHdParams.stride_x = stride_x;
   global->hHdParams.stride_y = stride_y;
   global->hHdParams.stride_z = stride_z;
-  sim_log ( "Ion species x-stride " << global->hHdParams.stride_x );
-  sim_log ( "Ion species y-stride " << global->hHdParams.stride_y );
-  sim_log ( "Ion species z-stride " << global->hHdParams.stride_z );
+
+  sim_log( "Ion species x-stride " << global->hHdParams.stride_x );
+  sim_log( "Ion species y-stride " << global->hHdParams.stride_y );
+  sim_log( "Ion species z-stride " << global->hHdParams.stride_z );
 
   // add hydrogen hydro parameters to list
-  global->outputParams.push_back(&global->hHdParams);
+  global->outputParams.push_back( &global->hHdParams );
 
-  //----------------------------------------------------------------------
+  //--------------------------------------------------------------------------//
   // Helium hydro
+  //--------------------------------------------------------------------------//
 
   // relative path to electron species data from global header
-  sprintf(global->hHedParams.baseDir, "Hehydro");
+  sprintf( global->hHedParams.baseDir, "hydro" );
 
   // base file name for fields output
-  sprintf(global->hHedParams.baseFileName, "He_hydro");
+  sprintf( global->hHedParams.baseFileName, "He_hydro" );
 
   // set helium hydro strides
   global->hHedParams.stride_x = stride_x;
   global->hHedParams.stride_y = stride_y;
   global->hHedParams.stride_z = stride_z;
-  sim_log ( "Ion species x-stride " << global->hHedParams.stride_x );
-  sim_log ( "Ion species y-stride " << global->hHedParams.stride_y );
-  sim_log ( "Ion species z-stride " << global->hHedParams.stride_z );
+
+  sim_log( "Ion species x-stride " << global->hHedParams.stride_x );
+  sim_log( "Ion species y-stride " << global->hHedParams.stride_y );
+  sim_log( "Ion species z-stride " << global->hHedParams.stride_z );
 
   // add helium hydro parameters to list
-  global->outputParams.push_back(&global->hHedParams);
+  global->outputParams.push_back( &global->hHedParams );
 
- /*-----------------------------------------------------------------------
-  * Set output fields
-  *
-  * It is now possible to select which state-variables are output on a
-  * per-dump basis.  Variables are selected by passing an or-list of
-  * state-variables by name.  For example, to only output the x-component
-  * of the electric field and the y-component of the magnetic field, the
-  * user would call output_variables like:
-  *
-  *   global->fdParams.output_variables( ex | cby );
-  *
-  * NOTE: OUTPUT VARIABLES ARE ONLY USED FOR THE BANDED FORMAT.  IF THE
-  * FORMAT IS BAND-INTERLEAVE, ALL VARIABLES ARE OUTPUT AND CALLS TO
-  * 'output_variables' WILL HAVE NO EFFECT.
-  *
-  * ALSO: DEFAULT OUTPUT IS NONE!  THIS IS DUE TO THE WAY THAT VPIC
-  * HANDLES GLOBAL VARIABLES IN THE INPUT DECK AND IS UNAVOIDABLE.
-  *
-  * For convenience, the output variable 'all' is defined:
-  *
-  *   global->fdParams.output_variables( all );
-  *------------------------------------------------------------------------*/
- /* CUT AND PASTE AS A STARTING POINT
-  * REMEMBER TO ADD APPROPRIATE GLOBAL DUMPPARAMETERS VARIABLE
-
-   output_variables( all );
-
-   output_variables( electric | div_e_err | magnetic | div_b_err |
-                     tca      | rhob      | current  | rhof |
-                     emat     | nmat      | fmat     | cmat );
-
-   output_variables( current_density  | charge_density |
-                     momentum_density | ke_density     | stress_tensor );
-  */
+  //--------------------------------------------------------------------------//
+  // Set output fields
+  //
+  // It is now possible to select which state-variables are output on a
+  // per-dump basis.  Variables are selected by passing an or-list of
+  // state-variables by name.  For example, to only output the x-component
+  // of the electric field and the y-component of the magnetic field, the
+  // user would call output_variables like:
+  //
+  //   global->fdParams.output_variables( ex | cby );
+  //
+  // NOTE: OUTPUT VARIABLES ARE ONLY USED FOR THE BANDED FORMAT.  IF THE
+  // FORMAT IS BAND-INTERLEAVE, ALL VARIABLES ARE OUTPUT AND CALLS TO
+  // 'output_variables' WILL HAVE NO EFFECT.
+  //
+  // ALSO: DEFAULT OUTPUT IS NONE.  THIS IS DUE TO THE WAY THAT VPIC
+  // HANDLES GLOBAL VARIABLES IN THE INPUT DECK AND IS UNAVOIDABLE.
+  //
+  // For convenience, the output variable 'all' is defined:
+  //
+  //   global->fdParams.output_variables( all );
+  //--------------------------------------------------------------------------//
+  // CUT AND PASTE AS A STARTING POINT. REMEMBER TO ADD APPROPRIATE GLOBAL
+  // DUMPPARAMETERS VARIABLE.
+  //
+  // output_variables( all );
+  //
+  // output_variables( electric | div_e_err | magnetic | div_b_err |
+  //                   tca      | rhob      | current  | rhof |
+  //                   emat     | nmat      | fmat     | cmat );
+  //
+  // output_variables( current_density  | charge_density |
+  //                   momentum_density | ke_density     | stress_tensor );
+  //--------------------------------------------------------------------------//
 
   //global->fdParams.output_variables( all );
+
   global->fdParams.output_variables( electric | magnetic );
 
   //global->hedParams.output_variables( all );
+
   //global->hedParams.output_variables( current_density | momentum_density );
+
   global->hedParams.output_variables(  current_density  | charge_density |
                                        momentum_density | ke_density |
                                        stress_tensor );
+
   global->hHdParams.output_variables(  current_density  | charge_density |
                                        momentum_density | ke_density |
                                        stress_tensor );
+
   global->hHedParams.output_variables( current_density  | charge_density |
                                        momentum_density | ke_density |
                                        stress_tensor );
 
- /*--------------------------------------------------------------------------
-  * Convenience functions for simlog output
-  *------------------------------------------------------------------------*/
+  //--------------------------------------------------------------------------//
+  // Convenience functions for simlog output.
+  //--------------------------------------------------------------------------//
+
   char varlist[256];
 
-  create_field_list(varlist, global->fdParams);
-  sim_log ( "Fields variable list: " << varlist );
+  create_field_list( varlist, global->fdParams );
 
-  create_hydro_list(varlist, global->hedParams);
-  sim_log ( "Electron species variable list: " << varlist );
+  sim_log( "Fields variable list: " << varlist );
 
-  create_hydro_list(varlist, global->hHdParams);
-  sim_log ( "Ion species variable list: " << varlist );
+  create_hydro_list( varlist, global->hedParams );
 
- /*------------------------------------------------------------------------*/
+  sim_log( "Electron species variable list: " << varlist );
 
-  sim_log("***Finished with user-specified initialization ***"); 
+  create_hydro_list( varlist, global->hHdParams );
 
+  sim_log( "Ion species variable list: " << varlist );
+
+  //--------------------------------------------------------------------------//
+  // Wrapup initialization.
+  //--------------------------------------------------------------------------//
+
+  sim_log( "***Finished with user-specified initialization ***" );
+
+  //--------------------------------------------------------------------------//
   // Upon completion of the initialization, the following occurs:
+  //
   // - The synchronization error (tang E, norm B) is computed between domains
   //   and tang E / norm B are synchronized by averaging where discrepancies
   //   are encountered.
@@ -681,6 +816,7 @@ begin_initialization {
   // - The physics loop is started
   //
   // The physics loop consists of:
+  //
   // - Advance particles from x_0,u_{-1/2} to x_1,u_{1/2}
   // - User particle injection at x_{1-age}, u_{1/2} (use inject_particles)
   // - User current injection (adjust field(x,y,z).jfx, jfy, jfz)
@@ -694,60 +830,92 @@ begin_initialization {
   // - Increment the time step
   // - Call user diagnostics
   // - (periodically) Print a status message
+  //--------------------------------------------------------------------------//
 } 
 
-begin_diagnostics {
-} 
+//----------------------------------------------------------------------------//
+// Definition of user_diagnostics function.
+//----------------------------------------------------------------------------//
 
-begin_field_injection { 
-  // Inject a light wave from lhs boundary with E aligned along y
-  // Use scalar diffraction theory for the Gaussian beam source.  (This is approximate). 
+begin_diagnostics
+{
+}
 
-  // For quiet startup (i.e., so that we don't propagate a delta-function noise
-  // pulse at time t=0) we multiply by a constant phase term exp(i phi) where: 
-  //   phi = k*global->xfocus+atan(h)    (3d) 
+//----------------------------------------------------------------------------//
+// 
+//----------------------------------------------------------------------------//
 
+begin_field_injection
+{
+  // Inject a light wave from lhs boundary with E aligned along y. Use scalar
+  // diffraction theory for the Gaussian beam source. (This is approximate). 
+  //
+  // For quiet startup (i.e., so that we don't propagate a delta-function
+  // noise pulse at time t=0) we multiply by a constant phase term exp(i phi)
+  // where:
+  //   phi = k*global->xfocus+atan(h)    (3d)
+  //
   // Inject from the left a field of the form ey = e0 sin( omega t )
 
 # define DY    ( grid->y0 + (iy-0.5)*grid->dy - global->ycenter )
 # define DZ    ( grid->z0 + (iz-1  )*grid->dz - global->zcenter )
-# define R2    ( DY*DY + DZ*DZ )                                   
+# define R2    ( DY*DY + DZ*DZ )
 # define PHASE ( global->omega*t + h*R2/(global->width*global->width) )
 # define MASK  ( R2<=pow(global->mask*global->width,2) ? 1 : 0 )
 
-  if ( grid->x0==0 ) {               // Node is on left boundary
+  if ( grid->x0 == 0 )               // Node is on left boundary
+  {
     double alpha      = grid->cvac*grid->dt/grid->dx;
     double emax_coeff = (4/(1+alpha))*global->omega*grid->dt*global->e0;
-    double prefactor  = emax_coeff*sqrt(2/M_PI); 
-    double t          = grid->dt*step(); 
+    double prefactor  = emax_coeff*sqrt(2/M_PI);
+    double t          = grid->dt*step();
 
     // Compute Rayleigh length in c/wpe
-    double rl         = M_PI*global->waist*global->waist/global->lambda; 
+    double rl         = M_PI*global->waist*global->waist/global->lambda;
 
     double pulse_shape_factor = 1;
-    float pulse_length        = 70;  // units of 1/wpe
-    float sin_t_tau           = sin(0.5*t*M_PI/pulse_length);
-    pulse_shape_factor        = ( t<pulse_length ? sin_t_tau : 1 );
-    double h                  = global->xfocus/rl;   // Distance / Rayleigh length
+    float pulse_length        = 70;                // units of 1/wpe
+    float sin_t_tau           = sin( 0.5 * t * M_PI / pulse_length );
+    pulse_shape_factor        = ( t < pulse_length ? sin_t_tau : 1 );
+    double h                  = global->xfocus/rl; // Distance / Rayleigh length
 
     // Loop over all Ey values on left edge of this node
-    for ( int iz=1; iz<=grid->nz+1; ++iz ) 
-      for ( int iy=1; iy<=grid->ny; ++iy )  
-        field(1,iy,iz).ey += prefactor 
-                             * cos(PHASE) 
-                             * exp(-R2/(global->width*global->width)) 
-                             * MASK * pulse_shape_factor; 
+    for( int iz = 1; iz <= grid->nz + 1; ++iz )
+    {
+      for( int iy = 1; iy <= grid->ny; ++iy )
+      {
+        field( 1, iy, iz ).ey += prefactor
+                                 * cos(PHASE)
+                                 * exp( -R2 / ( global->width*global->width ) )
+                                 * MASK * pulse_shape_factor;
+      }
+    }
   }
 }
 
-begin_particle_injection {
+//----------------------------------------------------------------------------//
+// 
+//----------------------------------------------------------------------------//
+
+begin_particle_injection
+{
   // No particle injection for this simulation
 }
 
-begin_current_injection {
+//----------------------------------------------------------------------------//
+// 
+//----------------------------------------------------------------------------//
+
+begin_current_injection
+{
   // No current injection for this simulation
 }
 
-begin_particle_collisions {
+//----------------------------------------------------------------------------//
+// 
+//----------------------------------------------------------------------------//
+
+begin_particle_collisions
+{
   // No particle collisions for this simulation
 }
