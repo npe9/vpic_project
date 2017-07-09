@@ -31,145 +31,2615 @@ cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
 cd $VPIC_DIR
 
 ################################################################################
-# Build an optimized version of VPIC with GNU compilers.
+# Set some high level variables to control module versions.
 
-if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE" ]; then
-  module purge
+VERSION_CMAKE=3.7.1
+VERSION_INTEL=17.0.1
+VERSION_GNU=6.3.0                      # Not implemented yet.
+VERSION_INTEL_PERF_TOOLS=2017.2.028
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_NONE" ]; then
   module load friendly-testing
-  module load gcc/4.8.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  configure \
-      --with-machine=standard_gnu_v4_none \
-      --prefix=$VPIC_DIR
-  make
-# make check
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V4_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V4_SSE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V4_AVX" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V8_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V8_AVX" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DUSE_V4_AVX=OFF \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V8_AVX_HIO" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+  export HIO_ROOT=/users/wdn/Projects/hio_project/build/WOLF_MASTER_INT_OPT_CRAYMPI/hio
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -DVPIC_USE_HIO -I$HIO_ROOT/include \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -DVPIC_USE_HIO -I$HIO_ROOT/include \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_EXE_LINKER_FLAGS="$HIO_ROOT/lib/libhio.a" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V16_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_PTH_GNU_OPT_NONE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
-  module purge
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V4_PORT" ]; then
   module load friendly-testing
-  module load gcc/4.8.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  configure \
-      --with-machine=standard_gnu_v4_sse \
-      --prefix=$VPIC_DIR
-  make
-# make check
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
-  module purge
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V4_SSE" ]; then
   module load friendly-testing
-  module load gcc/4.8.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  configure \
-      --with-machine=standard_gnu_v4_port \
-      --prefix=$VPIC_DIR
-  make
-# make check
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                     -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                       -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_NONE" ]; then
-  module purge
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V4_AVX" ]; then
   module load friendly-testing
-  module load intel/14.0.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  CXX=icpc CC=icc configure \
-      --with-machine=standard_int_v4_none \
-      --prefix=$VPIC_DIR
-  make
-# make check
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE" ]; then
-  module purge
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V8_PORT" ]; then
   module load friendly-testing
-  module load intel/14.0.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  CXX=icpc CC=icc configure \
-      --with-machine=standard_int_v4_sse \
-      --prefix=$VPIC_DIR
-  make
-# make check
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT" ]; then
-  module purge
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V8_AVX" ]; then
   module load friendly-testing
-  module load intel/14.0.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  CXX=icpc CC=icc configure \
-      --with-machine=standard_int_v4_port \
-      --prefix=$VPIC_DIR
-  make
-# make check
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_SSE" ]; then
-  module purge
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V16_PORT" ]; then
   module load friendly-testing
-  module load gcc/4.8.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  configure \
-      --with-machine=standard_64 \
-      --prefix=$VPIC_DIR
-  make
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_NONE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V4_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V4_SSE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V4_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V8_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V8_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_PTH_INT_OPT_V16_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_PTH_GNU_OPT_NONE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
 # Build an optimized version of VPIC with GNU compilers.
 
-if [ $ARCH = "WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT" ]; then
-  module purge
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V4_PORT_VTUNE" ]; then
   module load friendly-testing
-  module load gcc/4.8.2
-  module load openmpi/1.7.4
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
 
   cd $VPIC_DIR
-  config/bootstrap
-  configure \
-      --with-machine=standard_64_port \
-      --prefix=$VPIC_DIR
-  make
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
 fi
 
 ################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V4_SSE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                     -fno-strict-aliasing -fomit-frame-pointer \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                       -fno-strict-aliasing -fomit-frame-pointer \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V4_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V8_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V8_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_PTH_GNU_OPT_V16_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_NONE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_AVEC" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DUSE_ADVANCE_P_AUTOVEC=YES \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -no-ansi-alias" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -no-ansi-alias" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V4_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V4_SSE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V4_AVX" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V8_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V8_AVX" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V16_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_NONE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V4_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V4_SSE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                     -fno-strict-aliasing -fomit-frame-pointer" \
+    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                       -fno-strict-aliasing -fomit-frame-pointer" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V4_AVX" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V8_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V8_AVX" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V16_PORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_NONE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V4_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V4_SSE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V4_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V8_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V8_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "WOLF_OMP_INT_OPT_V16_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load intel
+  module swap intel intel/$VERSION_INTEL
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_NONE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V4_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V4_SSE_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_SSE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                     -fno-strict-aliasing -fomit-frame-pointer \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -msse -ffast-math -fno-unsafe-math-optimizations \
+                       -fno-strict-aliasing -fomit-frame-pointer \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V4_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V8_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V8_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V8_AVX_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX=ON \
+    -DUSE_V8_AVX=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with GNU compilers.
+
+if [ $ARCH = "WOLF_OMP_GNU_OPT_V16_PORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module load gcc
+  module load openmpi
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_PORTABLE=ON \
+    -DUSE_V16_PORTABLE=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=ON \
+    -DUSE_PTHREADS=OFF \
+    -DCMAKE_C_COMPILER=mpicc \
+    -DCMAKE_CXX_COMPILER=mpicxx \
+    -DCMAKE_C_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                     -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    -DCMAKE_CXX_FLAGS="-O2 -mavx -ffast-math -fomit-frame-pointer \
+                       -fno-unsafe-math-optimizations -fno-strict-aliasing \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################################################################################################

@@ -1,50 +1,391 @@
 #!/bin/bash
 
 ################################################################################
-# Build the optimized Gnu cases using openmpi for the master branch.
+# Build the optimized Intel case for the master branch without vector support.
 
-ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_SSE
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
-
-ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_PORT
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
-
-ARCH=WF_MASTER_LINUX_GNU_OPT_OPENMPI_V4_NONE
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+ARCH=WOLF_PTH_INT_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
 mv makeVPIC_wolf.log build/$ARCH/vpic
 
 ################################################################################
-# Build the optimized Intel cases using openmpi for the master branch.
+# Build the optimized Intel cases for the master branch with V4 support.
 
-ARCH=WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_SSE
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+ARCH=WOLF_PTH_INT_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
 mv makeVPIC_wolf.log build/$ARCH/vpic
 
-ARCH=WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_PORT
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+ARCH=WOLF_PTH_INT_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
 mv makeVPIC_wolf.log build/$ARCH/vpic
 
-ARCH=WF_MASTER_LINUX_INT_OPT_OPENMPI_V4_NONE
-BRANCH=master_wdn
-/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
+ARCH=WOLF_PTH_INT_OPT_V4_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
 mv makeVPIC_wolf.log build/$ARCH/vpic
 
 ################################################################################
-# Build the optimized Gnu cases using openmpi for the tag_407 branch.
+# Build the optimized Intel cases for the master branch with V8 support.
 
-#ARCH=WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_SSE
-#BRANCH=tag_407_wdn
-#/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
-#mv makeVPIC_wolf.log build/$ARCH/vpic
+ARCH=WOLF_PTH_INT_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
 
-#ARCH=WF_TAG_407_LINUX_GNU_OPT_OPENMPI_V4_PORT
-#BRANCH=tag_407_wdn
-#/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 16 >& makeVPIC_wolf.log
-#mv makeVPIC_wolf.log build/$ARCH/vpic
+ARCH=WOLF_PTH_INT_OPT_V8_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=WOLF_PTH_INT_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=WOLF_PTH_GNU_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=WOLF_PTH_GNU_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_GNU_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_GNU_OPT_V4_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=WOLF_PTH_GNU_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_GNU_OPT_V8_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=WOLF_PTH_GNU_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=WOLF_PTH_INT_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=WOLF_PTH_INT_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_INT_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_INT_OPT_V4_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+ARCH=WOLF_PTH_INT_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_INT_OPT_V8_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=WOLF_PTH_INT_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=WOLF_PTH_GNU_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=WOLF_PTH_GNU_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_GNU_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_GNU_OPT_V4_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=WOLF_PTH_GNU_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_PTH_GNU_OPT_V8_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=WOLF_PTH_GNU_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=WOLF_OMP_INT_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=WOLF_OMP_INT_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_INT_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_INT_OPT_V4_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+ARCH=WOLF_OMP_INT_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_INT_OPT_V8_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=WOLF_OMP_INT_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=WOLF_OMP_GNU_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=WOLF_OMP_GNU_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_GNU_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_GNU_OPT_V4_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=WOLF_OMP_GNU_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_GNU_OPT_V8_AVX
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=WOLF_OMP_GNU_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=WOLF_OMP_INT_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=WOLF_OMP_INT_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_INT_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_INT_OPT_V4_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+ARCH=WOLF_OMP_INT_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_INT_OPT_V8_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=WOLF_OMP_INT_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=WOLF_OMP_GNU_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=WOLF_OMP_GNU_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_GNU_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_GNU_OPT_V4_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=WOLF_OMP_GNU_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+ARCH=WOLF_OMP_GNU_OPT_V8_AVX_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=WOLF_OMP_GNU_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_wolf $ARCH $BRANCH 32 >& makeVPIC_wolf.log
+mv makeVPIC_wolf.log build/$ARCH/vpic
