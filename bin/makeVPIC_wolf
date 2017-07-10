@@ -73,10 +73,10 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_NONE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -115,10 +115,10 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V4_PORT" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -157,10 +157,10 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V4_SSE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -199,10 +199,10 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V4_AVX" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -242,10 +242,10 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V8_PORT" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -286,10 +286,10 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V8_AVX" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -331,11 +331,11 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V8_AVX_HIO" ]; then
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -DVPIC_USE_HIO -I$HIO_ROOT/include \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -DVPIC_USE_HIO -I$HIO_ROOT/include \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     -DCMAKE_EXE_LINKER_FLAGS="$HIO_ROOT/lib/libhio.a" \
     ..
   make -j $NJ VERBOSE=1
@@ -376,10 +376,10 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V16_PORT" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -696,13 +696,13 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_NONE_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -747,13 +747,13 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V4_PORT_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -798,13 +798,13 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V4_SSE_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -849,13 +849,13 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V4_AVX_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -901,13 +901,13 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V8_PORT_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -953,13 +953,13 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V8_AVX_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -1005,13 +1005,13 @@ if [ $ARCH = "WOLF_PTH_INT_OPT_V16_PORT_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -1377,10 +1377,10 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_NONE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1419,11 +1419,11 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_AVEC" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -no-ansi-alias" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -no-ansi-alias" \
     ..
   make -j $NJ VERBOSE=1
@@ -1463,10 +1463,10 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V4_PORT" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1505,10 +1505,10 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V4_SSE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1547,10 +1547,10 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V4_AVX" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1590,10 +1590,10 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V8_PORT" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1633,10 +1633,10 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V8_AVX" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1676,10 +1676,10 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V16_PORT" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic" \
+                     -qoverride-limits -rdynamic" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic" \
+                       -qoverride-limits -rdynamic" \
     ..
   make -j $NJ VERBOSE=1
 fi
@@ -1996,13 +1996,13 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_NONE_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -2047,13 +2047,13 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V4_PORT_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -2098,13 +2098,13 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V4_SSE_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -2149,13 +2149,13 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V4_AVX_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -2201,13 +2201,13 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V8_PORT_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -2253,13 +2253,13 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V8_AVX_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
@@ -2305,13 +2305,13 @@ if [ $ARCH = "WOLF_OMP_INT_OPT_V16_PORT_VTUNE" ]; then
     -DCMAKE_CXX_COMPILER=mpicxx \
     -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                      -qopt-report=5 -qopt-report-phase=all -Winline \
-                     -qoverride-limits -rdynamic -dynamic \
+                     -qoverride-limits -rdynamic \
                      -DVPIC_USE_VTUNE_OFF \
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
-                       -qoverride-limits -rdynamic -dynamic \
+                       -qoverride-limits -rdynamic \
                        -DVPIC_USE_VTUNE_OFF \
                        -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                        -debug inline-debug-info -parallel-source-info=2" \
