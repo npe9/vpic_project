@@ -394,7 +394,7 @@ begin_initialization
 					 max_local_np,
 					 max_local_nm,
 					 REPLACE_eon_sort_interval,
-					 1 );
+					 REPLACE_eon_sort_method );
 
   // Start with two ion species.  We have option to go to Xe and Kr gas fills if
   // we need a higher ion/electron macroparticle ratio.
@@ -411,7 +411,7 @@ begin_initialization
 			       max_local_np,
 			       max_local_nm,
 			       REPLACE_ion_sort_interval,
-			       1 );
+			       REPLACE_ion_sort_method );
     }
 
     if ( He_present )
@@ -422,7 +422,7 @@ begin_initialization
 			       max_local_np,
 			       max_local_nm,
 			       REPLACE_ion_sort_interval,
-			       1 );
+			       REPLACE_ion_sort_method );
     }
   }
 

@@ -24,8 +24,10 @@ num_turnstiles='2048'
 field_interval='1500'
 particle_interval='1500'
 mi_me='100'
-ion_sort_interval='100'
 eon_sort_interval='25'
+ion_sort_interval='100'
+eon_sort_method='0'
+ion_sort_method='0'
 energies_interval='-10'
 mobile_ions='1'
 
@@ -59,8 +61,10 @@ s/REPLACE_field_interval/'${field_interval}'/
 s/REPLACE_particle_interval/'${particle_interval}'/
 s/REPLACE_io_type/'${io_type}'/
 s/REPLACE_mi_me/'${mi_me}'/
-s/REPLACE_ion_sort_interval/'${ion_sort_interval}'/
 s/REPLACE_eon_sort_interval/'${eon_sort_interval}'/
+s/REPLACE_ion_sort_interval/'${ion_sort_interval}'/
+s/REPLACE_eon_sort_method/'${eon_sort_method}'/
+s/REPLACE_ion_sort_method/'${ion_sort_method}'/
 s/REPLACE_energies_interval/'${energies_interval}'/
 s/REPLACE_mobile_ions/'${mobile_ions}'/
 '
