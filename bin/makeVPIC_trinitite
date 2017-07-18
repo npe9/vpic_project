@@ -293,6 +293,50 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
+if [ $ARCH = "TRINITITE_PTH_INT_OPT_V8_AVX2_HSW_LSORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -DVPIC_USE_LEGACY_SORT \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -DVPIC_USE_LEGACY_SORT \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
 if [ $ARCH = "TRINITITE_PTH_INT_OPT_V8_AVX2_HSW_HIO" ]; then
   module load friendly-testing
   module load sandbox
@@ -1257,6 +1301,51 @@ if [ $ARCH = "TRINITITE_PTH_INT_OPT_V16_AVX512_KNL" ]; then
                      -qopt-report=5 -qopt-report-phase=all -Winline \
                      -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "TRINITITE_PTH_INT_OPT_V16_AVX512_KNL_LSORT" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap craype-haswell craype-mic-knl
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=OFF \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V16_AVX512=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -DVPIC_USE_LEGACY_SORT \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic -craype-verbose" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -DVPIC_USE_LEGACY_SORT \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose" \
     ..
