@@ -30,6 +30,10 @@ eon_sort_method='0'
 ion_sort_method='0'
 energies_interval='-10'
 mobile_ions='1'
+status_interval='500'
+sync_shared_interval='100'
+clean_div_e_interval='100'
+clean_div_b_interval='100'
 
 #######################################################################
 # Configure use of a turnstile for the native VPIC parallel IO support.
@@ -67,6 +71,10 @@ s/REPLACE_eon_sort_method/'${eon_sort_method}'/
 s/REPLACE_ion_sort_method/'${ion_sort_method}'/
 s/REPLACE_energies_interval/'${energies_interval}'/
 s/REPLACE_mobile_ions/'${mobile_ions}'/
+s/REPLACE_status_interval/'${status_interval}'/
+s/REPLACE_sync_shared_interval/'${sync_shared_interval}'/
+s/REPLACE_clean_div_e_interval/'${clean_div_e_interval}'/
+s/REPLACE_clean_div_b_interval/'${clean_div_b_interval}'/
 '
 
 cat ${test_home}/lpi_np_${np}.template.cxx | sed -e "$update" >& lpi_${size}_nn_${nnodes}_nppn_${nppn}_ntpp_${ntpp}.cxx

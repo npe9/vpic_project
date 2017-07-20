@@ -305,11 +305,10 @@ begin_initialization
   sim_log("Setting up high-level simulation parameters."); 
   num_step             = int(t_stop/(dt)); 
 
-//status_interval      = 10;
-  status_interval      = 21;
-  sync_shared_interval = status_interval/1;
-  clean_div_e_interval = status_interval/1;
-  clean_div_b_interval = status_interval/10; 
+  status_interval      = REPLACE_status_interval;
+  sync_shared_interval = REPLACE_sync_shared_interval;
+  clean_div_e_interval = REPLACE_clean_div_e_interval;
+  clean_div_b_interval = REPLACE_clean_div_b_interval; 
 
   // Turn off some of the spam
   verbose = 1; 
