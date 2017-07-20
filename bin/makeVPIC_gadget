@@ -6113,6 +6113,59 @@ fi
 ################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
+if [ $ARCH = "GADGET_PTH_INT_OPT_V8_AVX2_HSW_LSORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V8_AVX2=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -DVPIC_USE_LEGACY_SORT \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic -craype-verbose \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -DVPIC_USE_LEGACY_SORT \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic -craype-verbose \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
 if [ $ARCH = "GADGET_PTH_INT_OPT_V16_PORT_HSW_VTUNE" ]; then
   module load friendly-testing
   module load sandbox
@@ -7207,6 +7260,60 @@ if [ $ARCH = "GADGET_PTH_INT_OPT_V16_AVX512_KNL_VTUNE" ]; then
                      -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
                      -debug inline-debug-info -parallel-source-info=2" \
     -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -qopt-report=5 -qopt-report-phase=all -Winline \
+                       -qoverride-limits -rdynamic -dynamic -craype-verbose \
+                       -DVPIC_USE_VTUNE_OFF \
+                       -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                       -debug inline-debug-info -parallel-source-info=2" \
+    ..
+  make -j $NJ VERBOSE=1
+fi
+
+################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "GADGET_PTH_INT_OPT_V16_AVX512_KNL_LSORT_VTUNE" ]; then
+  module load friendly-testing
+  module load sandbox
+  module load cmake
+  module swap cmake cmake/$VERSION_CMAKE
+  module swap intel intel/$VERSION_INTEL
+  module swap craype-haswell craype-mic-knl
+  module swap cray-mpich cray-mpich/$VERSION_CRAY_MPICH
+  module load intel-performance-tools
+  module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+
+  module list
+
+  export MPI_ROOT=$MPICH_DIR
+
+  cd $VPIC_DIR
+  mkdir build
+  cd build
+  cmake \
+    -LAH \
+    -DCMAKE_BUILD_TYPE=None \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=$VPIC_DIR/build/lib \
+    -DENABLE_COLOR_UNIT_TESTS=ON \
+    -DENABLE_INTEGRATED_TESTS=ON \
+    -DENABLE_UNIT_TESTS=ON \
+    -DUSE_V4_AVX2=ON \
+    -DUSE_V16_AVX512=ON \
+    -DVPIC_PRINT_MORE_DIGITS=ON \
+    -DUSE_OPENMP=OFF \
+    -DUSE_PTHREADS=ON \
+    -DCMAKE_C_COMPILER=cc \
+    -DCMAKE_CXX_COMPILER=CC \
+    -DCMAKE_C_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                     -DVPIC_USE_LEGACY_SORT \
+                     -qopt-report=5 -qopt-report-phase=all -Winline \
+                     -qoverride-limits -rdynamic -dynamic -craype-verbose \
+                     -DVPIC_USE_VTUNE_OFF \
+                     -I$VTUNE_AMPLIFIER_XE_2017_DIR/include \
+                     -debug inline-debug-info -parallel-source-info=2" \
+    -DCMAKE_CXX_FLAGS="-g -O3 -inline-forceinline -vec-threshold0 \
+                       -DVPIC_USE_LEGACY_SORT \
                        -qopt-report=5 -qopt-report-phase=all -Winline \
                        -qoverride-limits -rdynamic -dynamic -craype-verbose \
                        -DVPIC_USE_VTUNE_OFF \
