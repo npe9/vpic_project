@@ -1,26 +1,26 @@
 //============================================================================//
 //
-// LPI 3D deck - Linearly polarized (in y) plane wave incident from left 
-//               boundary 
+// LPI 3D deck - Linearly polarized (in y) plane wave incident from left
+//               boundary
 //
-// Adapted from Albright's Lightning 3D LPI deck.  
+// Adapted from Albright's Lightning 3D LPI deck.
 // B. Albright, X-1-PTA; 28 Jan. 2007
-// Lin Yin, X-1-PTA, 23 Feb 2009, for Cerrillos test 
-// 
-// Executable creates its own directory structure.  Remove the old with: 
+// Lin Yin, X-1-PTA, 23 Feb 2009, for Cerrillos test
+//
+// Executable creates its own directory structure.  Remove the old with:
 //
 // rm -rf rundata ehydro Hhydro Hehydro restart poynting velocity particle
 //        field
 //============================================================================//
 
-// Employ turnstiles to partially serialize the high-volume file writes. 
+// Employ turnstiles to partially serialize the high-volume file writes.
 // In this case, the restart dumps.  Set NUM_TURNSTILES to be the desired
 // number of simultaneous writes.
 
 #define NUM_TURNSTILES REPLACE_num_turnstiles
 
 //----------------------------------------------------------------------------//
-// 
+//
 //----------------------------------------------------------------------------//
 
 begin_globals
@@ -40,68 +40,68 @@ begin_globals
 
   double quota_sec;            // run quota in sec
   int rtoggle;                 // enable save of last 2 restart files for safety
-  int load_particles;          // were particles loaded? 
-  double topology_x;           // domain topology needed to normalize Poynting diagnostic 
+  int load_particles;          // were particles loaded?
+  double topology_x;           // domain topology needed to normalize Poynting diagnostic
   double topology_y;
   double topology_z;
   int mobile_ions;
-  int H_present; 
-  int He_present; 
+  int H_present;
+  int He_present;
 
   // Parameters for 3d Gaussian wave launch
-  double lambda;               
+  double lambda;
   double waist;                // how wide the focused beam is
-  double width;                
-  double zcenter;              // center of beam at boundary in z 
+  double width;
+  double zcenter;              // center of beam at boundary in z
   double ycenter;              // center of beam at boundary in y
   double xfocus;               // how far from boundary to focus
   double mask;                 // # gaussian widths from beam center where I is nonzero
 
   // Ponyting diagnostic flags - which output to turn on
 
-  // write_backscatter_only flag:  when this flag is nonzero, it means to only compute 
-  // poynting data for the lower-x surface.  This flag affects both the summed poynting 
-  // data as well as the surface data. 
+  // write_backscatter_only flag:  when this flag is nonzero, it means to only compute
+  // poynting data for the lower-x surface.  This flag affects both the summed poynting
+  // data as well as the surface data.
 
   int write_poynting_data;     // Whether to write poynting data to file (or just stdout)
 
   int write_backscatter_only;  // nonzero means we only write backscatter diagnostic for fields
 
   // write_poynting_sum is nonzero if you wish to write a file containing the integrated
-  // poynting data on one or more surfaces.  If write_backscatter_only is nonzero, then 
-  // the output file will be a time series of double precision numbers containing the 
+  // poynting data on one or more surfaces.  If write_backscatter_only is nonzero, then
+  // the output file will be a time series of double precision numbers containing the
   // integrated poynting flux at that point in time.  If write_backscatter_only is zero,
-  // then for each time step, six double precision numbers are written, containing the 
+  // then for each time step, six double precision numbers are written, containing the
   // poynting flux through the lower x, upper x, lower y, upper y, lower z, and upper z
-  // surfaces. 
+  // surfaces.
 
   int write_poynting_sum;      // nonzero if we wish to write integrated Poynting data
 
-  // write_poynting_faces is probably useless, but I put it here anyway in case it's not. 
-  // When this flag is nonzero, it will print out the poynting flux at each of a 2D array 
-  // of points on the surface.  When this flag is turned on and write_backscatter_only is 
+  // write_poynting_faces is probably useless, but I put it here anyway in case it's not.
+  // When this flag is nonzero, it will print out the poynting flux at each of a 2D array
+  // of points on the surface.  When this flag is turned on and write_backscatter_only is
   // nonzero, then only the 2D array of points on the lower-x boundary surface are written
-  // for each time step.  When this flag is turned on and write_bacscatter_only is 
-  // zero, then it will write 2D array data for the lower x, upper x, lower y, upper y, 
-  // lower z, upper z surfaces for each time step. 
+  // for each time step.  When this flag is turned on and write_bacscatter_only is
+  // zero, then it will write 2D array data for the lower x, upper x, lower y, upper y,
+  // lower z, upper z surfaces for each time step.
 
-  int write_poynting_faces;    // nonzero if we wish to write Poynting data on sim boundaries 
+  int write_poynting_faces;    // nonzero if we wish to write Poynting data on sim boundaries
 
   // write_eb_faces is nonzero when we wish to get the raw e and b data at the boundary
-  // (e.g., to be used with a filter to distinguish between SRS and SBS backscatter).  
+  // (e.g., to be used with a filter to distinguish between SRS and SBS backscatter).
   // When this flag is on and write_backscatter_only is nonzero, then only the 2D array
-  // of points on the lower-x boundary surface are written for each time step.  When 
+  // of points on the lower-x boundary surface are written for each time step.  When
   // this flag is turned on and write_backscatteR_only is zero, then it will write 2D
   // array data for the lower x, upper x, lower y, upper y, lower z, upper z surfaces for
-  // each time step.  When turned on, four files are produced: e1, e2, cb1, cb2.  The 
-  // values of the quantities printed depend on the face one is considering:  for the 
-  // x faces, e1 = ey, e2 = ez, cb1 = cby, cb2 = cbz.  Similarly for y and z surfaces, 
-  // but where 1 and 2 stand for (z,x) and (x,y) coordinates, respectively.  
+  // each time step.  When turned on, four files are produced: e1, e2, cb1, cb2.  The
+  // values of the quantities printed depend on the face one is considering:  for the
+  // x faces, e1 = ey, e2 = ez, cb1 = cby, cb2 = cbz.  Similarly for y and z surfaces,
+  // but where 1 and 2 stand for (z,x) and (x,y) coordinates, respectively.
 
   int write_eb_faces;          // nonzero if we wish to write E and B data on sim boundaries
 
   // Needed for movie files
-  float vthe;                   // vthe/c  
+  float vthe;                   // vthe/c
   float vthi_He;                // vthi_He/c
   float vthi_H;                 // vthi_H/c
   int   velocity_interval;      // how frequently to dump binned velocity space data
@@ -120,7 +120,7 @@ begin_globals
 };
 
 //----------------------------------------------------------------------------//
-// 
+//
 //----------------------------------------------------------------------------//
 
 begin_initialization
@@ -130,8 +130,8 @@ begin_initialization
   double c_vac      = 2.99792458e10;       // cm/sec
   double m_e        = 9.1094e-28;          // g
   double k_b        = 1.6022e-12;          // erg/eV
-  double mec2       = m_e*c_vac*c_vac/k_b; 
-  double mpc2       = mec2*1836.0; 
+  double mec2       = m_e*c_vac*c_vac/k_b;
+  double mpc2       = mec2*1836.0;
 
   double cfl_req    = 0.98;                // How close to Courant should we try to run
   double damp       = 0;                   // How much radiation damping
@@ -145,7 +145,7 @@ begin_initialization
   double vacuum_wavelength = 527 * 1e-7;   // third micron light (cm)
   double laser_intensity   = 6.0e15 * 1e7; // in ergs/cm^2 (note: 1 W = 1e7 ergs)
 
-  // Simulation parameters 
+  // Simulation parameters
 
   double Lx                = 17 * 0.02 * 12.0 * 1e-4 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
   double Ly                =  3 * 0.02 * 12.0 * 1e-4;
@@ -162,45 +162,45 @@ begin_initialization
   // single-processor mesh = 544 x 96 x 96
 
   double nppc               = REPLACE_nppc;        // Average number macro particles per cell per species
-  int load_particles        = 1;                   // Flag to turn on/off particle load 
+  int load_particles        = 1;                   // Flag to turn on/off particle load
   int mobile_ions           = REPLACE_mobile_ions; // Whether or not to push ions
   double f_He               = 0;                   // Ratio of number density of He to total ion density
   double f_H                = 1-f_He;              // Ratio of number density of H  to total ion density
-  int H_present             = ( (f_H !=0) ? 1 : 0 );  
-  int He_present            = ( (f_He!=0) ? 1 : 0 );  
+  int H_present             = ( (f_H !=0) ? 1 : 0 );
+  int He_present            = ( (f_He!=0) ? 1 : 0 );
 
-  // Precompute some useful variables. 
+  // Precompute some useful variables.
   double A_H                = 1;
   double A_He               = 4;
   double Z_H                = 1;
-  double Z_He               = 2; 
+  double Z_He               = 2;
   double mic2_H             = mpc2*A_H;
   double mic2_He            = mpc2*A_He;
-  double mime_H             = mic2_H /mec2; 
-  double mime_He            = mic2_He/mec2; 
-                            
+  double mime_H             = mic2_H /mec2;
+  double mime_He            = mic2_He/mec2;
+
   double uthe               = sqrt(t_e/mec2);     // vthe/c
   double uthi_H             = sqrt(t_i/mic2_H);   // vthi/c for H
   double uthi_He            = sqrt(t_i/mic2_He);  // vthi/c for He
 
   // Plasma skin depth in cm
-  double delta = (vacuum_wavelength / (2*M_PI) ) / sqrt( n_e_over_n_crit ); 
+  double delta = (vacuum_wavelength / (2*M_PI) ) / sqrt( n_e_over_n_crit );
 
   double n_e   = c_vac*c_vac*m_e/(4*M_PI*ec*ec*delta*delta); // electron density in cm^-3
   double debye = uthe*delta;                      // electron Debye length (cm)
   double omega = sqrt( 1/n_e_over_n_crit );       // laser beam freq. in wpe
 
-  // Peak instantaneous E field in "natural units" 
-  double e0    = sqrt( 2*laser_intensity / (m_e*c_vac*c_vac*c_vac*n_e) );  
+  // Peak instantaneous E field in "natural units"
+  double e0    = sqrt( 2*laser_intensity / (m_e*c_vac*c_vac*c_vac*n_e) );
 
   // Set up local mesh resolution and time step
   Lx /= delta;                                    // Convert box size to skin depths
-  Ly /= delta;   
-  Lz /= delta;   
+  Ly /= delta;
+  Lz /= delta;
 
-  double hx = Lx/nx; 
-  double hy = Ly/ny; 
-  double hz = Lz/nz; 
+  double hx = Lx/nx;
+  double hy = Ly/ny;
+  double hz = Lz/nz;
 
   double cell_size_x       = hx*delta/debye;      // Cell size in Debye lengths
   double cell_size_y       = hy*delta/debye;
@@ -213,11 +213,11 @@ begin_initialization
   double ycenter           = 0;                   // center of spot in y on lhs boundary
   double zcenter           = 0;                   // center of spot in z on lhs boundary
   double mask              = 1.5;                 // set drive I=0 outside r>mask*width at lhs boundary
-  double width = waist*sqrt( 1 + (lambda*xfocus/(M_PI*waist*waist))*(lambda*xfocus/(M_PI*waist*waist))); 
-  e0                       = e0*(waist/width);    // at entrance (3D Gaussian) 
- 
+  double width = waist*sqrt( 1 + (lambda*xfocus/(M_PI*waist*waist))*(lambda*xfocus/(M_PI*waist*waist)));
+  e0                       = e0*(waist/width);    // at entrance (3D Gaussian)
+
   double dt                = cfl_req*courant_length(Lx,Ly,Lz,nx,ny,nz); // in 1/wpe; n.b. c=1 in nat. units
-  double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1; 
+  double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1;
   dt                       = 2*M_PI/omega/nsteps_cycle; // nsteps_cycle time steps in one laser cycle
 
   double t_stop            = REPLACE_nstep*dt + 0.001*dt; // Runtime in 1/wpe
@@ -233,37 +233,37 @@ begin_initialization
   int restart_interval     = REPLACE_nrestart;       // Num. steps between restart dumps
   int quota_check_interval = 20;
 
-  // Ben:  This quota thing gracefully terminates after writing a final restart after 
-  // 11.5 hours; if you want a longer time before shutdown, set this value larger.  If 
-  // you want the code to just run all weekend, then set it to very long (2400.*3500, e.g.) 
+  // Ben:  This quota thing gracefully terminates after writing a final restart after
+  // 11.5 hours; if you want a longer time before shutdown, set this value larger.  If
+  // you want the code to just run all weekend, then set it to very long (2400.*3500, e.g.)
 
-  double quota_sec         = 11.6*3600;           // Run quota in sec. 
+  double quota_sec         = 11.6*3600;           // Run quota in sec.
 
-  // Turn on integrated backscatter poynting diagnostic - right now there is a bug in this, so we 
-  // only write the integrated backscatter time history on the left face. 
+  // Turn on integrated backscatter poynting diagnostic - right now there is a bug in this, so we
+  // only write the integrated backscatter time history on the left face.
 
   int write_poynting_data = 1;                    // Whether to write poynting data to file (or just stdout)
 
   int write_backscatter_only = 0;                 // Nonzero means only write lower x face
-  int write_poynting_sum   = 0;                   // Whether to write integrated Poynting data 
+  int write_poynting_sum   = 0;                   // Whether to write integrated Poynting data
   int write_poynting_faces = 0;                   // Whether to write poynting data on sim boundary faces
   int write_eb_faces       = 0;                   // Whether to write e and b field data on sim boundary faces
 
   double N_e               = nppc*nx*ny*nz;       // Number of macro electrons in box
   double Np_e              = Lx*Ly*Lz;            // "Number" of "physical" electrons in box (nat. units)
   double q_e               = -Np_e/N_e;           // Charge per macro electron
-  double N_i               = N_e;                 // Number of macro ions of each species in box 
+  double N_i               = N_e;                 // Number of macro ions of each species in box
   double Np_i              = Np_e/(Z_H*f_H+Z_He*f_He); // "Number" of "physical" ions of each sp. in box
   double qi_H              = Z_H *f_H *Np_i/N_i;  // Charge per H  macro ion
-  double qi_He             = Z_He*f_He*Np_i/N_i;  // Charge per He macro ion 
-  
+  double qi_He             = Z_He*f_He*Np_i/N_i;  // Charge per He macro ion
+
   // Print simulation parameters
 
   sim_log("***** Simulation parameters *****");
   sim_log("* Processors:                     "<<nproc());
-  sim_log("* Topology:                       "<<topology_x<<" "<<topology_y<<" "<<topology_z); 
+  sim_log("* Topology:                       "<<topology_x<<" "<<topology_y<<" "<<topology_z);
   sim_log("* nsteps_cycle =                  "<<nsteps_cycle);
-  sim_log("* Time step, max time, nsteps:    "<<dt<<" "<<t_stop<<" "<<int(t_stop/(dt))); 
+  sim_log("* Time step, max time, nsteps:    "<<dt<<" "<<t_stop<<" "<<int(t_stop/(dt)));
   sim_log("* Debye length, XYZ cell sizes:   "<<debye<<" "<<cell_size_x<<" "<<cell_size_y<<" "<<cell_size_z);
   sim_log("* Real cell sizes (in Debyes):    "<<hx/uthe<<" "<<hy/uthe<<" "<<hz/uthe);
   sim_log("* Lx, Ly, Lz =                    "<<Lx<<" "<<Ly<<" "<<Lz);
@@ -271,6 +271,7 @@ begin_initialization
   sim_log("* Charge/macro electron =         "<<q_e);
   sim_log("* Average particles/processor:    "<<N_e/nproc());
   sim_log("* Average particles/cell:         "<<nppc);
+  sim_log("* Total # of particles =          "<< 2*N_e );
   sim_log("* Omega_0, Omega_pe:              "<<omega<<" "<<1);
   sim_log("* Plasma density, ne/nc:          "<<n_e<<" "<<n_e_over_n_crit);
   sim_log("* Vac wavelength (nm):            "<<vacuum_wavelength*1e7);
@@ -285,33 +286,33 @@ begin_initialization
   sim_log("* emax at entrance:               "<<e0);
   sim_log("* emax at waist:                  "<<e0/(waist/width));
 
-  sim_log("* Poynting interval:              "<<poynting_interval); 
-  sim_log("* fields interval:                "<<fields_interval); 
-  sim_log("* restart interval:               "<<restart_interval); 
-  sim_log("* velocity interval               "<<velocity_interval); 
-  sim_log("* quota check interval:           "<<quota_check_interval); 
+  sim_log("* Poynting interval:              "<<poynting_interval);
+  sim_log("* fields interval:                "<<fields_interval);
+  sim_log("* restart interval:               "<<restart_interval);
+  sim_log("* velocity interval               "<<velocity_interval);
+  sim_log("* quota check interval:           "<<quota_check_interval);
 
   sim_log("* num vacuum edge grids:          "<<iv_thick);
-  sim_log("* width, waist, xfocus:           "<<width<<" "<<waist<<" "<<xfocus); 
-  sim_log("* ycenter, zcenter, mask:         "<<ycenter<<" "<<zcenter<<" "<<mask); 
-  sim_log("* write_poynting_sum:             "<<(write_poynting_sum ? "Yes" : "No")); 
-  sim_log("* write_poynting_faces:           "<<(write_poynting_faces? "Yes" : "No")); 
-  sim_log("* write_eb_faces:                 "<<(write_eb_faces ? "Yes" : "No")); 
-  sim_log("* write_backscatter_only:         "<<(write_backscatter_only ? "Yes" : "No")); 
+  sim_log("* width, waist, xfocus:           "<<width<<" "<<waist<<" "<<xfocus);
+  sim_log("* ycenter, zcenter, mask:         "<<ycenter<<" "<<zcenter<<" "<<mask);
+  sim_log("* write_poynting_sum:             "<<(write_poynting_sum ? "Yes" : "No"));
+  sim_log("* write_poynting_faces:           "<<(write_poynting_faces? "Yes" : "No"));
+  sim_log("* write_eb_faces:                 "<<(write_eb_faces ? "Yes" : "No"));
+  sim_log("* write_backscatter_only:         "<<(write_backscatter_only ? "Yes" : "No"));
   sim_log("*********************************");
 
   // Set up high level simulation parameters
 
-  sim_log("Setting up high-level simulation parameters."); 
-  num_step             = int(t_stop/(dt)); 
+  sim_log("Setting up high-level simulation parameters.");
+  num_step             = int(t_stop/(dt));
 
   status_interval      = REPLACE_status_interval;
   sync_shared_interval = REPLACE_sync_shared_interval;
   clean_div_e_interval = REPLACE_clean_div_e_interval;
-  clean_div_b_interval = REPLACE_clean_div_b_interval; 
+  clean_div_b_interval = REPLACE_clean_div_b_interval;
 
   // Turn off some of the spam
-  verbose = 1; 
+  verbose = 1;
 
   // For maxwellian reinjection, we need more than the default number of
   // passes (3) through the boundary handler
@@ -376,7 +377,7 @@ begin_initialization
   sim_log( "Setting up absorbing mesh." );
 
   define_absorbing_grid( 0,         -0.5*Ly,    -0.5*Lz,        // Low corner
-                         Lx,         0.5*Ly,     0.5*Lz,        // High corner 
+                         Lx,         0.5*Ly,     0.5*Lz,        // High corner
                          nx,         ny,         nz,            // Resolution
                          topology_x, topology_y, topology_z,    // Topology
                          reflect_particles );                   // Default particle BC
@@ -436,14 +437,14 @@ begin_initialization
     (ix) = _ix;                                                           \
     (iy) = _iy;                                                           \
     (iz) = _iz;                                                           \
-  } END_PRIMITIVE 
+  } END_PRIMITIVE
 
   sim_log( "Overriding x boundaries to absorb fields." );
 
   int ix, iy, iz;        // Domain location in mesh
-  RANK_TO_INDEX( int(rank()), ix, iy, iz ); 
+  RANK_TO_INDEX( int(rank()), ix, iy, iz );
 
-  // Set up Maxwellian reinjection B.C. 
+  // Set up Maxwellian reinjection B.C.
 
   sim_log( "Setting up Maxwellian reinjection boundary condition." );
 
@@ -547,20 +548,20 @@ begin_initialization
 
   //--------------------------------------------------------------------------//
   // Set data output format
-  // 
+  //
   // This option allows the user to specify the data format for an output
   // dump.  Legal settings are 'band' and 'band_interleave'.  Band-interleave
   // format is the native storage format for data in VPIC.  For field data,
   // this looks something like:
-  // 
+  //
   //   ex0 ey0 ez0 div_e_err0 cbx0 ... ex1 ey1 ez1 div_e_err1 cbx1 ...
-  //   
+  //
   // Banded data format stores all data of a particular state variable as a
-  // contiguous array, and is easier for ParaView to process efficiently. 
+  // contiguous array, and is easier for ParaView to process efficiently.
   // Banded data looks like:
-  // 
+  //
   //   ex0 ex1 ex2 ... exN ey0 ey1 ey2 ...
-  //   
+  //
   //--------------------------------------------------------------------------//
 
   sim_log( "Setting up hydro and field diagnostics." );
@@ -830,7 +831,7 @@ begin_initialization
   // - Call user diagnostics
   // - (periodically) Print a status message
   //--------------------------------------------------------------------------//
-} 
+}
 
 //----------------------------------------------------------------------------//
 // Definition of user_diagnostics function.
@@ -841,13 +842,13 @@ begin_diagnostics
 }
 
 //----------------------------------------------------------------------------//
-// 
+//
 //----------------------------------------------------------------------------//
 
 begin_field_injection
 {
   // Inject a light wave from lhs boundary with E aligned along y. Use scalar
-  // diffraction theory for the Gaussian beam source. (This is approximate). 
+  // diffraction theory for the Gaussian beam source. (This is approximate).
   //
   // For quiet startup (i.e., so that we don't propagate a delta-function
   // noise pulse at time t=0) we multiply by a constant phase term exp(i phi)
@@ -893,7 +894,7 @@ begin_field_injection
 }
 
 //----------------------------------------------------------------------------//
-// 
+//
 //----------------------------------------------------------------------------//
 
 begin_particle_injection
@@ -902,7 +903,7 @@ begin_particle_injection
 }
 
 //----------------------------------------------------------------------------//
-// 
+//
 //----------------------------------------------------------------------------//
 
 begin_current_injection
@@ -911,7 +912,7 @@ begin_current_injection
 }
 
 //----------------------------------------------------------------------------//
-// 
+//
 //----------------------------------------------------------------------------//
 
 begin_particle_collisions
