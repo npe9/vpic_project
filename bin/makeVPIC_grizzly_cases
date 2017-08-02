@@ -1,0 +1,391 @@
+#!/bin/bash
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_INT_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_INT_OPT_V4_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_INT_OPT_V8_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V4_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V8_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_INT_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_INT_OPT_V4_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_INT_OPT_V8_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=GRIZZLY_PTH_INT_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V4_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V8_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=GRIZZLY_PTH_GNU_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_INT_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_INT_OPT_V4_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_INT_OPT_V8_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_NONE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V4_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V4_SSE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V4_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V8_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V8_AVX2
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V16_PORT
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_INT_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_INT_OPT_V4_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_INT_OPT_V8_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+ARCH=GRIZZLY_OMP_INT_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################################################################################################
+
+################################################################################
+# Build the optimized GNU case for the master branch without vector support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_NONE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V4 support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V4_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V4_SSE_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V4_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU cases for the master branch with V8 support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V8_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V8_AVX2_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized GNU case for the master branch with V16 support.
+
+ARCH=GRIZZLY_OMP_GNU_OPT_V16_PORT_VTUNE
+BRANCH=knl_open_science
+/usr/bin/time -p bin/makeVPIC_grizzly $ARCH $BRANCH 32 >& makeVPIC_grizzly.log
+mv makeVPIC_grizzly.log build/$ARCH/vpic
