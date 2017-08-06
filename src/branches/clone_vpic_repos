@@ -8,6 +8,10 @@ cd knl_open_science
 git clone --recursive --branch knl_open_science ~/repos/git/vpic
 cd ..
 
+cd knl_open_science_optimize
+git clone --recursive --branch knl_open_science_optimize ~/repos/git/vpic
+cd ..
+
 cd knl_open_science_aosoa
 git clone --recursive --branch knl_open_science_aosoa ~/repos/git/vpic
 cd ..
