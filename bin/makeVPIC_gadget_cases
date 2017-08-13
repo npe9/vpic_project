@@ -148,11 +148,6 @@ BRANCH=knl_open_science
 ${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
-ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_HSW_HIO${FEAT}
-BRANCH=knl_open_science
-${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
-mv makeVPIC_gadget.log build/$ARCH/vpic
-
 ################################################################################
 # Build the optimized Intel case for the master branch with V16 support.
 
