@@ -70,6 +70,7 @@ if echo $ARCH | grep -q "INT"
 then
     VCOM="INT"
 
+    module load intel
     module swap intel intel/$VERSION_INTEL
 
     FLAGS_C_COMPILER="-g -O3"
