@@ -54,6 +54,7 @@ module load friendly-testing
 module load sandbox
 module load cmake
 module swap cmake cmake/$VERSION_CMAKE
+module load git
 
 ##########################################################################################
 # Inspect the ARCH and FEAT variables to determine what kind of build we are doing.
