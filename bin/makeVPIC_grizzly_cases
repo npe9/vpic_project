@@ -13,8 +13,7 @@ vtime="/usr/bin/time -p"
 ################################################################################
 # Select an MPI implementation to use.
 
-VMPI="CMPI"
-#VMPI="OMPI"
+VMPI="OMPI"
 
 ################################################################################
 # Select a thread model to use.
@@ -27,7 +26,6 @@ VTHR="PTH"
 
 VCOM="INT"
 #VCOM="GNU"
-#VCOM="CCE"
 
 ################################################################################
 # Select an optimized or debug build.
@@ -43,8 +41,6 @@ FEAT=""
 FEAT+="_LSORT"
 #FEAT+="_TSORT"
 #FEAT+="_VTUNE"
-#FEAT+="_CPAT"
-#FEAT+="_CPAT_LITE"
 #FEAT+="_TEST"
 #FEAT+=""
 #FEAT+=""
