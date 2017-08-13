@@ -207,7 +207,7 @@ fi
 ##########################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}" ]
+if [ $ARCH = "GRIZZLY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}" ]
 then
     module list
 
@@ -235,7 +235,7 @@ fi
 ##########################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}" ]
+if [ $ARCH = "GRIZZLY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}" ]
 then
     module list
 
@@ -264,7 +264,7 @@ fi
 ##########################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE${FEAT}" ]
+if [ $ARCH = "GRIZZLY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE${FEAT}" ]
 then
     module list
 
@@ -293,7 +293,7 @@ fi
 ##########################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2${FEAT}" ]
+if [ $ARCH = "GRIZZLY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2${FEAT}" ]
 then
     module list
 
@@ -322,7 +322,7 @@ fi
 ##########################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT${FEAT}" ]
+if [ $ARCH = "GRIZZLY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT${FEAT}" ]
 then
     module list
 
@@ -352,7 +352,7 @@ fi
 ##########################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2${FEAT}" ]
+if [ $ARCH = "GRIZZLY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2${FEAT}" ]
 then
     module list
 
@@ -382,7 +382,7 @@ fi
 ##########################################################################################
 # Build an optimized version of VPIC with Intel compilers.
 
-if [ $ARCH = "GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT${FEAT}" ]
+if [ $ARCH = "GRIZZLY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT${FEAT}" ]
 then
     module list
 
