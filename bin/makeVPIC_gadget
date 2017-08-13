@@ -46,6 +46,8 @@ VERSION_CRAY_PERF_TOOLS=6.4.6
 VERSION_INTEL_PERF_TOOLS=2017.4.196
 #VERSION_INTEL_PERF_TOOLS=2018.0.082
 
+VERSION_OPENMPI=2.1.1
+
 ##########################################################################################
 # Execute some module commands which apply to all ARCH values.
 
@@ -155,6 +157,11 @@ fi
 if echo $ARCH | grep -q "OMPI"
 then
     VMPI="OMPI"
+
+    module unload cray-mpich
+    module unload cray-libsci
+    module load openmpi
+    module swap openmpi openmpi/$VERSION_OPENMPI
 fi
 
 ################################################################################
@@ -202,9 +209,13 @@ if echo $ARCH | grep -q "VTUNE"
 then
     SET_SHARED_LIBS="ON"
 
+    #FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE_P"
+    #FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE"
     FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_OFF"
     FLAGS_C_COMPILER+=" -I$VTUNE_AMPLIFIER_XE_2017_DIR/include"
 
+    #FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE_P"
+    #FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE"
     FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_OFF"
     FLAGS_CXX_COMPILER+=" -I$VTUNE_AMPLIFIER_XE_2017_DIR/include"
 
@@ -215,7 +226,20 @@ then
 
 	FLAGS_CXX_COMPILER+=" -debug inline-debug-info"
 	FLAGS_CXX_COMPILER+=" -parallel-source-info=2"
+
+	module load intel-performance-tools
+	module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
     fi
+fi
+
+################################################################################
+# Figure out which particle sort implementation to use.
+
+if echo $ARCH | grep -q "LSORT"
+then
+    FLAGS_C_COMPILER+=" -DVPIC_USE_LEGACY_SORT"
+
+    FLAGS_CXX_COMPILER+=" -DVPIC_USE_LEGACY_SORT"
 fi
 
 ##########################################################################################
