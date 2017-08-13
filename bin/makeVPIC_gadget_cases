@@ -5,6 +5,8 @@
 
 NJ=32
 
+vtime="/usr/bin/time -p"
+
 ##########################################################################################
 # Configure parameters that determine the value of the ARCH to be built.
 
@@ -55,9 +57,9 @@ FEAT+="_LSORT"
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
-ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_VEC_NONE_KNL${FEAT}
+ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ################################################################################
@@ -65,17 +67,17 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ################################################################################
@@ -83,12 +85,12 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ################################################################################
@@ -96,12 +98,12 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_AVX512_KNL${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ##########################################################################################
@@ -110,9 +112,9 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
-ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_VEC_NONE_HSW${FEAT}
+ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE_HSW${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ################################################################################
@@ -120,17 +122,17 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT_HSW${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE_HSW${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2_HSW${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ################################################################################
@@ -138,17 +140,17 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT_HSW${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_HSW${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_HSW_HIO${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ################################################################################
@@ -156,7 +158,7 @@ mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ARCH=GADGET_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT_HSW${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_gadget $ARCH $BRANCH $NJ >& makeVPIC_gadget.log
+${vtime} bin/makeVPIC_gadget $ARCH $FEAT $BRANCH $NJ >& makeVPIC_gadget.log
 mv makeVPIC_gadget.log build/$ARCH/vpic
 
 ##########################################################################################
