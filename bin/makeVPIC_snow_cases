@@ -1,391 +1,101 @@
 #!/bin/bash
 
 ################################################################################
+# Preliminary stuff.
+
+NJ=32
+
+vtime="/usr/bin/time -p"
+
+##########################################################################################
+# Configure parameters that determine the value of the ARCH to be built.
+
+################################################################################
+# Select an MPI implementation to use.
+
+VMPI="OMPI"
+
+################################################################################
+# Select a thread model to use.
+
+VTHR="PTH"
+#VTHR="OMP"
+
+################################################################################
+# Select the compiler to use.
+
+VCOM="INT"
+#VCOM="GNU"
+
+################################################################################
+# Select an optimized or debug build.
+
+VOPT="OPT"
+#VOPT="DBG"
+
+################################################################################
+# Select extra features to use. More than one can be selected.
+
+FEAT=""
+#FEAT+="_HIO"
+FEAT+="_LSORT"
+#FEAT+="_TSORT"
+#FEAT+="_VTUNE"
+#FEAT+="_TEST"
+#FEAT+=""
+#FEAT+=""
+#FEAT+=""
+#FEAT+=""
+
+##########################################################################################
+# Build Haswell ARCHs.
+
+################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
-ARCH=SNOW_PTH_INT_OPT_NONE
+ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
+${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
-ARCH=SNOW_PTH_INT_OPT_V4_PORT
+ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
+${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
-ARCH=SNOW_PTH_INT_OPT_V4_SSE
+ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
+${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
-ARCH=SNOW_PTH_INT_OPT_V4_AVX2
+ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel cases for the master branch with V8 support.
-
-ARCH=SNOW_PTH_INT_OPT_V8_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_INT_OPT_V8_AVX2
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel case for the master branch with V16 support.
-
-ARCH=SNOW_PTH_INT_OPT_V16_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################################################################################################
-
-################################################################################
-# Build the optimized GNU case for the master branch without vector support.
-
-ARCH=SNOW_PTH_GNU_OPT_NONE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V4 support.
-
-ARCH=SNOW_PTH_GNU_OPT_V4_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_GNU_OPT_V4_SSE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_GNU_OPT_V4_AVX2
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V8 support.
-
-ARCH=SNOW_PTH_GNU_OPT_V8_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_GNU_OPT_V8_AVX2
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU case for the master branch with V16 support.
-
-ARCH=SNOW_PTH_GNU_OPT_V16_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################################################################################################
-
-################################################################################
-# Build the optimized Intel case for the master branch without vector support.
-
-ARCH=SNOW_PTH_INT_OPT_NONE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel cases for the master branch with V4 support.
-
-ARCH=SNOW_PTH_INT_OPT_V4_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_INT_OPT_V4_SSE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_INT_OPT_V4_AVX2_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
+${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
-ARCH=SNOW_PTH_INT_OPT_V8_PORT_VTUNE
+ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
+${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
-ARCH=SNOW_PTH_INT_OPT_V8_AVX2_VTUNE
+ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel case for the master branch with V16 support.
-
-ARCH=SNOW_PTH_INT_OPT_V16_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################################################################################################
-
-################################################################################
-# Build the optimized GNU case for the master branch without vector support.
-
-ARCH=SNOW_PTH_GNU_OPT_NONE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V4 support.
-
-ARCH=SNOW_PTH_GNU_OPT_V4_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_GNU_OPT_V4_SSE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_GNU_OPT_V4_AVX2_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V8 support.
-
-ARCH=SNOW_PTH_GNU_OPT_V8_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_PTH_GNU_OPT_V8_AVX2_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU case for the master branch with V16 support.
-
-ARCH=SNOW_PTH_GNU_OPT_V16_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################################################################################################
-
-################################################################################
-# Build the optimized Intel case for the master branch without vector support.
-
-ARCH=SNOW_OMP_INT_OPT_NONE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel cases for the master branch with V4 support.
-
-ARCH=SNOW_OMP_INT_OPT_V4_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_INT_OPT_V4_SSE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_INT_OPT_V4_AVX2
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel cases for the master branch with V8 support.
-
-ARCH=SNOW_OMP_INT_OPT_V8_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_INT_OPT_V8_AVX2
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
+${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch with V16 support.
 
-ARCH=SNOW_OMP_INT_OPT_V16_PORT
+ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT${FEAT}
 BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
+${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
-################################################################################################################################################################
-
-################################################################################
-# Build the optimized GNU case for the master branch without vector support.
-
-ARCH=SNOW_OMP_GNU_OPT_NONE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V4 support.
-
-ARCH=SNOW_OMP_GNU_OPT_V4_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_GNU_OPT_V4_SSE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_GNU_OPT_V4_AVX2
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V8 support.
-
-ARCH=SNOW_OMP_GNU_OPT_V8_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_GNU_OPT_V8_AVX2
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU case for the master branch with V16 support.
-
-ARCH=SNOW_OMP_GNU_OPT_V16_PORT
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################################################################################################
-
-################################################################################
-# Build the optimized Intel case for the master branch without vector support.
-
-ARCH=SNOW_OMP_INT_OPT_NONE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel cases for the master branch with V4 support.
-
-ARCH=SNOW_OMP_INT_OPT_V4_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_INT_OPT_V4_SSE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_INT_OPT_V4_AVX2_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel cases for the master branch with V8 support.
-
-ARCH=SNOW_OMP_INT_OPT_V8_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_INT_OPT_V8_AVX2_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized Intel case for the master branch with V16 support.
-
-ARCH=SNOW_OMP_INT_OPT_V16_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################################################################################################
-
-################################################################################
-# Build the optimized GNU case for the master branch without vector support.
-
-ARCH=SNOW_OMP_GNU_OPT_NONE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V4 support.
-
-ARCH=SNOW_OMP_GNU_OPT_V4_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_GNU_OPT_V4_SSE_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_GNU_OPT_V4_AVX2_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU cases for the master branch with V8 support.
-
-ARCH=SNOW_OMP_GNU_OPT_V8_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-ARCH=SNOW_OMP_GNU_OPT_V8_AVX2_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
-
-################################################################################
-# Build the optimized GNU case for the master branch with V16 support.
-
-ARCH=SNOW_OMP_GNU_OPT_V16_PORT_VTUNE
-BRANCH=knl_open_science
-/usr/bin/time -p bin/makeVPIC_snow $ARCH $BRANCH 32 >& makeVPIC_snow.log
-mv makeVPIC_snow.log build/$ARCH/vpic
+##########################################################################################
+# Done.
