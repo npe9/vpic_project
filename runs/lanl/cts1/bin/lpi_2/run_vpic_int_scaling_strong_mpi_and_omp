@@ -3,10 +3,17 @@
 ##############################################################################################################################################
 # Configure modules.
 
+VERSION_INTEL=17.0.2
+VERSION_OPENMPI=2.1.1
+
 module load friendly-testing
 module load sandbox
+
 module load intel
+module swap intel intel/$VERSION_INTEL
+
 module load openmpi
+module swap openmpi openmpi/$VERSION_OPENMPI
 
 module list
 
@@ -17,7 +24,8 @@ prob=lpi
 
 vtime=''
 
-voc='--vm-overcommit=enable'
+#voc='--vm-overcommit=enable'
+voc=''
 
 ##############################################################################################################################################
 # Define some useful variables to tame the command lines when using the low level process binding interface.
