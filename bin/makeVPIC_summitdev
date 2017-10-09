@@ -85,7 +85,9 @@ then
         FLAGS_C_COMPILER+=" -maltivec"
 
         FLAGS_CXX_COMPILER+=" -maltivec"
-	FLAGS_CXX_COMPILER+=" -std=gnu++11"
+        FLAGS_CXX_COMPILER+=" -std=gnu++11"
+    else
+        FLAGS_CXX_COMPILER+=" -std=c++11"
     fi
 fi
 
