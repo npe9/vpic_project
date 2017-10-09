@@ -78,6 +78,7 @@ then
     FLAGS_CXX_COMPILER+=" -fno-strict-aliasing"
     FLAGS_CXX_COMPILER+=" -fno-unsafe-math-optimizations"
     FLAGS_CXX_COMPILER+=" -Winline"
+    FLAGS_CXX_COMPILER+=" -std=gnu+11"
 #   FLAGS_CXX_COMPILER+=" -fopt-info-all-optall"
 
     if echo $ARCH | grep -q "V4_ALTIVEC"
