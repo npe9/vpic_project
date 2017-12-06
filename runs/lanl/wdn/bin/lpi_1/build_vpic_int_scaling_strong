@@ -1,0 +1,18 @@
+#!/bin/bash
+
+export MPI_ROOT=/home/wdn/Packages/openmpi/openmpi_1.10.2_gnu_531
+export PATH=$MPI_ROOT/bin:$PATH
+export LD_LIBRARY_PATH=$MPI_ROOT/lib:$LD_LIBRARY_PATH
+
+#######################################################################
+# Build executables for 1 thread/rank i.e. MPI only case.
+
+vpic lpi_ddr_nn_0001_nppn_001_ntpp_001.cxx
+vpic lpi_ddr_nn_0001_nppn_002_ntpp_001.cxx
+vpic lpi_ddr_nn_0001_nppn_004_ntpp_001.cxx
+vpic lpi_ddr_nn_0001_nppn_008_ntpp_001.cxx
+
+vpic lpi_hbm_nn_0001_nppn_001_ntpp_001.cxx
+vpic lpi_hbm_nn_0001_nppn_002_ntpp_001.cxx
+vpic lpi_hbm_nn_0001_nppn_004_ntpp_001.cxx
+vpic lpi_hbm_nn_0001_nppn_008_ntpp_001.cxx
