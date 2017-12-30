@@ -1,0 +1,45 @@
+#!/bin/bash
+
+########################################################################################################################################################
+# Configure modules.
+
+########################################################################################################################################################
+# Preliminary stuff.
+
+vtime=''
+
+########################################################################################################################################################
+# Small HBM problem, strong scaled across 1 node.
+
+########################################################################################################################################################
+# MPI + Pthreads, 1 rank/core, 4 threads/rank.
+
+srun -n   64 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_064_ntpp_004.Linux --tpp 4 >& lpi_hbm_nn_0001_nppn_064_ntpp_004.log
+srun -n   32 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_032_ntpp_004.Linux --tpp 4 >& lpi_hbm_nn_0001_nppn_032_ntpp_004.log
+srun -n   16 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_016_ntpp_004.Linux --tpp 4 >& lpi_hbm_nn_0001_nppn_016_ntpp_004.log
+srun -n    8 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_008_ntpp_004.Linux --tpp 4 >& lpi_hbm_nn_0001_nppn_008_ntpp_004.log
+srun -n    4 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_004_ntpp_004.Linux --tpp 4 >& lpi_hbm_nn_0001_nppn_004_ntpp_004.log
+srun -n    2 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_002_ntpp_004.Linux --tpp 4 >& lpi_hbm_nn_0001_nppn_002_ntpp_004.log
+srun -n    1 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_001_ntpp_004.Linux --tpp 4 >& lpi_hbm_nn_0001_nppn_001_ntpp_004.log
+
+########################################################################################################################################################
+# MPI + Pthreads, 1 rank/core, 2 threads/rank.
+
+srun -n   64 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_064_ntpp_002.Linux --tpp 2 >& lpi_hbm_nn_0001_nppn_064_ntpp_002.log
+srun -n   32 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_032_ntpp_002.Linux --tpp 2 >& lpi_hbm_nn_0001_nppn_032_ntpp_002.log
+srun -n   16 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_016_ntpp_002.Linux --tpp 2 >& lpi_hbm_nn_0001_nppn_016_ntpp_002.log
+srun -n    8 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_008_ntpp_002.Linux --tpp 2 >& lpi_hbm_nn_0001_nppn_008_ntpp_002.log
+srun -n    4 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_004_ntpp_002.Linux --tpp 2 >& lpi_hbm_nn_0001_nppn_004_ntpp_002.log
+srun -n    2 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_002_ntpp_002.Linux --tpp 2 >& lpi_hbm_nn_0001_nppn_002_ntpp_002.log
+srun -n    1 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_001_ntpp_002.Linux --tpp 2 >& lpi_hbm_nn_0001_nppn_001_ntpp_002.log
+
+########################################################################################################################################################
+# MPI + Pthreads, 1 rank/core, 1 thread/rank.
+
+srun -n   64 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_064_ntpp_001.log
+srun -n   32 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_032_ntpp_001.log
+srun -n   16 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_016_ntpp_001.log
+srun -n    8 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_008_ntpp_001.log
+srun -n    4 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_004_ntpp_001.log
+srun -n    2 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_002_ntpp_001.log
+srun -n    1 -N 1 -c 4 --cpu_bind=threads ${vtime} lpi_hbm_nn_0001_nppn_001_ntpp_001.Linux --tpp 1 >& lpi_hbm_nn_0001_nppn_001_ntpp_001.log
