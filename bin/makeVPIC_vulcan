@@ -1,0 +1,269 @@
+#!/bin/bash
+
+set -x
+
+##########################################################################################
+# Set some high level variables.
+
+ARCH=$1
+
+FEAT=$2
+
+BRANCH=$3
+
+NJ=$4
+
+VPIC_ROOT=$PWD
+
+export VPIC_DIR=$VPIC_ROOT/build/$ARCH/vpic
+
+##########################################################################################
+# Switch to the build directory and copy the VPIC source.  First check for the
+# existence of an old VPIC directory and remove it if it does exist.
+
+cd build
+
+if [ -d $ARCH ]; then
+  rm -rf $ARCH
+fi
+
+mkdir $ARCH
+cd $ARCH
+
+cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
+
+cd $VPIC_DIR
+
+##########################################################################################
+# Set some high level variables to control module versions.
+
+VERSION_CMAKE=3.8.2
+VERSION_GIT=2.0.0
+VERSION_GNU=4.7.2
+
+##########################################################################################
+# Execute some use commands which apply to all ARCH values.
+
+use cmake-$VERSION_CMAKE
+use git-$VERSION_GIT
+
+##########################################################################################
+# Inspect the ARCH and FEAT variables to determine what kind of build we are doing.
+
+################################################################################
+# Figure out which compiler to use.
+
+VCOM="ZZZ"
+
+if echo $ARCH | grep -q "IBM"
+then
+    VCOM="IBM"
+
+    VPIC_COMPILER_C="mpixlc_r"
+    VPIC_COMPILER_CXX="mpixlcxx_r"
+
+    #CFLAGS="-D_XOPEN_SOURCE=600 -g -O3 -qhot -qlistopt -qlist -qsource "
+
+    FLAGS_C_COMPILER="-g -O3"
+    FLAGS_C_COMPILER+=" -qhot"
+    FLAGS_C_COMPILER+=" -qlistopt"
+    FLAGS_C_COMPILER+=" -qlist"
+    FLAGS_C_COMPILER+=" -qsource"
+
+    #CXXFLAGS="-D_XOPEN_SOURCE=600 -g -O3 -qhot -qinline=auto:level=5 -qlistopt -qlist -qsource -qlanglvl=extended0x -Dnullptr=NULL -DUSE_V4_QPX -DVPIC_USE_HPM"
+
+    FLAGS_CXX_COMPILER="-g -O3"
+    FLAGS_CXX_COMPILER+=" -qhot"
+    FLAGS_CXX_COMPILER+=" -qinline=auto:level=5"
+    FLAGS_CXX_COMPILER+=" -qlistopt"
+    FLAGS_CXX_COMPILER+=" -qlist"
+    FLAGS_CXX_COMPILER+=" -qsource"
+    FLAGS_CXX_COMPILER+=" -qlanglvl=extended0x"
+    FLAGS_CXX_COMPILER+=" -Dnullptr=NULL"
+    FLAGS_CXX_COMPILER+=" -DVPIC_USE_HPM"
+fi
+
+if echo $ARCH | grep -q "GNU"
+then
+    VCOM="GNU"
+
+    use bggcc-$VERSION_GNU
+
+    VPIC_COMPILER_C="mpigcc"
+    VPIC_COMPILER_CXX="mpig++"
+
+    #CFLAGS="-std=c99 -D_XOPEN_SOURCE=600 -Wno-long-long -g -O2 -ftree-vectorize -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fno-exceptions"
+
+    FLAGS_C_COMPILER="-g -O2"
+    FLAGS_C_COMPILER+=" -ma2q"
+    FLAGS_C_COMPILER+=" -ftree-vectorize"
+    FLAGS_C_COMPILER+=" -ffast-math"
+    FLAGS_C_COMPILER+=" -fno-unsafe-math-optimizations"
+    FLAGS_C_COMPILER+=" -fno-strict-aliasing"
+    FLAGS_C_COMPILER+=" -fomit-frame-pointer"
+    FLAGS_C_COMPILER+=" -fno-exceptions"
+    FLAGS_C_COMPILER+=" -Winline"
+    FLAGS_C_COMPILER+=" -Wno-long-long"
+
+    #CXXFLAGS="-std=c++11 -D_XOPEN_SOURCE=600 -Wno-long-long -g -O2 -ftree-vectorize -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DUSE_V4_PORTABLE"
+
+    FLAGS_CXX_COMPILER="-g -O2"
+    FLAGS_CXX_COMPILER+=" -ma2q"
+    FLAGS_CXX_COMPILER+=" -ftree-vectorize"
+    FLAGS_CXX_COMPILER+=" -ffast-math"
+    FLAGS_CXX_COMPILER+=" -fno-unsafe-math-optimizations"
+    FLAGS_CXX_COMPILER+=" -fno-strict-aliasing"
+    FLAGS_CXX_COMPILER+=" -fomit-frame-pointer"
+    FLAGS_CXX_COMPILER+=" -Winline"
+    FLAGS_CXX_COMPILER+=" -Wno-long-long"
+fi
+
+################################################################################
+# Figure out which MPI library to use.
+
+VMPI="ZZZ"
+
+if echo $ARCH | grep -q "IMPI"
+then
+    VMPI="IMPI"
+fi
+
+################################################################################
+# Figure out which thread model to use.
+
+VTHR="ZZZ"
+
+if echo $ARCH | grep -q "_PTH_"
+then
+    VTHR="PTH"
+
+    SET_OPENMP="OFF"
+    SET_PTHREADS="ON"
+fi
+
+if echo $ARCH | grep -q "_OMP_"
+then
+    VTHR="OMP"
+
+    SET_OPENMP="ON"
+    SET_PTHREADS="OFF"
+fi
+
+################################################################################
+# Figure out if this is an optimized or debug build.
+
+VOPT="ZZZ"
+
+if echo $ARCH | grep -q "OPT"
+then
+    VOPT="OPT"
+fi
+
+if echo $ARCH | grep -q "DBG"
+then
+    VOPT="DBG"
+fi
+
+################################################################################
+# Figure out if shared libs are needed.
+
+SET_SHARED_LIBS="OFF"
+
+################################################################################
+# Figure out which particle sort implementation to use.
+
+if echo $ARCH | grep -q "LSORT"
+then
+    FLAGS_C_COMPILER+=" -DVPIC_USE_LEGACY_SORT"
+
+    FLAGS_CXX_COMPILER+=" -DVPIC_USE_LEGACY_SORT"
+fi
+
+##########################################################################################
+# Now, perform the selected build.
+
+##########################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}" ]
+then
+    module list
+
+    cd $VPIC_DIR
+    mkdir build
+    cd build
+    cmake \
+	-LAH \
+	-DCMAKE_BUILD_TYPE=None \
+	-DBUILD_SHARED_LIBS=$SET_SHARED_LIBS \
+	-DENABLE_COLOR_UNIT_TESTS=ON \
+	-DENABLE_INTEGRATED_TESTS=ON \
+	-DENABLE_UNIT_TESTS=ON \
+	-DVPIC_PRINT_MORE_DIGITS=ON \
+	-DUSE_OPENMP=$SET_OPENMP \
+	-DUSE_PTHREADS=$SET_PTHREADS \
+	-DCMAKE_C_COMPILER=$VPIC_COMPILER_C \
+	-DCMAKE_CXX_COMPILER=$VPIC_COMPILER_CXX \
+	-DCMAKE_C_FLAGS="$FLAGS_C_COMPILER" \
+	-DCMAKE_CXX_FLAGS="$FLAGS_CXX_COMPILER" \
+	..
+    make -j $NJ VERBOSE=1
+fi
+
+##########################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}" ]
+then
+    module list
+
+    cd $VPIC_DIR
+    mkdir build
+    cd build
+    cmake \
+	-LAH \
+	-DCMAKE_BUILD_TYPE=None \
+	-DBUILD_SHARED_LIBS=$SET_SHARED_LIBS \
+	-DENABLE_COLOR_UNIT_TESTS=ON \
+	-DENABLE_INTEGRATED_TESTS=ON \
+	-DENABLE_UNIT_TESTS=ON \
+	-DUSE_V4_PORTABLE=ON \
+	-DVPIC_PRINT_MORE_DIGITS=ON \
+	-DUSE_OPENMP=$SET_OPENMP \
+	-DUSE_PTHREADS=$SET_PTHREADS \
+	-DCMAKE_C_COMPILER=$VPIC_COMPILER_C \
+	-DCMAKE_CXX_COMPILER=$VPIC_COMPILER_CXX \
+	-DCMAKE_C_FLAGS="$FLAGS_C_COMPILER" \
+	-DCMAKE_CXX_FLAGS="$FLAGS_CXX_COMPILER" \
+	..
+    make -j $NJ VERBOSE=1
+fi
+
+##########################################################################################
+# Build an optimized version of VPIC with Intel compilers.
+
+if [ $ARCH = "VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_QPX${FEAT}" ]
+then
+    module list
+
+    cd $VPIC_DIR
+    mkdir build
+    cd build
+    cmake \
+	-LAH \
+	-DCMAKE_BUILD_TYPE=None \
+	-DBUILD_SHARED_LIBS=$SET_SHARED_LIBS \
+	-DENABLE_COLOR_UNIT_TESTS=ON \
+	-DENABLE_INTEGRATED_TESTS=ON \
+	-DENABLE_UNIT_TESTS=ON \
+	-DUSE_V4_QPX=ON \
+	-DVPIC_PRINT_MORE_DIGITS=ON \
+	-DUSE_OPENMP=$SET_OPENMP \
+	-DUSE_PTHREADS=$SET_PTHREADS \
+	-DCMAKE_C_COMPILER=$VPIC_COMPILER_C \
+	-DCMAKE_CXX_COMPILER=$VPIC_COMPILER_CXX \
+	-DCMAKE_C_FLAGS="$FLAGS_C_COMPILER" \
+	-DCMAKE_CXX_FLAGS="$FLAGS_CXX_COMPILER" \
+	..
+    make -j $NJ VERBOSE=1
+fi

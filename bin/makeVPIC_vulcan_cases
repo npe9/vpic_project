@@ -1,0 +1,74 @@
+#!/bin/bash
+
+################################################################################
+# Preliminary stuff.
+
+NJ=16
+
+vtime="/usr/bin/time -p"
+
+##########################################################################################
+# Configure parameters that determine the value of the ARCH to be built.
+
+################################################################################
+# Select an MPI implementation to use.
+
+VMPI="IMPI"
+
+################################################################################
+# Select a thread model to use.
+
+VTHR="PTH"
+#VTHR="OMP"
+
+################################################################################
+# Select the compiler to use.
+
+VCOM="IBM"
+#VCOM="GNU"
+
+################################################################################
+# Select an optimized or debug build.
+
+VOPT="OPT"
+#VOPT="DBG"
+
+################################################################################
+# Select extra features to use. More than one can be selected.
+
+FEAT=""
+#FEAT+="_HIO"
+FEAT+="_LSORT"
+#FEAT+="_TSORT"
+#FEAT+="_TEST"
+#FEAT+=""
+#FEAT+=""
+#FEAT+=""
+#FEAT+=""
+
+##########################################################################################
+# Build BG/Q ARCHs.
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}
+BRANCH=knl_open_science_coral_2
+${vtime} bin/makeVPIC_vulcan $ARCH $FEAT $BRANCH $NJ >& makeVPIC_vulcan.log
+mv makeVPIC_vulcan.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+ARCH=VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}
+BRANCH=knl_open_science_coral_2
+${vtime} bin/makeVPIC_vulcan $ARCH $FEAT $BRANCH $NJ >& makeVPIC_vulcan.log
+mv makeVPIC_vulcan.log build/$ARCH/vpic
+
+ARCH=VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_QPX${FEAT}
+BRANCH=knl_open_science_coral_2
+${vtime} bin/makeVPIC_vulcan $ARCH $FEAT $BRANCH $NJ >& makeVPIC_vulcan.log
+mv makeVPIC_vulcan.log build/$ARCH/vpic
+
+##########################################################################################
+# Done.
