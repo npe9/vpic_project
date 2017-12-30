@@ -97,7 +97,6 @@ then
     #CFLAGS="-std=c99 -D_XOPEN_SOURCE=600 -Wno-long-long -g -O2 -ftree-vectorize -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -fno-exceptions"
 
     FLAGS_C_COMPILER="-g -O2"
-    FLAGS_C_COMPILER+=" -ma2q"
     FLAGS_C_COMPILER+=" -ftree-vectorize"
     FLAGS_C_COMPILER+=" -ffast-math"
     FLAGS_C_COMPILER+=" -fno-unsafe-math-optimizations"
@@ -106,11 +105,11 @@ then
     FLAGS_C_COMPILER+=" -fno-exceptions"
     FLAGS_C_COMPILER+=" -Winline"
     FLAGS_C_COMPILER+=" -Wno-long-long"
+    #FLAGS_C_COMPILER+=" -ma2q"
 
     #CXXFLAGS="-std=c++11 -D_XOPEN_SOURCE=600 -Wno-long-long -g -O2 -ftree-vectorize -ffast-math -fno-unsafe-math-optimizations -fno-strict-aliasing -fomit-frame-pointer -DUSE_V4_PORTABLE"
 
     FLAGS_CXX_COMPILER="-g -O2"
-    FLAGS_CXX_COMPILER+=" -ma2q"
     FLAGS_CXX_COMPILER+=" -ftree-vectorize"
     FLAGS_CXX_COMPILER+=" -ffast-math"
     FLAGS_CXX_COMPILER+=" -fno-unsafe-math-optimizations"
@@ -118,6 +117,7 @@ then
     FLAGS_CXX_COMPILER+=" -fomit-frame-pointer"
     FLAGS_CXX_COMPILER+=" -Winline"
     FLAGS_CXX_COMPILER+=" -Wno-long-long"
+    #FLAGS_CXX_COMPILER+=" -ma2q"
 fi
 
 ################################################################################
