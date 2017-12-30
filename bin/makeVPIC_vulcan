@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#set -x
 
 ##########################################################################################
 # Set some high level variables.
@@ -189,7 +189,7 @@ fi
 
 if [ $ARCH = "VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}" ]
 then
-    module list
+    use
 
     cd $VPIC_DIR
     mkdir build
@@ -217,7 +217,7 @@ fi
 
 if [ $ARCH = "VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}" ]
 then
-    module list
+    use
 
     cd $VPIC_DIR
     mkdir build
@@ -246,7 +246,7 @@ fi
 
 if [ $ARCH = "VULCAN_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_QPX${FEAT}" ]
 then
-    module list
+    use
 
     cd $VPIC_DIR
     mkdir build
