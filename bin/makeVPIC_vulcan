@@ -44,6 +44,8 @@ VERSION_GNU=4.7.2
 ##########################################################################################
 # Execute some use commands which apply to all ARCH values.
 
+. /usr/local/tools/dotkit/init.sh
+
 use cmake-$VERSION_CMAKE
 use git-$VERSION_GIT
 
