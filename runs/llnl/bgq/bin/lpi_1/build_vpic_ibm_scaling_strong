@@ -10,8 +10,6 @@ vpic lpi_hbm_nn_0001_nppn_008_ntpp_001.cxx
 vpic lpi_hbm_nn_0001_nppn_016_ntpp_001.cxx
 vpic lpi_hbm_nn_0001_nppn_032_ntpp_001.cxx
 vpic lpi_hbm_nn_0001_nppn_064_ntpp_001.cxx
-vpic lpi_hbm_nn_0001_nppn_128_ntpp_001.cxx
-vpic lpi_hbm_nn_0001_nppn_256_ntpp_001.cxx
 
 #######################################################################
 # Build executables for 2 threads/rank.
@@ -22,8 +20,6 @@ vpic lpi_hbm_nn_0001_nppn_004_ntpp_002.cxx
 vpic lpi_hbm_nn_0001_nppn_008_ntpp_002.cxx
 vpic lpi_hbm_nn_0001_nppn_016_ntpp_002.cxx
 vpic lpi_hbm_nn_0001_nppn_032_ntpp_002.cxx
-vpic lpi_hbm_nn_0001_nppn_064_ntpp_002.cxx
-vpic lpi_hbm_nn_0001_nppn_128_ntpp_002.cxx
 
 #######################################################################
 # Build executables for 4 threads/rank.
@@ -33,5 +29,3 @@ vpic lpi_hbm_nn_0001_nppn_002_ntpp_004.cxx
 vpic lpi_hbm_nn_0001_nppn_004_ntpp_004.cxx
 vpic lpi_hbm_nn_0001_nppn_008_ntpp_004.cxx
 vpic lpi_hbm_nn_0001_nppn_016_ntpp_004.cxx
-vpic lpi_hbm_nn_0001_nppn_032_ntpp_004.cxx
-vpic lpi_hbm_nn_0001_nppn_064_ntpp_004.cxx
