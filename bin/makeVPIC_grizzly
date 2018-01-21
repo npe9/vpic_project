@@ -37,23 +37,23 @@ cd $VPIC_DIR
 ##########################################################################################
 # Set some high level variables to control module versions.
 
-VERSION_CMAKE=3.7.1
-VERSION_INTEL=17.0.2
-VERSION_GNU=6.1.0
+VERSION_CMAKE=3.9.0
+VERSION_INTEL=17.0.4
+VERSION_GNU=6.4.0
 
 VERSION_INTEL_PERF_TOOLS=2017.4.056
 #VERSION_INTEL_PERF_TOOLS=2017.4.196
 #VERSION_INTEL_PERF_TOOLS=2018.0.082
 
-VERSION_OPENMPI=2.1.1
+VERSION_OPENMPI=2.1.2
 
 ##########################################################################################
 # Execute some module commands which apply to all ARCH values.
 
+module purge
 module load friendly-testing
 module load sandbox
-module load cmake
-module swap cmake cmake/$VERSION_CMAKE
+module load cmake/$VERSION_CMAKE
 module load git
 
 ##########################################################################################
@@ -71,8 +71,7 @@ if echo $ARCH | grep -q "INT"
 then
     VCOM="INT"
 
-    module load intel
-    module swap intel intel/$VERSION_INTEL
+    module load intel/$VERSION_INTEL
 
     FLAGS_C_COMPILER="-g -O3"
     FLAGS_C_COMPILER+=" -inline-forceinline -vec-threshold0"
@@ -92,6 +91,8 @@ fi
 if echo $ARCH | grep -q "GNU"
 then
     VCOM="GNU"
+
+    module load gcc/$VERSION_GNU
 
     FLAGS_C_COMPILER="-g -O2"
     FLAGS_C_COMPILER+=" -mavx2 -mfma"
@@ -119,8 +120,7 @@ if echo $ARCH | grep -q "OMPI"
 then
     VMPI="OMPI"
 
-    module load openmpi
-    module swap openmpi openmpi/$VERSION_OPENMPI
+    module load openmpi/$VERSION_OPENMPI
 fi
 
 ################################################################################
@@ -186,8 +186,7 @@ then
 	FLAGS_CXX_COMPILER+=" -debug inline-debug-info"
 	FLAGS_CXX_COMPILER+=" -parallel-source-info=2"
 
-	module load intel-performance-tools
-	module swap intel-performance-tools intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
+	module load intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
     fi
 fi
 
