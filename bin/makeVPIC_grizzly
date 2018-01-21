@@ -200,6 +200,17 @@ then
     FLAGS_CXX_COMPILER+=" -DVPIC_USE_LEGACY_SORT"
 fi
 
+################################################################################
+# Figure out if we are using check points without reverse symbol table lookup
+# support.
+
+if echo $ARCH | grep -q "QRST"
+then
+    FLAGS_C_COMPILER+=" -DNO_REVERSE_SYMBOL_TABLE_LOOKUP_SUPPORT"
+
+    FLAGS_CXX_COMPILER+=" -DNO_REVERSE_SYMBOL_TABLE_LOOKUP_SUPPORT"
+fi
+
 ##########################################################################################
 # Now, perform the selected build.
 
