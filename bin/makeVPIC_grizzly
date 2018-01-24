@@ -77,6 +77,7 @@ then
     FLAGS_C_COMPILER+=" -inline-forceinline -vec-threshold0"
     FLAGS_C_COMPILER+=" -qoverride-limits"
     FLAGS_C_COMPILER+=" -no-ansi-alias"
+    FLAGS_C_COMPILER+=" -Wl,--export-dynamic"
     FLAGS_C_COMPILER+=" -Winline"
     FLAGS_C_COMPILER+=" -qopt-report=5 -qopt-report-phase=all"
 
@@ -84,6 +85,7 @@ then
     FLAGS_CXX_COMPILER+=" -inline-forceinline -vec-threshold0"
     FLAGS_CXX_COMPILER+=" -qoverride-limits"
     FLAGS_CXX_COMPILER+=" -no-ansi-alias"
+    FLAGS_CXX_COMPILER+=" -Wl,--export-dynamic"
     FLAGS_CXX_COMPILER+=" -Winline"
     FLAGS_CXX_COMPILER+=" -qopt-report=5 -qopt-report-phase=all"
 fi
@@ -99,6 +101,7 @@ then
     FLAGS_C_COMPILER+=" -ffast-math -fomit-frame-pointer"
     FLAGS_C_COMPILER+=" -fno-strict-aliasing"
     FLAGS_C_COMPILER+=" -fno-unsafe-math-optimizations"
+    FLAGS_C_COMPILER+=" -rdynamic"
     FLAGS_C_COMPILER+=" -Winline"
 #   FLAGS_C_COMPILER+=" -fopt-info-all-optall"
 
@@ -107,6 +110,7 @@ then
     FLAGS_CXX_COMPILER+=" -ffast-math -fomit-frame-pointer"
     FLAGS_CXX_COMPILER+=" -fno-strict-aliasing"
     FLAGS_CXX_COMPILER+=" -fno-unsafe-math-optimizations"
+    FLAGS_CXX_COMPILER+=" -rdynamic"
     FLAGS_CXX_COMPILER+=" -Winline"
 #   FLAGS_CXX_COMPILER+=" -fopt-info-all-optall"
 fi
