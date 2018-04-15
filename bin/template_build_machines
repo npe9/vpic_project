@@ -1,0 +1,198 @@
+#!/bin/bash
+
+MCAT=$1
+
+#---------------------------------------------------------------------------------#
+# Create build scripts for ATS-1 machines i.e. Trinity class.
+#---------------------------------------------------------------------------------#
+
+if [ $MCAT == "ats1" ] || [ $MCAT == "ATS1" ]
+then
+
+update='
+s/REPLACE_lcase/'trinitite'/
+s/REPLACE_lcase/'trinitite'/
+s/REPLACE_ucase/'TRINITITE'/
+s/REPLACE_mcase/'Trinitite'/
+s/REPLACE_abrev/'TT'/
+'
+
+cat template_makeVPIC_ats1 | sed -e "$update" >& makeVPIC_trinitite
+
+cat template_makeVPIC_ats1_cases | sed -e "$update" >& makeVPIC_trinitite_cases
+
+chmod +x makeVPIC_trinitite makeVPIC_trinitite_cases
+
+update='
+s/REPLACE_lcase/'trinity'/
+s/REPLACE_lcase/'trinity'/
+s/REPLACE_ucase/'TRINITY'/
+s/REPLACE_mcase/'Trinity'/
+s/REPLACE_abrev/'TR'/
+'
+
+cat template_makeVPIC_ats1 | sed -e "$update" >& makeVPIC_trinity
+
+cat template_makeVPIC_ats1_cases | sed -e "$update" >& makeVPIC_trinity_cases
+
+chmod +x makeVPIC_trinity makeVPIC_trinity_cases
+
+update='
+s/REPLACE_lcase/'gadget'/
+s/REPLACE_lcase/'gadget'/
+s/REPLACE_ucase/'GADGET'/
+s/REPLACE_mcase/'Gadget'/
+s/REPLACE_abrev/'GA'/
+'
+
+cat template_makeVPIC_ats1 | sed -e "$update" >& makeVPIC_gadget
+
+cat template_makeVPIC_ats1_cases | sed -e "$update" >& makeVPIC_gadget_cases
+
+chmod +x makeVPIC_gadget makeVPIC_gadget_cases
+
+fi
+
+#---------------------------------------------------------------------------------#
+# Create build scripts for CTS-1 machines.
+#---------------------------------------------------------------------------------#
+
+if [ $MCAT == "cts1" ] || [ $MCAT == "CTS1" ]
+then
+
+update='
+s/REPLACE_lcase/'badger'/
+s/REPLACE_lcase/'badger'/
+s/REPLACE_ucase/'BADGER'/
+s/REPLACE_mcase/'Badger'/
+s/REPLACE_abrev/'BA'/
+'
+
+cat template_makeVPIC_cts1 | sed -e "$update" >& makeVPIC_badger
+
+cat template_makeVPIC_cts1_cases | sed -e "$update" >& makeVPIC_badger_cases
+
+chmod +x makeVPIC_badger makeVPIC_badger_cases
+
+update='
+s/REPLACE_lcase/'fire'/
+s/REPLACE_lcase/'fire'/
+s/REPLACE_ucase/'FIRE'/
+s/REPLACE_mcase/'Fire'/
+s/REPLACE_abrev/'FI'/
+'
+
+cat template_makeVPIC_cts1 | sed -e "$update" >& makeVPIC_fire
+
+cat template_makeVPIC_cts1_cases | sed -e "$update" >& makeVPIC_fire_cases
+
+chmod +x makeVPIC_fire makeVPIC_fire_cases
+
+update='
+s/REPLACE_lcase/'grizzly'/
+s/REPLACE_lcase/'grizzly'/
+s/REPLACE_ucase/'GRIZZLY'/
+s/REPLACE_mcase/'Grizzly'/
+s/REPLACE_abrev/'GR'/
+'
+
+cat template_makeVPIC_cts1 | sed -e "$update" >& makeVPIC_grizzly
+
+cat template_makeVPIC_cts1_cases | sed -e "$update" >& makeVPIC_grizzly_cases
+
+chmod +x makeVPIC_grizzly makeVPIC_grizzly_cases
+
+update='
+s/REPLACE_lcase/'ice'/
+s/REPLACE_lcase/'ice'/
+s/REPLACE_ucase/'ICE'/
+s/REPLACE_mcase/'Ice'/
+s/REPLACE_abrev/'IC'/
+'
+
+cat template_makeVPIC_cts1 | sed -e "$update" >& makeVPIC_ice
+
+cat template_makeVPIC_cts1_cases | sed -e "$update" >& makeVPIC_ice_cases
+
+chmod +x makeVPIC_ice makeVPIC_ice_cases
+
+update='
+s/REPLACE_lcase/'snow'/
+s/REPLACE_lcase/'snow'/
+s/REPLACE_ucase/'SNOW'/
+s/REPLACE_mcase/'Snow'/
+s/REPLACE_abrev/'SN'/
+'
+
+cat template_makeVPIC_cts1 | sed -e "$update" >& makeVPIC_snow
+
+cat template_makeVPIC_cts1_cases | sed -e "$update" >& makeVPIC_snow_cases
+
+chmod +x makeVPIC_snow makeVPIC_snow_cases
+
+update='
+s/REPLACE_lcase/'kit'/
+s/REPLACE_lcase/'kit'/
+s/REPLACE_ucase/'KIT'/
+s/REPLACE_mcase/'Kit'/
+s/REPLACE_abrev/'KI'/
+'
+
+cat template_makeVPIC_cts1 | sed -e "$update" >& makeVPIC_kit
+
+cat template_makeVPIC_cts1_cases | sed -e "$update" >& makeVPIC_kit_cases
+
+chmod +x makeVPIC_kit makeVPIC_kit_cases
+
+update='
+s/REPLACE_lcase/'kodiak'/
+s/REPLACE_lcase/'kodiak'/
+s/REPLACE_ucase/'KODIAK'/
+s/REPLACE_mcase/'Kodiak'/
+s/REPLACE_abrev/'KO'/
+'
+
+cat template_makeVPIC_cts1 | sed -e "$update" >& makeVPIC_kodiak
+
+cat template_makeVPIC_cts1_cases | sed -e "$update" >& makeVPIC_kodiak_cases
+
+chmod +x makeVPIC_kodiak makeVPIC_kodiak_cases
+
+fi
+
+#---------------------------------------------------------------------------------#
+# Create build scripts for TLCC machines.
+#---------------------------------------------------------------------------------#
+
+if [ $MCAT == "tlcc" ] || [ $MCAT == "TLCC" ]
+then
+
+update='
+s/REPLACE_lcase/'pinto'/
+s/REPLACE_lcase/'pinto'/
+s/REPLACE_ucase/'PINTO'/
+s/REPLACE_mcase/'Pinto'/
+s/REPLACE_abrev/'PI'/
+'
+
+cat template_makeVPIC_tlcc | sed -e "$update" >& makeVPIC_pinto
+
+cat template_makeVPIC_tlcc_cases | sed -e "$update" >& makeVPIC_pinto_cases
+
+chmod +x makeVPIC_pinto makeVPIC_pinto_cases
+
+update='
+s/REPLACE_lcase/'wolf'/
+s/REPLACE_lcase/'wolf'/
+s/REPLACE_ucase/'WOLF'/
+s/REPLACE_mcase/'Wolf'/
+s/REPLACE_abrev/'WF'/
+'
+
+cat template_makeVPIC_tlcc | sed -e "$update" >& makeVPIC_wolf
+
+cat template_makeVPIC_tlcc_cases | sed -e "$update" >& makeVPIC_wolf_cases
+
+chmod +x makeVPIC_wolf makeVPIC_wolf_cases
+
+fi

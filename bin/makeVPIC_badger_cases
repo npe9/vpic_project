@@ -53,49 +53,49 @@ FEAT+="_LSORT"
 ################################################################################
 # Build the optimized Intel case for the master branch without vector support.
 
-ARCH=WOLF_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}
+ARCH=BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}
 BRANCH=knl_open_science
-${vtime} bin/makeVPIC_wolf $ARCH $FEAT $BRANCH $NJ >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+${vtime} bin/makeVPIC_badger $ARCH $FEAT $BRANCH $NJ >& makeVPIC_badger.log
+mv makeVPIC_badger.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V4 support.
 
-ARCH=WOLF_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}
+ARCH=BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}
 BRANCH=knl_open_science
-${vtime} bin/makeVPIC_wolf $ARCH $FEAT $BRANCH $NJ >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+${vtime} bin/makeVPIC_badger $ARCH $FEAT $BRANCH $NJ >& makeVPIC_badger.log
+mv makeVPIC_badger.log build/$ARCH/vpic
 
-ARCH=WOLF_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE${FEAT}
+ARCH=BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE${FEAT}
 BRANCH=knl_open_science
-${vtime} bin/makeVPIC_wolf $ARCH $FEAT $BRANCH $NJ >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+${vtime} bin/makeVPIC_badger $ARCH $FEAT $BRANCH $NJ >& makeVPIC_badger.log
+mv makeVPIC_badger.log build/$ARCH/vpic
 
-ARCH=WOLF_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2${FEAT}
+ARCH=BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2${FEAT}
 BRANCH=knl_open_science
-${vtime} bin/makeVPIC_wolf $ARCH $FEAT $BRANCH $NJ >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+${vtime} bin/makeVPIC_badger $ARCH $FEAT $BRANCH $NJ >& makeVPIC_badger.log
+mv makeVPIC_badger.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel cases for the master branch with V8 support.
 
-ARCH=WOLF_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT${FEAT}
+ARCH=BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT${FEAT}
 BRANCH=knl_open_science
-${vtime} bin/makeVPIC_wolf $ARCH $FEAT $BRANCH $NJ >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+${vtime} bin/makeVPIC_badger $ARCH $FEAT $BRANCH $NJ >& makeVPIC_badger.log
+mv makeVPIC_badger.log build/$ARCH/vpic
 
-ARCH=WOLF_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2${FEAT}
+ARCH=BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2${FEAT}
 BRANCH=knl_open_science
-${vtime} bin/makeVPIC_wolf $ARCH $FEAT $BRANCH $NJ >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+${vtime} bin/makeVPIC_badger $ARCH $FEAT $BRANCH $NJ >& makeVPIC_badger.log
+mv makeVPIC_badger.log build/$ARCH/vpic
 
 ################################################################################
 # Build the optimized Intel case for the master branch with V16 support.
 
-ARCH=WOLF_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT${FEAT}
+ARCH=BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT${FEAT}
 BRANCH=knl_open_science
-${vtime} bin/makeVPIC_wolf $ARCH $FEAT $BRANCH $NJ >& makeVPIC_wolf.log
-mv makeVPIC_wolf.log build/$ARCH/vpic
+${vtime} bin/makeVPIC_badger $ARCH $FEAT $BRANCH $NJ >& makeVPIC_badger.log
+mv makeVPIC_badger.log build/$ARCH/vpic
 
 ##########################################################################################
 # Done.

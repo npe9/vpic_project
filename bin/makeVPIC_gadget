@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#set -x
 
 ##########################################################################################
 # Set some high level variables.
@@ -44,8 +44,8 @@ VERSION_GNU=6.3.0
 VERSION_CRAY_MPICH=7.5.4
 VERSION_CRAY_PERF_TOOLS=6.4.6
 
-#VERSION_INTEL_PERF_TOOLS=2017.4.056
-VERSION_INTEL_PERF_TOOLS=2017.4.196
+VERSION_INTEL_PERF_TOOLS=2017.4.056
+#VERSION_INTEL_PERF_TOOLS=2017.4.196
 #VERSION_INTEL_PERF_TOOLS=2018.0.082
 
 VERSION_OPENMPI=2.1.1
@@ -163,8 +163,8 @@ if echo $ARCH | grep -q "OMPI"
 then
     VMPI="OMPI"
 
-    #VPIC_COMPILER_C="mpicc"
-    #VPIC_COMPILER_CXX="mpicxx"
+    VPIC_COMPILER_C="mpicc"
+    VPIC_COMPILER_CXX="mpicxx"
 
     module unload cray-mpich
     module unload cray-libsci
