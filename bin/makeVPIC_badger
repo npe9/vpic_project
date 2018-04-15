@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+#set -x
 
 ##########################################################################################
 # Set some high level variables.
@@ -23,7 +23,8 @@ export VPIC_DIR=$VPIC_ROOT/build/$ARCH/vpic
 
 cd build
 
-if [ -d $ARCH ]; then
+if [ -d $ARCH ]
+then
   rm -rf $ARCH
 fi
 
@@ -35,26 +36,40 @@ cp -R $VPIC_ROOT/src/branches/$BRANCH/vpic .
 cd $VPIC_DIR
 
 ##########################################################################################
-# Set some high level variables to control module versions.
-
-VERSION_CMAKE=3.9.0
-VERSION_INTEL=17.0.4
-VERSION_GNU=6.4.0
-
-VERSION_INTEL_PERF_TOOLS=2017.4.056
-#VERSION_INTEL_PERF_TOOLS=2017.4.196
-#VERSION_INTEL_PERF_TOOLS=2018.0.082
-
-VERSION_OPENMPI=2.1.2
-
-##########################################################################################
 # Execute some module commands which apply to all ARCH values.
 
+echo '#!/bin/bash' >> bashrc.modules
+echo '' >> bashrc.modules
+
 module purge
+echo "module purge" >> bashrc.modules
+
 module load friendly-testing
+echo "module load friendly-testing" >> bashrc.modules
+
 module load sandbox
-module load cmake/$VERSION_CMAKE
+echo "module load sandbox" >> bashrc.modules
+
+if [ ! "x$VERSION_CMAKE" = "x" ]
+then
+    module load cmake/$VERSION_CMAKE
+    echo "module load cmake/$VERSION_CMAKE" >> bashrc.modules
+else
+    module load cmake
+    echo "module load cmake" >> bashrc.modules
+fi
+
 module load git
+echo "module load git" >> bashrc.modules
+
+if [ ! "x$VERSION_GIT" = "x" ]
+then
+    module load git/$VERSION_GIT
+    echo "module load git/$VERSION_GIT" >> bashrc.modules
+else
+    module load git
+    echo "module load git" >> bashrc.modules
+fi
 
 ##########################################################################################
 # Inspect the ARCH and FEAT variables to determine what kind of build we are doing.
@@ -71,7 +86,14 @@ if echo $ARCH | grep -q "INT"
 then
     VCOM="INT"
 
-    module load intel/$VERSION_INTEL
+    if [ ! "x$VERSION_INTEL" = "x" ]
+    then
+        module load intel/$VERSION_INTEL
+        echo "module load intel/$VERSION_INTEL" >> bashrc.modules
+    else
+        module load intel
+        echo "module load intel" >> bashrc.modules
+    fi
 
     FLAGS_C_COMPILER="-g -O3"
     FLAGS_C_COMPILER+=" -inline-forceinline -vec-threshold0"
@@ -94,7 +116,14 @@ if echo $ARCH | grep -q "GNU"
 then
     VCOM="GNU"
 
-    module load gcc/$VERSION_GNU
+    if [ ! "x$VERSION_GNU" = "x" ]
+    then
+        module load gcc/$VERSION_GNU
+        echo "module load gcc/$VERSION_GNU" >> bashrc.modules
+    else
+        module load gcc
+        echo "module load gcc" >> bashrc.modules
+    fi
 
     FLAGS_C_COMPILER="-g -O2"
     FLAGS_C_COMPILER+=" -mavx2 -mfma"
@@ -103,7 +132,7 @@ then
     FLAGS_C_COMPILER+=" -fno-unsafe-math-optimizations"
     FLAGS_C_COMPILER+=" -rdynamic"
     FLAGS_C_COMPILER+=" -Winline"
-#   FLAGS_C_COMPILER+=" -fopt-info-all-optall"
+    #FLAGS_C_COMPILER+=" -fopt-info-all-optall"
 
     FLAGS_CXX_COMPILER="-g -O2"
     FLAGS_CXX_COMPILER+=" -mavx2 -mfma"
@@ -112,7 +141,7 @@ then
     FLAGS_CXX_COMPILER+=" -fno-unsafe-math-optimizations"
     FLAGS_CXX_COMPILER+=" -rdynamic"
     FLAGS_CXX_COMPILER+=" -Winline"
-#   FLAGS_CXX_COMPILER+=" -fopt-info-all-optall"
+    #FLAGS_CXX_COMPILER+=" -fopt-info-all-optall"
 fi
 
 ################################################################################
@@ -124,7 +153,14 @@ if echo $ARCH | grep -q "OMPI"
 then
     VMPI="OMPI"
 
-    module load openmpi/$VERSION_OPENMPI
+    if [ ! "x$VERSION_OPENMPI" = "x" ]
+    then
+        module load openmpi/$VERSION_OPENMPI
+        echo "module load openmpi/$VERSION_OPENMPI" >> bashrc.modules
+    else
+        module load openmpi
+        echo "module load openmpi" >> bashrc.modules
+    fi
 fi
 
 ################################################################################
@@ -164,37 +200,6 @@ then
 fi
 
 ################################################################################
-# Figure out if this is a VTUNE build.
-
-SET_SHARED_LIBS="OFF"
-
-if echo $ARCH | grep -q "VTUNE"
-then
-    SET_SHARED_LIBS="ON"
-
-    #FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE_P"
-    #FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE"
-    FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_OFF"
-    FLAGS_C_COMPILER+=" -I$VTUNE_AMPLIFIER_XE_2017_DIR/include"
-
-    #FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE_P"
-    #FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE"
-    FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_OFF"
-    FLAGS_CXX_COMPILER+=" -I$VTUNE_AMPLIFIER_XE_2017_DIR/include"
-
-    if echo $ARCH | grep -q "INT"
-    then
-	FLAGS_C_COMPILER+=" -debug inline-debug-info"
-	FLAGS_C_COMPILER+=" -parallel-source-info=2"
-
-	FLAGS_CXX_COMPILER+=" -debug inline-debug-info"
-	FLAGS_CXX_COMPILER+=" -parallel-source-info=2"
-
-	module load intel-performance-tools/$VERSION_INTEL_PERF_TOOLS
-    fi
-fi
-
-################################################################################
 # Figure out which particle sort implementation to use.
 
 if echo $ARCH | grep -q "LSORT"
@@ -215,6 +220,108 @@ then
     FLAGS_CXX_COMPILER+=" -DNO_REVERSE_SYMBOL_TABLE_LOOKUP_SUPPORT"
 fi
 
+################################################################################
+# Figure out if this is a VTUNE build.
+
+SET_SHARED_LIBS="OFF"
+
+if echo $ARCH | grep -q "VTUNE"
+then
+    SET_SHARED_LIBS="ON"
+
+    #FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE_P"
+    #FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE"
+    FLAGS_C_COMPILER+=" -DVPIC_USE_VTUNE_OFF"
+    FLAGS_C_COMPILER+=" -I$VTUNE_AMPLIFIER_XE_2017_DIR/include"
+
+    #FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE_P"
+    #FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_ADVANCE"
+    FLAGS_CXX_COMPILER+=" -DVPIC_USE_VTUNE_OFF"
+    FLAGS_CXX_COMPILER+=" -I$VTUNE_AMPLIFIER_XE_2017_DIR/include"
+
+    if [ ! "x$VERSION_INTEL_VTUNE_AMPLIFIER" = "x" ]
+    then
+        module load intel-vtune-amplifier/$VERSION_INTEL_VTUNE_AMPLIFIER
+        echo "module load intel-vtune-amplifier/$VERSION_INTEL_VTUNE_AMPLIFIER" >> bashrc.modules
+    else
+	module load intel-vtune-amplifier
+	echo "module load intel-vtune-amplifier" >> bashrc.modules
+    fi
+
+    if [ ! "x$VERSION_INTEL_VECTOR_ADVISOR" = "x" ]
+    then
+        module load intel-advisor/$VERSION_INTEL_VECTOR_ADVISOR
+        echo "module load intel-advisor/$VERSION_INTEL_VECTOR_ADVISOR" >> bashrc.modules
+    else
+	module load intel-advisor
+	echo "module load intel-advisor" >> bashrc.modules
+    fi
+
+    if [ ! "x$VERSION_INTEL_INSPECTOR" = "x" ]
+    then
+        module load intel-inspector/$VERSION_INTEL_INSPECTOR
+        echo "module load intel-inspector/$VERSION_INTEL_INSPECTOR" >> bashrc.modules
+    else
+	module load intel-inspector
+	echo "module load intel-inspector" >> bashrc.modules
+    fi
+
+    if [ ! "x$VERSION_INTEL_TRACE_ANALYZER" = "x" ]
+    then
+        module load intel-trace-analyzer/$VERSION_INTEL_TRACE_ANALYZER
+        echo "module load intel-trace-analyzer/$VERSION_INTEL_TRACE_ANALYZER" >> bashrc.modules
+    else
+	module load intel-trace-analyzer
+	echo "module load intel-trace-analyzer" >> bashrc.modules
+    fi
+
+    if echo $ARCH | grep -q "INT"
+    then
+	FLAGS_C_COMPILER+=" -debug inline-debug-info"
+	FLAGS_C_COMPILER+=" -parallel-source-info=2"
+
+	FLAGS_CXX_COMPILER+=" -debug inline-debug-info"
+	FLAGS_CXX_COMPILER+=" -parallel-source-info=2"
+    fi
+fi
+
+################################################################################
+# Figure out if this is a MAP build.
+
+if echo $ARCH | grep -q "MAP"
+then
+    SET_SHARED_LIBS="ON"
+
+    if [ ! "x$VERSION_FORGE" = "x" ]
+    then
+        module load forge/$VERSION_FORGE
+        echo "module load forge/$VERSION_FORGE" >> bashrc.modules
+    else
+	module load forge
+	echo "module load forge" >> bashrc.modules
+    fi
+fi
+
+################################################################################
+# Figure out if this is a GPROF build.
+
+if echo $ARCH | grep -q "GPROF"
+then
+    if echo $ARCH | grep -q "INT"
+    then
+	FLAGS_C_COMPILER+=" -p"
+
+	FLAGS_CXX_COMPILER+=" -p"
+    fi
+
+    if echo $ARCH | grep -q "GNU"
+    then
+	FLAGS_C_COMPILER+=" -pg"
+
+	FLAGS_CXX_COMPILER+=" -pg"
+    fi
+fi
+
 ##########################################################################################
 # Now, perform the selected build.
 
@@ -224,6 +331,7 @@ fi
 if [ $ARCH = "BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}" ]
 then
     module list
+    echo "module list" >> bashrc.modules
 
     cd $VPIC_DIR
     mkdir build
@@ -252,6 +360,7 @@ fi
 if [ $ARCH = "BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}" ]
 then
     module list
+    echo "module list" >> bashrc.modules
 
     cd $VPIC_DIR
     mkdir build
@@ -281,6 +390,7 @@ fi
 if [ $ARCH = "BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE${FEAT}" ]
 then
     module list
+    echo "module list" >> bashrc.modules
 
     cd $VPIC_DIR
     mkdir build
@@ -310,6 +420,7 @@ fi
 if [ $ARCH = "BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2${FEAT}" ]
 then
     module list
+    echo "module list" >> bashrc.modules
 
     cd $VPIC_DIR
     mkdir build
@@ -339,6 +450,7 @@ fi
 if [ $ARCH = "BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT${FEAT}" ]
 then
     module list
+    echo "module list" >> bashrc.modules
 
     cd $VPIC_DIR
     mkdir build
@@ -369,6 +481,7 @@ fi
 if [ $ARCH = "BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2${FEAT}" ]
 then
     module list
+    echo "module list" >> bashrc.modules
 
     cd $VPIC_DIR
     mkdir build
@@ -399,6 +512,7 @@ fi
 if [ $ARCH = "BADGER_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT${FEAT}" ]
 then
     module list
+    echo "module list" >> bashrc.modules
 
     cd $VPIC_DIR
     mkdir build
