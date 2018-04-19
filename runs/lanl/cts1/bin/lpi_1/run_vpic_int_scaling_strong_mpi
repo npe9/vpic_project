@@ -115,7 +115,7 @@ cpu_bind_rpc1_12="--cpu_bind=map_cpu:${cpu_list_rpc1_12_socket_0},${cpu_list_rpc
 cpu_bind_rpc1_08="--cpu_bind=map_cpu:${cpu_list_rpc1_08_socket_0},${cpu_list_rpc1_08_socket_1}"
 cpu_bind_rpc1_06="--cpu_bind=map_cpu:${cpu_list_rpc1_06_socket_0},${cpu_list_rpc1_06_socket_1}"
 cpu_bind_rpc1_04="--cpu_bind=map_cpu:${cpu_list_rpc1_04_socket_0},${cpu_list_rpc1_04_socket_1}"
-cpu_bind_rpc1_02="--cpu_bind=map_cpu:${cpu_list_rpc1_02_socket_0},${cpu_list_rpc1_02_socket_1}"
+cpu_bind_rpc1_02="--cpu_bind=map_cpu:${cpu_list_rpc1_02_socket_0},${cpu_list_rpc1_02_socket_1}"run_vtune_vpic_int_scaling_strong_hsw_mpi_and_pth
 cpu_bind_rpc1_01="--cpu_bind=map_cpu:${cpu_list_rpc1_01_socket_0}"
 
 ##############################################################################################################################################
