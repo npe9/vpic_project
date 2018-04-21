@@ -148,16 +148,16 @@ begin_initialization
   // Simulation parameters
 
   double Lx                = 17 * 0.02 * 12.0 * 1e-4 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
-  double Ly                =  3 * 0.02 * 12.0 * 1e-4;
-  double Lz                =  3 * 0.02 * 12.0 * 1e-4;
+  double Ly                =  3 * 0.02 * 12.0 * 1e-4 * REPLACE_scale_Ly;
+  double Lz                =  3 * 0.02 * 12.0 * 1e-4 * REPLACE_scale_Lz;
 
   double nx                = 32*17*REPLACE_scale_nx;
-  double ny                = 32*3;
-  double nz                = 32*3;
+  double ny                = 32* 3*REPLACE_scale_ny;
+  double nz                = 32* 3*REPLACE_scale_nz;
 
   double topology_x        = 1*8*REPLACE_scale_topology_x;
-  double topology_y        = 1*3;
-  double topology_z        = 1*2;
+  double topology_y        = 1*3*REPLACE_scale_topology_y;
+  double topology_z        = 1*2*REPLACE_scale_topology_z;
 
   // single-processor mesh = 544 x 96 x 96
 
