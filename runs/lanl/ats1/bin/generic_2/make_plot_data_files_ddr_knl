@@ -1,0 +1,113 @@
+#!/bin/bash
+
+##############################################################################################################################################
+# Figure out problem being run based on value of PWD variable.
+
+if echo $PWD | grep -q "lpi"
+then
+    prob=lpi
+fi
+
+if echo $PWD | grep -q "reconnection"
+then
+    prob=reconnection
+fi
+
+if [ "x$prob" = "x" ]
+then
+    echo "The prob bash variable is not set to a valid problem."
+    exit 1
+fi
+
+##############################################################################################################################################
+# Generate plot data file for the 1 thread/rank case.
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_001.dat
+echo '# nnodes | ncores | wall time | wall time | wall time | wall time | wall time | wall time | wall time  | wall time  |' >> plot_data_ntpp_001.dat
+echo '#        |        | timesteps | timesteps | advance_p | advance_p | sort_p    | sort_p    | boundary_p | boundary_p |' >> plot_data_ntpp_001.dat
+echo '#        |        |           | (perfect) |           | (perfect) |           | (perfect) |            | (perfect)  |' >> plot_data_ntpp_001.dat
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_001.dat
+
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_002_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_004_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_008_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_016_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_017_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_032_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_034_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_064_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0001_nppn_068_ntpp_001.log                       >> plot_data_ntpp_001.dat
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_001.dat
+
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0002_nppn_064_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0002_nppn_068_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0004_nppn_064_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0004_nppn_068_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0008_nppn_064_ntpp_001.log                       >> plot_data_ntpp_001.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_001.log   ${prob}_ddr_nn_0008_nppn_068_ntpp_001.log                       >> plot_data_ntpp_001.dat
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_001.dat
+
+##############################################################################################################################################
+# Generate plot data file for the 2 threads/rank case.
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_002.dat
+echo '# nnodes | ncores | wall time | wall time | wall time | wall time | wall time | wall time | wall time  | wall time  |' >> plot_data_ntpp_002.dat
+echo '#        |        | timesteps | timesteps | advance_p | advance_p | sort_p    | sort_p    | boundary_p | boundary_p |' >> plot_data_ntpp_002.dat
+echo '#        |        |           | (perfect) |           | (perfect) |           | (perfect) |            | (perfect)  |' >> plot_data_ntpp_002.dat
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_002.dat
+
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_002_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_004_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_008_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_016_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_017_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_032_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_034_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_064_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0001_nppn_068_ntpp_002.log                       >> plot_data_ntpp_002.dat
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_002.dat
+
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0002_nppn_064_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0002_nppn_068_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0004_nppn_064_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0004_nppn_068_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0008_nppn_064_ntpp_002.log                       >> plot_data_ntpp_002.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_002.log   ${prob}_ddr_nn_0008_nppn_068_ntpp_002.log                       >> plot_data_ntpp_002.dat
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_002.dat
+
+##############################################################################################################################################
+# Generate plot data file for the 4 threads/rank case.
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_004.dat
+echo '# nnodes | ncores | wall time | wall time | wall time | wall time | wall time | wall time | wall time  | wall time  |' >> plot_data_ntpp_004.dat
+echo '#        |        | timesteps | timesteps | advance_p | advance_p | sort_p    | sort_p    | boundary_p | boundary_p |' >> plot_data_ntpp_004.dat
+echo '#        |        |           | (perfect) |           | (perfect) |           | (perfect) |            | (perfect)  |' >> plot_data_ntpp_004.dat
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_004.dat
+
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_002_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_004_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_008_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_016_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_017_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_032_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_034_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_064_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0001_nppn_068_ntpp_004.log                       >> plot_data_ntpp_004.dat
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_004.dat
+
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0002_nppn_064_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0002_nppn_068_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0004_nppn_064_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0004_nppn_068_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0008_nppn_064_ntpp_004.log                       >> plot_data_ntpp_004.dat
+./parseLogFile   ${prob}_ddr_nn_0001_nppn_001_ntpp_004.log   ${prob}_ddr_nn_0008_nppn_068_ntpp_004.log                       >> plot_data_ntpp_004.dat
+
+echo '#--------------------------------------------------------------------------------------------------------------------' >> plot_data_ntpp_004.dat

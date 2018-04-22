@@ -1,0 +1,109 @@
+#!/usr/bin/env python
+
+import sys
+import re
+import os
+
+if len(sys.argv) != 3:
+    sys.stderr.write( "Usage: %s input_file_1 input_file_2\n" % sys.argv[0] )
+    raise SystemExit(1)
+
+log_file_name_1 = sys.argv[1]
+
+log_file_1 = open( log_file_name_1, 'r' )
+
+log_file_name_2 = sys.argv[2]
+
+log_file_2 = open( log_file_name_2, 'r' )
+
+# Read and record the single thread times.
+
+lines = 0
+
+time_1_advance_p = 0.0
+time_1_sort_p = 0.0
+time_1_boundary_p = 0.0
+time_1_total = 0.0
+
+for line in log_file_1:
+    lines = lines + 1
+
+    if re.match( r'^                 advance_p', line ):
+        tokens = line.split()
+        time_1_advance_p = float( tokens[ len(tokens) - 3 ] )
+
+    if re.match( r'^                    sort_p', line ):
+        tokens = line.split()
+        time_1_sort_p = float( tokens[ len(tokens) - 3 ] )
+
+    if re.match( r'^                boundary_p', line ):
+        tokens = line.split()
+        time_1_boundary_p = float( tokens[ len(tokens) - 3 ] )
+
+    if re.match( r'^\*\*\* Done', line ):
+        tokens = line.split()
+        time_total_2 = tokens[ len(tokens) - 4 ]
+        time_total_1 = time_total_2[1:]
+        time_1_total   = float( time_total_1[:-1] )
+
+# Read and record the times for the multi-thread case.
+
+lines = 0
+
+time_advance_p = 0.0
+time_sort_p = 0.0
+time_boundary_p = 0.0
+time_total = 0.0
+
+for line in log_file_2:
+    lines = lines + 1
+
+    if re.match( r'^                 advance_p', line ):
+        tokens = line.split()
+        time_advance_p = float( tokens[ len(tokens) - 3 ] )
+
+    if re.match( r'^                    sort_p', line ):
+        tokens = line.split()
+        time_sort_p = float( tokens[ len(tokens) - 3 ] )
+
+    if re.match( r'^                boundary_p', line ):
+        tokens = line.split()
+        time_boundary_p = float( tokens[ len(tokens) - 3 ] )
+
+    if re.match( r'^\*\*\* Done', line ):
+        tokens = line.split()
+        time_total_2 = tokens[ len(tokens) - 4 ]
+        time_total_1 = time_total_2[1:]
+        time_total   = float( time_total_1[:-1] )
+
+# Print out data.
+
+log_file_name_2_base = os.path.splitext( log_file_name_2 )[ 0 ]
+
+log_file_name_2_tokens = log_file_name_2_base.split( '_' )
+
+nnodes = int( log_file_name_2_tokens[ 3 ] )
+nppn   = int( log_file_name_2_tokens[ 5 ] )
+nrpc   = int( log_file_name_2_tokens[ 7 ] )
+
+if log_file_name_2_tokens[ 6 ] == 'ntpp':
+    nrpc = 1
+
+nranks = nnodes * nppn
+ncores = nranks / nrpc
+
+ps_time_total      = time_1_total      / ncores
+ps_time_advance_p  = time_1_advance_p  / ncores
+ps_time_sort_p     = time_1_sort_p     / ncores
+ps_time_boundary_p = time_1_boundary_p / ncores
+
+print "{: 6.0f}".format( nnodes ),            '  |', \
+      "{: 4.0f}".format( ncores ),            '  |', \
+      "{: 9.2f}".format(    time_total ),       '|', \
+      "{: 9.2f}".format( ps_time_total ),       '|', \
+      "{: 9.2f}".format(    time_advance_p ),   '|', \
+      "{: 9.2f}".format( ps_time_advance_p ),   '|', \
+      "{: 9.2f}".format(    time_sort_p ),      '|', \
+      "{: 9.2f}".format( ps_time_sort_p ),      '|', \
+      "{:10.2f}".format(    time_boundary_p ),  '|', \
+      "{:10.2f}".format( ps_time_boundary_p ),  '|'

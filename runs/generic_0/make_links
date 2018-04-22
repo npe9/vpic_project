@@ -1,0 +1,29 @@
+#!/bin/bash
+
+arch=$1
+
+build_dir=../../../../../../build
+
+#########################################################################
+# Create links for vpic executable.
+
+ln -s $build_dir/$arch/vpic/build/bin/vpic vpic_$arch
+
+if [ -f vpic ]
+then
+    rm vpic
+fi
+
+ln -s vpic_$arch vpic
+
+#########################################################################
+# Create links for bashrc.modules file.
+
+ln -s $build_dir/$arch/vpic/bashrc.modules bashrc.modules.$arch
+
+if [ -f bashrc.modules ]
+then
+    rm bashrc.modules
+fi
+
+ln -s bashrc.modules.$arch bashrc.modules

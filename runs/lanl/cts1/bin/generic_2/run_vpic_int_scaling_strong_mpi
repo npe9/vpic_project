@@ -1,0 +1,229 @@
+#!/bin/bash
+
+##############################################################################################################################################
+# Configure modules.
+
+source bashrc.modules
+
+##############################################################################################################################################
+# Figure out problem being run based on value of PWD variable.
+
+if echo $PWD | grep -q "lpi"
+then
+    prob=lpi
+fi
+
+if echo $PWD | grep -q "reconnection"
+then
+    prob=reconnection
+fi
+
+if [ "x$prob" = "x" ]
+then
+    echo "The prob bash variable is not set to a valid problem."
+    exit 1
+fi
+
+##############################################################################################################################################
+# Preliminary stuff.
+
+vtime=''
+
+#voc='--vm-overcommit=enable'
+voc=''
+
+##############################################################################################################################################
+# Configure aprun and xpre variables based on type of run.
+
+############################################################
+# Configure default run without extra tools.
+
+xpre='./'
+
+aprun='srun'
+
+############################################################
+# Configure CrayPat-lite run.
+
+#xpre='./'
+
+#aprun='srun'
+
+############################################################
+# Configure MAP profiling collection run.
+
+#xpre='./'
+
+#aprun='map --profile srun'
+
+############################################################
+# Configure Intel Application Performance Snapshot run.
+
+#xpre='aps ./'
+
+#aprun='srun'
+
+##############################################################################################################################################
+# Define some useful variables to tame the command lines when using the low level process binding interface.
+
+cpu_list_rpc2_36_socket_0="0,36,1,37,2,38,3,39,4,40,5,41,6,42,7,43,8,44,9,45,10,46,11,47,12,48,13,49,14,50,15,51,16,52,17,53"
+cpu_list_rpc2_36_socket_1="18,54,19,55,20,56,21,57,22,58,23,59,24,60,25,61,26,62,27,63,28,64,29,65,30,66,31,67,32,68,33,69,34,70,35,71"
+
+cpu_list_rpc2_32_socket_0="0,36,1,37,2,38,3,39,4,40,5,41,6,42,7,43,8,44,9,45,10,46,11,47,12,48,13,49,14,50,15,51"
+cpu_list_rpc2_32_socket_1="18,54,19,55,20,56,21,57,22,58,23,59,24,60,25,61,26,62,27,63,28,64,29,65,30,66,31,67,32,68,33,69"
+
+cpu_list_rpc2_24_socket_0="0,36,1,37,2,38,3,39,4,40,5,41,6,42,7,43,8,44,9,45,10,46,11,47"
+cpu_list_rpc2_24_socket_1="18,54,19,55,20,56,21,57,22,58,23,59,24,60,25,61,26,62,27,63,28,64,29,65"
+
+cpu_list_rpc2_18_socket_0="0,36,1,37,2,38,3,39,4,40,5,41,6,42,7,43,8,44"
+cpu_list_rpc2_18_socket_1="18,54,19,55,20,56,21,57,22,58,23,59,24,60,25,61,26,62"
+
+cpu_list_rpc2_16_socket_0="0,36,1,37,2,38,3,39,4,40,5,41,6,42,7,43"
+cpu_list_rpc2_16_socket_1="18,54,19,55,20,56,21,57,22,58,23,59,24,60,25,61"
+
+cpu_list_rpc2_12_socket_0="0,36,1,37,2,38,3,39,4,40,5,41"
+cpu_list_rpc2_12_socket_1="18,54,19,55,20,56,21,57,22,58,23,59"
+
+cpu_list_rpc2_08_socket_0="0,36,1,37,2,38,3,39"
+cpu_list_rpc2_08_socket_1="18,54,19,55,20,56,21,57"
+
+cpu_list_rpc2_06_socket_0="0,36,1,37,2,38"
+cpu_list_rpc2_06_socket_1="18,54,19,55,20,56"
+
+cpu_list_rpc2_04_socket_0="0,36,1,37"
+cpu_list_rpc2_04_socket_1="18,54,19,55"
+
+cpu_list_rpc2_02_socket_0="0,36"
+cpu_list_rpc2_02_socket_1="18,54"
+
+cpu_list_rpc2_01_socket_0="0,36"
+
+cpu_bind_rpc2_36="--cpu_bind=map_cpu:${cpu_list_rpc2_36_socket_0},${cpu_list_rpc2_36_socket_1}"
+cpu_bind_rpc2_32="--cpu_bind=map_cpu:${cpu_list_rpc2_32_socket_0},${cpu_list_rpc2_32_socket_1}"
+cpu_bind_rpc2_24="--cpu_bind=map_cpu:${cpu_list_rpc2_24_socket_0},${cpu_list_rpc2_24_socket_1}"
+cpu_bind_rpc2_18="--cpu_bind=map_cpu:${cpu_list_rpc2_18_socket_0},${cpu_list_rpc2_18_socket_1}"
+cpu_bind_rpc2_16="--cpu_bind=map_cpu:${cpu_list_rpc2_16_socket_0},${cpu_list_rpc2_16_socket_1}"
+cpu_bind_rpc2_12="--cpu_bind=map_cpu:${cpu_list_rpc2_12_socket_0},${cpu_list_rpc2_12_socket_1}"
+cpu_bind_rpc2_08="--cpu_bind=map_cpu:${cpu_list_rpc2_08_socket_0},${cpu_list_rpc2_08_socket_1}"
+cpu_bind_rpc2_06="--cpu_bind=map_cpu:${cpu_list_rpc2_06_socket_0},${cpu_list_rpc2_06_socket_1}"
+cpu_bind_rpc2_04="--cpu_bind=map_cpu:${cpu_list_rpc2_04_socket_0},${cpu_list_rpc2_04_socket_1}"
+cpu_bind_rpc2_02="--cpu_bind=map_cpu:${cpu_list_rpc2_02_socket_0},${cpu_list_rpc2_02_socket_1}"
+cpu_bind_rpc2_01="--cpu_bind=map_cpu:${cpu_list_rpc2_01_socket_0}"
+
+cpu_list_rpc1_36_socket_0="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"
+cpu_list_rpc1_36_socket_1="18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35"
+
+cpu_list_rpc1_32_socket_0="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"
+cpu_list_rpc1_32_socket_1="18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33"
+
+cpu_list_rpc1_24_socket_0="0,1,2,3,4,5,6,7,8,9,10,11"
+cpu_list_rpc1_24_socket_1="18,19,20,21,22,23,24,25,26,27,28,29"
+
+cpu_list_rpc1_18_socket_0="0,1,2,3,4,5,6,7,8"
+cpu_list_rpc1_18_socket_1="18,19,20,21,22,23,24,25,26"
+
+cpu_list_rpc1_16_socket_0="0,1,2,3,4,5,6,7"
+cpu_list_rpc1_16_socket_1="18,19,20,21,22,23,24,25"
+
+cpu_list_rpc1_12_socket_0="0,1,2,3,4,5"
+cpu_list_rpc1_12_socket_1="18,19,20,21,22,23"
+
+cpu_list_rpc1_08_socket_0="0,1,2,3"
+cpu_list_rpc1_08_socket_1="18,19,20,21"
+
+cpu_list_rpc1_06_socket_0="0,1,2"
+cpu_list_rpc1_06_socket_1="18,19,20"
+
+cpu_list_rpc1_04_socket_0="0,1"
+cpu_list_rpc1_04_socket_1="18,19"
+
+cpu_list_rpc1_02_socket_0="0"
+cpu_list_rpc1_02_socket_1="18"
+
+cpu_list_rpc1_01_socket_0="0"
+
+cpu_bind_rpc1_36="--cpu_bind=map_cpu:${cpu_list_rpc1_36_socket_0},${cpu_list_rpc1_36_socket_1}"
+cpu_bind_rpc1_32="--cpu_bind=map_cpu:${cpu_list_rpc1_32_socket_0},${cpu_list_rpc1_32_socket_1}"
+cpu_bind_rpc1_24="--cpu_bind=map_cpu:${cpu_list_rpc1_24_socket_0},${cpu_list_rpc1_24_socket_1}"
+cpu_bind_rpc1_18="--cpu_bind=map_cpu:${cpu_list_rpc1_18_socket_0},${cpu_list_rpc1_18_socket_1}"
+cpu_bind_rpc1_16="--cpu_bind=map_cpu:${cpu_list_rpc1_16_socket_0},${cpu_list_rpc1_16_socket_1}"
+cpu_bind_rpc1_12="--cpu_bind=map_cpu:${cpu_list_rpc1_12_socket_0},${cpu_list_rpc1_12_socket_1}"
+cpu_bind_rpc1_08="--cpu_bind=map_cpu:${cpu_list_rpc1_08_socket_0},${cpu_list_rpc1_08_socket_1}"
+cpu_bind_rpc1_06="--cpu_bind=map_cpu:${cpu_list_rpc1_06_socket_0},${cpu_list_rpc1_06_socket_1}"
+cpu_bind_rpc1_04="--cpu_bind=map_cpu:${cpu_list_rpc1_04_socket_0},${cpu_list_rpc1_04_socket_1}"
+cpu_bind_rpc1_02="--cpu_bind=map_cpu:${cpu_list_rpc1_02_socket_0},${cpu_list_rpc1_02_socket_1}"
+cpu_bind_rpc1_01="--cpu_bind=map_cpu:${cpu_list_rpc1_01_socket_0}"
+
+##############################################################################################################################################
+# Large DDR problem, strong scaled across 8 nodes.
+
+##############################################################################################################################################
+# MPI only, 2 ranks/core.
+
+${aprun} -n 576 -N 8 ${cpu_bind_rpc2_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0008_nppn_072_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0008_nppn_072_nrpc_001.log
+${aprun} -n 288 -N 4 ${cpu_bind_rpc2_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0004_nppn_072_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0004_nppn_072_nrpc_001.log
+${aprun} -n 144 -N 2 ${cpu_bind_rpc2_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0002_nppn_072_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0002_nppn_072_nrpc_001.log
+
+${aprun} -n  72 -N 1 ${cpu_bind_rpc2_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_072_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_072_nrpc_001.log
+${aprun} -n  64 -N 1 ${cpu_bind_rpc2_32} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_064_nrpc_001.log
+${aprun} -n  48 -N 1 ${cpu_bind_rpc2_24} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_048_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_048_nrpc_001.log
+${aprun} -n  36 -N 1 ${cpu_bind_rpc2_18} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_036_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_036_nrpc_001.log
+${aprun} -n  32 -N 1 ${cpu_bind_rpc2_16} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_032_nrpc_001.log
+${aprun} -n  24 -N 1 ${cpu_bind_rpc2_12} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_024_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_024_nrpc_001.log
+${aprun} -n  16 -N 1 ${cpu_bind_rpc2_08} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_016_nrpc_001.log
+${aprun} -n  12 -N 1 ${cpu_bind_rpc2_06} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_012_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_012_nrpc_001.log
+${aprun} -n   8 -N 1 ${cpu_bind_rpc2_04} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_008_nrpc_001.log
+${aprun} -n   4 -N 1 ${cpu_bind_rpc2_02} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_004_nrpc_001.log
+${aprun} -n   2 -N 1 ${cpu_bind_rpc2_01} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_002_nrpc_001.log
+
+##############################################################################################################################################
+# MPI only, 1 rank/core.
+
+${aprun} -n 288 -N 8 ${cpu_bind_rpc1_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0008_nppn_036_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0008_nppn_036_nrpc_001.log
+${aprun} -n 144 -N 4 ${cpu_bind_rpc1_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0004_nppn_036_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0004_nppn_036_nrpc_001.log
+${aprun} -n  72 -N 2 ${cpu_bind_rpc1_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0002_nppn_036_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0002_nppn_036_nrpc_001.log
+
+${aprun} -n  36 -N 1 ${cpu_bind_rpc1_36} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_036_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_036_nrpc_001.log
+${aprun} -n  32 -N 1 ${cpu_bind_rpc1_32} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_032_nrpc_001.log
+${aprun} -n  24 -N 1 ${cpu_bind_rpc1_24} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_024_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_024_nrpc_001.log
+${aprun} -n  18 -N 1 ${cpu_bind_rpc1_18} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_018_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_018_nrpc_001.log
+${aprun} -n  16 -N 1 ${cpu_bind_rpc1_16} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_016_nrpc_001.log
+${aprun} -n  12 -N 1 ${cpu_bind_rpc1_12} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_012_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_012_nrpc_001.log
+${aprun} -n   8 -N 1 ${cpu_bind_rpc1_08} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_008_nrpc_001.log
+${aprun} -n   6 -N 1 ${cpu_bind_rpc1_06} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_006_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_006_nrpc_001.log
+${aprun} -n   4 -N 1 ${cpu_bind_rpc1_04} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_004_nrpc_001.log
+${aprun} -n   2 -N 1 ${cpu_bind_rpc1_02} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_002_nrpc_001.log
+${aprun} -n   1 -N 1 ${cpu_bind_rpc1_01} ${voc} ${vtime} ${xpre}${prob}_ddr_nn_0001_nppn_001_ntpp_001.Linux --tpp 1 >& ${prob}_ddr_nn_0001_nppn_001_nrpc_001.log
+
+##############################################################################################################################################
+# Small HBM problem, strong scaled across 1 node.
+
+##############################################################################################################################################
+# MPI only, 2 ranks/core.
+
+${aprun} -n  72 -N 1 ${cpu_bind_rpc2_36} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_072_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_072_nrpc_001.log
+${aprun} -n  64 -N 1 ${cpu_bind_rpc2_32} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_064_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_064_nrpc_001.log
+${aprun} -n  48 -N 1 ${cpu_bind_rpc2_24} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_048_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_048_nrpc_001.log
+${aprun} -n  36 -N 1 ${cpu_bind_rpc2_18} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_036_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_036_nrpc_001.log
+${aprun} -n  32 -N 1 ${cpu_bind_rpc2_16} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_032_nrpc_001.log
+${aprun} -n  24 -N 1 ${cpu_bind_rpc2_12} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_024_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_024_nrpc_001.log
+${aprun} -n  16 -N 1 ${cpu_bind_rpc2_08} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_016_nrpc_001.log
+${aprun} -n  12 -N 1 ${cpu_bind_rpc2_06} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_012_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_012_nrpc_001.log
+${aprun} -n   8 -N 1 ${cpu_bind_rpc2_04} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_008_nrpc_001.log
+${aprun} -n   4 -N 1 ${cpu_bind_rpc2_02} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_004_nrpc_001.log
+${aprun} -n   2 -N 1 ${cpu_bind_rpc2_01} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_002_nrpc_001.log
+
+##############################################################################################################################################
+# MPI only, 1 rank/core.
+
+${aprun} -n  36 -N 1 ${cpu_bind_rpc1_36} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_036_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_036_nrpc_001.log
+${aprun} -n  32 -N 1 ${cpu_bind_rpc1_32} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_032_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_032_nrpc_001.log
+${aprun} -n  24 -N 1 ${cpu_bind_rpc1_24} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_024_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_024_nrpc_001.log
+${aprun} -n  18 -N 1 ${cpu_bind_rpc1_18} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_018_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_018_nrpc_001.log
+${aprun} -n  16 -N 1 ${cpu_bind_rpc1_16} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_016_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_016_nrpc_001.log
+${aprun} -n  12 -N 1 ${cpu_bind_rpc1_12} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_012_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_012_nrpc_001.log
+${aprun} -n   8 -N 1 ${cpu_bind_rpc1_08} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_008_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_008_nrpc_001.log
+${aprun} -n   6 -N 1 ${cpu_bind_rpc1_06} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_006_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_006_nrpc_001.log
+${aprun} -n   4 -N 1 ${cpu_bind_rpc1_04} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_004_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_004_nrpc_001.log
+${aprun} -n   2 -N 1 ${cpu_bind_rpc1_02} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_002_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_002_nrpc_001.log
+${aprun} -n   1 -N 1 ${cpu_bind_rpc1_01} ${voc} ${vtime} ${xpre}${prob}_hbm_nn_0001_nppn_001_ntpp_001.Linux --tpp 1 >& ${prob}_hbm_nn_0001_nppn_001_nrpc_001.log
