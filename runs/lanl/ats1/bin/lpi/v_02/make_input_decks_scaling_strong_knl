@@ -14,9 +14,7 @@
 #
 #######################################################################
 
-test_dir=../../../../../../VPIC_Test_Decks/lpi/v_02
-
-make_input_deck=${test_dir}/make_input_decks
+make_input_deck=./make_input_decks
 
 #######################################################################
 # Create the input decks for 4 ranks/core, 1 thread/rank i.e. MPI
