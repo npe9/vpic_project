@@ -59,9 +59,6 @@ else
     echo "module load cmake" >> bashrc.modules
 fi
 
-module load git
-echo "module load git" >> bashrc.modules
-
 if [ ! "x$VERSION_GIT" = "x" ]
 then
     module load git/$VERSION_GIT
