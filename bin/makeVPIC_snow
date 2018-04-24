@@ -164,6 +164,9 @@ if echo $ARCH | grep -q "IMPI"
 then
     VMPI="IMPI"
 
+    VPIC_COMPILER_C="mpiicc"
+    VPIC_COMPILER_CXX="mpiicpc"
+
     if [ ! "x$VERSION_INTEL_MPI" = "x" ]
     then
         module load intel-mpi/$VERSION_INTEL_MPI
