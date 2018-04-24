@@ -147,9 +147,9 @@ begin_initialization
 
   // Simulation parameters
 
-  double Lx                = 17 * 0.02 * 12.0 * 1e-4 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
-  double Ly                =  3 * 0.02 * 12.0 * 1e-4 * REPLACE_scale_Ly;
-  double Lz                =  3 * 0.02 * 12.0 * 1e-4 * REPLACE_scale_Lz;
+  double Lx                = 17 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
+  double Ly                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Ly;
+  double Lz                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lz;
 
   double nx                = 16*17*REPLACE_scale_nx;
   double ny                = 16* 3*REPLACE_scale_ny;
