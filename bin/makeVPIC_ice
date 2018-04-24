@@ -153,13 +153,27 @@ if echo $ARCH | grep -q "OMPI"
 then
     VMPI="OMPI"
 
-    if [ ! "x$VERSION_OPENMPI" = "x" ]
+    if [ ! "x$VERSION_OPEN_MPI" = "x" ]
     then
-        module load openmpi/$VERSION_OPENMPI
-        echo "module load openmpi/$VERSION_OPENMPI" >> bashrc.modules
+        module load openmpi/$VERSION_OPEN_MPI
+        echo "module load openmpi/$VERSION_OPEN_MPI" >> bashrc.modules
     else
         module load openmpi
         echo "module load openmpi" >> bashrc.modules
+    fi
+fi
+
+if echo $ARCH | grep -q "IMPI"
+then
+    VMPI="IMPI"
+
+    if [ ! "x$VERSION_INTEL_MPI" = "x" ]
+    then
+        module load intel-mpi/$VERSION_INTEL_MPI
+        echo "module load intel-mpi/$VERSION_INTEL_MPI" >> bashrc.modules
+    else
+        module load intel-mpi
+        echo "module load intel-mpi" >> bashrc.modules
     fi
 fi
 

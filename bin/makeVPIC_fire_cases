@@ -12,7 +12,9 @@ vtime="/usr/bin/time -p"
 
 #export VERSION_INTEL=18.0.1
 #export VERSION_GNU=6.4.0
-#export VERSION_OPENMPI=1.10.5
+
+#export VERSION_OPEN_MPI=1.10.5
+#export VERSION_INTEL_MPI=2018.2
 
 #export VERSION_INTEL_VTUNE_AMPLIFIER=2018.2.0
 #export VERSION_INTEL_VECTOR_ADVISOR=2018.2.0
@@ -21,8 +23,6 @@ vtime="/usr/bin/time -p"
 
 #export VERSION_FORGE=18.1.1
 
-#export VERSION_INTEL_MPI=2018.2
-
 ##########################################################################################
 # Configure parameters that determine the value of the ARCH to be built.
 
@@ -30,6 +30,7 @@ vtime="/usr/bin/time -p"
 # Select an MPI implementation to use.
 
 VMPI="OMPI"
+#VMPI="IMPI"
 
 ################################################################################
 # Select a thread model to use.
