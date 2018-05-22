@@ -4,6 +4,7 @@
 //               boundary
 //
 // Adapted from Albright's Lightning 3D LPI deck.
+//
 // B. Albright, X-1-PTA; 28 Jan. 2007
 // Lin Yin, X-1-PTA, 23 Feb 2009, for Cerrillos test
 //
@@ -25,30 +26,21 @@
 
 begin_globals
 {
-  double e0;                   // peak amplitude of oscillating electric field
-  double omega;                // angular freq. of the beam
-
-  int fields_interval;         // how often to dump field and hydro
-  int poynting_interval;       // how often to compute poynting flux on boundary
-  int restart_interval;        // how often to write restart data
   int quota_check_interval;    // how often to check if quota exceeded
-  int energies_interval;       // how often to dump energy history data
-  int ehydro_interval;
-  int Hhydro_interval;
-  int eparticle_interval;
-  int Hparticle_interval;
-
-  double quota_sec;            // run quota in sec
   int rtoggle;                 // enable save of last 2 restart files for safety
   int load_particles;          // were particles loaded?
-  double topology_x;           // domain topology needed to normalize Poynting diagnostic
-  double topology_y;
-  double topology_z;
   int mobile_ions;
   int H_present;
   int He_present;
 
-  // Parameters for 3d Gaussian wave launch
+  double e0;                   // peak amplitude of oscillating electric field
+  double omega;                // angular freq. of the beam
+  double quota_sec;            // run quota in sec
+  double topology_x;           // domain topology needed to normalize Poynting diagnostic
+  double topology_y;
+  double topology_z;
+
+  // Parameters for 3d Gaussian wave launch.
   double lambda;
   double waist;                // how wide the focused beam is
   double width;
@@ -57,7 +49,17 @@ begin_globals
   double xfocus;               // how far from boundary to focus
   double mask;                 // # gaussian widths from beam center where I is nonzero
 
-  // Ponyting diagnostic flags - which output to turn on
+  // Parameters for diagnostics and I/O.
+  int fields_interval;         // how often to dump field and hydro
+  int poynting_interval;       // how often to compute poynting flux on boundary
+  int restart_interval;        // how often to write restart data
+  int energies_interval;       // how often to dump energy history data
+  int ehydro_interval;
+  int Hhydro_interval;
+  int eparticle_interval;
+  int Hparticle_interval;
+
+  // Poynting diagnostic flags - which output to turn on.
 
   // write_backscatter_only flag:  when this flag is nonzero, it means to only compute
   // poynting data for the lower-x surface.  This flag affects both the summed poynting
@@ -147,41 +149,30 @@ begin_initialization
 
   // Simulation parameters
 
-  double Lx                = 17 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
-  double Ly                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Ly;
-  double Lz                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lz;
-
-  double nx                = 16*17*REPLACE_scale_nx;
-  double ny                = 16* 3*REPLACE_scale_ny;
-  double nz                = 16* 3*REPLACE_scale_nz;
-
-  double topology_x        = REPLACE_topology_x*REPLACE_scale_topology_x;
-  double topology_y        = REPLACE_topology_y*REPLACE_scale_topology_y;
-  double topology_z        = REPLACE_topology_z*REPLACE_scale_topology_z;
-
-  // single-processor mesh = 544 x 96 x 96
-
   double nppc               = REPLACE_nppc;        // Average number macro particles per cell per species
   int load_particles        = 1;                   // Flag to turn on/off particle load
   int mobile_ions           = REPLACE_mobile_ions; // Whether or not to push ions
+
   double f_He               = 0;                   // Ratio of number density of He to total ion density
+  int He_present            = ( (f_He!=0) ? 1 : 0 );
+
   double f_H                = 1-f_He;              // Ratio of number density of H  to total ion density
   int H_present             = ( (f_H !=0) ? 1 : 0 );
-  int He_present            = ( (f_He!=0) ? 1 : 0 );
 
   // Precompute some useful variables.
   double A_H                = 1;
-  double A_He               = 4;
   double Z_H                = 1;
-  double Z_He               = 2;
   double mic2_H             = mpc2*A_H;
-  double mic2_He            = mpc2*A_He;
   double mime_H             = mic2_H /mec2;
+  double uthi_H             = sqrt(t_i/mic2_H);   // vthi/c for H
+
+  double A_He               = 4;
+  double Z_He               = 2;
+  double mic2_He            = mpc2*A_He;
   double mime_He            = mic2_He/mec2;
+  double uthi_He            = sqrt(t_i/mic2_He);  // vthi/c for He
 
   double uthe               = sqrt(t_e/mec2);     // vthe/c
-  double uthi_H             = sqrt(t_i/mic2_H);   // vthi/c for H
-  double uthi_He            = sqrt(t_i/mic2_He);  // vthi/c for He
 
   // Plasma skin depth in cm
   double delta = (vacuum_wavelength / (2*M_PI) ) / sqrt( n_e_over_n_crit );
@@ -190,8 +181,17 @@ begin_initialization
   double debye = uthe*delta;                      // electron Debye length (cm)
   double omega = sqrt( 1/n_e_over_n_crit );       // laser beam freq. in wpe
 
-  // Peak instantaneous E field in "natural units"
-  double e0    = sqrt( 2*laser_intensity / (m_e*c_vac*c_vac*c_vac*n_e) );
+  double topology_x        = REPLACE_topology_x * REPLACE_scale_topology_x;
+  double topology_y        = REPLACE_topology_y * REPLACE_scale_topology_y;
+  double topology_z        = REPLACE_topology_z * REPLACE_scale_topology_z;
+
+  double nx                = 16*17*REPLACE_scale_nx;
+  double ny                = 16* 3*REPLACE_scale_ny;
+  double nz                = 16* 3*REPLACE_scale_nz;
+
+  double Lx                = 17 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
+  double Ly                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Ly;
+  double Lz                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lz;
 
   // Set up local mesh resolution and time step
   Lx /= delta;                                    // Convert box size to skin depths
@@ -214,7 +214,10 @@ begin_initialization
   double zcenter           = 0;                   // center of spot in z on lhs boundary
   double mask              = 1.5;                 // set drive I=0 outside r>mask*width at lhs boundary
   double width = waist*sqrt( 1 + (lambda*xfocus/(M_PI*waist*waist))*(lambda*xfocus/(M_PI*waist*waist)));
-  e0                       = e0*(waist/width);    // at entrance (3D Gaussian)
+
+  // Peak instantaneous E field in "natural units"
+  double e0                = sqrt( 2*laser_intensity / (m_e*c_vac*c_vac*c_vac*n_e) );
+  e0                       = e0*(waist/width);     // at entrance (3D Gaussian)
 
   double dt                = cfl_req*courant_length(Lx,Ly,Lz,nx,ny,nz); // in 1/wpe; n.b. c=1 in nat. units
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1;
@@ -311,9 +314,6 @@ begin_initialization
   clean_div_e_interval = REPLACE_clean_div_e_interval;
   clean_div_b_interval = REPLACE_clean_div_b_interval;
 
-  // Turn off some of the spam
-  verbose = 1;
-
   // For maxwellian reinjection, we need more than the default number of
   // passes (3) through the boundary handler
   // Note:  We have to adjust sort intervals for maximum performance on Cell.
@@ -321,17 +321,7 @@ begin_initialization
 
   global->e0                     = e0;
   global->omega                  = omega;
-
-  global->fields_interval        = fields_interval;
-  global->poynting_interval      = poynting_interval;
-  global->restart_interval       = restart_interval;
   global->quota_check_interval   = quota_check_interval;
-  global->energies_interval      = energies_interval;
-  global->ehydro_interval        = ehydro_interval;
-  global->Hhydro_interval        = Hhydro_interval;
-  global->eparticle_interval     = eparticle_interval;
-  global->Hparticle_interval     = Hparticle_interval;
-
   global->quota_sec              = quota_sec;
   global->rtoggle                = 0;
   global->load_particles         = load_particles;
@@ -348,6 +338,15 @@ begin_initialization
   global->waist                  = waist;
   global->width                  = width;
   global->lambda                 = lambda;
+
+  global->fields_interval        = fields_interval;
+  global->poynting_interval      = poynting_interval;
+  global->restart_interval       = restart_interval;
+  global->energies_interval      = energies_interval;
+  global->ehydro_interval        = ehydro_interval;
+  global->Hhydro_interval        = Hhydro_interval;
+  global->eparticle_interval     = eparticle_interval;
+  global->Hparticle_interval     = Hparticle_interval;
 
   global->write_poynting_data    = write_poynting_data;
 
@@ -388,13 +387,13 @@ begin_initialization
 
   double max_local_nm = max_local_np/10.0;
 
-  species_t * electron = define_species( "electron",
-					 -1,
-					 1,
-					 max_local_np,
-					 max_local_nm,
-					 REPLACE_eon_sort_interval,
-					 REPLACE_eon_sort_method );
+  species_t *electron = define_species( "electron",
+					-1,
+					1,
+					max_local_np,
+					max_local_nm,
+					REPLACE_eon_sort_interval,
+					REPLACE_eon_sort_method );
 
   // Start with two ion species.  We have option to go to Xe and Kr gas fills if
   // we need a higher ion/electron macroparticle ratio.
@@ -475,7 +474,7 @@ begin_initialization
     }
   }
 
-  // Set up materials
+  // Set up materials.
 
   sim_log( "Setting up materials." );
 
@@ -483,11 +482,14 @@ begin_initialization
 
   define_field_array( NULL, damp );
 
-  // Paint the simulation volume with materials and boundary conditions
+  // Paint the simulation volume with materials and boundary conditions.
 
-# define iv_region (   x<      hx*iv_thick || x>Lx  -hx*iv_thick  \
-                    || y<-Ly/2+hy*iv_thick || y>Ly/2-hy*iv_thick  \
-		       || z<-Lz/2+hz*iv_thick || z>Lz/2-hz*iv_thick ) // all boundaries are i.v.
+# define iv_region (   x <         hx*iv_thick || \
+		       x >  Lx   - hx*iv_thick || \
+		       y < -Ly/2 + hy*iv_thick || \
+		       y >  Ly/2 - hy*iv_thick || \
+		       z < -Lz/2 + hz*iv_thick || \
+		       z >  Lz/2 - hz*iv_thick ) // all boundaries are i.v.
 
   set_region_bc( iv_region,
 		 maxwellian_reinjection,
@@ -506,7 +508,7 @@ begin_initialization
     double ymin=grid->y0, ymax=grid->y1;
     double zmin=grid->z0, zmax=grid->z1;
 
-    repeat( N_e/(topology_x*topology_y*topology_z) )
+    repeat( N_e / ( topology_x * topology_y * topology_z ) )
     {
       double x = uniform( rng(0), xmin, xmax );
       double y = uniform( rng(0), ymin, ymax );
@@ -531,7 +533,7 @@ begin_initialization
                            normal( rng(0), 0, uthi_H), qi_H, 0, 0 );
 	}
 
-        if ( He_present ) // Inject an H macroion on top of macroelectron
+        if ( He_present ) // Inject an He macroion on top of macroelectron
 	{
           inject_particle( ion_He, x, y, z,
                            normal( rng(0), 0, uthi_He),
@@ -842,6 +844,10 @@ begin_initialization
 
 begin_diagnostics
 {
+  //--------------------------------------------------------------------------//
+  // Begin diagnostics.
+  //--------------------------------------------------------------------------//
+
   //--------------------------------------------------------------------------//
   // NOTE: YOU CANNOT DIRECTLY USE C FILE DESCRIPTORS OR SYSTEM CALLS ANYMORE.
   //
@@ -1210,7 +1216,7 @@ begin_field_injection
 
 begin_particle_injection
 {
-  // No particle injection for this simulation
+  // No particle injection for this simulation.
 }
 
 //----------------------------------------------------------------------------//
@@ -1219,7 +1225,7 @@ begin_particle_injection
 
 begin_current_injection
 {
-  // No current injection for this simulation
+  // No current injection for this simulation.
 }
 
 //----------------------------------------------------------------------------//
@@ -1228,5 +1234,5 @@ begin_current_injection
 
 begin_particle_collisions
 {
-  // No particle collisions for this simulation
+  // No particle collisions for this simulation.
 }
