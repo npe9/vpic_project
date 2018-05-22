@@ -44,11 +44,8 @@ echo '' >> bashrc.modules
 module purge
 echo "module purge" >> bashrc.modules
 
-module load friendly-testing
-echo "module load friendly-testing" >> bashrc.modules
-
-module load sandbox
-echo "module load sandbox" >> bashrc.modules
+module load bsc
+echo "module load bsc" >> bashrc.modules
 
 if [ ! "x$VERSION_CMAKE" = "x" ]
 then
@@ -57,15 +54,6 @@ then
 else
     module load cmake
     echo "module load cmake" >> bashrc.modules
-fi
-
-if [ ! "x$VERSION_GIT" = "x" ]
-then
-    module load git/$VERSION_GIT
-    echo "module load git/$VERSION_GIT" >> bashrc.modules
-else
-    module load git
-    echo "module load git" >> bashrc.modules
 fi
 
 ##########################################################################################
@@ -174,7 +162,7 @@ then
         module load impi/$VERSION_INTEL_MPI
         echo "module load impi/$VERSION_INTEL_MPI" >> bashrc.modules
     else
-        module load intel-mpi
+        module load impi
         echo "module load impi" >> bashrc.modules
     fi
 fi
