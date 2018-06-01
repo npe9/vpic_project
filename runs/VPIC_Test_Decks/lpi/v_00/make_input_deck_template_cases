@@ -68,6 +68,7 @@
 ./make_input_deck_template   1*4    1*3    1*2   0000024  # MPI Domain Grid, SS: 136 x 32 x 48
 ./make_input_deck_template   1*4    1*3    1*3   0000036  # MPI Domain Grid, SS: 136 x 32 x 32
 ./make_input_deck_template   1*8    1*3    1*2   0000048  # MPI Domain Grid, SS:  68 x 32 x 48
+./make_input_deck_template   1*8    1*3    1*4   0000096  # MPI Domain Grid, SS:  68 x 32 x 24
 
 ./make_input_deck_template   2*4    1*3    1*3   0000072  # MPI Domain Grid, WS: 136 x 32 x 32, nnodes:    2, BDW w/ 1 RPC
 ./make_input_deck_template   2*4    2*3    1*3   0000144  # MPI Domain Grid, WS: 136 x 32 x 32, nnodes:    4, BDW w/ 1 RPC
