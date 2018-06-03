@@ -1,8 +1,6 @@
 #!/bin/bash
 
-#test_home=../../../../../../VPIC_Test_Decks/lpi/v_02
-
-test_home=..
+test_home=../../../../../../VPIC_Test_Decks/lpi/v_04
 
 #######################################################################
 # Set run parameters.
