@@ -1,0 +1,40 @@
+
+This README file provides a summary of the features of the different VPIC LPI
+test problems.
+
+--------------------------------------------------------------------------------
+0. Problem v_00
+
+--------------------------------------------------------------------------------
+1. Problem v_01
+
+--------------------------------------------------------------------------------
+2. Problem v_02
+
+--------------------------------------------------------------------------------
+3. Problem v_03
+
+--------------------------------------------------------------------------------
+4. Problem v_04
+
+This problem is derived from an LPI, Laser Plasma Interaction, input deck from
+Brian Albright. It uses periodic boundary conditions which allows for better
+load balancing which in turn makes it easier to interpret performance results.
+The single node mesh is 136x32x32 which should be small enough to fit in the
+16 GB of HBM on a Trinity KNL node. Using scaling factors, it can be scaled up
+in size to provide a problem which uses a larger percentage of the DDR memory
+on a single node. The mesh has a factor of 17 and factors of 2 which makes
+possible running the same problem on Trinity Haswell and KNL nodes or any
+compute node where the number of cores on a processor has factors of 2 and at
+most a single factor of 17. This problem uses an electron species and two ion
+species with a target of 512 particles per cell per species. It has a number of
+configurable parameters.
+
+--------------------------------------------------------------------------------
+5. Problem v_05
+
+--------------------------------------------------------------------------------
+6. Problem v_06
+
+--------------------------------------------------------------------------------
+7. Problem v_07

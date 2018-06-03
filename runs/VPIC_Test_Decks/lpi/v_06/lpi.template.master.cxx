@@ -7,6 +7,9 @@
 //
 // B. Albright, X-1-PTA; 28 Jan. 2007
 // Lin Yin, X-1-PTA, 23 Feb 2009, for Cerrillos test
+// B. Albright, XTD-PRI, 10 Jan. 2017, for Trinity test
+// B. Albright, XTD-PRI, 30 Aug. 2017, for Coral II test
+// B. Albright, XTD-PRI, 30 Nov. 2017, for Coral II test - redone for 3D
 //
 // Executable creates its own directory structure.  Remove the old with:
 //
@@ -42,11 +45,6 @@ begin_globals
   double ycenter;              // center of beam at boundary in y
   double xfocus;               // how far from boundary to focus
   double mask;                 // # gaussian widths from beam center where I is nonzero
-
-  // Needed for movie files.
-  float vthe;                   // vthe/c
-  float vthi_He;                // vthi_He/c
-  float vthi_H;                 // vthi_H/c
 };
 
 //----------------------------------------------------------------------------//
@@ -55,7 +53,7 @@ begin_globals
 
 begin_initialization
 {
-  // System of units.
+  // System of units
   double ec         = 4.8032e-10;          // stat coulomb
   double c_vac      = 2.99792458e10;       // cm/sec
   double m_e        = 9.1094e-28;          // g
@@ -67,25 +65,29 @@ begin_initialization
   double damp       = 0;                   // How much radiation damping
   double iv_thick   = 2;                   // Thickness of impermeable vacuum (in cells)
 
-  // Experimental parameters.
+  // Experimental parameters
 
-  double t_e               = 2600;         // electron temperature, eV
-  double t_i               = 1300;         // ion temperature, eV
-  double n_e_over_n_crit   = 0.1415;       // n_e/n_crit
+  double t_e               = 600;          // electron temperature, eV
+  double t_i               = 150;          // ion temperature, eV
+  double n_e_over_n_crit   = 0.05;         // n_e/n_crit
   double vacuum_wavelength = 527 * 1e-7;   // third micron light (cm)
-  double laser_intensity   = 6.0e15 * 1e7; // in ergs/cm^2 (note: 1 W = 1e7 ergs)
+  double laser_intensity   = 2.5e15 * 1e7; // in ergs/cm^2 (note: 1 W = 1e7 ergs)
 
-  // Simulation parameters.
+  // Simulation parameters
 
-  double nppc               = REPLACE_nppc;        // Average number macro particles per cell per species
+  double nppc               = REPLACE_nppc;        // Average number of particles/cell in ea. species
   int load_particles        = 1;                   // Flag to turn on/off particle load
   int mobile_ions           = REPLACE_mobile_ions; // Whether or not to push ions
 
-  double f_He               = 0;                   // Ratio of number density of He to total ion density
-  int He_present            = ( (f_He!=0) ? 1 : 0 );
+  double f_He               = 0.5;                 // Ratio of number density of He to total ion density
+  int He_present            = 1;
+  if (f_He == 1) H_present  = 0;
 
   double f_H                = 1-f_He;              // Ratio of number density of H  to total ion density
-  int H_present             = ( (f_H !=0) ? 1 : 0 );
+  int H_present             = 1;
+  if (f_H == 1 ) He_present = 0;
+
+  // Here _He is actually N3+ to match Montgomery's Trident laser lpi experiment
 
   // Precompute some useful variables.
   double A_H                = 1;
@@ -94,8 +96,8 @@ begin_initialization
   double mime_H             = mic2_H /mec2;
   double uthi_H             = sqrt(t_i/mic2_H);   // vthi/c for H
 
-  double A_He               = 4;
-  double Z_He               = 2;
+  double A_He               = 14;
+  double Z_He               = 3;
   double mic2_He            = mpc2*A_He;
   double mime_He            = mic2_He/mec2;
   double uthi_He            = sqrt(t_i/mic2_He);  // vthi/c for He
@@ -109,30 +111,57 @@ begin_initialization
   double debye = uthe*delta;                      // electron Debye length (cm)
   double omega = sqrt( 1/n_e_over_n_crit );       // laser beam freq. in wpe
 
-  double topology_x        = REPLACE_topology_x * REPLACE_scale_topology_x;
-  double topology_y        = REPLACE_topology_y * REPLACE_scale_topology_y;
-  double topology_z        = REPLACE_topology_z * REPLACE_scale_topology_z;
+  // Box size for a single node.
+  double box_size_x        = 136 * ( 0.06 * 120.0 * 1e-4 /  6.0 ) / 96;
+  double box_size_y        =  32 * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
+  double box_size_z        =  32 * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
 
-  double nx                = 16*17*REPLACE_scale_nx;
-  double ny                = 16* 3*REPLACE_scale_ny;
-  double nz                = 16* 3*REPLACE_scale_nz;
+  // Scale box size for single node to adjust single node memory footprint.
+  box_size_x              *= REPLACE_scale_Lx;
+  box_size_y              *= REPLACE_scale_Ly;
+  box_size_z              *= REPLACE_scale_Lz;
 
-  double Lx                = 17 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lx; // In cm (note: 1 micron = 1e-4 cm)
-  double Ly                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Ly;
-  double Lz                =  3 * 0.02 * 12.0 * 1e-4 / 2 * REPLACE_scale_Lz;
+  // Scale box size for multiple nodes.
+  box_size_x              *= REPLACE_scale_topology_x;
+  box_size_y              *= REPLACE_scale_topology_y;
+  box_size_z              *= REPLACE_scale_topology_z;
 
-  // Set up local mesh resolution and time step.
-  Lx /= delta;                                    // Convert box size to skin depths
-  Ly /= delta;
-  Lz /= delta;
+  // Grid size for a single node.
+  double nx                = 136;
+  double ny                =  32;
+  double nz                =  32;
 
-  double hx = Lx/nx;
-  double hy = Ly/ny;
-  double hz = Lz/nz;
+  // Scale grid size for single node to adjust single node memory footprint.
+  nx                      *= REPLACE_scale_Lx;
+  ny                      *= REPLACE_scale_Ly;
+  nz                      *= REPLACE_scale_Lz;
 
-  double cell_size_x       = hx*delta/debye;      // Cell size in Debye lengths.
-  double cell_size_y       = hy*delta/debye;
-  double cell_size_z       = hz*delta/debye;
+  // Scale grid size for multiple nodes.
+  nx                      *= REPLACE_scale_topology_x;
+  ny                      *= REPLACE_scale_topology_y;
+  nz                      *= REPLACE_scale_topology_z;
+
+  // Topology for a single node.
+  double topology_x        = REPLACE_topology_x;
+  double topology_y        = REPLACE_topology_y;
+  double topology_z        = REPLACE_topology_z;
+
+  // Scale topology for multiple nodes.
+  topology_x              *= REPLACE_scale_topology_x;
+  topology_y              *= REPLACE_scale_topology_y;
+  topology_z              *= REPLACE_scale_topology_z;
+
+  double hx                = box_size_x / ( delta * nx ); // in c/wpe
+  double hy                = box_size_y / ( delta * ny );
+  double hz                = box_size_z / ( delta * nz );
+
+  double cell_size_x       = hx * delta / debye;  // Cell size in Debye lengths
+  double cell_size_y       = hy * delta / debye;
+  double cell_size_z       = hz * delta / debye;
+
+  double Lx                = nx * hx;           // in c/wpe
+  double Ly                = ny * hy;
+  double Lz                = nz * hz;
 
   double f_number          = 6;                   // f/# of beam
   double lambda            = vacuum_wavelength/delta; // vacuum wavelength in c/wpe
@@ -143,9 +172,10 @@ begin_initialization
   double mask              = 1.5;                 // set drive I=0 outside r>mask*width at lhs boundary
   double width = waist*sqrt( 1 + (lambda*xfocus/(M_PI*waist*waist))*(lambda*xfocus/(M_PI*waist*waist)));
 
-  // Peak instantaneous E field in "natural units".
+  // Peak instantaneous E field in "natural units"
   double e0                = sqrt( 2*laser_intensity / (m_e*c_vac*c_vac*c_vac*n_e) );
-  e0                       = e0*(waist/width);    // at entrance (3D Gaussian)
+  e0                       = e0*(waist/width);     // at entrance (3D Gaussian)
+//e0                       = e0*sqrt(waist/width); // at entrance (2D Gaussian)
 
   double dt                = cfl_req*courant_length(Lx,Ly,Lz,nx,ny,nz); // in 1/wpe; n.b. c=1 in nat. units
   double nsteps_cycle      = trunc_granular(2*M_PI/(dt*omega),1)+1;
@@ -154,7 +184,6 @@ begin_initialization
   double t_stop            = REPLACE_nstep*dt + 0.001*dt; // Runtime in 1/wpe
 
   int quota_check_interval = 20;
-
   double quota_sec         = 23.7*3600;           // Run quota in sec.
 
   double N_e               = nppc*nx*ny*nz;       // Number of macro electrons in box
@@ -163,7 +192,8 @@ begin_initialization
   double N_i               = N_e;                 // Number of macro ions of each species in box
   double Np_i              = Np_e/(Z_H*f_H+Z_He*f_He); // "Number" of "physical" ions of each sp. in box
   double qi_H              = Z_H *f_H *Np_i/N_i;  // Charge per H  macro ion
-  double qi_He             = Z_He*f_He*Np_i/N_i;  // Charge per He macro ion
+//double qi_He             = Z_He*f_He*Np_i/N_i;  // Charge per He macro ion
+  double qi_He             = Np_i/N_i;            // Charge per He macro ion
 
   // Print simulation parameters.
 
@@ -179,7 +209,6 @@ begin_initialization
   sim_log( "* Charge/macro electron =         " << q_e );
   sim_log( "* Average particles/processor:    " << N_e / nproc() );
   sim_log( "* Average particles/cell:         " << nppc );
-  sim_log( "* Total # of particles =          " << 2*N_e );
   sim_log( "* Omega_0, Omega_pe:              " << omega << " " << 1 );
   sim_log( "* Plasma density, ne/nc:          " << n_e << " " << n_e_over_n_crit );
   sim_log( "* Vac wavelength (nm):            " << vacuum_wavelength * 1e7 );
@@ -217,7 +246,9 @@ begin_initialization
   // For maxwellian reinjection, we need more than the default number of
   // passes (3) through the boundary handler
   // Note:  We have to adjust sort intervals for maximum performance on Cell.
-  num_comm_round = 16;
+  // Note: On 1 PE fails after 2094 steps. Increasing num_comm_round to 10
+  // allows it to run > 25,000 steps.
+  num_comm_round = 6;
 
   global->e0                     = e0;
   global->omega                  = omega;
@@ -239,10 +270,6 @@ begin_initialization
   global->width                  = width;
   global->lambda                 = lambda;
 
-  global->vthe                   = uthe;
-  global->vthi_H                 = uthi_H;
-  global->vthi_He                = uthi_He;
-
   // Set up the species. Allow additional local particles in case of
   // non-uniformity.
 
@@ -256,13 +283,12 @@ begin_initialization
   grid->cvac     = 1;
   grid->eps0     = 1;
 
-  sim_log( "Setting up absorbing mesh." );
+  sim_log( "Setting up periodic mesh." );
 
-  define_absorbing_grid( 0,         -0.5*Ly,    -0.5*Lz,        // Low corner
-                         Lx,         0.5*Ly,     0.5*Lz,        // High corner
-                         nx,         ny,         nz,            // Resolution
-                         topology_x, topology_y, topology_z,    // Topology
-                         reflect_particles );                   // Default particle BC
+  define_periodic_grid( 0,         -0.5*Ly,    -0.5*Lz,         // Low corner
+                        Lx,         0.5*Ly,     0.5*Lz,         // High corner
+                        nx,         ny,         nz,             // Resolution
+                        topology_x, topology_y, topology_z );   // Topology
 
   // From grid/partition.c: used to determine which domains are on edge.
 
@@ -278,13 +304,45 @@ begin_initialization
     (iz) = _iz;                                                           \
   } END_PRIMITIVE
 
-  int ix, iy, iz;        // Domain location in mesh.
+  // Override and make field absorbing grid on boundaries.
 
-  RANK_TO_INDEX( int( rank() ), ix, iy, iz ); // Is this really needed.
+  int ix, iy, iz;                    // Domain location in mesh.
+
+  RANK_TO_INDEX( int( rank() ), ix, iy, iz ); 
+
+  if ( ix == 0 )                     // Left boundary.
+  {
+    set_domain_field_bc( BOUNDARY(-1,0,0), absorb_fields );
+  }
+
+  if ( ix == topology_x - 1 )        // Right boundary.
+  {
+    set_domain_field_bc( BOUNDARY( 1,0,0), absorb_fields );
+  }
+
+  if ( iy == 0 )                     // Front boundary.
+  {
+    set_domain_field_bc( BOUNDARY(0,-1,0), absorb_fields );
+  }
+
+  if ( iy == topology_y - 1 )        // Back boundary.
+  {
+    set_domain_field_bc( BOUNDARY(0, 1,0), absorb_fields );
+  }
+
+  if ( iz == 0 )                     // Top boundary.
+  {
+    set_domain_field_bc( BOUNDARY(0,0,-1), absorb_fields );
+  }
+
+  if ( iz == topology_z - 1 )        // Bottom boundary.
+  {
+    set_domain_field_bc( BOUNDARY(0,0, 1), absorb_fields );
+  }
 
   sim_log( "Setting up species." );
 
-  double max_local_np = 1.3 * N_e / nproc();
+  double max_local_np = 1.5 * N_e / nproc();
 
   double max_local_nm = max_local_np / 10.0;
 
@@ -376,7 +434,7 @@ begin_initialization
   #define iv_region ( x <         hx*iv_thick || \
                       x >  Lx   - hx*iv_thick || \
                       y < -Ly/2 + hy*iv_thick || \
-                      y >  Ly/2 - hy*iv_thick || \
+       	              y >  Ly/2 - hy*iv_thick || \
                       z < -Lz/2 + hz*iv_thick || \
                       z >  Lz/2 - hz*iv_thick ) // All boundaries are i.v.
 
@@ -455,7 +513,7 @@ begin_initialization
   }
 
   //--------------------------------------------------------------------------//
-  // Wrap up initialization.
+  // Wrapup initialization.
   //--------------------------------------------------------------------------//
 
   sim_log( "*** Finished with user-specified initialization. ***" );
@@ -502,6 +560,36 @@ begin_diagnostics
   // Begin diagnostics.
   //--------------------------------------------------------------------------//
 
+  if ( step()%200 == 0 )
+  {
+    sim_log( "Time step: " << step() );
+  }
+
+  //--------------------------------------------------------------------------//
+  // Shut down simulation when wall clock time exceeds global->quota_sec.
+  // Note that the mp_elapsed() is guaranteed to return the same value for all
+  // processors (i.e., elapsed time on proc #0), and therefore the abort will
+  // be synchronized across processors. Note that this is only checked every
+  // few timesteps to eliminate the expensive mp_elapsed call from every
+  // timestep. mp_elapsed has an ALL_REDUCE in it.
+  //--------------------------------------------------------------------------//
+
+  if ( ( step() > 0 &&
+	 global->quota_check_interval > 0 &&
+	 ( step() % global->quota_check_interval ) == 0 ) )
+  {
+    if ( uptime() > global->quota_sec )
+    {
+      sim_log( "Allowed runtime exceeded for this job. Terminating." );
+
+      mp_barrier(); // Just to be safe
+
+      halt_mp();
+
+      exit(0);
+    }
+  }
+
   //--------------------------------------------------------------------------//
   // Done with diagnostics.
   //--------------------------------------------------------------------------//
@@ -513,6 +601,9 @@ begin_diagnostics
 
 begin_field_injection
 {
+// Turn off field injection for performance testing.
+
+#if 0 // 3D
   // Inject a light wave from lhs boundary with E aligned along y. Use scalar
   // diffraction theory for the Gaussian beam source. (This is approximate).
   //
@@ -545,7 +636,7 @@ begin_field_injection
     pulse_shape_factor        = ( t < pulse_length ? sin_t_tau : 1 );
     double h                  = global->xfocus/rl; // Distance / Rayleigh length
 
-    // Loop over all Ey values on left edge of this node.
+    // Loop over all Ey values on left edge of this node
     for( int iz = 1; iz <= grid->nz + 1; ++iz )
     {
       for( int iy = 1; iy <= grid->ny; ++iy )
@@ -557,6 +648,54 @@ begin_field_injection
       }
     }
   }
+#endif
+
+#if 0 // 2D
+  // Inject a light wave from lhs boundary with E aligned along y. Use scalar
+  // diffraction theory for the Gaussian beam source. (This is approximate).
+  //
+  // For quiet startup (i.e., so that we don't propagate a delta-function
+  // noise pulse at time t=0) we multiply by a constant phase term exp(i phi)
+  // where:
+  //   phi = k*global->xfocus+atan(h)    (3d)
+  //
+  // Inject from the left a field of the form ey = e0 sin( omega t )
+
+# define DY    ( grid->y0 + (iy-0.5)*grid->dy - global->ycenter )
+# define DZ    ( grid->z0 + (iz-1  )*grid->dz - global->zcenter )
+# define R2Z   ( DZ*DZ )
+# define PHASE ( -global->omega*t + h*R2Z/(global->width*global->width) )
+# define MASK  ( R2Z<=pow(global->mask*global->width,2) ? 1 : 0 )
+
+  if ( grid->x0 == 0 )               // Node is on left boundary
+  {
+    double alpha      = grid->cvac*grid->dt/grid->dx;
+    double emax_coeff = (4/(1+alpha))*global->omega*grid->dt*global->e0;
+    double prefactor  = emax_coeff*sqrt(2/M_PI);
+    double t          = grid->dt*step();
+
+    // Compute Rayleigh length in c/wpe
+    double rl         = M_PI*global->waist*global->waist/global->lambda;
+
+    double pulse_shape_factor = 1;
+    float pulse_length        = 70;                // units of 1/wpe
+    float sin_t_tau           = sin( 0.5 * t * M_PI / pulse_length );
+    pulse_shape_factor        = ( t < pulse_length ? sin_t_tau : 1 );
+    double h                  = global->xfocus/rl; // Distance / Rayleigh length
+
+    // Loop over all Ey values on left edge of this node
+    for( int iz = 1; iz <= grid->nz + 1; ++iz )
+    {
+      for( int iy = 1; iy <= grid->ny; ++iy )
+      {
+        field( 1, iy, iz ).ey += prefactor
+                                 * cos(PHASE)
+                                 * exp( -R2Z / ( global->width*global->width ) ) // 2D
+                                 * MASK * pulse_shape_factor;
+      }
+    }
+  }
+#endif
 }
 
 //----------------------------------------------------------------------------//
