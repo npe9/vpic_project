@@ -136,3 +136,8 @@
 ./make_input_deck_template  17   4   4  0557056 2048 # MPI Domain Grid, WS:   8 x  8 x  8, nnodes: 2048, KNL w/ 4 RPC
 ./make_input_deck_template  17   4   4  1114112 4096 # MPI Domain Grid, WS:   8 x  8 x  8, nnodes: 4096, KNL w/ 4 RPC
 ./make_input_deck_template  17   4   4  2228224 8192 # MPI Domain Grid, WS:   8 x  8 x  8, nnodes: 8192, KNL w/ 4 RPC
+
+#######################################################################
+# Leave a marker file to indicate that this script has been run.
+
+touch z_vpic_input_deck_templates_generated
