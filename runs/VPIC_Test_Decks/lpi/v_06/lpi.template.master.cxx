@@ -112,9 +112,13 @@ begin_initialization
   double omega = sqrt( 1/n_e_over_n_crit );       // laser beam freq. in wpe
 
   // Box size for a single node.
-  double box_size_x        = 136 * ( 0.06 * 120.0 * 1e-4 /  6.0 ) / 96;
-  double box_size_y        =  32 * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
-  double box_size_z        =  32 * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
+  double box_size_x        = REPLACE_nx_sn * ( 0.06 * 120.0 * 1e-4 /  6.0 ) / 96;
+  double box_size_y        = REPLACE_ny_sn * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
+  double box_size_z        = REPLACE_nz_sn * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
+
+  // double box_size_x        = 136 * ( 0.06 * 120.0 * 1e-4 /  6.0 ) / 96;
+  // double box_size_y        =  32 * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
+  // double box_size_z        =  32 * ( 0.06 * 120.0 * 1e-4 / 24.0 ) / 24;
 
   // Scale box size for single node to adjust single node memory footprint.
   box_size_x              *= REPLACE_scale_Lx;
@@ -127,9 +131,13 @@ begin_initialization
   box_size_z              *= REPLACE_scale_topology_z;
 
   // Grid size for a single node.
-  double nx                = 136;
-  double ny                =  32;
-  double nz                =  32;
+  double nx                = REPLACE_nx_sn;
+  double ny                = REPLACE_ny_sn;
+  double nz                = REPLACE_nz_sn;
+
+  // double nx                = 136;
+  // double ny                =  32;
+  // double nz                =  32;
 
   // Scale grid size for single node to adjust single node memory footprint.
   nx                      *= REPLACE_scale_Lx;
@@ -186,14 +194,15 @@ begin_initialization
   int quota_check_interval = 20;
   double quota_sec         = 23.7*3600;           // Run quota in sec.
 
+  // Work through this to make sure I understand it.
   double N_e               = nppc*nx*ny*nz;       // Number of macro electrons in box
   double Np_e              = Lx*Ly*Lz;            // "Number" of "physical" electrons in box (nat. units)
   double q_e               = -Np_e/N_e;           // Charge per macro electron
   double N_i               = N_e;                 // Number of macro ions of each species in box
   double Np_i              = Np_e/(Z_H*f_H+Z_He*f_He); // "Number" of "physical" ions of each sp. in box
   double qi_H              = Z_H *f_H *Np_i/N_i;  // Charge per H  macro ion
-//double qi_He             = Z_He*f_He*Np_i/N_i;  // Charge per He macro ion
-  double qi_He             = Np_i/N_i;            // Charge per He macro ion
+  double qi_He             = Z_He*f_He*Np_i/N_i;  // Charge per He macro ion
+//double qi_He             = Np_i/N_i;            // Charge per He macro ion
 
   // Print simulation parameters.
 
@@ -290,59 +299,66 @@ begin_initialization
                         nx,         ny,         nz,             // Resolution
                         topology_x, topology_y, topology_z );   // Topology
 
-  // From grid/partition.c: used to determine which domains are on edge.
+  int use_maxwellian_reflux_bc = REPLACE_maxwellian_reflux_bc;
 
-  #define RANK_TO_INDEX(rank,ix,iy,iz) BEGIN_PRIMITIVE {                  \
-    int _ix, _iy, _iz;                                                    \
-    _ix  = (rank);                        /* ix = ix+gpx*( iy+gpy*iz ) */ \
-    _iy  = _ix/int(global->topology_x);   /* iy = iy+gpy*iz            */ \
-    _ix -= _iy*int(global->topology_x);   /* ix = ix                   */ \
-    _iz  = _iy/int(global->topology_y);   /* iz = iz                   */ \
-    _iy -= _iz*int(global->topology_y);   /* iy = iy                   */ \
-    (ix) = _ix;                                                           \
-    (iy) = _iy;                                                           \
-    (iz) = _iz;                                                           \
-  } END_PRIMITIVE
-
-  // Override and make field absorbing grid on boundaries.
-
-  int ix, iy, iz;                    // Domain location in mesh.
-
-  RANK_TO_INDEX( int( rank() ), ix, iy, iz ); 
-
-  if ( ix == 0 )                     // Left boundary.
+  if ( use_maxwellian_reflux_bc == 1 )
   {
-    set_domain_field_bc( BOUNDARY(-1,0,0), absorb_fields );
-  }
+    // From grid/partition.c: used to determine which domains are on edge.
 
-  if ( ix == topology_x - 1 )        // Right boundary.
-  {
-    set_domain_field_bc( BOUNDARY( 1,0,0), absorb_fields );
-  }
+    #define RANK_TO_INDEX(rank,ix,iy,iz) BEGIN_PRIMITIVE {                  \
+      int _ix, _iy, _iz;                                                    \
+      _ix  = (rank);                        /* ix = ix+gpx*( iy+gpy*iz ) */ \
+      _iy  = _ix/int(global->topology_x);   /* iy = iy+gpy*iz            */ \
+      _ix -= _iy*int(global->topology_x);   /* ix = ix                   */ \
+      _iz  = _iy/int(global->topology_y);   /* iz = iz                   */ \
+      _iy -= _iz*int(global->topology_y);   /* iy = iy                   */ \
+      (ix) = _ix;                                                           \
+      (iy) = _iy;                                                           \
+      (iz) = _iz;                                                           \
+    } END_PRIMITIVE
 
-  if ( iy == 0 )                     // Front boundary.
-  {
-    set_domain_field_bc( BOUNDARY(0,-1,0), absorb_fields );
-  }
+    // Override and make field absorbing grid on boundaries.
 
-  if ( iy == topology_y - 1 )        // Back boundary.
-  {
-    set_domain_field_bc( BOUNDARY(0, 1,0), absorb_fields );
-  }
+    int ix, iy, iz;                    // Domain location in mesh.
 
-  if ( iz == 0 )                     // Top boundary.
-  {
-    set_domain_field_bc( BOUNDARY(0,0,-1), absorb_fields );
-  }
+    RANK_TO_INDEX( int( rank() ), ix, iy, iz ); 
 
-  if ( iz == topology_z - 1 )        // Bottom boundary.
-  {
-    set_domain_field_bc( BOUNDARY(0,0, 1), absorb_fields );
+    if ( ix == 0 )                     // Left boundary.
+    {
+      set_domain_field_bc( BOUNDARY(-1,0,0), absorb_fields );
+    }
+
+    if ( ix == topology_x - 1 )        // Right boundary.
+    {
+      set_domain_field_bc( BOUNDARY( 1,0,0), absorb_fields );
+    }
+
+    if ( iy == 0 )                     // Front boundary.
+    {
+      set_domain_field_bc( BOUNDARY(0,-1,0), absorb_fields );
+    }
+
+    if ( iy == topology_y - 1 )        // Back boundary.
+    {
+      set_domain_field_bc( BOUNDARY(0, 1,0), absorb_fields );
+    }
+
+    if ( iz == 0 )                     // Top boundary.
+    {
+      set_domain_field_bc( BOUNDARY(0,0,-1), absorb_fields );
+    }
+
+    if ( iz == topology_z - 1 )        // Bottom boundary.
+    {
+      set_domain_field_bc( BOUNDARY(0,0, 1), absorb_fields );
+    }
   }
 
   sim_log( "Setting up species." );
 
-  double max_local_np = 1.5 * N_e / nproc();
+  // double max_local_np = 1.5 * N_e / nproc();
+
+  double max_local_np = REPLACE_max_local_np_scale * N_e / nproc();
 
   double max_local_nm = max_local_np / 10.0;
 
@@ -384,38 +400,41 @@ begin_initialization
     }
   }
 
-  // Turn on maxwellian reinjection particle boundary condition.
-
-  sim_log( "Overriding x boundaries to absorb fields." );
-
-  // Set up Maxwellian reinjection B.C.
-
-  sim_log( "Setting up Maxwellian reinjection boundary condition." );
-
-  particle_bc_t *maxwellian_reinjection =
-    define_particle_bc( maxwellian_reflux( species_list, entropy ) );
-
-  set_reflux_temp( maxwellian_reinjection,
-		   electron,
-		   uthe,
-		   uthe );
-
-  if ( mobile_ions )
+  if ( use_maxwellian_reflux_bc == 1 )
   {
-    if ( H_present )
-    {
-      set_reflux_temp( maxwellian_reinjection,
-		       ion_H,
-		       uthi_H,
-		       uthi_H );
-    }
+    // Turn on maxwellian reinjection particle boundary condition.
 
-    if ( He_present )
+    sim_log( "Overriding x boundaries to absorb fields." );
+
+    // Set up Maxwellian reinjection B.C.
+
+    sim_log( "Setting up Maxwellian reinjection boundary condition." );
+
+    particle_bc_t *maxwellian_reinjection =
+      define_particle_bc( maxwellian_reflux( species_list, entropy ) );
+
+    set_reflux_temp( maxwellian_reinjection,
+		     electron,
+		     uthe,
+		     uthe );
+
+    if ( mobile_ions )
     {
-      set_reflux_temp( maxwellian_reinjection,
-		       ion_He,
-		       uthi_He,
-		       uthi_He );
+      if ( H_present )
+      {
+	set_reflux_temp( maxwellian_reinjection,
+			 ion_H,
+			 uthi_H,
+			 uthi_H );
+      }
+
+      if ( He_present )
+      {
+	set_reflux_temp( maxwellian_reinjection,
+			 ion_He,
+			 uthi_He,
+			 uthi_He );
+      }
     }
   }
 
@@ -427,21 +446,24 @@ begin_initialization
 
   define_field_array( NULL, damp );
 
-  // Turn on impermeable vacuum layer.
+  if ( use_maxwellian_reflux_bc == 1 )
+  {
+    // Turn on impermeable vacuum layer.
 
-  // Paint the simulation volume with materials and boundary conditions.
+    // Paint the simulation volume with materials and boundary conditions.
 
-  #define iv_region ( x <         hx*iv_thick || \
-                      x >  Lx   - hx*iv_thick || \
-                      y < -Ly/2 + hy*iv_thick || \
-       	              y >  Ly/2 - hy*iv_thick || \
-                      z < -Lz/2 + hz*iv_thick || \
-                      z >  Lz/2 - hz*iv_thick ) // All boundaries are i.v.
+    #define iv_region ( x <         hx*iv_thick || \
+                        x >  Lx   - hx*iv_thick || \
+                        y < -Ly/2 + hy*iv_thick || \
+       	                y >  Ly/2 - hy*iv_thick || \
+                        z < -Lz/2 + hz*iv_thick || \
+                        z >  Lz/2 - hz*iv_thick ) // All boundaries are i.v.
 
-  set_region_bc( iv_region,
-		 maxwellian_reinjection,
-		 maxwellian_reinjection,
-		 maxwellian_reinjection );
+    set_region_bc( iv_region,
+		   maxwellian_reinjection,
+		   maxwellian_reinjection,
+		   maxwellian_reinjection );
+  }
 
   // Load particles.
 
@@ -461,9 +483,12 @@ begin_initialization
       double y = uniform( rng(0), ymin, ymax );
       double z = uniform( rng(0), zmin, zmax );
 
-      if ( iv_region )    // Particle fell in iv_region.  Do not load.
+      if ( use_maxwellian_reflux_bc == 1 )
       {
-	continue;
+	if ( iv_region )    // Particle fell in iv_region.  Do not load.
+        {
+	  continue;
+	}
       }
 
       // Third to last arg is "weight", a positive number.
