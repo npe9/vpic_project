@@ -79,12 +79,13 @@ begin_initialization
   int load_particles        = 1;                   // Flag to turn on/off particle load
   int mobile_ions           = REPLACE_mobile_ions; // Whether or not to push ions
 
-  double f_He               = 0.5;                 // Ratio of number density of He to total ion density
   int He_present            = 1;
+  int H_present             = 1;
+
+  double f_He               = 0.5;                 // Ratio of number density of He to total ion density
   if (f_He == 1) H_present  = 0;
 
   double f_H                = 1-f_He;              // Ratio of number density of H  to total ion density
-  int H_present             = 1;
   if (f_H == 1 ) He_present = 0;
 
   // Here _He is actually N3+ to match Montgomery's Trident laser lpi experiment
@@ -392,6 +393,7 @@ begin_initialization
     }
   }
 
+  particle_bc_t *maxwellian_reinjection;
   if ( use_maxwellian_reflux_bc == 1 )
   {
     // Turn on maxwellian reinjection particle boundary condition.
@@ -402,7 +404,10 @@ begin_initialization
 
     sim_log( "Setting up Maxwellian reinjection boundary condition." );
 
-    particle_bc_t *maxwellian_reinjection =
+    // particle_bc_t *maxwellian_reinjection =
+    //   define_particle_bc( maxwellian_reflux( species_list, entropy ) );
+
+    maxwellian_reinjection =
       define_particle_bc( maxwellian_reflux( species_list, entropy ) );
 
     set_reflux_temp( maxwellian_reinjection,
