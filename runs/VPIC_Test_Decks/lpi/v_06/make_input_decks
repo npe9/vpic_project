@@ -1,8 +1,6 @@
 #!/bin/bash
 
-#test_home=../../../../../../VPIC_Test_Decks/lpi/v_02
-
-test_home=..
+test_home=../../../../../../VPIC_Test_Decks/lpi/v_06
 
 #######################################################################
 # Set run parameters.
@@ -25,16 +23,17 @@ else
     snodes_x=${9}
     snodes_y=${10}
     snodes_z=${11}
-fi    
+fi
 
 #######################################################################
-# Determine if we need to scale single node problem size.
+# Determine if we need to scale single node problem size. This problem
+# will not fit in the HBM of Trinity KNL.
 
 if echo $size | grep -q "ddr"
 then
-    ssize_x='2'
-    ssize_y='2'
-    ssize_z='2'
+    ssize_x='1'
+    ssize_y='1'
+    ssize_z='1'
 else
     ssize_x='1'
     ssize_y='1'
@@ -60,24 +59,10 @@ sync_shared_interval='10000'
 clean_div_e_interval='10000'
 clean_div_b_interval='10000'
 maxwellian_reflux_bc='0'
-max_local_np_scale='1.5'
+max_local_np_scale='1.1'
 
 #snodes='0001'
 #snodes_x=$((10#${snodes}))
-
-#######################################################################
-# Configure the unscaled single node box size. Here, we are trying to
-# get a box size such that the problem total memory footprint will fit
-# in the 16 GB of HBM available on Trinity KNL nodes. We also need the
-# appropriate factors in the mesh grid sizes to map appropriately to
-# the node core counts for any nodes we will be testing and comparing
-# via strong scaling studies or single node performance comparisons.
-
-# Here, we have a factor of 17 and factors of 2 in the mesh sizes.
-# This is appropriate for comparing Trinity KNL and Haswell.
-nx_sn='136'
-ny_sn='32'
-nz_sn='32'
 
 #######################################################################
 # Edit the input file to use our configurable input parameters.
@@ -109,9 +94,6 @@ s/REPLACE_clean_div_e_interval/'${clean_div_e_interval}'/
 s/REPLACE_clean_div_b_interval/'${clean_div_b_interval}'/
 s/REPLACE_maxwellian_reflux_bc/'${maxwellian_reflux_bc}'/
 s/REPLACE_max_local_np_scale/'${max_local_np_scale}'/
-s/REPLACE_nx_sn/'${nx_sn}'/
-s/REPLACE_ny_sn/'${ny_sn}'/
-s/REPLACE_nz_sn/'${nz_sn}'/
 '
 
 cat ${test_home}/lpi_np_${np}_nn_${nnodes}.template.cxx | sed -e "$update" >& lpi_${size}_nn_${nnodes}_nppn_${nppn}_ntpp_${ntpp}.cxx

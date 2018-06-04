@@ -17,6 +17,38 @@
 make_input_deck=./make_input_decks
 
 #######################################################################
+# Check if input deck template files have already been generated and
+# make them if not.
+
+nchars=`grep 'test_home=' ${make_input_deck} | wc -m`
+
+test_home=`grep 'test_home=' ${make_input_deck} | cut -c 11-$nchars`
+
+if [ ! -e ${test_home}/z_vpic_input_deck_templates_generated ]
+then
+    echo ''
+    echo '${test_home}/z_vpic_input_deck_templates_generated does not exist.'
+    echo ''
+    echo 'Generating VPIC input deck template files.'
+    echo ''
+
+    run_dir=$PWD
+
+    cd $test_home
+
+    ./make_input_deck_template_cases
+
+    cd $run_dir
+fi
+
+if [ ! -e ${test_home}/z_vpic_input_deck_templates_generated ]
+then
+    echo ''
+    echo '${test_home}/z_vpic_input_deck_templates_generated still does not exist.'
+    echo ''
+fi
+
+#######################################################################
 # Create the input decks for 1 thread/rank i.e. MPI only case and HT
 # disabled.
 
