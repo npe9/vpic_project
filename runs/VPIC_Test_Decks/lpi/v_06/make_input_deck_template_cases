@@ -48,6 +48,7 @@ ${make_template_input_deck}  17   1   1  0000017 0001 # MPI Domain Grid, SS:  22
 ${make_template_input_deck}   2   3   4  0000024 0001 # MPI Domain Grid, SS: 187 x 24 x 14
 ${make_template_input_deck}   2   4   4  0000032 0001 # MPI Domain Grid, SS: 187 x 18 x 14
 ${make_template_input_deck}  17   2   1  0000034 0001 # MPI Domain Grid, SS:  22 x 36 x 56
+${make_template_input_deck}   2   9   2  0000036 0001 # MPI Domain Grid, SS: 187 x  8 x 28
 ${make_template_input_deck}   2   6   4  0000048 0001 # MPI Domain Grid, SS: 187 x 12 x 14
 ${make_template_input_deck}   2   8   4  0000064 0001 # MPI Domain Grid, SS: 187 x  9 x 14
 ${make_template_input_deck}  17   2   2  0000068 0001 # MPI Domain Grid, SS:  22 x 36 x 28
