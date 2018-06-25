@@ -53,7 +53,7 @@ begin_globals
 
 begin_initialization
 {
-  // System of units
+  // System of units.
   double ec         = 4.8032e-10;          // stat coulomb
   double c_vac      = 2.99792458e10;       // cm/sec
   double m_e        = 9.1094e-28;          // g
@@ -65,7 +65,7 @@ begin_initialization
   double damp       = 0;                   // How much radiation damping
   double iv_thick   = 2;                   // Thickness of impermeable vacuum (in cells)
 
-  // Experimental parameters
+  // Experimental parameters.
 
   double t_e               = 600;          // electron temperature, eV
   double t_i               = 150;          // ion temperature, eV
@@ -73,7 +73,7 @@ begin_initialization
   double vacuum_wavelength = 527 * 1e-7;   // third micron light (cm)
   double laser_intensity   = 2.5e15 * 1e7; // in ergs/cm^2 (note: 1 W = 1e7 ergs)
 
-  // Simulation parameters
+  // Simulation parameters.
 
   double nppc               = REPLACE_nppc;        // Average number of particles/cell in ea. species
   int load_particles        = 1;                   // Flag to turn on/off particle load
@@ -88,7 +88,7 @@ begin_initialization
   double f_H                = 1-f_He;              // Ratio of number density of H  to total ion density
   if (f_H == 1 ) He_present = 0;
 
-  // Here _He is actually N3+ to match Montgomery's Trident laser lpi experiment
+  // Here _He is actually N3+ to match Montgomery's Trident laser lpi experiment.
 
   // Precompute some useful variables.
   double A_H                = 1;
@@ -228,6 +228,13 @@ begin_initialization
   sim_log( "* width, waist, xfocus:           " << width << " " << waist << " " << xfocus );
   sim_log( "* ycenter, zcenter, mask:         " << ycenter << " " << zcenter << " " << mask );
   sim_log( "* quota check interval:           " << quota_check_interval );
+  sim_log( "* Number macro eons:              " << N_e );
+  sim_log( "* Number macro ions, each:        " << N_i );
+  sim_log( "* Number physical eons:           " << Np_e );
+  sim_log( "* Number physical ions, each:     " << Np_i );
+  sim_log( "* Charge per macro eon:           " << q_e );
+  sim_log( "* Charge per macro ion, H:        " << qi_H );
+  sim_log( "* Charge per macro ion, He:       " << qi_He );
   sim_log( "*********************************" );
 
   // Set up high level simulation parameters.
