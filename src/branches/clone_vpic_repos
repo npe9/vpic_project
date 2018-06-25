@@ -1,51 +1,71 @@
 #!/bin/bash
 
-cd master
-git clone --recursive ~/repos/git/vpic
-cd ..
+#cd master
+#git clone ~/repos/git/vpic
+#cd ..
 
-cd knl_open_science
-git clone --recursive --branch knl_open_science ~/repos/git/vpic
-cd ..
-
-cd knl_open_science_optimize
-git clone --recursive --branch knl_open_science_optimize ~/repos/git/vpic
-cd ..
+#cd knl_open_science
+#git clone --branch knl_open_science ~/repos/git/vpic
+#cd ..
 
 cd knl_open_science_aosoa
-git clone --recursive --branch knl_open_science_aosoa ~/repos/git/vpic
+git clone --branch knl_open_science_aosoa ~/repos/git/vpic
+cd ..
+
+cd knl_open_science_atomics
+git clone --branch knl_open_science_atomics ~/repos/git/vpic
 cd ..
 
 cd knl_open_science_catalyst
-git clone --recursive --branch knl_open_science_catalyst ~/repos/git/vpic
+git clone --branch knl_open_science_catalyst ~/repos/git/vpic
 cd ..
 
-cd knl_open_science_cout
-git clone --recursive --branch knl_open_science_cout ~/repos/git/vpic
+#cd knl_open_science_coral_2
+#git clone --branch knl_open_science_coral_2 ~/repos/git/vpic
+#cd ..
+
+#cd knl_open_science_coral_2_cout
+#git clone --branch knl_open_science_coral_2_cout ~/repos/git/vpic
+#cd ..
+
+#cd knl_open_science_cout
+#git clone --branch knl_open_science_cout ~/repos/git/vpic
+#cd ..
+
+#cd knl_open_science_dirty
+#git clone --branch knl_open_science_dirty ~/repos/git/vpic
+#cd ..
+
+cd knl_open_science_finish_v16
+git clone --branch knl_open_science_finish_v16 ~/repos/git/vpic
 cd ..
 
 cd knl_open_science_hio
-git clone --recursive --branch knl_open_science_hio ~/repos/git/vpic
+git clone --branch knl_open_science_hio ~/repos/git/vpic
 cd ..
 
 cd knl_open_science_hio_debug
-git clone --recursive --branch knl_open_science_hio_debug ~/repos/git/vpic
+git clone --branch knl_open_science_hio_debug ~/repos/git/vpic
 cd ..
 
 cd knl_open_science_kokkos
-git clone --recursive --branch knl_open_science_kokkos ~/repos/git/vpic
+git clone --branch knl_open_science_kokkos ~/repos/git/vpic
 cd ..
 
 cd knl_open_science_ls_perf
-git clone --recursive --branch knl_open_science_ls_perf ~/repos/git/vpic
+git clone --branch knl_open_science_ls_perf ~/repos/git/vpic
 cd ..
 
 cd knl_open_science_new
-git clone --recursive --branch knl_open_science_new ~/repos/git/vpic
+git clone --branch knl_open_science_new ~/repos/git/vpic
 cd ..
 
 cd knl_open_science_old
-git clone --recursive --branch knl_open_science_old ~/repos/git/vpic
+git clone --branch knl_open_science_old ~/repos/git/vpic
+cd ..
+
+cd knl_open_science_optimize
+git clone --branch knl_open_science_optimize ~/repos/git/vpic
 cd ..
 
 cd pavilion
@@ -53,7 +73,7 @@ git clone --recursive --branch pavilion ~/repos/git/vpic
 cd ..
 
 cd pavilion_new
-git clone --recursive --branch pavilion_new ~/repos/git/vpic
+git clone --branch pavilion_new ~/repos/git/vpic
 cd ..
 
 cd pavilion_old
