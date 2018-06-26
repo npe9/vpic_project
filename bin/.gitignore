@@ -1,5 +1,6 @@
 *.old
 *.save
 makeVPIC_denali_cases_*
+makeVPIC_sorrento_cases_*
 makeVPIC_blue_waters*
 makeVPIC_trinity_cases_brian
