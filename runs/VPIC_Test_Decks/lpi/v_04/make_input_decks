@@ -58,7 +58,7 @@ sync_shared_interval='10000'
 clean_div_e_interval='10000'
 clean_div_b_interval='10000'
 maxwellian_reflux_bc='0'
-max_local_np_scale='1.5'
+max_local_np_scale='1.2'
 
 #snodes='0001'
 #snodes_x=$((10#${snodes}))
