@@ -44,8 +44,8 @@ fi
 
 field_io_format='band_interleave'
 num_turnstiles='2048'
-field_interval='1500'
-particle_interval='1500'
+field_interval='15000'
+particle_interval='15000'
 mi_me='100'
 eon_sort_interval='25'
 ion_sort_interval='100'
@@ -58,7 +58,7 @@ sync_shared_interval='10000'
 clean_div_e_interval='10000'
 clean_div_b_interval='10000'
 maxwellian_reflux_bc='0'
-max_local_np_scale='1.2'
+max_local_np_scale='1.1'
 
 #snodes='0001'
 #snodes_x=$((10#${snodes}))
