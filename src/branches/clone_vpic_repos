@@ -1,9 +1,5 @@
 #!/bin/bash
 
-cd master
-git clone ../../../../repos/git/vpic
-cd ..
-
 cd crossroads
 git clone --branch crossroads ../../../../repos/git/vpic
 cd ..
