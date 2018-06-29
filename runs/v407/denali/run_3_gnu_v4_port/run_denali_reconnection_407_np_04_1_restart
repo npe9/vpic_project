@@ -1,5 +1,0 @@
-#!/bin/bash
-
-export PATH=/home/wdn/Packages/openmpi/openmpi_1.10.1_gcc_511/bin:$PATH
-
-/usr/bin/time -p mpirun -n 4 reconnection_407_np_04.op restart restart1/restart >& run_reconnection_407_np_04_1_restart.log
