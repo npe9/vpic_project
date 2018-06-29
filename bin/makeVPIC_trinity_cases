@@ -90,7 +90,7 @@ FEAT+="_COM_FLAGS_00"
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
@@ -98,17 +98,17 @@ mv makeVPIC_trinity.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
@@ -116,12 +116,12 @@ mv makeVPIC_trinity.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
@@ -129,12 +129,12 @@ mv makeVPIC_trinity.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V16 support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_AVX512_KNL${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
@@ -145,7 +145,7 @@ mv makeVPIC_trinity.log build/$ARCH/vpic
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE_HSW${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
@@ -153,17 +153,17 @@ mv makeVPIC_trinity.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT_HSW${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE_HSW${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2_HSW${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
@@ -171,12 +171,12 @@ mv makeVPIC_trinity.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT_HSW${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_HSW${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 
@@ -184,7 +184,7 @@ mv makeVPIC_trinity.log build/$ARCH/vpic
 # Build the optimized Intel case for the master branch with V16 support.
 
 ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT_HSW${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
 mv makeVPIC_trinity.log build/$ARCH/vpic
 

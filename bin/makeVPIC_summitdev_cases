@@ -53,7 +53,7 @@ FEAT+="_LSORT"
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=SUMMITDEV_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_summitdev $ARCH $FEAT $BRANCH $NJ >& makeVPIC_summitdev.log
 mv makeVPIC_summitdev.log build/$ARCH/vpic
 
@@ -61,12 +61,12 @@ mv makeVPIC_summitdev.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=SUMMITDEV_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_summitdev $ARCH $FEAT $BRANCH $NJ >& makeVPIC_summitdev.log
 mv makeVPIC_summitdev.log build/$ARCH/vpic
 
 ARCH=SUMMITDEV_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_ALTIVEC${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_summitdev $ARCH $FEAT $BRANCH $NJ >& makeVPIC_summitdev.log
 mv makeVPIC_summitdev.log build/$ARCH/vpic
 

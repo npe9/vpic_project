@@ -80,7 +80,7 @@ FEAT+="_COM_FLAGS_00"
 # Build the optimized Intel case for the master branch without vector support.
 
 ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
@@ -88,17 +88,17 @@ mv makeVPIC_snow.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V4 support.
 
 ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
 ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
 ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
@@ -106,12 +106,12 @@ mv makeVPIC_snow.log build/$ARCH/vpic
 # Build the optimized Intel cases for the master branch with V8 support.
 
 ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
 ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
@@ -119,7 +119,7 @@ mv makeVPIC_snow.log build/$ARCH/vpic
 # Build the optimized Intel case for the master branch with V16 support.
 
 ARCH=SNOW_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT${FEAT}
-BRANCH=knl_open_science
+BRANCH=crossroads
 ${vtime} bin/makeVPIC_snow $ARCH $FEAT $BRANCH $NJ >& makeVPIC_snow.log
 mv makeVPIC_snow.log build/$ARCH/vpic
 
