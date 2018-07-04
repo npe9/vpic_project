@@ -1,0 +1,192 @@
+#!/bin/bash
+
+################################################################################
+# Preliminary stuff.
+
+NJ=32
+
+vtime="/usr/bin/time -p"
+
+##########################################################################################
+# Allow for customization of module versions.  Uncomment and set as needed.
+
+#export VERSION_INTEL=18.0.1
+#export VERSION_GNU=7.2.0
+#export VERSION_OPENMPI=2.1.2
+
+#export VERSION_INTEL_VTUNE_AMPLIFIER=2018.2.0
+#export VERSION_INTEL_VECTOR_ADVISOR=2018.2.0
+#export VERSION_INTEL_INSPECTOR=2018.2.0
+#export VERSION_INTEL_TRACE_ANALYZER=2018.2.020
+
+#export VERSION_FORGE=18.1.1
+
+#export VERSION_CRAY=8.6.5
+#export VERSION_CRAY_MPICH=7.7.0
+#export VERSION_CRAY_PERF_TOOLS=7.0.1.3
+
+##########################################################################################
+# Configure parameters that determine the value of the ARCH to be built.
+
+################################################################################
+# Select an MPI implementation to use.
+
+VMPI="CMPI"
+#VMPI="OMPI"
+
+################################################################################
+# Select a thread model to use.
+
+VTHR="PTH"
+#VTHR="OMP"
+
+################################################################################
+# Select the compiler to use.
+
+VCOM="INT"
+#VCOM="GNU"
+#VCOM="CCE"
+
+################################################################################
+# Select an optimized or debug build.
+
+VOPT="OPT"
+#VOPT="DBG"
+
+################################################################################
+# Select extra features to use. More than one can be selected.
+
+#FEAT+="_HSW"
+#FEAT+="_KNL"
+
+FEAT+="_LSORT"
+#FEAT+="_TSORT"
+
+#FEAT+="_HIO"
+
+#FEAT+="_COM_FLAGS_00"
+#FEAT+="_COM_FLAGS_01"
+#FEAT+="_COM_FLAGS_02"
+#FEAT+="_COM_FLAGS_03"
+
+#FEAT+="_VTUNE"
+#FEAT+="_MAP"
+#FEAT+="_GPROF"
+#FEAT+="_CPAT"
+#FEAT+="_CPAT_LITE"
+#FEAT+="_CPAT_LITE_HBM"
+#FEAT+="_CPAT_LITE_LOOPS"
+
+#FEAT+="_TEST"
+#FEAT+=""
+#FEAT+=""
+#FEAT+=""
+#FEAT+=""
+
+##########################################################################################
+# Build KNL ARCHs.
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V16 support.
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_AVX512_KNL${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+##########################################################################################
+# Build Haswell ARCHs.
+
+################################################################################
+# Build the optimized Intel case for the master branch without vector support.
+
+ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V1_NONE_HSW${FEAT}
+BRANCH=crossroads
+${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+mv makeVPIC_trinity.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V4 support.
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_PORT_HSW${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_SSE_HSW${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V4_AVX2_HSW${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel cases for the master branch with V8 support.
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_PORT_HSW${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V8_AVX2_HSW${FEAT}
+BRANCH=crossroads
+${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+mv makeVPIC_trinity.log build/$ARCH/vpic
+
+################################################################################
+# Build the optimized Intel case for the master branch with V16 support.
+
+#ARCH=TRINITY_${VMPI}_${VTHR}_${VCOM}_${VOPT}_V16_PORT_HSW${FEAT}
+#BRANCH=crossroads
+#${vtime} bin/makeVPIC_trinity $ARCH $FEAT $BRANCH $NJ >& makeVPIC_trinity.log
+#mv makeVPIC_trinity.log build/$ARCH/vpic
+
+##########################################################################################
+# Done.
